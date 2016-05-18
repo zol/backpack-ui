@@ -17,10 +17,10 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.5.0",
     "color": "^0.11.1",
-    "rizzo-next": "^0.11.37"
+    "rizzo-next": "^0.11.37",
+    "radium": "^0.17.0"    
   },
   "peerDependencies": {
-    "radium": "^0.17.0",
     "react": "^15.0.0"
   },
   "devDependencies": {
