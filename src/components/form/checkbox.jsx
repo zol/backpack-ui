@@ -2,43 +2,65 @@ import React from "react";
 import radium from "radium";
 import { color } from "rizzo-next/sass/settings.json";
 
-const styles = {
-  base: {
-    display: "inline-block",
+const icons = {
+  checkmark: {
+    light: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.white}"><path d="M27 4l-15 15-7-7-5 5 12 12 20-20z"></path></svg>`),
   },
+};
+
+const styles = {
   button: {
     position: "relative",
     border: 0,
-    backgroundColor: "#fff",
+    backgroundColor: color.white,
     display: "inline-block",
-    paddingLeft: "2.5rem",
-    paddingRight: "2.5rem",
-    color: "#8b8f94",
-    fontSize: "75%",
+    paddingLeft: `${28 / 13}em`,
+    paddingTop: `${3 / 13}em`,
+    color: color.darkGray,
+    fontSize: "13px",
     verticalAlign: "middle",
-    marginBottom: "1rem",
+    lineHeight: 1,
+    textAlign: "left",
+
+    ":focus": {
+      outline: "1px gray dotted",
+      outlineOffset: "4px",
+    },
+
+    size: {
+      full: {
+        width: "100%",
+      },
+      half: {
+        width: "50%",
+      },
+      third: {
+        width: "33%",
+      },
+    },
   },
   span: {
     position: "absolute",
     top: 0,
     left: 0,
     display: "block",
-    width: "1.5rem",
-    height: "1.5rem",
+    width: `${16 / 13}em`,
+    height: `${16 / 13}em`,
     borderWidth: "1px",
     borderStyle: "solid",
     borderColor: color.gray,
-    backgroundColor: "#fff",
-    lineHeight: "2rem",
+    backgroundColor: color.white,
     textAlign: "center",
-    backgroundSize: "75% 75%",
+    backgroundSize: `${8 / 13}em`,
     backgroundPosition: "center center",
     backgroundRepeat: "no-repeat",
+    transition: "background-color 200ms, border-color 200ms",
     userSelect: "none",
   },
   checked: {
     backgroundColor: color.blue,
-    backgroundImage: "url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgOCA4IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCA4IDgiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTYuNCwxTDUuNywxLjdMMi45LDQuNUwyLjEsMy43TDEuNCwzTDAsNC40bDAuNywwLjdsMS41LDEuNWwwLjcsMC43bDAuNy0wLjdsMy41LTMuNWwwLjctMC43TDYuNCwxTDYuNCwxeiINCgkvPg0KPC9zdmc+DQo=)", // eslint-disable-line max-len
+    backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.checkmark.light}")`,
+    borderColor: color.blue,
   },
   checkboxHide: {
     display: "none",
@@ -50,49 +72,50 @@ class Checkbox extends React.Component {
     super(props);
 
     this.state = {
-      checked: props.checked || false,
+      checked: props.checked,
     };
 
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
+  onClick(event, value) {
     this.setState({
       checked: !this.state.checked,
     });
 
     if (this.props.onClick) {
-      this.props.onClick();
+      this.props.onClick(value, !this.state.checked);
     }
   }
 
   render() {
-    const { id, value } = this.props;
+    const { id, value, size } = this.props;
 
     return (
-      <div style={styles.base}>
-        <button
-          id={id}
-          ref={id}
-          value={value}
-          onClick={this.onClick}
-          style={styles.button}
+
+      <button
+        className="Checkbox"
+        id={id}
+        ref={id}
+        value={value}
+        onClick={this.onClick}
+        style={[styles.button, styles.button.size[size]]}
+      >
+        <span
+          style={[
+            styles.span,
+            this.state.checked && styles.checked,
+          ]}
         >
-          <span
-            style={[
-              styles.span,
-              this.state.checked && styles.checked,
-            ]}
-          >
-          </span>
-          {value}
-          <input
-            type="checkbox"
-            style={styles.checkboxHide}
-            checked={this.state.checked}
-          />
-        </button>
-      </div>
+        </span>
+        {value}
+        <input
+          type="checkbox"
+          style={styles.checkboxHide}
+          checked={this.state.checked}
+          readOnly
+        />
+      </button>
     );
   }
 }
@@ -117,6 +140,11 @@ Checkbox.propTypes = {
    * Click handler for checkbox
    */
   onClick: React.PropTypes.func,
+  /**
+  * Set the checkbox size
+  */
+  size: React.PropTypes.string,
+
 };
 
 Checkbox.defaultProps = {
@@ -127,6 +155,8 @@ Checkbox.defaultProps = {
   checked: false,
 
   onClick: null,
+
+  size: "full",
 };
 
 Checkbox.styles = styles;

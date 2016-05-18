@@ -119,7 +119,7 @@ function Button({ href, children, onClick, color, size, height, rounded, full })
   const role = Element === "a" ? "button" : "";
 
   const style = [styles.base];
-  
+
   if (color) {
     style.push(styles.color[color]);
   }

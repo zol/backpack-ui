@@ -56,15 +56,15 @@ function EssentialInfo({ poi, place, mobile }) {
         </SidebarSection>
       }
 
-      {poi.price_string &&
+      {poi.priceString &&
         <SidebarSection {...headings.price}>
-          {poi.price_string}
+          {poi.priceString}
         </SidebarSection>
       }
 
-      {poi.hours_string &&
-        <SidebarSection  {...headings.hours}>
-          {poi.hours_string}
+      {poi.hoursString &&
+        <SidebarSection {...headings.hours}>
+          {poi.hoursString}
         </SidebarSection>
       }
 
@@ -85,7 +85,7 @@ function EssentialInfo({ poi, place, mobile }) {
         <SidebarSection {...headings.address}>
           {poi.address.street && <div>{poi.address.street}</div>}
           {place.attributes.name && <div>{place.attributes.name}</div>}
-          {!mobile && poi.location.coordinates &&
+          {!mobile && poi.location &&
             <StaticMap
               location={poi.location.coordinates.join(",")}
               size="278x90"

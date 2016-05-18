@@ -4,7 +4,7 @@ import { color, media } from "rizzo-next/sass/settings.json";
 import Heading from "../heading";
 import Price from "../price";
 import Bullet from "../decoration/bullet";
-import { gutter } from "../../utils/grid";
+import { gutter, span, percentage } from "../../utils/grid";
 
 const styles = {
   base: {},
@@ -101,6 +101,10 @@ function RelatedTour({ title, slug, image, price, tripLength, destination, revie
       <Style
         scopeSelector=".RelatedTour"
         rules={{
+          ".Heading a": {
+            color: "currentColor",
+          },
+
           ".Price-amount": {
             color: color.red,
             fontSize: "1.1rem",
@@ -118,6 +122,11 @@ function RelatedTour({ title, slug, image, price, tripLength, destination, revie
             },
 
             [`(min-width: ${media.min["480"]})`]: {
+              ".Heading": {
+                maxWidth: "50rem",
+                width: percentage("50rem", span(6, "static")),
+              },
+
               ".Price": {
                 position: "absolute",
                 right: 0,

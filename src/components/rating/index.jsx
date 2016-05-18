@@ -82,6 +82,7 @@ Rating.propTypes = {
    * If the rating comes from a third-party
    */
   provider: React.PropTypes.oneOf([
+    "",
     "bookingcom",
     "opentable",
     "gadventures",

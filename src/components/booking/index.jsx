@@ -20,7 +20,6 @@ const styles = {
   form: {
     base: {
       position: "relative",
-      marginBottom: gutter("static"),
       width: "100%",
     },
   },
@@ -69,7 +68,7 @@ const styles = {
   },
 };
 
-function Booking({ type, price }) {
+function Booking({ type, price, filter }) {
   const checkInValue = moment().add(7, "d").format("D MMM YYYY");
   const checkOutValue = moment().add(8, "d").format("D MMM YYYY");
 
@@ -99,20 +98,6 @@ function Booking({ type, price }) {
     "10:00 PM",
     "11:00 PM",
   ];
-
-  const PriceComponent = price && price.amount ? (
-    <div
-      className="Booking-price"
-      style={styles.price.base}
-    >
-      <Price
-        amount={price.amount}
-        currency={price.currency}
-        rate={price.rate}
-        emphasized
-      />
-    </div>
-  ) : null;
 
   const FieldLayout = {
     activity: (
@@ -337,27 +322,47 @@ function Booking({ type, price }) {
         }}
       />
 
-      {PriceComponent}
+      {price && price.amount &&
+        <div
+          className="Booking-price"
+          style={styles.price.base}
+        >
+          <Price
+            amount={price.amount}
+            currency={price.currency}
+            rate={price.rate}
+            parent="booking"
+            emphasized
+          />
+        </div>
+      }
 
       <form
         className="Booking-form clearfix"
-        style={styles.form.base}
+        style={[
+          styles.form.base,
+          !filter && {
+            marginBottom: gutter("static"),
+          },
+        ]}
       >
         {FieldLayout[type]}
 
-        <div
-          className="Booking-button"
-          style={styles.button.base}
-        >
-          <Button
-            height="tall"
-            rounded={false}
-            full
-            onClick={buttonClick[type]}
+        {!filter &&
+          <div
+            className="Booking-button"
+            style={styles.button.base}
           >
-            {buttonLabel[type]}
-          </Button>
-        </div>
+            <Button
+              height="tall"
+              rounded={false}
+              full
+              onClick={buttonClick[type]}
+            >
+              {buttonLabel[type]}
+            </Button>
+          </div>
+        }
       </form>
     </div>
   );
@@ -377,12 +382,19 @@ Booking.propTypes = {
    * Price of thing to be booked
    */
   price: React.PropTypes.object,
+
+  /**
+   * Should the form be used on a list page to filter; no submit button
+   */
+  filter: React.PropTypes.bool,
 };
 
 Booking.defaultProps = {
   type: "",
 
   price: {},
+
+  filter: false,
 };
 
 Booking.styles = styles;

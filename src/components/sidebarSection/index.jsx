@@ -79,20 +79,14 @@ const styles = {
 };
 
 class SidebarSection extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      collapsed: false,
+      collapsed: props.collapsed,
     };
 
     this.onClick = this.onClick.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      collapsed: this.props.collapsed,
-    });
   }
 
   onClick(event) {

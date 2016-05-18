@@ -8,6 +8,12 @@ import { rgb } from "../../utils/color";
 const styles = {
   container: {
     base: {
+      width: "100%",
+    },
+  },
+
+  anchor: {
+    base: {
       display: "flex",
       position: "relative",
     },
@@ -68,12 +74,13 @@ function Place({ title, slug, type, category, image, bookmark, coords, distanceT
   return (
     <div
       className="Place clearfix"
+      style={styles.container.base}
       data-type={type}
       data-lat={coords.lat}
       data-long={coords.long}
     >
       <a
-        style={styles.container.base}
+        style={styles.anchor.base}
         href={slug}
       >
         <img

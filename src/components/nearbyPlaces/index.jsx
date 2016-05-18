@@ -1,5 +1,5 @@
 import React from "react";
-import radium from "radium";
+import radium, { Style } from "radium";
 import shallowCompare from "react-addons-shallow-compare";
 import { connect } from "react-redux";
 import { color, media, zIndex } from "rizzo-next/sass/settings.json";
@@ -8,7 +8,7 @@ import ExpandButton from "../expandButton";
 import Bookmark from "../bookmark";
 import { add, gutter, span } from "../../utils/grid";
 import { rgb } from "../../utils/color";
-// import actions from "../../actions";
+import actions from "../../actions";
 
 let InteractiveMap;
 
@@ -94,7 +94,7 @@ const styles = {
       [`@media (max-width: ${media.max["1080"]})`]: {
         display: "flex",
         alignItems: "center",
-        padding: "2.5rem",
+        padding: "2rem",
 
         ":hover": placeHover,
         ":active": placeHover,
@@ -148,7 +148,7 @@ const styles = {
       right: 0,
 
       [`@media (max-width: ${media.max["1080"]})`]: {
-        right: "2.1rem",
+        right: "1.6rem",
       },
     },
   },
@@ -182,7 +182,7 @@ class NearbyPlaces extends React.Component {
       list: [styles.column.base, styles.list.base],
     };
 
-    const places = this.props.places.map((place, index) => {
+    const places = this.props.places.filter((p) => p.location).map((place, index) => {
       const placeStyle = [styles.place.base];
       const backgroundStyle = [styles.place.background.base];
       const id = parseInt(place.id, 10);
@@ -246,6 +246,15 @@ class NearbyPlaces extends React.Component {
         className="NearbyPlaces clearfix"
         style={styles.container.base}
       >
+        <Style
+          scopeSelector=".NearbyPlaces"
+          rules={{
+            ".Place-content": {
+              width: "calc(100% - 150px)",
+            },
+          }}
+        />
+
         <div
           className="NearbyPlaces-mapContainer"
           style={style.mapContainer}
@@ -254,7 +263,7 @@ class NearbyPlaces extends React.Component {
             className="NearbyPlaces-map"
             style={styles.map.base}
           >
-            {this.state.renderMap &&
+            {this.state.renderMap && this.props.currentPlace.location &&
               <InteractiveMap
                 center={this.props.currentPlace.location.coordinates.slice(0).reverse()}
                 centerName={this.props.currentPlace.name}

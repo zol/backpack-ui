@@ -20,8 +20,13 @@ const styles = {
 
   strapline: {
     base: {
-      marginBottom: "2.7rem",
       marginTop: "2.1rem",
+    },
+  },
+
+  button: {
+    base: {
+      marginTop: "2.7rem",
     },
   },
 };
@@ -98,14 +103,19 @@ function PoiPaginator({
         </div>
       }
 
-      <PaginatorButton
-        direction="down"
-        color="blue"
-        shadow="tight"
-        size="small"
-        arrow="triangle"
-        onClick={onClick}
-      />
+      <div
+        className="PoiPaginator-button"
+        style={styles.button.base}
+      >
+        <PaginatorButton
+          direction="down"
+          color="blue"
+          shadow="tight"
+          size="small"
+          arrow="triangle"
+          onClick={onClick}
+        />
+      </div>
     </div>
   );
 }

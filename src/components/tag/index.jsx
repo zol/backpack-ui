@@ -22,7 +22,9 @@ const styles = {
     fontSize: "1.2rem",
     lineHeight: 1,
     padding: "1.2rem 2.5rem .8rem",
+    textOverflow: "ellipsis",
     transition: "background-color 400ms",
+    whiteSpace: "nowrap",
 
     ":hover": hoverStyles.base,
     ":active": hoverStyles.base,

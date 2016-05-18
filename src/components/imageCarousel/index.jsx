@@ -3,7 +3,7 @@ import PaginatorButton from "../paginatorButton";
 import ExpandButton from "../expandButton";
 
 function imgix(url) {
-  return url.replace(/media.lonelyplanet.com/, "lonelyplanetimages.imgix.net")
+  return url.replace(/media.lonelyplanet.com/, "lonelyplanetimages.imgix.net");
 }
 
 const styles = {

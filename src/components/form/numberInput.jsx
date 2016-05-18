@@ -15,11 +15,11 @@ import Icon from "../icon";
  * />
  */
 class NumberInput extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
-      value: "",
+      value: props.value,
     };
 
     this.setValue = this.setValue.bind(this);
@@ -27,14 +27,6 @@ class NumberInput extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.increment = this.increment.bind(this);
     this.decrement = this.decrement.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      value: this.props.value,
-      min: this.props.min,
-      max: this.props.max,
-    });
   }
 
   setValue() {
@@ -83,19 +75,19 @@ class NumberInput extends React.Component {
 
     if (!value) {
       this.setState({
-        value: this.state.min,
+        value: this.props.min,
       });
     }
 
-    if (value !== this.state.max && this.state.value < this.state.max) {
+    if (value !== this.props.max && this.state.value < this.props.max) {
       this.setState({
         value: (value + 1),
       });
     }
 
-    if (this.state.value < this.state.min) {
+    if (this.state.value < this.props.min) {
       this.setState({
-        value: this.state.min,
+        value: this.props.min,
       });
     }
 
@@ -109,19 +101,19 @@ class NumberInput extends React.Component {
 
     if (!value) {
       this.setState({
-        value: this.state.min,
+        value: this.props.min,
       });
     }
 
-    if (value !== this.state.min && this.state.value > this.state.min) {
+    if (value !== this.props.min && this.state.value > this.props.min) {
       this.setState({
         value: (value - 1),
       });
     }
 
-    if (this.state.value > this.state.max) {
+    if (this.state.value > this.props.max) {
       this.setState({
-        value: this.state.max,
+        value: this.props.max,
       });
     }
 
@@ -260,7 +252,7 @@ NumberInput.defaultProps = {
 
   min: 0,
 
-  max: null,
+  max: 100,
 
   placeholder: "",
 

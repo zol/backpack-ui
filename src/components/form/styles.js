@@ -1,5 +1,12 @@
-import settings from "rizzo-next/sass/settings.json";
+import { color, media } from "rizzo-next/sass/settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
+
+const icons = {
+  triangle: {
+    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#727880"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
+    light: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.white}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
+  },
+};
 
 const styles = {
   base: {
@@ -34,7 +41,7 @@ const styles = {
       fontSize: "2rem",
       padding: "2.3rem 2.3rem 1.9rem",
 
-      [`@media (min-width: ${settings.media.min["768"]})`]: {
+      [`@media (min-width: ${media.min["768"]})`]: {
         fontSize: "1.6rem",
       },
     },
@@ -42,41 +49,41 @@ const styles = {
 
   theme: {
     base: {
-      backgroundColor: settings.color.white,
-      borderColor: darken(settings.color.white, 17),
-      color: `rgba(${rgb(settings.color.titleGray)}, .72)`,
+      backgroundColor: color.white,
+      borderColor: darken(color.white, 17),
+      color: `rgba(${rgb(color.titleGray)}, .72)`,
 
       ":focus": {
-        borderColor: darken(settings.color.gray, 20),
+        borderColor: darken(color.gray, 20),
       },
     },
     light: {
       backgroundColor: "transparent",
-      borderColor: `rgba(${rgb(settings.color.white)}, .44)`,
-      color: settings.color.white,
+      borderColor: `rgba(${rgb(color.white)}, .44)`,
+      color: color.white,
 
       ":focus": {
-        borderColor: `rgba(${rgb(settings.color.white)}, .66)`,
+        borderColor: `rgba(${rgb(color.white)}, .66)`,
       },
     },
     dark: {
-      backgroundColor: settings.color.white,
-      borderColor: darken(settings.color.white, 17),
-      color: `rgba(${rgb(settings.color.titleGray)}, .72)`,
+      backgroundColor: color.white,
+      borderColor: darken(color.white, 17),
+      color: `rgba(${rgb(color.titleGray)}, .72)`,
 
       ":focus": {
-        borderColor: darken(settings.color.gray, 20),
+        borderColor: darken(color.gray, 20),
       },
     },
     inputGroup: {
-      backgroundColor: settings.color.white,
+      backgroundColor: color.white,
       borderColor: "transparent",
       borderRadius: 0,
       borderWidth: 0,
-      color: settings.color.darkGray,
+      color: color.darkGray,
 
       ":focus": {
-        borderColor: settings.color.white,
+        borderColor: color.white,
       },
     },
   },
@@ -98,7 +105,7 @@ const styles = {
         inputGroup: {
           padding: "4rem 2rem 1.3rem",
 
-          [`@media (min-width: ${settings.media.min["768"]})`]: {
+          [`@media (min-width: ${media.min["768"]})`]: {
             padding: "3.5rem 1.5rem 1rem",
           },
         },
@@ -133,20 +140,20 @@ const styles = {
       },
       theme: {
         base: {
-          backgroundImage: "url('data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23727880%22%3E%3Cpath%20d%3D%22M32%206.857h-32l16%2018.286z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')", // eslint-disable-line max-len
+          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.triangle.base}")`,
         },
         light: {
-          backgroundImage: "url('data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23ffffff%22%3E%3Cpath%20d%3D%22M32%206.857h-32l16%2018.286z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')", // eslint-disable-line max-len
+          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.triangle.light}")`,
         },
         dark: {
-          backgroundImage: "url('data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23727880%22%3E%3Cpath%20d%3D%22M32%206.857h-32l16%2018.286z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')", // eslint-disable-line max-len
+          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.triangle.base}")`,
         },
         inputGroup: {
-          backgroundImage: "url('data:image/svg+xml;charset=UTF-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%20fill%3D%22%23727880%22%3E%3Cpath%20d%3D%22M32%206.857h-32l16%2018.286z%22%3E%3C%2Fpath%3E%3C%2Fsvg%3E')", // eslint-disable-line max-len
+          backgroundImage: `url("data:image/svg+xml;charset=UTF-8,${icons.triangle.base}")`,
           backgroundPosition: "calc(100% - 2rem) 4.5rem",
           padding: "4rem 2rem 1.3rem",
 
-          [`@media (min-width: ${settings.media.min["768"]})`]: {
+          [`@media (min-width: ${media.min["768"]})`]: {
             backgroundPosition: "calc(100% - 2rem) 3.5rem",
             padding: "3.5rem 1.5rem 1rem",
           },
@@ -178,10 +185,10 @@ const styles = {
 
       button: {
         base: {
-          backgroundColor: settings.color.white,
+          backgroundColor: color.white,
           borderLeft: ".1rem solid",
-          borderLeftColor: darken(settings.color.white, 17),
-          color: settings.color.blue,
+          borderLeftColor: darken(color.white, 17),
+          color: color.blue,
           display: "block",
           height: "calc(100% - .2rem)",
           position: "absolute",
@@ -189,13 +196,13 @@ const styles = {
           transition: "color 400ms",
 
           ":hover": {
-            color: lighten(settings.color.blue, 7),
+            color: lighten(color.blue, 7),
           },
           ":focus": {
-            color: lighten(settings.color.blue, 7),
+            color: lighten(color.blue, 7),
           },
           ":active": {
-            color: lighten(settings.color.blue, 7),
+            color: lighten(color.blue, 7),
           },
         },
 

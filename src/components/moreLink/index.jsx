@@ -10,6 +10,8 @@ const styles = {
     fontWeight: 600,
     lineHeight: 1,
     textTransform: "uppercase",
+    backgroundColor: settings.color.white,
+    color: settings.color.blue,
 
     ":hover": {
       color: color(settings.color.blue).blacken(0.5),
@@ -37,18 +39,21 @@ const styles = {
  * @usage
  * <MoreLink href="/foo">View all tours</MoreLink>
  */
-function MoreLink({ href, size, children }) {
+function MoreLink({ href, size, children, onClick }) {
   const style = [styles.base];
-
+  const Element = href ? "a" : "button";
+  const role = Element === "a" ? "button" : "";
   if (size) {
     style.push(styles.size[size]);
   }
 
   return (
-    <a
+    <Element
       className="MoreLink"
       style={style}
       href={href}
+      onClick={onClick}
+      role={role}
     >
         {children}
         <Icon
@@ -56,7 +61,7 @@ function MoreLink({ href, size, children }) {
           size="tiny"
           inline="after"
         />
-    </a>
+    </Element>
   );
 }
 
@@ -78,12 +83,19 @@ MoreLink.propTypes = {
     "",
     "small",
   ]),
+
+  /**
+  * Fires onclick function
+  */
+  onClick: React.PropTypes.func,
 };
 
 MoreLink.defaultProps = {
   href: "",
 
   size: "",
+
+  onClick: null,
 };
 
 MoreLink.styles = styles;

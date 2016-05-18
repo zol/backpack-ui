@@ -49,54 +49,45 @@ const scopedStyles = {
 /**
  * Content block component
  */
-class ContentBlock extends React.Component {
-  constructor() {
-    super();
+function ContentBlock({ heading, lede, htmlContent, type }) {
+  const headingImportance = type === "partnerDescription" ? "low" : "normal";
+  const headingWeight = type === "partnerDescription" ? "thin" : "normal";
 
-    this.state = { editable: false };
+  function markup() {
+    return {
+      __html: htmlContent,
+    };
   }
-  render() {
-    const { heading, lede, htmlContent, type } = this.props;
-    const headingImportance = type === "partnerDescription" ? "low" : "normal";
-    const headingWeight = type === "partnerDescription" ? "thin" : "normal";
 
-    function markup() {
-      return {
-        __html: htmlContent,
-      };
-    }
+  return (
+    <div className="ContentBlock">
+      <Style
+        scopeSelector=".ContentBlock-text"
+        rules={scopedStyles["ContentBlock-text"]}
+      />
 
-    return (
-      <div className="ContentBlock" onDoubleClick={() => this.setState({ editable: !this.state.editable })}>
-        <Style
-          scopeSelector=".ContentBlock-text"
-          rules={scopedStyles["ContentBlock-text"]}
+      {heading &&
+        <Heading level={3}
+          size="medium"
+          weight={headingWeight}
+          importance={headingImportance}
+        >
+          {heading}
+        </Heading>
+      }
+
+      {lede &&
+        <Lede
+          content={lede}
         />
+      }
 
-        {heading &&
-          <Heading level={3}
-            size="medium"
-            weight={headingWeight}
-            importance={headingImportance}
-          >
-            {heading}
-          </Heading>
-        }
-
-        {lede &&
-          <Lede
-            content={lede}
-          />
-        }
-
-        <div
-          className="ContentBlock-text"
-          dangerouslySetInnerHTML={markup()}
-          contentEditable={this.state.editable}
-        />
-      </div>
-    );
-  }
+      <div
+        className="ContentBlock-text"
+        dangerouslySetInnerHTML={markup()}
+      />
+    </div>
+  );
 }
 
 ContentBlock.propTypes = {

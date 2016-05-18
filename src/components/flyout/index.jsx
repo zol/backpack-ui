@@ -13,10 +13,23 @@ const styles = {
     position: "relative",
   },
 
+  dropdown: {
+    position: "absolute",
+    top: "7rem",
+    right: "-12.5rem",
+  },
+
   size: {
     small: {
       fontSize: "1.3rem",
       padding: "1rem 1.6rem .8rem",
+    },
+
+    medium: {
+      fontSize: "1.8rem",
+      padding: "2rem 4rem",
+      width: "29rem",
+      boxShadow: `0 3rem 9rem rgba(${rgb(settings.color.black)}, .36)`,
     },
   },
 
@@ -114,7 +127,7 @@ const styles = {
 /**
  * Flyout component
  */
-function Flyout({ size, arrow, fill, children }) {
+function Flyout({ size, arrow, fill, children, displayType }) {
   const arrows = {
     up: "&#9650;",
     down: "&#9660;",
@@ -147,6 +160,9 @@ function Flyout({ size, arrow, fill, children }) {
 
   if (fill) {
     style.container.push(styles.fill);
+  }
+  if (displayType) {
+    style.container.push(styles.dropdown);
   }
 
   function markup() {
@@ -189,6 +205,7 @@ Flyout.propTypes = {
    */
   size: React.PropTypes.oneOf([
     "small",
+    "medium",
   ]),
 
   /**
@@ -205,6 +222,10 @@ Flyout.propTypes = {
    * Whether or not the flyout should fill its parent's width
    */
   fill: React.PropTypes.bool,
+  /**
+   * Determine display type
+   */
+  displayType: React.PropTypes.string,
 };
 
 Flyout.defaultProps = {
@@ -213,6 +234,8 @@ Flyout.defaultProps = {
   arrow: "down",
 
   fill: false,
+
+  displayType: null,
 };
 
 Flyout.styles = styles;

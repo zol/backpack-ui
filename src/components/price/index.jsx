@@ -7,61 +7,55 @@ const styles = {
   container: {
     base: {
       lineHeight: 1,
+      fontSize: "18px",
+    },
+
+    emphasized: {
+      base: {
+        fontSize: "36px",
+      },
+
+      parent: {
+        listItem: {
+          [`@media (max-width: ${media.max["768"]})`]: {
+            fontSize: "20px",
+          },
+        },
+      },
     },
 
     tag: {
       backgroundColor: color.red,
+      color: color.white,
       display: "inline-block",
-      padding: ".6rem .8rem .4rem",
+      fontSize: "12px",
+      padding: `${6 / 12}em ${8 / 12}em ${4 / 12}em`,
       textAlign: "center",
       verticalAlign: "middle",
+    },
+
+    thin: {
+      fontSize: "20px",
     },
   },
 
   amount: {
     base: {
       display: "inline-block",
+      fontSize: "1em",
       lineHeight: 1,
-    },
-
-    size: {
-      small: {
-        fontSize: "1.1rem",
-      },
-      medium: {
-        fontSize: "2rem",
-      },
-      large: {
-        fontSize: "3.6rem",
-      },
-    },
-
-    weight: {
-      thin: {
-        fontWeight: 300,
-      },
-      normal: {
-        fontSize: 400,
-      },
-      thick: {
-        fontSize: 600,
-      },
     },
 
     emphasized: {
       color: color.red,
-      fontSize: "3.6rem",
       fontWeight: 300,
     },
 
     tag: {
-      color: color.white,
-      fontSize: "1.2rem",
       fontWeight: 600,
     },
 
     thin: {
-      fontSize: "2rem",
       fontWeight: 300,
     },
   },
@@ -69,18 +63,36 @@ const styles = {
   rate: {
     base: {
       color: `rgba(${rgb(color.darkGray)}, .4)`,
-      fontSize: "1.1rem",
+      fontSize: `${(11 / 36)}em`,
       fontWeight: 600,
-      letterSpacing: ".06rem",
+      letterSpacing: ".6px",
       lineHeight: 1,
       textTransform: "uppercase",
+    },
 
-      [`@media (max-width: ${media.max["768"]})`]: {
-        marginTop: ".3rem",
+    parent: {
+      listItem: {
+        [`@media (max-width: ${media.max["768"]})`]: {
+          display: "inline-block",
+          fontSize: `${(9 / 20)}em`,
+          paddingLeft: `${(2 / 9)}em`,
+          paddingTop: `${(1 / 9)}em`,
+          verticalAlign: "top",
+        },
+
+        [`@media (min-width: ${media.min["768"]})`]: {
+          marginTop: `${(9 / 11)}em`,
+        },
       },
 
-      [`@media (min-width: ${media.min["768"]})`]: {
-        display: "inline-block",
+      booking: {
+        [`@media (max-width: ${media.max["768"]})`]: {
+          marginTop: `${(3 / 11)}em`,
+        },
+
+        [`@media (min-width: ${media.min["768"]})`]: {
+          display: "inline-block",
+        },
       },
     },
   },
@@ -89,8 +101,9 @@ const styles = {
     base: {},
 
     emphasized: {
-      fontSize: "1.8rem",
-      top: "-1.2rem",
+      fontSize: `${(18 / 36) * 100}%`,
+      position: "relative",
+      top: "-.65em",
     },
   },
 };
@@ -98,7 +111,7 @@ const styles = {
 /**
  * A standalone price for an item
  */
-const Price = ({ amount, rate, currency, emphasized, thin, tag }) => {
+const Price = ({ amount, rate, currency, emphasized, thin, tag, parent }) => {
   const style = {
     container: [styles.container.base],
     amount: [styles.amount.base],
@@ -107,7 +120,7 @@ const Price = ({ amount, rate, currency, emphasized, thin, tag }) => {
   };
 
   if (emphasized) {
-    style.container.push(styles.container.emphasized);
+    style.container.push(styles.container.emphasized.base);
     style.amount.push(styles.amount.emphasized);
     style.currencySymbol.push(styles.currencySymbol.emphasized);
   }
@@ -121,33 +134,14 @@ const Price = ({ amount, rate, currency, emphasized, thin, tag }) => {
     style.amount.push(styles.amount.tag);
   }
 
+  if (parent) {
+    style.container.push(styles.container.emphasized.parent[parent]);
+    style.rate.push(styles.rate.parent[parent]);
+  }
+
   const currencySymbol = {
     USD: "$",
   };
-
-  let Rate;
-
-  if (rate) {
-    Rate = (
-      <div
-        className="Price-rate"
-        style={style.rate}
-      >
-        {rate}
-      </div>
-    );
-  }
-
-  const CurrencySymbolComponent = (emphasized) ? (
-    <sup
-      className="Price-symbol"
-      style={style.currencySymbol}
-    >
-      {currencySymbol[currency]}
-    </sup>
-  ) : (
-    `${currencySymbol[currency]}`
-  );
 
   return (
     <div
@@ -158,10 +152,30 @@ const Price = ({ amount, rate, currency, emphasized, thin, tag }) => {
         className="Price-amount"
         style={style.amount}
       >
-        {CurrencySymbolComponent}{amount}
+        {emphasized &&
+          <span
+            className="Price-symbol"
+            style={style.currencySymbol}
+          >
+            {currencySymbol[currency]}
+          </span>
+        }
+
+        {!emphasized &&
+          `${currencySymbol[currency]}`
+        }
+
+        {amount}
       </div>
 
-      {Rate}
+      {rate &&
+        <div
+          className="Price-rate"
+          style={style.rate}
+        >
+          {rate}
+        </div>
+      }
     </div>
   );
 };
@@ -196,6 +210,15 @@ Price.propTypes = {
    * Render the price with a tag-like style
    */
   tag: React.PropTypes.bool,
+
+  /**
+   * Name of parent component in which Price renders in
+   */
+  parent: React.PropTypes.oneOf([
+    "",
+    "booking",
+    "listItem",
+  ]),
 };
 
 Price.defaultProps = {
@@ -210,6 +233,8 @@ Price.defaultProps = {
   thin: false,
 
   tag: false,
+
+  parent: "",
 };
 
 Price.styles = styles;

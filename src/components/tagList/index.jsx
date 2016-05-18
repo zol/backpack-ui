@@ -1,5 +1,5 @@
 import React from "react";
-import { Style } from "radium";
+import radium, { Style } from "radium";
 import Tag from "../tag";
 
 /**
@@ -11,7 +11,18 @@ import Tag from "../tag";
  *   { label: "Europe", slug: "/europe" },
  * ]} />
  */
-function TagList({ tags }) {
+function TagList({ tags, rows }) {
+  const rowHeight = 44;
+
+  const styles = {
+    container: {
+      base: {
+        maxHeight: `${rowHeight * rows}px`,
+        overflow: "hidden",
+      },
+    },
+  };
+
   const Tags = tags.map((tag, i) => (
     <Tag
       label={tag.label}
@@ -22,7 +33,10 @@ function TagList({ tags }) {
   ));
 
   return (
-    <div className="TagList">
+    <div
+      className="TagList"
+      style={styles.container.base}
+    >
       <Style
         scopeSelector=".TagList"
         rules={{
@@ -33,7 +47,11 @@ function TagList({ tags }) {
         }}
       />
 
-      <Tag label="All" slug="/" selected />
+      <Tag
+        label="All"
+        slug="/"
+        selected
+      />
       {Tags}
     </div>
   );
@@ -44,10 +62,17 @@ TagList.propTypes = {
    * An array of tags to display
    */
   tags: React.PropTypes.array.isRequired,
+
+  /**
+   * Maximum number of rows of tags to display
+   */
+  rows: React.PropTypes.number,
 };
 
 TagList.defaultProps = {
-  label: [],
+  tags: [],
+
+  rows: 3,
 };
 
-export default TagList;
+export default radium(TagList);

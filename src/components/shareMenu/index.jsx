@@ -11,7 +11,6 @@ class ShareMenu extends React.Component {
 
     this.state = {
       optionsHidden: true,
-      flyoutArrow: "up",
     };
 
     this._toggleOptions = this._toggleOptions.bind(this);
@@ -20,14 +19,6 @@ class ShareMenu extends React.Component {
     this._calculateWindowPosition = this._calculateWindowPosition.bind(this);
     this._windowSettings = this._windowSettings.bind(this);
     this._openWindow = this._openWindow.bind(this);
-  }
-
-  componentDidMount() {
-    if (window.innerWidth < 768) {
-      this.setState({
-        flyoutArrow: "right",
-      });
-    }
   }
 
   _toggleOptions() {
@@ -129,7 +120,9 @@ class ShareMenu extends React.Component {
       false: "visible",
     };
 
-    style.options.push(styles.options.position[position[this.state.flyoutArrow]]);
+    const flyoutArrow = this.props.mobile ? "right" : "up";
+
+    style.options.push(styles.options.position[position[flyoutArrow]]);
 
     style.options.push(
       styles.options
@@ -137,7 +130,7 @@ class ShareMenu extends React.Component {
         .base,
       styles.options
         .state[visibility[this.state.optionsHidden]]
-        .position[position[this.state.flyoutArrow]]
+        .position[position[flyoutArrow]]
     );
 
     return (
@@ -161,7 +154,7 @@ class ShareMenu extends React.Component {
           style={style.options}
           aria-hidden={this.state.optionsHidden}
         >
-          <Flyout arrow={this.state.flyoutArrow} fill>
+          <Flyout arrow={flyoutArrow} fill>
             <ShareMenuItem
               network="twitter"
               href={twitter}
@@ -206,6 +199,11 @@ ShareMenu.propTypes = {
     "",
     "centered",
   ]),
+
+  /**
+   * Whether or not the layout should be formatted for mobile screen sizes
+   */
+  mobile: React.PropTypes.bool,
 };
 
 ShareMenu.defaultProps = {
@@ -214,6 +212,8 @@ ShareMenu.defaultProps = {
   text: "",
 
   alignment: "",
+
+  mobile: true,
 };
 
 ShareMenu.styles = styles;

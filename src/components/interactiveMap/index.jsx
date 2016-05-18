@@ -3,7 +3,7 @@ import radium from "radium";
 import { connect } from "react-redux";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import leaflet from "leaflet";
-// import actions from "../../actions";
+import actions from "../../actions";
 
 const styles = {
   container: {
