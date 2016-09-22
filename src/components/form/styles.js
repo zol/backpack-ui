@@ -1,9 +1,9 @@
-import { color, media } from "rizzo-next/sass/settings.json";
+import { color, media, timing } from "rizzo-next/sass/settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
 
 const icons = {
   triangle: {
-    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="#727880"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
+    base: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.darkGray}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
     light: encodeURIComponent(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.white}"><path d="M32 6.857h-32l16 18.286z"></path></svg>`),
   },
 };
@@ -11,39 +11,35 @@ const icons = {
 const styles = {
   base: {
     appearance: "none",
-    borderRadius: ".2rem",
+    borderRadius: 0,
     borderStyle: "solid",
     borderWidth: ".1rem",
     height: "auto",
     outline: 0,
-    transition: "border-color 200ms",
+    transition: `border-color ${timing.fast}, color ${timing.fast}`,
     width: "100%",
   },
 
   size: {
     tiny: {
-      fontSize: "1.1rem",
-      padding: ".7rem .7rem .3rem",
+      fontSize: "11px",
+      padding: `${7 / 11}em ${7 / 11}em ${3 / 11}em`,
     },
     small: {
-      fontSize: "1.1rem",
-      padding: "1.1rem 1.1rem .7rem",
+      fontSize: "11px",
+      padding: `1em 1em ${7 / 11}em`,
     },
     medium: {
-      fontSize: "1.3rem",
-      padding: "1.5rem 1.5rem 1.1rem",
+      fontSize: "13px",
+      padding: `${15 / 13}em ${15 / 13}em ${11 / 13}em`,
     },
     large: {
-      fontSize: "1.5rem",
-      padding: "1.9rem 1.9rem 1.5rem",
+      fontSize: "15px",
+      padding: `${19 / 15}em ${19 / 15}em 1em`,
     },
     huge: {
-      fontSize: "2rem",
-      padding: "2.3rem 2.3rem 1.9rem",
-
-      [`@media (min-width: ${media.min["768"]})`]: {
-        fontSize: "1.6rem",
-      },
+      fontSize: "16px",
+      padding: `${23 / 16}em ${20 / 16}em ${19 / 16}em`,
     },
   },
 
@@ -51,7 +47,7 @@ const styles = {
     base: {
       backgroundColor: color.white,
       borderColor: darken(color.white, 17),
-      color: `rgba(${rgb(color.titleGray)}, .72)`,
+      color: color.darkGray,
 
       ":focus": {
         borderColor: darken(color.gray, 20),
@@ -107,6 +103,39 @@ const styles = {
 
           [`@media (min-width: ${media.min["768"]})`]: {
             padding: "3.5rem 1.5rem 1rem",
+          },
+        },
+      },
+    },
+    dateInput: {
+      base: {
+        cursor: "text",
+        userSelect: "none",
+
+        ":focus": {
+          borderColor: "currentColor",
+          color: color.blue,
+        },
+      },
+      theme: {
+        base: {
+          ":focus": {
+            borderColor: darken(color.white, 17),
+          },
+        },
+        light: {
+          ":focus": {
+            borderColor: `rgba(${rgb(color.white)}, .44)`,
+          },
+        },
+        dark: {
+          ":focus": {
+            borderColor: darken(color.white, 17),
+          },
+        },
+        inputGroup: {
+          ":focus": {
+            borderColor: "transparent",
           },
         },
       },
@@ -193,7 +222,7 @@ const styles = {
           height: "calc(100% - .2rem)",
           position: "absolute",
           top: ".1rem",
-          transition: "color 400ms",
+          transition: `color ${timing.default}`,
 
           ":hover": {
             color: lighten(color.blue, 7),
@@ -266,6 +295,10 @@ const styles = {
   fill: {
     display: "block",
     width: "100%",
+  },
+
+  noBorder: {
+    borderWidth: 0,
   },
 };
 

@@ -18,7 +18,9 @@ const styles = {
       backfaceVisibility: "hidden",
       display: "inline-block",
       position: "absolute",
-      transition: "opacity 400ms, transform 400ms, visibility 400ms",
+      transition: `opacity ${settings.timing.default},
+        transform ${settings.timing.default},
+        visibility ${settings.timing.default}`,
       width: "20rem",
     },
 

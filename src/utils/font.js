@@ -11,6 +11,4 @@ function font(family) {
   return settings.font.family[family.toLowerCase()].join(", ");
 }
 
-export {
-  font,
-};
+export default font;
