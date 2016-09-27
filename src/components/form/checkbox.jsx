@@ -1,17 +1,11 @@
 import React from "react";
 import radium from "radium";
-import { color, timing, zIndex } from "../../settings.json";
 import kebabCase from "lodash/kebabCase";
-import svgDataUri from "../../utils/svgDataUri";
+import { color, timing, zIndex } from "../../settings.json";
 import { darken } from "../../utils/color";
+import Icon from "../icon";
 
 const _ = { kebabCase };
-
-const icons = {
-  checkmark: {
-    light: `<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="${color.white}"><path d="M32,4L12,32L0,20l4-4l8,8L28,0L32,4z"></path></svg>`,
-  },
-};
 
 const baseFontSize = 13;
 
@@ -55,29 +49,27 @@ const styles = {
 
   span: {
     base: {
-      backgroundColor: color.white,
-      backgroundPosition: "center center",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: `${8 / baseFontSize}em`,
       borderColor: color.gray,
       borderStyle: "solid",
       borderWidth: "1px",
+      color: color.white,
       display: "block",
-      height: `${16 / baseFontSize}em`,
+      fontSize: "8px",
+      height: `${16 / 8}em`,
       left: 0,
+      padding: `${3 / 8}em ${2 / 8}em ${1 / 8}em`,
       position: "absolute",
       textAlign: "center",
       top: 0,
       transition: `background-color ${timing.fast},
         border-color ${timing.fast}`,
       userSelect: "none",
-      width: `${16 / baseFontSize}em`,
+      width: `${16 / 8}em`,
       zIndex: zIndex.default,
     },
 
     checked: {
       backgroundColor: color.blue,
-      backgroundImage: `url("${svgDataUri(icons.checkmark.light)}")`,
       borderColor: color.blue,
     },
   },
@@ -151,7 +143,11 @@ class Checkbox extends React.Component {
               styles.span.base,
               this.state.checked && styles.span.checked,
             ]}
-          />
+          >
+            <Icon.Checkmark
+              style={this.state.checked ? { opacity: 1 } : { opacity: 0 }}
+            />
+          </span>
 
           {name}
 

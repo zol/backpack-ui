@@ -51,12 +51,9 @@ function Breadcrumbs({ links }) {
       </a>
 
       {index < links.length - 1 &&
-        <Icon
-          name="chevron-right"
-          dimensions={{
-            width: `${6 / 14}em`,
-            height: `${6 / 14}em`,
-          }}
+        <Icon.ChevronRight
+          width={`${6 / 14}em`}
+          height={`${6 / 14}em`}
         />
       }
     </span>

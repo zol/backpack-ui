@@ -77,7 +77,7 @@ function ReviewedBadge({ size, parent }) {
 
   return (
     <div className="ReviewedBadge" style={style.container}>
-      <Icon name="lp-diamond" label="Lonely Planet" />
+      <Icon.DiamondLogo label="Lonely Planet" />
       <span style={style.label}>Reviewed</span>
     </div>
   );

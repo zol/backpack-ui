@@ -27,8 +27,11 @@ const styles = {
 
   icon: {
     base: {
-      verticalAlign: "baseline",
+      lineHeight: 1,
+      marginLeft: ".5em",
+      position: "relative",
       top: `${-2 / 13}em`,
+      verticalAlign: "baseline",
     },
 
     size: {
@@ -61,10 +64,9 @@ function MoreLink({ href, size, children, onClick, caps, style }) {
       onClick={onClick}
     >
       {children}
-      <Icon
-        name="chevron-right"
-        size="tiny"
-        inline="after"
+      <Icon.ChevronRight
+        height="6px"
+        width="6px"
         style={[
           styles.icon.base,
           size && styles.icon.size[size],

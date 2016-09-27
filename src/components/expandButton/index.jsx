@@ -57,9 +57,7 @@ function ExpandButton({ label, onClick }) {
         </small>
       }
 
-      <Icon
-        name="pop-out"
-      />
+      <Icon.PopOut />
     </button>
   );
 }

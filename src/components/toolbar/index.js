@@ -64,7 +64,7 @@ function Toolbar({ phone, website, directions }) {
             className="Toolbar-icon"
             style={styles.icon.base}
           >
-            <Icon name="mobile" />
+            <Icon.Mobile />
           </div>
           Call
         </a>
@@ -80,7 +80,7 @@ function Toolbar({ phone, website, directions }) {
             className="Toolbar-icon"
             style={styles.icon.base}
           >
-            <Icon name="globe" />
+            <Icon.Globe />
           </div>
           Visit
         </a>
@@ -96,7 +96,7 @@ function Toolbar({ phone, website, directions }) {
             className="Toolbar-icon"
             style={styles.icon.base}
           >
-            <Icon name="compass" />
+            <Icon.Compass />
           </div>
           Map
         </a>

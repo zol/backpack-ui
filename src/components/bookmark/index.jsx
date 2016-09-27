@@ -71,15 +71,9 @@ function Bookmark({ onClick, size, center, align, marked }) {
   }
 
   const BookmarkIcon = marked ? (
-    <Icon
-      name="bookmark"
-      label="Bookmark"
-    />
+    <Icon.Bookmark label="Bookmark" />
   ) : (
-    <Icon
-      name="bookmark-outline"
-      label="Bookmark"
-    />
+    <Icon.BookmarkOutline label="Bookmark" />
   );
 
   return (
