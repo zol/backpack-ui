@@ -1,8 +1,8 @@
+import { expect } from "chai";
 import {
   outline,
   underlinedLink,
 } from "../../src/utils/mixins";
-import { expect } from "chai";
 
 const baseStyles = {
   border: "1px solid red",

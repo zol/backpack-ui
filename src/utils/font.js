@@ -1,6 +1,7 @@
-"use strict";
+import camelCase from "lodash/camelCase";
+import settings from "../settings.json";
 
-import settings from "rizzo-next/sass/settings.json";
+const _ = { camelCase };
 
 /**
  * Return a font stack
@@ -8,7 +9,9 @@ import settings from "rizzo-next/sass/settings.json";
  * @return {String}        Font stack
  */
 function font(family) {
-  return settings.font.family[family.toLowerCase()].join(", ");
+  const fontFamily = settings.font.family[_.camelCase(family)];
+  if (!fontFamily) return "";
+  return fontFamily.join(", ");
 }
 
 export default font;

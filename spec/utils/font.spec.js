@@ -1,5 +1,5 @@
-import font from "../../src/utils/font";
 import { expect } from "chai";
+import font from "../../src/utils/font";
 
 describe("font", () => {
   it("should not return a font stack because the font name does not exist in the settings", () => {

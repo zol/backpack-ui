@@ -4,7 +4,7 @@ import assign from "object-assign";
 import { color, timing, zIndex } from "rizzo-next/sass/settings.json";
 import radium, { Style } from "radium";
 import DateRangePicker from "react-dates/lib/components/DateRangePicker";
-import { END_DATE } from "react-dates/lib/constants";
+import { END_DATE } from "react-dates/constants";
 import { darken, rgb } from "../../utils/color";
 
 const styles = {
