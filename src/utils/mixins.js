@@ -1,3 +1,4 @@
+import assign from "object-assign";
 import settings from "../settings.json";
 import { rgb } from "./color";
 
@@ -27,7 +28,7 @@ function blueLink() {
 
     ":hover": { color: hoverColor },
     ":active": { color: hoverColor },
-    ":focus": Object.assign({}, outline(), { color: hoverColor }),
+    ":focus": assign({}, outline(), { color: hoverColor }),
   };
 }
 
