@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import settings from "rizzo-next/sass/settings.json";
+import settings from "../../settings.json";
 import { gutter } from "../../utils/grid";
 import font from "../../utils/font";
 

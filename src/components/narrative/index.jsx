@@ -1,6 +1,6 @@
 import React from "react";
 import { Style } from "radium";
-import { color, media } from "rizzo-next/sass/settings.json";
+import { color, media } from "../../settings.json";
 import ContentBlock from "../contentBlock";
 import Icon from "../icon";
 import Profile from "../profile";

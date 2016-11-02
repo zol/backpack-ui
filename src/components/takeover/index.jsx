@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import Portal from "react-portal";
 import radium from "radium";
 import noScroll from "no-scroll";
-import { color, components, spacing, timing, zIndex } from "rizzo-next/sass/settings.json";
+import { color, components, spacing, timing, zIndex } from "../../settings.json";
 import Icon from "../icon";
 import Overlay from "../overlay";
 import { rgb } from "../../utils/color";

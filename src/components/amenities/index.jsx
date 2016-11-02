@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color } from "rizzo-next/sass/settings.json";
+import { color } from "../../settings.json";
 import { span } from "../../utils/grid";
 
 const baseFontSize = 13;

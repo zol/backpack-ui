@@ -1,6 +1,6 @@
 import React from "react";
-import { color } from "rizzo-next/sass/settings.json";
 import radium, { Style } from "radium";
+import { color } from "../../settings.json";
 import Heading from "../heading";
 import font from "../../utils/font";
 import { blueLink, underlinedLink } from "../../utils/mixins";

@@ -1,8 +1,8 @@
 import React from "react";
 import radium from "radium";
-import settings from "rizzo-next/sass/settings.json";
 import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
+import settings from "../../settings.json";
 import Heading from "../heading";
 import Strapline from "../strapline";
 import Bookmark from "../bookmark";

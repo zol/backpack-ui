@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
-import { color, timing } from "rizzo-next/sass/settings.json";
+import { color, timing } from "../../settings.json";
 import { outline } from "../../utils/mixins";
 
 const icons = {

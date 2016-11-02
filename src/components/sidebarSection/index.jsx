@@ -2,7 +2,7 @@ import React from "react";
 import radium, { Style } from "radium";
 import cn from "classnames";
 import assign from "object-assign";
-import { color } from "rizzo-next/sass/settings.json";
+import { color } from "../../settings.json";
 import Heading from "../heading";
 import Icon from "../icon";
 

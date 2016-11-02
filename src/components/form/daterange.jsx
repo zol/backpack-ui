@@ -1,10 +1,10 @@
 import React from "react";
 import moment from "moment";
 import assign from "object-assign";
-import { color, timing, zIndex } from "rizzo-next/sass/settings.json";
 import radium, { Style } from "radium";
 import DateRangePicker from "react-dates/lib/components/DateRangePicker";
 import { END_DATE } from "react-dates/constants";
+import { color, timing, zIndex } from "../../settings.json";
 import { darken, rgb } from "../../utils/color";
 
 const styles = {

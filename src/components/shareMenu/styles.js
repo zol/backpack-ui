@@ -1,4 +1,4 @@
-import settings from "rizzo-next/sass/settings.json";
+import settings from "../../settings.json";
 
 const styles = {
   container: {

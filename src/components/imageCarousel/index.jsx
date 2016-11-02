@@ -2,7 +2,7 @@ import React, { PropTypes } from "react";
 import radium from "radium";
 import Carousel from "react-slick";
 import kebabCase from "lodash/kebabCase";
-import { color } from "rizzo-next/sass/settings.json";
+import { color } from "../../settings.json";
 import PaginatorButton from "../paginatorButton";
 import ExpandButton from "../expandButton";
 import { rgb } from "../../utils/color";

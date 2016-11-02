@@ -1,8 +1,6 @@
-"use strict";
-
 import React from "react";
 import radium from "radium";
-import { color, timing } from "rizzo-next/sass/settings.json";
+import { color, timing } from "../../settings.json";
 import { span, percentage } from "../../utils/grid";
 
 const styles = {
