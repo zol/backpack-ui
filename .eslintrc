@@ -17,6 +17,7 @@
     "es6": true
   },
   "rules": {
+    "arrow-parens": [0],
     "quotes": [1, "double"],
     "eol-last": [0],
     "no-mixed-requires": [0],
@@ -27,7 +28,11 @@
     "semi": [1, "always"],
     "no-use-before-define": [2],
     "no-undef": [2],
-    "no-param-reassign": [0]
+    "no-param-reassign": [0],
+    "react/forbid-prop-types": [2],
+    "react/no-danger": [0],
+    "react/no-unused-prop-types": [2, { skipShapeProps: true }],
+    "jsx-a11y/no-static-element-interactions": [1]
   },
   "plugins": [
     "react"
