@@ -7,7 +7,6 @@ import Icon from "../icon";
 import Overlay from "../overlay";
 import { rgb } from "../../utils/color";
 import { gutter } from "../../utils/grid";
-import actions from "../../../list/actions";
 
 class Takeover extends Component {
   constructor(props) {
@@ -69,9 +68,6 @@ class Takeover extends Component {
     this.setState({
       hasAnimated: false,
     });
-    if (this.props.dispatch) {
-      this.props.dispatch(actions.toggleTakeover(null));
-    }
 
 
     // Wait for animation
