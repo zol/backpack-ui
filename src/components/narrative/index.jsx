@@ -129,7 +129,12 @@ Narrative.propTypes = {
   /**
    * Author object
    */
-  author: React.PropTypes.object,
+  author: React.PropTypes.shape({
+    name: React.PropTypes.string,
+    title: React.PropTypes.string,
+    avatar: React.PropTypes.string,
+    url: React.PropTypes.string,
+  }),
 };
 
 Narrative.defaultProps = {

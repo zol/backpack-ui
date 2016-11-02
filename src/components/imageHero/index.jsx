@@ -11,7 +11,7 @@ const propTypes = {
   /**
    * Width and height of the image
    */
-  imageSize: PropTypes.array.isRequired,
+  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
 };
 
 const defaultProps = {

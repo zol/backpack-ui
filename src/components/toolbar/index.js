@@ -121,7 +121,7 @@ Toolbar.propTypes = {
    */
   directions: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.array,
+    React.PropTypes.arrayOf(React.PropTypes.string, React.PropTypes.number),
   ]),
 };
 

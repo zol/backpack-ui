@@ -106,7 +106,10 @@ MoreLink.propTypes = {
   /**
    * Object to add override or positioning styles
    */
-  style: React.PropTypes.object,
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 MoreLink.defaultProps = {

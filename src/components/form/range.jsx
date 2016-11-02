@@ -164,7 +164,7 @@ Range.propTypes = {
   /**
    * Initial values for the slider
    */
-  defaultValue: React.PropTypes.array.isRequired,
+  defaultValue: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
 
   /**
    * Minimum value for slider

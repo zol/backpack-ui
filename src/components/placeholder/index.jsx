@@ -102,8 +102,8 @@ Placeholder.propTypes = {
    * Style object
    */
   style: React.PropTypes.oneOfType([
-    React.PropTypes.array,
-    React.PropTypes.object,
+    React.PropTypes.arrayOf(React.PropTypes.object),
+    React.PropTypes.objectOf(React.PropTypes.string, React.PropTypes.number),
   ]),
 };
 

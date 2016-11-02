@@ -286,7 +286,10 @@ Flyout.propTypes = {
   /**
    * Styles for positioning, etc.
    */
-  style: React.PropTypes.object,
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 Flyout.defaultProps = {

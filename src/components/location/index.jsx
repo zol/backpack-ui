@@ -127,9 +127,7 @@ Location.propTypes = {
   /**
    * An array of latitude and longitude coordinates; used in the Google URL
    */
-  coordinates: React.PropTypes.arrayOf(
-    React.PropTypes.number,
-  ).isRequired,
+  coordinates: React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
 
   /**
    * Should mobile-specific styles and props be used

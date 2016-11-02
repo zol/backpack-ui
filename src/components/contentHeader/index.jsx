@@ -77,7 +77,7 @@ ContentHeader.propTypes = {
   /**
    * Options for Heading component
    */
-  heading: React.PropTypes.object.isRequired,
+  heading: React.PropTypes.shape(Heading.propTypes).isRequired,
 
   /**
    * Adds a border to the header
@@ -91,7 +91,7 @@ ContentHeader.propTypes = {
   /**
    * Options for MoreLink component
    */
-  moreLink: React.PropTypes.object,
+  moreLink: React.PropTypes.shape(MoreLink.propTypes),
 };
 
 ContentHeader.defaultProps = {

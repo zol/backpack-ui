@@ -203,7 +203,10 @@ Checkbox.propTypes = {
   /**
    * CSS styles to append to component's styles
    */
-  style: React.PropTypes.object,
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 Checkbox.defaultProps = {

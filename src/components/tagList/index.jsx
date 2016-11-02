@@ -61,7 +61,7 @@ TagList.propTypes = {
   /**
    * An array of tags to display
    */
-  tags: React.PropTypes.array.isRequired,
+  tags: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
   /**
    * Maximum number of rows of tags to display

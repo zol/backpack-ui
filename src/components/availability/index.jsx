@@ -93,7 +93,7 @@ Availability.propTypes = {
   /**
    * Price
    */
-  price: React.PropTypes.object.isRequired,
+  price: React.PropTypes.shape(Price.propTypes).isRequired,
 
   /**
    * Availability url to send to external resource

@@ -57,7 +57,7 @@ function Select({
 Select.propTypes = {
   id: React.PropTypes.string.isRequired,
 
-  options: React.PropTypes.array.isRequired,
+  options: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
   label: React.PropTypes.string.isRequired,
 
@@ -87,7 +87,10 @@ Select.propTypes = {
    */
   noBorder: React.PropTypes.bool,
 
-  style: React.PropTypes.object,
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 Select.defaultProps = {

@@ -539,25 +539,38 @@ ListItemBookable.propTypes = {
   /**
    * The place data for the POI; required keys are name and type
    */
-  place: React.PropTypes.object.isRequired,
+  place: React.PropTypes.shape({
+    name: React.PropTypes.string,
+    type: React.PropTypes.string,
+  }).isRequired,
 
   /**
    * Price object for the POI; requires amount and rate keys
    * key: price_string
    * partner-activities key: minimum_price.formatted_amount
    */
-  price: React.PropTypes.object,
+  price: React.PropTypes.shape({
+    amount: React.PropTypes.number,
+    rate: React.PropTypes.string,
+  }),
 
   /**
    * A short list of features; limited to three
    */
-  features: React.PropTypes.array,
+  features: React.PropTypes.arrayOf(React.PropTypes.string),
 
   /**
    * Image src for the POI; required keys are path and orientation
    * partner-activities key: links.image
    */
-  image: React.PropTypes.object,
+  image: React.PropTypes.shape({
+    path: React.PropTypes.string,
+    orientation: React.PropTypes.oneOf([
+      "",
+      "portrait",
+      "landscape",
+    ]),
+  }),
 
   /**
    * Description for POI
