@@ -187,7 +187,7 @@ class NumberInput extends React.Component {
           type="button"
           key="plus"
         >
-          <Icon name="plus" />
+          <Icon.Plus />
         </button>
 
         <button
@@ -200,7 +200,7 @@ class NumberInput extends React.Component {
           type="button"
           key="minus"
         >
-          <Icon name="minus" />
+          <Icon.Minus />
         </button>
       </div>
     );

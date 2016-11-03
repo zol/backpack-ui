@@ -21,14 +21,15 @@ function Rating({ amount, max, description, provider, icon }) {
 
   const label = amount ? `${amount} rating` : "";
 
-  const iconDimensions = {
-    height: "12px",
-    width: "100px",
-  };
-
   const schemaProps = schema({
     itemProp: "aggregateRating",
     itemType: "AggregateRating",
+  });
+
+  const RatingIcon = React.createElement(Icon[ratingMap[amount]], {
+    height: "12px",
+    label,
+    width: "100px",
   });
 
   return (
@@ -41,13 +42,7 @@ function Rating({ amount, max, description, provider, icon }) {
         <meta itemProp="ratingValue" content={amount} />
       }
 
-      {amount && icon && ratingMap[amount] &&
-        <Icon
-          name={`rating-${ratingMap[amount]}`}
-          label={label}
-          dimensions={iconDimensions}
-        />
-      }
+      {amount && icon && RatingIcon}
 
       {((amount && icon && !ratingMap[amount]) || (amount && !icon)) &&
         <div style={{ display: "inline-block" }}>

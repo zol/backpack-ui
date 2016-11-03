@@ -1,10 +1,13 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
+import upperFirst from "lodash/upperFirst";
 import settings from "../../settings.json";
 import Icon from "../icon";
 import { rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+
+const _ = { upperFirst };
 
 const hoverStyles = {
   base: {
@@ -177,7 +180,7 @@ function PaginatorButton({
     );
   }
 
-  const iconName = `${arrow}-${direction}`;
+  const iconName = `${_.upperFirst(arrow)}${_.upperFirst(direction)}`;
 
   let label;
 
@@ -189,6 +192,10 @@ function PaginatorButton({
       "Next";
   }
 
+  const PaginatorIcon = React.createElement(Icon[iconName], {
+    label,
+  });
+
   return (
     <button
       className="PaginatorButton"
@@ -198,10 +205,7 @@ function PaginatorButton({
       aria-label={label}
       aria-owns={owns}
     >
-      <Icon
-        name={iconName}
-        label={label}
-      />
+      {PaginatorIcon}
     </button>
   );
 }

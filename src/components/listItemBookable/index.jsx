@@ -419,14 +419,13 @@ function ListItemBookable({
               {(tourStart && tourEnd) &&
                 <Link to={slug} style={{ color: "inherit" }}>
                   {!mobile &&
-                    <Icon
-                      name="pin"
+                    <Icon.Pin
+                      height="11px"
+                      width="11px"
                       style={{
-                        height: "11px",
                         marginRight: `${7 / 18}em`,
                         marginTop: `${3 / 18}em`,
                         verticalAlign: "top",
-                        width: "11px",
                       }}
                     />
                   }

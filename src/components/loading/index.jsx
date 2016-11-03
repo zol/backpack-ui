@@ -25,10 +25,7 @@ function Loading() {
       className="Loading"
       style={styles.base}
     >
-      <Icon
-        name="loading"
-        animation="spin"
-      />
+      <Icon.Loading animation="spin" />
     </div>
   );
 }

@@ -4,6 +4,11 @@ import styles from "./styles";
 import Icon from "../icon";
 
 function ShareMenuItem({ network, href, label, onClick }) {
+  const NetworkIcon = React.createElement(Icon[network], {
+    height: "16px",
+    width: "16px",
+  });
+
   return (
     <a
       className="ShareMenu-item"
@@ -12,10 +17,7 @@ function ShareMenuItem({ network, href, label, onClick }) {
       onClick={onClick}
       href={href}
     >
-      <Icon
-        name={network}
-        size="medium"
-      />
+      {NetworkIcon}
 
       <span style={styles.item.label}>
         {label}

@@ -87,10 +87,7 @@ function Narrative({ heading, htmlContent, author }) {
       />
 
       <aside className="Narrative-aside">
-        <Icon
-          name="lp-diamond"
-          color="blue"
-        />
+        <Icon.DiamondLogo fill={color.blue} />
       </aside>
 
       <div className="Narrative-content">
