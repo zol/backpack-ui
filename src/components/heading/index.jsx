@@ -218,8 +218,8 @@ Heading.propTypes = {
    * Override styles
    */
   override: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.array,
+    React.PropTypes.objectOf(React.PropTypes.string, React.PropTypes.number),
+    React.PropTypes.arrayOf(React.PropTypes.object),
   ]),
 };
 

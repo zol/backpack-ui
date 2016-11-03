@@ -107,7 +107,7 @@ NumberList.propTypes = {
   /**
    * An array of items to list
    */
-  list: React.PropTypes.array.isRequired,
+  list: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 };
 
 NumberList.defaultProps = {

@@ -149,7 +149,10 @@ Icon.propTypes = {
   /**
    * Override width and height
    */
-  dimensions: React.PropTypes.object,
+  dimensions: React.PropTypes.shape({
+    width: React.PropTypes.number,
+    height: React.PropTypes.number,
+  }),
 
   /**
    * Name of CSS animation to apply
@@ -159,7 +162,10 @@ Icon.propTypes = {
   /**
    * Object to apply additional CSS styles
    */
-  style: React.PropTypes.object,
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 Icon.defaultProps = {

@@ -76,7 +76,13 @@ Breadcrumbs.propTypes = {
   /**
    * An array of links for the navigation
    */
-  links: React.PropTypes.array.isRequired,
+  links: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      title: React.PropTypes.string,
+      href: React.PropTypes.string,
+      type: React.PropTypes.string,
+    }),
+  ).isRequired,
 };
 
 Breadcrumbs.defaultProps = {

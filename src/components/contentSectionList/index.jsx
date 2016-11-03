@@ -1,6 +1,7 @@
 import React from "react";
 import font from "../../utils/font";
 import ContentHeader from "../contentHeader";
+import Heading from "../heading";
 
 const styles = {
   list: {
@@ -41,14 +42,22 @@ ContentSectionList.propTypes = {
   /**
    * Props for ContentHeader
    */
-  header: React.PropTypes.object.isRequired,
+  header: React.PropTypes.shape({
+    title: React.PropTypes.string,
+    heading: React.PropTypes.shape(Heading.propTypes),
+    border: React.PropTypes.oneOf([
+      "",
+      "top",
+      "bottom",
+    ]),
+  }).isRequired,
 
   /**
    * List item(s) to display
    */
   listItems: React.PropTypes.oneOfType([
     React.PropTypes.string,
-    React.PropTypes.array,
+    React.PropTypes.arrayOf(React.PropTypes.string),
   ]).isRequired,
 };
 

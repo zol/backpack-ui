@@ -239,7 +239,10 @@ Button.propTypes = {
   /**
    * Special styles passed in props
    */
-  customStyles: React.PropTypes.object,
+  customStyles: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 
   /**
    * Use a border

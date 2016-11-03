@@ -220,7 +220,7 @@ Callout.propTypes = {
 
   image: React.PropTypes.string.isRequired,
 
-  price: React.PropTypes.object,
+  price: React.PropTypes.shape(Price.propTypes),
 
   description: React.PropTypes.string,
 

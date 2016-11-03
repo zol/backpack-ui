@@ -211,7 +211,10 @@ RelatedTour.propTypes = {
   /**
    * The price of the tour, containing currency and amount
    */
-  price: React.PropTypes.object.isRequired,
+  price: React.PropTypes.shape({
+    currency: React.PropTypes.string,
+    amount: React.PropTypes.number,
+  }).isRequired,
 
   /**
    * The length of the trip, usually in days i.e., "14 days"

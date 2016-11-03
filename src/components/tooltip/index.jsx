@@ -21,7 +21,7 @@ const propTypes = {
   /**
    * Props object for Flyout component
    */
-  flyout: PropTypes.object.isRequired,
+  flyout: PropTypes.shape(Flyout.propTypes).isRequired,
 
   /**
    * Content to display with tooltip

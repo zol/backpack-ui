@@ -65,7 +65,7 @@ Dropdown.propTypes = {
   /**
    * An array of options for the select element
    */
-  options: React.PropTypes.array.isRequired,
+  options: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
   /**
    * A value from the options array that will be selected initially

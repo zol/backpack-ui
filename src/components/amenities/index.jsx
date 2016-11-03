@@ -149,7 +149,7 @@ Amenities.propTypes = {
   /**
    * Data
    */
-  items: React.PropTypes.array.isRequired,
+  items: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
   /**
    * Number of columns to span

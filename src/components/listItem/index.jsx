@@ -336,17 +336,30 @@ ListItem.propTypes = {
   /**
    * The place data for the POI; required keys are name and type
    */
-  place: React.PropTypes.object.isRequired,
+  place: React.PropTypes.shape({
+    name: React.PropTypes.string,
+    type: React.PropTypes.string,
+  }).isRequired,
 
   /**
    * Image src for the POI; required keys are path and orientation
    */
-  image: React.PropTypes.object,
+  image: React.PropTypes.shape({
+    path: React.PropTypes.string,
+    orientation: React.PropTypes.oneOf([
+      "",
+      "portrait",
+      "landscape",
+    ]),
+  }),
 
   /**
    * Link to display under image; required keys are title and url
    */
-  link: React.PropTypes.object,
+  link: React.PropTypes.shape({
+    title: React.PropTypes.string,
+    url: React.PropTypes.string,
+  }),
 
   /**
    * Description for POI
