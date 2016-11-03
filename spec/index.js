@@ -1,67 +1,69 @@
 import mocha from "mocha";
 import { expect } from "chai";
-import { Amenities } from "../src";
-import { Availability } from "../src";
-import { Bookmark } from "../src";
-import { Breadcrumbs } from "../src";
-import { Bullet } from "../src";
-import { Button } from "../src";
-import { Calendar } from "../src";
-import { Callout } from "../src";
-import { ContentBlock } from "../src";
-import { ContentHeader } from "../src";
-import { ContentSectionList } from "../src";
-import { DotLoader } from "../src";
-import { Dropdown } from "../src";
-import { EditLink } from "../src";
-import { ExpandButton } from "../src";
-import { Flyout } from "../src";
-import { Checkbox } from "../src";
-import { DateRange } from "../src";
-import { Input } from "../src";
-import { InputGroup } from "../src";
-import { Label } from "../src";
-import { NumberInput } from "../src";
-import { Range } from "../src";
-import { Select } from "../src";
-import { Textarea } from "../src";
-import { Heading } from "../src";
-import { Icon } from "../src";
-import { IconButton } from "../src";
-import { ImageCarousel } from "../src";
-import { ImageGallery } from "../src";
-import { ImageHero } from "../src";
-import { ImagesContainer } from "../src";
-import { LastUpdated } from "../src";
-import { Lede } from "../src";
-// import { ListItem } from "../src";
-// import { ListItemBookable } from "../src";
-import { Loading } from "../src";
-import { MapMarker } from "../src";
-import { MoreLink } from "../src";
-import { Narrative } from "../src";
-import { NumberList } from "../src";
-import { NumberMarker } from "../src";
-import { Overlay } from "../src";
-import { PageHeader } from "../src";
-import { PaginatorButton } from "../src";
-import { Placeholder } from "../src";
-import { PoiPaginator } from "../src";
-import { Price } from "../src";
-import { Profile } from "../src";
-import { ProviderLogo } from "../src";
-import { Rating } from "../src";
-import { RelatedTour } from "../src";
-import { ReviewedBadge } from "../src";
-import { ShareMenu } from "../src";
-import { SidebarSection } from "../src";
-import { StaticMap } from "../src";
-import { Strapline } from "../src";
-import { Tag } from "../src";
-import { TagList } from "../src";
-import { Takeover } from "../src";
-import { Toolbar } from "../src";
-import { Tooltip } from "../src";
+import {
+  Amenities,
+  Availability,
+  Bookmark,
+  Breadcrumbs,
+  Bullet,
+  Button,
+  Calendar,
+  Callout,
+  ContentBlock,
+  ContentHeader,
+  ContentSectionList,
+  DotLoader,
+  Dropdown,
+  EditLink,
+  ExpandButton,
+  Flyout,
+  Checkbox,
+  DateRange,
+  Input,
+  InputGroup,
+  Label,
+  NumberInput,
+  Range,
+  Select,
+  Textarea,
+  Heading,
+  Icon,
+  IconButton,
+  ImageCarousel,
+  ImageGallery,
+  ImageHero,
+  ImagesContainer,
+  LastUpdated,
+  Lede,
+  // ListItem,
+  // ListItemBookable,
+  Loading,
+  MapMarker,
+  MoreLink,
+  Narrative,
+  NumberList,
+  NumberMarker,
+  Overlay,
+  PageHeader,
+  PaginatorButton,
+  Placeholder,
+  PoiPaginator,
+  Price,
+  Profile,
+  ProviderLogo,
+  Rating,
+  RelatedTour,
+  ReviewedBadge,
+  ShareMenu,
+  SidebarSection,
+  StaticMap,
+  Strapline,
+  Tag,
+  TagList,
+  Takeover,
+  Toolbar,
+  Tooltip,
+} from "../src";
 
 describe("backpack-ui", () => {
   it("should have all the exports", () => {
