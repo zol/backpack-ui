@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color, media } from "rizzo-next/sass/settings.json";
+import { color, media } from "../../settings.json";
 import { rgb } from "../../utils/color";
 import Heading from "../heading";
 import Price from "../price";

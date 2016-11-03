@@ -2,7 +2,7 @@ import React from "react";
 import radium from "radium";
 import moment from "moment";
 import TetherComponent from "react-tether";
-import { zIndex } from "rizzo-next/sass/settings.json";
+import { zIndex } from "../../settings.json";
 import Select from "./select";
 import styles from "./styles";
 import Calendar from "../calendar";

@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color } from "rizzo-next/sass/settings.json";
+import { color } from "../../settings.json";
 
 const propTypes = {
   /**

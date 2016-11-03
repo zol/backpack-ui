@@ -3,7 +3,7 @@ import radium from "radium";
 import truncate from "truncate";
 import moment from "moment";
 import { Link } from "react-router";
-import { color, media } from "rizzo-next/sass/settings.json";
+import { color, media } from "../../settings.json";
 import Bookmark from "../bookmark";
 import MoreLink from "../moreLink";
 import { gutter, span, percentage } from "../../utils/grid";

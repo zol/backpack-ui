@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color, timing, zIndex } from "rizzo-next/sass/settings.json";
+import { color, timing, zIndex } from "../../settings.json";
 import kebabCase from "lodash/kebabCase";
 import svgDataUri from "../../utils/svgDataUri";
 import { darken } from "../../utils/color";

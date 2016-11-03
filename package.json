@@ -13,6 +13,7 @@
   "license": "ISC",
   "dependencies": {
     "chai": "^3.5.0",
+    "classnames": "^2.2.5",
     "color": "^0.11.3",
     "haversine": "^1.0.1",
     "lodash": "^4.16.6",
@@ -26,13 +27,14 @@
     "react-date-range": "^0.2.4",
     "react-dates": "^3.0.0",
     "react-dom": "^15.3.2",
+    "react-imageloader": "^2.1.0",
     "react-motion": "^0.4.4",
     "react-motion-ui-pack": "^0.9.0",
     "react-photoswipe": "^1.2.0",
     "react-portal": "^2.2.1",
     "react-router": "^2.8.1",
     "react-slick": "^0.14.4",
-    "rizzo-next": "^0.11.72",
+    "react-tether": "^0.5.2",
     "truncate": "^2.0.0"
   },
   "peerDependencies": {

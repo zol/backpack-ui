@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color, zIndex } from "rizzo-next/sass/settings.json";
+import { color, zIndex } from "../../settings.json";
 import { rgb } from "../../utils/color";
 
 const styles = {

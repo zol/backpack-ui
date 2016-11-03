@@ -1,16 +1,16 @@
 import React from "react";
 import radium from "radium";
 import truncate from "truncate";
-import { color, media } from "rizzo-next/sass/settings.json";
 import upperFirst from "lodash/upperFirst";
 import { Link } from "react-router";
+import { color, media } from "../../settings.json";
 import Button from "../button";
 import Price from "../price";
 import Bookmark from "../bookmark";
 import Bullet from "../decoration/bullet";
 import Icon from "../icon";
 import Tooltip from "../tooltip";
-import ListItemImage from "../../../shared/components/listItemImage";
+import ListItemImage from "../listItemImage";
 import { add, subtract, gutter, span, percentage } from "../../utils/grid";
 import font from "../../utils/font";
 import svgDataUri from "../../utils/svgDataUri";
@@ -289,7 +289,7 @@ function ListItemBookable({
   id,
   duration,
   durationInfo,
-  provider,
+  showTourDestinations,
   tourStart,
   tourEnd,
   tourMap,
@@ -414,7 +414,7 @@ function ListItemBookable({
             </ul>
           }
 
-          {activityType === "tours" && provider === partnerActivityProviders.gadventures.id &&
+          {activityType === "tours" && showTourDestinations &&
             <div className="ListItem-tourDestinations" style={styles.largeText.base}>
               {(tourStart && tourEnd) &&
                 <Link to={slug} style={{ color: "inherit" }}>
@@ -626,10 +626,9 @@ ListItemBookable.propTypes = {
   ]),
 
   /**
-   * Provider name of the tour or activity; partner activity only
-   * partner-activities key: provider
+   * If tour, whether or not to show tour destination info
    */
-  provider: React.PropTypes.string,
+  showTourDestinations: React.PropTypes.bool,
 
   /**
    * City name where the tour or activity begins; partner activity only
@@ -712,7 +711,7 @@ ListItemBookable.defaultProps = {
 
   groupSize: {},
 
-  provider: "",
+  showTourDestinations: false,
 
   tourStart: "",
 
