@@ -32,7 +32,6 @@ import {
   ImageCarousel,
   ImageGallery,
   ImageHero,
-  ImagesContainer,
   LastUpdated,
   Lede,
   // ListItem,
@@ -98,7 +97,6 @@ describe("backpack-ui", () => {
     expect(ImageCarousel).to.be.ok;
     expect(ImageGallery).to.be.ok;
     expect(ImageHero).to.be.ok;
-    expect(ImagesContainer).to.be.ok;
     expect(LastUpdated).to.be.ok;
     expect(Lede).to.be.ok;
     // expect(ListItem).to.be.ok;

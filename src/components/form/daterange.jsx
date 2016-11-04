@@ -17,6 +17,7 @@ const styles = {
   startEndDate: {
     backgroundColor: color.blue,
     borderRadius: "100%",
+    color: color.white,
     position: "relative",
   },
 
@@ -58,6 +59,14 @@ const lastSelectedStartColorFillStyles = assign({}, styles.colorFill,
   { left: "50%", width: "calc(100% + 4px)" });
 
 class DateRange extends React.Component {
+  static initialVisibleMonth() {
+    const isTodayLastDayOfMonth = moment() === moment().endOf("month");
+    const nextMonth = moment().add(1, "months");
+    const thisMonth = moment();
+
+    return isTodayLastDayOfMonth ? nextMonth : thisMonth;
+  }
+
   constructor(props) {
     super(props);
 
@@ -151,6 +160,10 @@ class DateRange extends React.Component {
               width: "40%",
             },
 
+            ".DateInput__input": {
+              cursor: "pointer",
+            },
+
             ".DateInput__display-text": {
               fontSize: "1em",
               fontWeight: 400,
@@ -161,21 +174,14 @@ class DateRange extends React.Component {
               backgroundColor: color.white,
               color: color.blue,
             },
+          }}
+        />
 
-            // Hide arrow shadow
-            ".DateRangePicker__picker::before": {
-              display: "none",
-            },
-
-            // Hide arrow
-            ".DateRangePicker__picker::after": {
-              display: "none",
-            },
-
-            ".DayPicker--horizontal": {
-              borderRadius: 0,
-              boxShadow: "none",
-            },
+        <Style
+          scopeSelector=".DateRangePicker__tether-element"
+          rules={{
+            top: "-23px !important",
+            zIndex: zIndex.modal + 1,
           }}
         />
 
@@ -187,9 +193,11 @@ class DateRange extends React.Component {
             backgroundColor: color.white,
             boxShadow: `0 ${39 / 14}em ${54 / 14}em rgba(${rgb(color.black)}, .16),
               0 0 0 1px rgba(${rgb(color.black)}, .02)`,
-            left: "-9px",
-            padding: "60px 0 20px",
-            top: 0,
+
+            ".DayPicker--horizontal": {
+              borderRadius: 0,
+              boxShadow: "none",
+            },
 
             ".DayPicker--horizontal svg": {
               fill: darken(color.white, 17),
@@ -222,6 +230,8 @@ class DateRange extends React.Component {
               border: 0,
             },
 
+            ".CalendarMonth__day--selected-span": styles.daySpan,
+
             ".CalendarMonth__day--selected-start": styles.startEndDate,
             ".CalendarMonth__day--selected-start + .CalendarMonth__day--hovered::before": startDateColorFillStyles,
             ".CalendarMonth__day--selected-start + .CalendarMonth__day--hovered-span::before": startDateColorFillStyles,
@@ -235,8 +245,6 @@ class DateRange extends React.Component {
               left: "-50%",
               width: "100%",
             },
-
-            ".CalendarMonth__day--selected-span": styles.daySpan,
 
             ".CalendarMonth__day--hovered": {
               border: 0,
@@ -272,6 +280,7 @@ class DateRange extends React.Component {
           withFullScreenPortal={withFullScreenPortal}
           displayFormat="ddd, MMM D"
           isOutsideRange={this.isOutsideRange}
+          initialVisibleMonth={() => DateRange.initialVisibleMonth()}
           showClearDates
         />
       </div>
