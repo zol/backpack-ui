@@ -1,0 +1,8 @@
+{
+  "main": {
+    "fontFamily": "'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Arial', sans-serif",
+    "lineHeight": 1.4,
+    "maxWidth": 600,
+    "margin": 15
+  }
+}

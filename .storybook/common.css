@@ -1,0 +1,27 @@
+html {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/*body {
+  color: #3b444f;
+  font-family: "Benton Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: 1.8em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+  position: relative;
+}*/
+
+/*a {
+  color: #297cbb;
+  text-decoration: none;
+}*/
