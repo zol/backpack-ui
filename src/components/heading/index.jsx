@@ -2,41 +2,47 @@ import React from "react";
 import radium from "radium";
 import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
 
 const styles = {
   base: {
+    fontFamily: font("benton"),
     lineHeight: 1,
+    marginTop: 0,
+    marginRight: 0,
+    marginBottom: 0,
+    marginLeft: 0,
   },
 
   size: {
     tiny: {
-      fontSize: "1.1rem",
+      fontSize: "11px",
     },
     small: {
-      fontSize: "1.1rem",
+      fontSize: "11px",
 
       [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "1.3rem",
+        fontSize: "13px",
       },
     },
     medium: {
-      fontSize: "2.6rem",
+      fontSize: "26px",
       lineHeight: (40 / 26),
     },
     large: {
-      fontSize: "4rem",
+      fontSize: "40px",
 
       [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "4.5rem",
+        fontSize: "45px",
       },
     },
     huge: {
-      fontSize: "3rem",
-      letterSpacing: "-.1rem",
+      fontSize: "30px",
+      letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
       [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "6.4rem",
+        fontSize: "64px",
         lineHeight: (70 / 64),
       },
     },
@@ -205,7 +211,6 @@ Heading.propTypes = {
 
   /**
    * Whether or not to hide the text overflow with an ellipsis
-   * @type {[type]}
    */
   truncate: React.PropTypes.bool,
 
@@ -218,8 +223,7 @@ Heading.propTypes = {
    * Override styles
    */
   override: React.PropTypes.oneOfType([
-    React.PropTypes.objectOf(React.PropTypes.string, React.PropTypes.number),
-    React.PropTypes.arrayOf(React.PropTypes.object),
+    React.PropTypes.object,
   ]),
 };
 

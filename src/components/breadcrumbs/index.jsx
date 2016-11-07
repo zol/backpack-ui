@@ -5,6 +5,7 @@ import { color } from "../../../settings.json";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
+import font from "../../utils/font";
 
 const _ = { capitalize };
 
@@ -12,6 +13,7 @@ const styles = {
   container: {
     base: {
       color: color.lightText,
+      fontFamily: font("benton"),
       fontSize: "14px",
       fontWeight: 400,
       lineHeight: 1,
@@ -80,12 +82,9 @@ function Breadcrumbs({ links }) {
       </a>
 
       {index < links.length - 1 &&
-        <Icon
-          name="chevron-right"
-          dimensions={{
-            width: `${6 / 14}em`,
-            height: `${6 / 14}em`,
-          }}
+        <Icon.ChevronRight
+          width={`${6 / 14}em`}
+          height={`${6 / 14}em`}
         />
       }
 

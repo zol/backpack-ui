@@ -194,7 +194,12 @@ Checkbox.propTypes = {
   /**
    * Set the checkbox size
    */
-  size: React.PropTypes.string,
+  size: React.PropTypes.oneOf([
+    "",
+    "full",
+    "half",
+    "third",
+  ]),
 
   /**
    * CSS styles to append to component's styles

@@ -1,10 +1,13 @@
 import React from "react";
 import radium from "radium";
+import upperFirst from "lodash/upperFirst";
 import styles from "./styles";
 import Icon from "../icon";
 
+const _ = { upperFirst };
+
 function ShareMenuItem({ network, href, label, onClick }) {
-  const NetworkIcon = React.createElement(Icon[network], {
+  const NetworkIcon = React.createElement(Icon[_.upperFirst(network)], {
     height: "16px",
     width: "16px",
   });

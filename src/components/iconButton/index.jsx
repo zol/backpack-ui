@@ -1,10 +1,13 @@
 import React from "react";
 import radium from "radium";
 import assign from "object-assign";
+import upperFirst from "lodash/upperFirst";
 import settings from "../../../settings.json";
 import Icon from "../icon";
 import { darken } from "../../utils/color";
 import { outline } from "../../utils/mixins";
+
+const _ = { upperFirst };
 
 const hoverStyles = {
   backgroundColor: darken(settings.color.white, 12),
@@ -51,7 +54,7 @@ const styles = {
   },
 };
 
-function IconButton({ icon, label, className, href, onClick, size, owns }) {
+function IconButton({ iconName, label, className, href, onClick, size, owns }) {
   const Element = href ? "a" : "button";
   const role = Element === "a" ? "button" : "";
 
@@ -60,6 +63,10 @@ function IconButton({ icon, label, className, href, onClick, size, owns }) {
   if (size) {
     style.push(styles.size[size]);
   }
+
+  const ButtonIcon = React.createElement(Icon[_.upperFirst(iconName)], {
+    label,
+  });
 
   return (
     <Element
@@ -72,9 +79,7 @@ function IconButton({ icon, label, className, href, onClick, size, owns }) {
       aria-label={label}
       aria-owns={owns}
     >
-      <Icon
-        name={icon}
-      />
+      {ButtonIcon}
     </Element>
   );
 }
@@ -83,7 +88,7 @@ IconButton.propTypes = {
   /**
    * Name of the icon to display inside of the button
    */
-  icon: React.PropTypes.string.isRequired,
+  iconName: React.PropTypes.string.isRequired,
 
   /**
    * A descriptive label of the button's purpose
@@ -122,7 +127,7 @@ IconButton.propTypes = {
 };
 
 IconButton.defaultProps = {
-  icon: "",
+  iconName: "",
 
   label: "",
 

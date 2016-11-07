@@ -1,5 +1,6 @@
 import React from "react";
 import radium from "radium";
+import assign from "object-assign";
 import settings from "../../../settings.json";
 import Heading from "../heading";
 import MoreLink from "../moreLink";
@@ -52,12 +53,14 @@ function ContentHeader({ title, heading, border, moreLink }) {
     "ContentHeader clearfix" :
     "ContentHeader";
 
+  const headingStyle = assign({}, hasLink ? styles.heading.base : {}, heading.override);
+
   return (
     <header
       className={headerClassName}
       style={style.container}
     >
-      <Heading {...heading} override={[hasLink && styles.heading.base, heading.override]}>
+      <Heading {...heading} override={headingStyle}>
         {title}
       </Heading>
 

@@ -2,12 +2,14 @@ import React from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
 import { span } from "../../utils/grid";
+import font from "../../utils/font";
 
 const baseFontSize = 13;
 
 const styles = {
   container: {
     base: {
+      fontFamily: font("benton"),
       fontSize: `${baseFontSize}px`,
       lineHeight: (24 / baseFontSize),
     },
@@ -15,11 +17,16 @@ const styles = {
 
   list: {
     base: {
-      marginTop: `${-5 / baseFontSize}em`, // bring top of text 30px from header
+      listStyle: "none",
+      marginTop: 0,
+      marginRight: 0,
+      marginBottom: 0,
+      marginLeft: 0,
+      padding: 0,
     },
 
     single: {
-      listStyle: "none",
+      marginTop: `${-5 / baseFontSize}em`, // bring top of text 30px from header
     },
 
     grouped: {
@@ -31,8 +38,6 @@ const styles = {
     base: {
       color: color.darkGray,
     },
-
-    single: {},
 
     grouped: {
       base: {
@@ -47,14 +52,12 @@ const styles = {
   },
 
   heading: {
-    base: {},
-
-    single: {},
-
-    grouped: {
+    base: {
+      color: color.titleGray,
       fontSize: `${14 / baseFontSize}em`,
-      lineHeight: (24 / 14),
       fontWeight: 600,
+      lineHeight: (24 / 14),
+      margin: 0,
     },
   },
 };
@@ -85,11 +88,11 @@ const getGroupedItems = (items) => {
         style={groupedItemStyle}
         key={index}
       >
-        <h5 style={styles.heading.grouped}>
+        <h5 style={styles.heading.base}>
           {group.title}
         </h5>
 
-        <ul style={styles.list.single}>
+        <ul style={styles.list.base}>
           {getListItems(group.items, group.capitalize, "grouped")}
         </ul>
       </div>
@@ -108,7 +111,7 @@ function Amenities({ columns, items = [], listType }) {
   const style = {
     list: {
       single: [styles.list.base, styles.list.single],
-      grouped: [styles.list.base, styles.list.grouped],
+      grouped: [styles.list.base, styles.list.single, styles.list.grouped],
     },
   };
 
