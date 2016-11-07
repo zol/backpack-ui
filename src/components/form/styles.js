@@ -1,4 +1,4 @@
-import { color, media, timing } from "../../settings.json";
+import { color, media, timing } from "../../../settings.json";
 import { lighten, darken, rgb } from "../../utils/color";
 
 const icons = {

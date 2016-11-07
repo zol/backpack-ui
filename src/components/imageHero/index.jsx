@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 
 const propTypes = {
   /**

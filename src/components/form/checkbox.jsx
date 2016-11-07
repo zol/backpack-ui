@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import kebabCase from "lodash/kebabCase";
-import { color, timing, zIndex } from "../../settings.json";
+import { color, timing, zIndex } from "../../../settings.json";
 import { darken } from "../../utils/color";
 import Icon from "../icon";
 

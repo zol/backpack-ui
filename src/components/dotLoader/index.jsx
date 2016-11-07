@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { timing } from "../../settings.json";
+import { timing } from "../../../settings.json";
 import { bookingLoaderFade } from "../../utils/keyframes";
 
 const styles = {

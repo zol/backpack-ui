@@ -3,7 +3,7 @@
 import React from "react";
 import assign from "object-assign";
 import classNames from "classnames";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 
 function _getIconDimensions(height, width) {
   if (height && width) {

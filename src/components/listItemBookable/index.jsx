@@ -3,7 +3,7 @@ import radium from "radium";
 import truncate from "truncate";
 import upperFirst from "lodash/upperFirst";
 import { Link } from "react-router";
-import { color, media } from "../../settings.json";
+import { color, media } from "../../../settings.json";
 import Button from "../button";
 import Price from "../price";
 import Bookmark from "../bookmark";

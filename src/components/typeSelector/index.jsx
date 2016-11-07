@@ -1,7 +1,7 @@
 import React from "react";
 import radium, { Style } from "radium";
 import { Link } from "react-router";
-import { color, media, timing, zIndex } from "../../settings.json";
+import { color, media, timing, zIndex } from "../../../settings.json";
 import Heading from "../heading";
 import Flyout from "../flyout";
 import PaginatorButton from "../paginatorButton";

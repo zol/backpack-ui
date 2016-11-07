@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import settings from "../../settings.json";
+import settings from "../../../settings.json";
 
 const styles = {
   base: {

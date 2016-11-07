@@ -1,6 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
-import { color, zIndex } from "../../settings.json";
+import { color, zIndex } from "../../../settings.json";
 import Icon from "../icon";
 import Heading from "../heading";
 import { rgb } from "../../utils/color";

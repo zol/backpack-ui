@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { Calendar as CalendarComponent, DateRange as DateRangeComponent } from "react-date-range";
 import moment from "moment";
 import radium, { Style } from "radium";
-import { color, timing } from "../../settings.json";
+import { color, timing } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 
 class Calendar extends Component {

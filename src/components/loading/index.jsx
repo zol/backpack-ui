@@ -1,6 +1,6 @@
 import React from "react"; // eslint-disable-line no-unused-vars
 import radium from "radium";
-import { color, timing } from "../../settings.json";
+import { color, timing } from "../../../settings.json";
 import Icon from "../icon";
 import { gutter } from "../../utils/grid";
 

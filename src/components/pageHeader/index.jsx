@@ -2,7 +2,7 @@ import React from "react";
 import radium from "radium";
 import { Link } from "react-router";
 import capitalize from "lodash/capitalize";
-import settings from "../../settings.json";
+import settings from "../../../settings.json";
 import Heading from "../heading";
 import Strapline from "../strapline";
 import Bookmark from "../bookmark";

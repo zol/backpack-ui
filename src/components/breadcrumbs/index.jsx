@@ -1,7 +1,7 @@
 import React from "react";
 import radium from "radium";
 import capitalize from "lodash/capitalize";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
 import schema from "../../utils/schema";
