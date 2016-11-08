@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import Portal from "react-portal";
 import radium from "radium";
-import settings from "../../settings.json";
+import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
 
 const styles = {

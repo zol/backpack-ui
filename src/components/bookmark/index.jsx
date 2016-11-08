@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 import Icon from "../icon";
 
 const styles = {

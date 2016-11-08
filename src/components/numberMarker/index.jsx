@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color, zIndex } from "../../settings.json";
+import { color, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 

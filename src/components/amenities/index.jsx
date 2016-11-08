@@ -1,6 +1,6 @@
 import React from "react";
 import radium from "radium";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 import { span } from "../../utils/grid";
 
 const baseFontSize = 13;
@@ -149,7 +149,9 @@ Amenities.propTypes = {
   /**
    * Data
    */
-  items: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  items: React.PropTypes.arrayOf(React.PropTypes.shape({
+    title: React.PropTypes.string,
+  })).isRequired,
 
   /**
    * Number of columns to span

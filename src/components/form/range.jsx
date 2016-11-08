@@ -1,7 +1,7 @@
 import React from "react";
 import radium, { Style } from "radium";
 import Slider from "rc-slider";
-import { color } from "../../settings.json";
+import { color } from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import createUnitLabel from "../../utils/createUnitLabel";
 

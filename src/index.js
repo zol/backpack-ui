@@ -20,7 +20,6 @@ export { default as IconButton } from "./components/iconButton";
 export { default as ImageCarousel } from "./components/imageCarousel";
 export { default as ImageGallery } from "./components/imageGallery";
 export { default as ImageHero } from "./components/imageHero";
-export { default as ImagesContainer } from "./components/imagesContainer";
 export { default as LastUpdated } from "./components/lastUpdated";
 export { default as Lede } from "./components/lede";
 // export { default as ListItem } from "./components/listItem";

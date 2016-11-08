@@ -1,5 +1,5 @@
 import React from "react";
-import settings from "../../settings.json";
+import settings from "../../../settings.json";
 
 const styles = {
   base: {

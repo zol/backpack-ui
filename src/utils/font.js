@@ -1,5 +1,5 @@
 import camelCase from "lodash/camelCase";
-import settings from "../settings.json";
+import settings from "../../settings.json";
 
 const _ = { camelCase };
 

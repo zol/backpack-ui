@@ -1,5 +1,5 @@
 import assign from "object-assign";
-import settings from "../settings.json";
+import settings from "../../settings.json";
 import { rgb } from "./color";
 
 /**

@@ -1,8 +1,12 @@
 import React from "react";
 import radium from "radium";
-import { color } from "../../settings.json";
+import capitalize from "lodash/capitalize";
+import { color } from "../../../settings.json";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
+import schema from "../../utils/schema";
+
+const _ = { capitalize };
 
 const styles = {
   container: {
@@ -29,6 +33,29 @@ const styles = {
   },
 };
 
+const listMicroData = schema({
+  itemType: "BreadcrumbList",
+});
+
+const itemMicroData = schema({
+  itemProp: "itemListElement",
+  itemType: "ListItem",
+});
+
+function linkMicroData(link) {
+  if (link && link.type) {
+    return schema({
+      itemProp: "item",
+      itemType: _.capitalize(link.type),
+    });
+  }
+
+  return schema({
+    itemProp: "item",
+    itemType: "Thing",
+  });
+}
+
 /**
  * Breadcrumb navigation component
  */
@@ -38,6 +65,7 @@ function Breadcrumbs({ links }) {
       className="Breadcrumbs-item"
       style={[index !== links.length - 1 && styles.item.padded]}
       key={index}
+      {...itemMicroData}
     >
       <a
         style={[
@@ -46,16 +74,22 @@ function Breadcrumbs({ links }) {
         ]}
         href={`//www.lonelyplanet.com${link.href}`}
         key={index}
+        {...linkMicroData(link)}
       >
-        {link.title}
+        <span itemProp="name">{link.title}</span>
       </a>
 
       {index < links.length - 1 &&
-        <Icon.ChevronRight
-          width={`${6 / 14}em`}
-          height={`${6 / 14}em`}
+        <Icon
+          name="chevron-right"
+          dimensions={{
+            width: `${6 / 14}em`,
+            height: `${6 / 14}em`,
+          }}
         />
       }
+
+      <meta itemProp="position" content={index + 1} />
     </span>
   ));
 
@@ -63,6 +97,7 @@ function Breadcrumbs({ links }) {
     <nav
       className="Breadcrumbs"
       style={styles.container.base}
+      {...listMicroData}
     >
       {items}
     </nav>
