@@ -7,11 +7,14 @@
     "test": "NODE_ENV=test mocha --reporter spec --compilers js:babel-register --recursive spec/",
     "build": "rm -rf dist && mkdir -p dist/components && babel -d dist src",
     "ci": "rm -rf dist && mkdir -p dist/components && babel --watch -d dist src",
-    "test:ci": "NODE_ENV=test mocha --reporter spec --compilers js:babel-register --watch --recursive spec/"
+    "test:ci": "NODE_ENV=test mocha --reporter spec --compilers js:babel-register --watch --recursive spec/",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "Lonely Planet",
   "license": "ISC",
   "dependencies": {
+    "@kadira/storybook": "^2.21.0",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
     "color": "^0.11.3",
