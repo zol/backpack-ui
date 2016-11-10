@@ -49,7 +49,7 @@ const styles = {
  */
 function MoreLink({ href, size, children, onClick, caps, style }) {
   const Element = href ? "a" : "button";
-  const iconStyle = assign({}, styles.icon.base, size ? styles.icon.size[size] : {});
+  const iconStyle = assign({}, styles.icon.base, size && styles.icon.size[size]);
 
   return (
     <Element

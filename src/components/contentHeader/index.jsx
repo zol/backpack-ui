@@ -53,7 +53,7 @@ function ContentHeader({ title, heading, border, moreLink }) {
     "ContentHeader clearfix" :
     "ContentHeader";
 
-  const headingStyle = assign({}, hasLink ? styles.heading.base : {}, heading.override);
+  const headingStyle = assign({}, hasLink && styles.heading.base, heading.override);
 
   return (
     <header
