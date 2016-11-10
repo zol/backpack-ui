@@ -7,51 +7,51 @@ import Icon from "../icon";
 function mapMarker({ poiType, size, hideShadow, inverse }) {
   const types = {
     sleeping: {
-      icon: "sleep",
+      icon: "Sleep",
       color: color.poiSleep,
     },
     drinking_nightlife: {
-      icon: "drink",
+      icon: "Drink",
       color: color.poiDrink,
     },
     transport: {
-      icon: "transport",
+      icon: "Transport",
       color: color.poiTransport,
     },
     activities: {
-      icon: "see",
+      icon: "See",
       color: color.poiSee,
     },
     tours: {
-      icon: "see",
+      icon: "See",
       color: color.poiSee,
     },
     entertainment: {
-      icon: "play",
+      icon: "Play",
       color: color.poiPlay,
     },
     shopping: {
-      icon: "shop",
+      icon: "Shop",
       color: color.poiShop,
     },
     eating: {
-      icon: "eat",
+      icon: "Eat",
       color: color.poiEat,
     },
     restaurants: {
-      icon: "eat",
+      icon: "Eat",
       color: color.poiEat,
     },
     sights: {
-      icon: "see",
+      icon: "See",
       color: color.poiSee,
     },
     info: {
-      icon: "default",
+      icon: "Default",
       color: color.poiDefault,
     },
     festivals_events: {
-      icon: "play",
+      icon: "Play",
       color: color.poiPlay,
     },
   };
@@ -128,6 +128,11 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
     },
   };
 
+  const MarkerIcon = React.createElement(Icon[`Map${types[poiType].icon}`], {
+    style: styles.icon.base,
+    fill: inverse ? types[poiType].color : color.white,
+  });
+
   return (
     <div
       className="MapMarker"
@@ -137,14 +142,7 @@ function mapMarker({ poiType, size, hideShadow, inverse }) {
         inverse && styles.container.inverse,
       ]}
     >
-      <Icon
-        label={poiType}
-        style={styles.icon.base}
-        name={poiType === "center" ?
-          "map-default" :
-          `map-${types[poiType].icon}`
-        }
-      />
+      {poiType === "center" ? <Icon.MapDefault /> : MarkerIcon}
     </div>
   );
 }

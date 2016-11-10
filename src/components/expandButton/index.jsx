@@ -3,6 +3,9 @@ import radium from "radium";
 import settings from "../../../settings.json";
 import Icon from "../icon";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
+
+const baseFontSize = 14;
 
 const hoverStyles = {
   backgroundColor: `rgba(${rgb(settings.color.black)}, .9)`,
@@ -12,12 +15,17 @@ const styles = {
   container: {
     base: {
       backgroundColor: `rgba(${rgb(settings.color.black)}, .6)`,
-      borderRadius: `${4 / 14}em`,
+      border: 0,
+      borderRadius: `${4 / baseFontSize}em`,
       color: settings.color.white,
+      cursor: "pointer",
       display: "block",
-      fontSize: "14px",
-      padding: `${4 / 14}em ${5 / 14}em ${3 / 14}em ${10 / 14}em`,
+      fontFamily: font("benton"),
+      fontSize: `${baseFontSize}px`,
+      lineHeight: 1,
+      padding: `${5 / baseFontSize}em ${4 / baseFontSize}em ${4 / baseFontSize}em ${7 / baseFontSize}em`,
       transition: `background-color ${settings.timing.default}`,
+      verticalAlign: "baseline",
       width: "auto",
 
       ":hover": hoverStyles,
@@ -28,8 +36,9 @@ const styles = {
 
   label: {
     base: {
-      fontSize: `${10 / 14}em`,
-      marginRight: `${10 / 14}em`,
+      fontSize: `${10 / baseFontSize}em`,
+      marginRight: `${10 / baseFontSize}em`,
+      verticalAlign: "middle",
     },
   },
 };

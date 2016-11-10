@@ -3,20 +3,31 @@ import radium from "radium";
 import Icon from "../icon";
 import ProviderLogo from "../providerLogo";
 import schema from "../../utils/schema";
+import font from "../../utils/font";
 
 function Rating({ amount, max, description, provider, icon }) {
+  const styles = {
+    container: {
+      base: {
+        fontFamily: font("benton"),
+        fontSize: "11px",
+        lineHeight: 1.5,
+      },
+    },
+  };
+
   const ratingMap = {
-    0: "0_0",
-    0.5: "0_5",
-    1: "1_0",
-    1.5: "1_5",
-    2: "2_0",
-    2.5: "2_5",
-    3: "3_0",
-    3.5: "3_5",
-    4: "4_0",
-    4.5: "4_5",
-    5: "5_0",
+    0: "RatingZero",
+    0.5: "RatingHalf",
+    1: "RatingOne",
+    1.5: "RatingOneHalf",
+    2: "RatingTwo",
+    2.5: "RatingTwoHalf",
+    3: "RatingThree",
+    3.5: "RatingThreeHalf",
+    4: "RatingFour",
+    4.5: "RatingFourHalf",
+    5: "RatingFive",
   };
 
   const label = amount ? `${amount} rating` : "";
@@ -36,6 +47,7 @@ function Rating({ amount, max, description, provider, icon }) {
     <div
       className="Rating"
       title={label}
+      style={styles.container.base}
       {...schemaProps}
     >
       {amount && icon && ratingMap[amount] &&

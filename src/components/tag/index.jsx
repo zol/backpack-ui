@@ -2,6 +2,9 @@ import React from "react";
 import radium from "radium";
 import { color, timing } from "../../../settings.json";
 import { rgb } from "../../utils/color";
+import font from "../../utils/font";
+
+const baseFontSize = 12;
 
 const tagColor = "#e1eaf0";
 
@@ -17,13 +20,15 @@ const hoverStyles = {
 
 const styles = {
   base: {
-    border: `${1 / 12}em solid ${tagColor}`,
-    borderRadius: `${17 / 12}em`,
+    border: `${1 / baseFontSize}em solid ${tagColor}`,
+    borderRadius: `${16 / baseFontSize}em`,
     color: color.darkGray,
     display: "inline-block",
-    fontSize: "12px",
+    fontFamily: font("benton"),
+    fontSize: `${baseFontSize}px`,
     lineHeight: 1,
-    padding: `${12 / 12}em ${25 / 12}em ${8 / 12}em`,
+    padding: `${10 / baseFontSize}em ${25 / baseFontSize}em ${8 / baseFontSize}em`,
+    textDecoration: "none",
     textOverflow: "ellipsis",
     transition: `background-color ${timing.default}`,
     whiteSpace: "nowrap",
@@ -47,17 +52,15 @@ const styles = {
  * @usage
  * <Tag label="Europe" slug="/europe" />
  */
-function Tag({ label, slug, selected }) {
-  const style = [styles.base];
-
-  if (selected) {
-    style.push(styles.selected);
-  }
-
+function Tag({ label, slug, selected, style }) {
   return (
     <a
       className="Tag"
-      style={style}
+      style={[
+        styles.base,
+        selected && styles.selected,
+        style,
+      ]}
       href={slug}
     >
       {label}
@@ -80,6 +83,14 @@ Tag.propTypes = {
    * Should the tag appear to have been selected
    */
   selected: React.PropTypes.bool,
+
+  /**
+   * Style object
+   */
+  style: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
 };
 
 Tag.defaultProps = {
@@ -88,6 +99,8 @@ Tag.defaultProps = {
   slug: "",
 
   selected: false,
+
+  style: null,
 };
 
 Tag.styles = styles;

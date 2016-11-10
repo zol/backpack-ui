@@ -169,7 +169,7 @@ class ShareMenu extends React.Component {
       >
         <IconButton
           className="ShareMenu-button"
-          icon="share"
+          iconName="share"
           label="Share this article on Twitter, Facebook, or email"
           owns="share-menu-options"
           onClick={this.toggleOptions}

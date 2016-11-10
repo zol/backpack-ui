@@ -1,8 +1,11 @@
 import settings from "../../../settings.json";
+import font from "../../utils/font";
 
 const styles = {
   container: {
     base: {
+      display: "inline-block",
+      fontFamily: font("benton"),
       position: "relative",
     },
 
@@ -21,24 +24,24 @@ const styles = {
       transition: `opacity ${settings.timing.default},
         transform ${settings.timing.default},
         visibility ${settings.timing.default}`,
-      width: "20rem",
+      width: "200px",
     },
 
     position: {
       above: {
-        bottom: "3.8rem",
+        bottom: "38px",
         left: "50%",
       },
       below: {
         left: "50%",
-        top: "3.8rem",
+        top: "38px",
       },
       left: {
-        right: "3.8rem",
+        right: "38px",
         top: "50%",
       },
       right: {
-        left: "3.8rem",
+        left: "38px",
         top: "50%",
       },
     },
@@ -52,16 +55,16 @@ const styles = {
 
         position: {
           above: {
-            transform: "translate(-50%, -1rem)",
+            transform: "translate(-50%, -10px)",
           },
           below: {
-            transform: "translate(-50%, 1rem)",
+            transform: "translate(-50%, 10px)",
           },
           left: {
-            transform: "translate(-1rem, -50%)",
+            transform: "translate(-10px, -50%)",
           },
           right: {
-            transform: "translate(1rem, -50%)",
+            transform: "translate(10px, -50%)",
           },
         },
       },
@@ -95,16 +98,17 @@ const styles = {
       backgroundColor: "transparent",
       color: settings.color.text,
       display: "block",
-      fontSize: "1.3rem",
-      paddingBottom: ".4rem",
-      paddingTop: ".6rem",
+      fontSize: "13px",
+      paddingBottom: "4px",
+      paddingTop: "6px",
       textAlign: "left",
+      textDecoration: "none",
       width: "100%",
     },
 
     label: {
-      paddingLeft: ".6rem",
-      verticalAlign: "-.2rem",
+      paddingLeft: "6px",
+      verticalAlign: "-2px",
     },
   },
 };

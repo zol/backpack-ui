@@ -1,5 +1,5 @@
 import React from "react";
-import radium, { Style } from "radium";
+import radium from "radium";
 import Tag from "../tag";
 
 /**
@@ -12,7 +12,7 @@ import Tag from "../tag";
  * ]} />
  */
 function TagList({ tags, rows }) {
-  const rowHeight = 44;
+  const rowHeight = 40;
 
   const styles = {
     container: {
@@ -21,12 +21,19 @@ function TagList({ tags, rows }) {
         overflow: "hidden",
       },
     },
+    tag: {
+      base: {
+        marginBottom: "8px",
+        marginRight: "8px",
+      },
+    },
   };
 
   const Tags = tags.map((tag, i) => (
     <Tag
       label={tag.label}
       slug={tag.slug}
+      style={styles.tag.base}
       selected={tag.selected}
       key={i}
     />
@@ -37,19 +44,10 @@ function TagList({ tags, rows }) {
       className="TagList"
       style={styles.container.base}
     >
-      <Style
-        scopeSelector=".TagList"
-        rules={{
-          ".Tag": {
-            marginBottom: "10px",
-            marginRight: "6px",
-          },
-        }}
-      />
-
       <Tag
         label="All"
         slug="/"
+        style={styles.tag.base}
         selected
       />
       {Tags}

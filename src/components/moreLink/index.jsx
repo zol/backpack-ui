@@ -27,7 +27,6 @@ const styles = {
 
   icon: {
     base: {
-      lineHeight: 1,
       marginLeft: ".5em",
       position: "relative",
       top: `${-2 / 13}em`,
@@ -50,6 +49,7 @@ const styles = {
  */
 function MoreLink({ href, size, children, onClick, caps, style }) {
   const Element = href ? "a" : "button";
+  const iconStyle = assign({}, styles.icon.base, size && styles.icon.size[size]);
 
   return (
     <Element
@@ -67,10 +67,7 @@ function MoreLink({ href, size, children, onClick, caps, style }) {
       <Icon.ChevronRight
         height="6px"
         width="6px"
-        style={[
-          styles.icon.base,
-          size && styles.icon.size[size],
-        ]}
+        style={iconStyle}
       />
     </Element>
   );
