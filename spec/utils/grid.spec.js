@@ -12,7 +12,7 @@ import {
 
 describe("container", () => {
   it("should output the grid's container width", () => {
-    expect(container()).to.equal("129rem");
+    expect(container()).to.equal("1290px");
   });
 });
 
@@ -26,7 +26,7 @@ describe("gutter", () => {
   });
 
   it("should output a static gutter width", () => {
-    expect(gutter("static")).to.equal("3rem");
+    expect(gutter("static")).to.equal("30px");
   });
 
   it("should output a fluid gutter width based on a 4 column grid", () => {
@@ -34,7 +34,7 @@ describe("gutter", () => {
   });
 
   it("should output a static gutter width based on a 6 column grid", () => {
-    expect(gutter("static", 6)).to.equal("3rem");
+    expect(gutter("static", 6)).to.equal("30px");
   });
 
   it("should output a fluid gutter width multiplied by 4 based on a 12 column grid", () => {
@@ -42,7 +42,7 @@ describe("gutter", () => {
   });
 
   it("should output a static gutter width multiplied by 4 based on a 12 column grid", () => {
-    expect(gutter("static", "12", 4)).to.equal("12rem");
+    expect(gutter("static", "12", 4)).to.equal("120px");
   });
 });
 
@@ -56,7 +56,7 @@ describe("span", () => {
   });
 
   it("should output a static width that spans 2 columns of a 12 column grid", () => {
-    expect(span("2", "static")).to.equal("19rem");
+    expect(span("2", "static")).to.equal("190px");
   });
 
   it("should output a fluid width that spans 2 columns of a 6 column grid", () => {
@@ -70,7 +70,7 @@ describe("add", () => {
   });
 
   it("should add three static values and output the sum", () => {
-    expect(add(["30rem", "25rem", "19rem"], "static")).to.equal("74rem");
+    expect(add(["300px", "250px", "190px"], "static")).to.equal("740px");
   });
 });
 
@@ -80,7 +80,7 @@ describe("subtract", () => {
   });
 
   it("should subtract three static values and output the difference", () => {
-    expect(subtract(["30rem", "25rem", "19rem"], "static")).to.equal("-14rem");
+    expect(subtract(["300px", "250px", "190px"], "static")).to.equal("-140px");
   });
 });
 
@@ -90,7 +90,7 @@ describe("multiply", () => {
   });
 
   it("should multiply three static values and output the product", () => {
-    expect(multiply(["30rem", "25rem", "19rem"], "static")).to.equal("14250rem");
+    expect(multiply(["300px", "250px", "190px"], "static")).to.equal("14250000px");
   });
 });
 
@@ -100,13 +100,13 @@ describe("divide", () => {
   });
 
   it("should divide three static values and output the quotient", () => {
-    expect(divide(["30rem", "25rem", "19rem"], "static")).to.equal("0.06315789473684211rem");
+    expect(divide(["300px", "250px", "190px"], "static")).to.equal("0.00631578947368421px");
   });
 });
 
 describe("percentage", () => {
   it("should output a percentage value using rem input", () => {
-    expect(percentage("12rem", "120rem")).to.equal("10%");
+    expect(percentage("120px", "1200px")).to.equal("10%");
   });
 
   it("should output a percentage value using px input", () => {

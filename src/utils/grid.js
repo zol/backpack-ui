@@ -8,7 +8,7 @@ const settings = {
   gutters: (3 / 8),
   math: "fluid",
   output: "float",
-  staticUnit: "rem",
+  staticUnit: "px",
   remBase: 10,
 };
 
