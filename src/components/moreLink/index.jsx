@@ -47,7 +47,7 @@ const styles = {
  * @usage
  * <MoreLink href="/foo">View all tours</MoreLink>
  */
-function MoreLink({ href, size, children, onClick, caps, style }) {
+function MoreLink({ href, size, children, onClick, caps, hideIcon, style }) {
   const Element = href ? "a" : "button";
   const iconStyle = assign({}, styles.icon.base, size && styles.icon.size[size]);
 
@@ -64,11 +64,13 @@ function MoreLink({ href, size, children, onClick, caps, style }) {
       onClick={onClick}
     >
       {children}
-      <Icon.ChevronRight
-        height="6px"
-        width="6px"
-        style={iconStyle}
-      />
+      {!hideIcon &&
+        <Icon.ChevronRight
+          height="6px"
+          width="6px"
+          style={iconStyle}
+        />
+      }
     </Element>
   );
 }
@@ -103,6 +105,11 @@ MoreLink.propTypes = {
   caps: React.PropTypes.bool,
 
   /**
+   * If the arrow icon should be hidden
+   */
+  hideIcon: React.PropTypes.bool,
+
+  /**
    * Object to add override or positioning styles
    */
   style: React.PropTypes.objectOf(
@@ -119,6 +126,8 @@ MoreLink.defaultProps = {
   onClick: null,
 
   caps: false,
+
+  hideIcon: false,
 
   style: {},
 };
