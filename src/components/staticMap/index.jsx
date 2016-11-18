@@ -25,7 +25,7 @@ const styles = {
       height: "auto",
       maxHeight: `${90 / 10}em`,
       maxWidth: `${278 / 10}em`,
-      width: percentage("27.8rem", `${span(3, "static")}`),
+      width: percentage("278px", `${span(3, "static")}`),
     },
   },
 

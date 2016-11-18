@@ -50,17 +50,17 @@
   },
   "components": {
     "header": {
-      "height": "13rem",
-      "heightMobile": "5rem"
+      "height": "130px",
+      "heightMobile": "50px"
     }
   },
   "default": {
-    "minWidth": "32rem",
-    "maxWidth": "129rem",
-    "spacing": "1.5rem",
-    "gutter": "3rem",
-    "radius": ".2rem",
-    "baseSize": "1.8em"
+    "minWidth": "320px",
+    "maxWidth": "1290px",
+    "spacing": "15px",
+    "gutter": "30px",
+    "radius": "2px",
+    "baseSize": "18px"
   },
   "font": {
     "family": {
@@ -94,17 +94,17 @@
   },
   "grid": {
     "columns": 12,
-    "columnWidth": "8rem",
-    "container": "129rem",
+    "columnWidth": "80px",
+    "container": "1290px",
     "gutterPosition": "before",
     "gutters": "3 / 8",
     "math": "fluid",
     "output": "float"
   },
   "layout": {
-    "gutter": "3rem",
-    "borderRadius": ".4rem",
-    "avatarSize": "4rem"
+    "gutter": "30px",
+    "borderRadius": ".4px",
+    "avatarSize": "40px"
   },
   "media": {
     "min": {
@@ -146,7 +146,7 @@
     }
   },
   "spacing": {
-    "mobile": "2rem"
+    "mobile": "20px"
   },
   "timing": {
     "fast": "200ms",
@@ -154,7 +154,7 @@
     "slow": "800ms"
   },
   "typography": {
-    "fontSize": "1.8rem",
+    "fontSize": "18px",
     "fontWeightLight": 300,
     "fontWeightMedium": 500,
     "fontWeightSemibold": 600,
