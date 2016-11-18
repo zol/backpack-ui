@@ -29,7 +29,7 @@
     "react": "^15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
     "react-date-range": "^0.2.4",
-    "react-dates": "^3.0.0",
+    "react-dates": "^4.0.2",
     "react-dom": "^15.3.2",
     "react-imageloader": "^2.1.0",
     "react-modal": "^1.5.2",
