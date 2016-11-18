@@ -15,6 +15,8 @@ function Input({
   size,
   theme,
   fill,
+  customStyles,
+  onChange,
 }) {
   const style = [styles.base];
 
@@ -34,6 +36,10 @@ function Input({
     style.push(styles.fill);
   }
 
+  if (customStyles) {
+    style.push(customStyles);
+  }
+
   const props = {
     style,
     type,
@@ -51,7 +57,7 @@ function Input({
   }
 
   return (
-    <input {...props} aria-label={label} title={label} />
+    <input {...props} aria-label={label} title={label} onChange={onChange} />
   );
 }
 
@@ -106,6 +112,13 @@ Input.propTypes = {
    * Fills the width of the parent
    */
   fill: React.PropTypes.bool,
+
+  customStyles: React.PropTypes.objectOf(
+    React.PropTypes.string,
+    React.PropTypes.number,
+  ),
+
+  onChange: React.PropTypes.func,
 };
 
 Input.defaultProps = {
@@ -132,6 +145,10 @@ Input.defaultProps = {
   theme: "base",
 
   fill: false,
+
+  customStyles: null,
+
+  onChange: null,
 };
 
 Input.styles = styles;
