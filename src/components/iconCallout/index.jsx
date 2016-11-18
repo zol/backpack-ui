@@ -4,6 +4,7 @@ import font from "../../utils/font";
 import { add, span, gutter } from "../../utils/grid";
 import Icon from "../icon";
 import Heading from "../heading";
+import MoreLink from "../moreLink";
 
 const containerMaxWidth = add([span(2, "static"), gutter("static")], "static");
 
@@ -31,8 +32,8 @@ const styles = {
   },
 
   heading: {
-    fontSize: "18px",
-    marginTop: "35px",
+    fontSize: "20px",
+    marginTop: "33px",
     transition: `color ${timing.default} ease-in-out`,
   },
 
@@ -40,17 +41,14 @@ const styles = {
     color: color.lightText,
     fontSize: "16px",
     lineHeight: (24 / 16),
-    marginBottom: "26px",
+    marginBottom: "23px",
     marginLeft: "auto",
     marginRight: "auto",
-    marginTop: "13px",
+    marginTop: "11px",
   },
 
   link: {
-    color: color.blue,
-    fontSize: "11px",
     marginTop: "auto",
-    textTransform: "uppercase",
   },
 };
 
@@ -58,6 +56,7 @@ function IconCallout({ iconName, title, copy, link }) {
   const IconElement = React.createElement(Icon[iconName], {
     style: styles.icon,
     ariaHidden: true,
+    className: "IconCallout-icon",
   });
 
   return (
@@ -65,7 +64,7 @@ function IconCallout({ iconName, title, copy, link }) {
       <a href={link.href} style={styles.anchor}>
         {IconElement}
 
-        <Heading level={3} override={styles.heading}>
+        <Heading level={3} weight="thick" override={styles.heading}>
           {title}
         </Heading>
 
@@ -74,9 +73,9 @@ function IconCallout({ iconName, title, copy, link }) {
         </p>
 
         {link.label &&
-          <span style={styles.link}>
+          <MoreLink size="small" style={styles.link} caps isNested>
             {link.label}
-          </span>
+          </MoreLink>
         }
       </a>
     </div>

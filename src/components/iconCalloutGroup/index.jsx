@@ -24,7 +24,7 @@ const scopedStyles = {
   // Ideally, the anchor styles would exist within IconCallout, but we don't
   // want to repeat the <Style> block for each IconCallout
 
-  "a:hover .Icon": {
+  "a:hover .IconCallout-icon": {
     transform: "translateY(-5px)",
   },
 
