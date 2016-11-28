@@ -7,7 +7,7 @@ import { media } from "../../../settings.json";
 const containerWidth = 1290;
 const gutterWidth = 30;
 const maxWidth = (containerWidth + (gutterWidth * 4));
-const mediaQuery = `${(maxWidth * 0.625)}em`;
+const mediaQuery = `${(maxWidth * 0.0625)}em`;
 
 const Container = styled.div`
   box-sizing: border-box;
