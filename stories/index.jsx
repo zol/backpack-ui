@@ -411,10 +411,43 @@ storiesOf("Map marker", module)
   ));
 
 storiesOf("More link", module)
-  .add("Default", () => (
+  .add("Anchor", () => (
     <MoreLink
       href="/"
       children="View all tours"
+    />
+  ))
+  .add("Button", () => (
+    <MoreLink
+      onClick={action("MoreLink clicked")}
+      children="View all tours"
+    />
+  ))
+  .add("Span", () => (
+    <MoreLink
+      isNested
+      children="View all tours"
+    />
+  ))
+  .add("Small", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      size="small"
+    />
+  ))
+  .add("Caps", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      caps
+    />
+  ))
+  .add("Hide icon", () => (
+    <MoreLink
+      href="/"
+      children="View all tours"
+      hideIcon
     />
   ));
 

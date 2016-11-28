@@ -3,14 +3,18 @@ import radium from "radium";
 import assign from "object-assign";
 import Icon from "../icon";
 import { blueLink } from "../../utils/mixins";
+import font from "../../utils/font";
 
 const styles = {
   container: {
     base: assign({}, blueLink(), {
       backgroundColor: "transparent",
+      border: 0,
+      fontFamily: font("benton"),
       fontSize: "13px",
       fontWeight: 400,
       lineHeight: 1,
+      padding: 0,
     }),
 
     caps: {
@@ -47,8 +51,17 @@ const styles = {
  * @usage
  * <MoreLink href="/foo">View all tours</MoreLink>
  */
-function MoreLink({ href, size, children, onClick, caps, hideIcon, style }) {
-  const Element = href ? "a" : "button";
+function MoreLink({ href, size, children, onClick, caps, hideIcon, isNested, style }) {
+  let Element = "";
+
+  if (isNested) {
+    Element = "span";
+  } else if (href) {
+    Element = "a";
+  } else {
+    Element = "button";
+  }
+
   const iconStyle = assign({}, styles.icon.base, size && styles.icon.size[size]);
 
   return (
@@ -84,7 +97,7 @@ MoreLink.propTypes = {
   /**
    * Where the link should point to
    */
-  href: React.PropTypes.string.isRequired,
+  href: React.PropTypes.string,
 
   /**
    * Adjusts the font size
@@ -95,8 +108,8 @@ MoreLink.propTypes = {
   ]),
 
   /**
-  * Fires onclick function
-  */
+   * Fires onclick function
+   */
   onClick: React.PropTypes.func,
 
   /**
@@ -110,6 +123,11 @@ MoreLink.propTypes = {
   hideIcon: React.PropTypes.bool,
 
   /**
+   * If the link is nested within another link; makes the container a `span`
+   */
+  isNested: React.PropTypes.bool,
+
+  /**
    * Object to add override or positioning styles
    */
   style: React.PropTypes.objectOf(
@@ -119,7 +137,7 @@ MoreLink.propTypes = {
 };
 
 MoreLink.defaultProps = {
-  href: "",
+  href: null,
 
   size: "",
 
@@ -128,6 +146,8 @@ MoreLink.defaultProps = {
   caps: false,
 
   hideIcon: false,
+
+  isNested: false,
 
   style: {},
 };
