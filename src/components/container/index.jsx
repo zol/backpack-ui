@@ -14,6 +14,7 @@ const Container = styled.div`
   max-width: ${containerWidth}px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 
   &:after {
     content: " ";
