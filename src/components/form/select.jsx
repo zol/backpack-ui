@@ -13,6 +13,7 @@ function Select({
   theme,
   noBorder,
   style,
+  onChange,
 }) {
   const componentStyles = [styles.base, style];
 
@@ -41,6 +42,7 @@ function Select({
       required={required}
       aria-label={label}
       title={label}
+      onChange={onChange}
     >
       {options.map((value, index) => (
         <option
@@ -91,6 +93,11 @@ Select.propTypes = {
     React.PropTypes.string,
     React.PropTypes.number,
   ),
+
+  /**
+   * onChange function for the select element
+   */
+  onChange: React.PropTypes.func,
 };
 
 Select.defaultProps = {
