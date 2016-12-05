@@ -1,6 +1,6 @@
 import React from "react";
 import radium, { Style } from "radium";
-import { color, grid } from "../../../settings.json";
+import { color, grid, media } from "../../../settings.json";
 import { add, span, gutter } from "../../utils/grid";
 import IconCallout from "../iconCallout";
 
@@ -12,23 +12,82 @@ const styles = {
     display: "flex",
     justifyContent: "center",
     maxWidth: grid.container,
-    paddingLeft: containerPadding,
-    paddingRight: containerPadding,
+
+    [`@media (max-width: ${media.max["960"]})`]: {
+      flexWrap: "wrap",
+    },
+
+    [`@media (min-width: ${media.min["1200"]})`]: {
+      paddingLeft: containerPadding,
+      paddingRight: containerPadding,
+    },
   },
 };
 
 const scopedStyles = {
-  marginLeft: `calc(${gutter("static")} / 2)`,
-  marginRight: `calc(${gutter("static")} / 2)`,
+  mediaQueries: {
+    [`(max-width: ${media.max["480"]})`]: {
+      ".IconCallout-icon": {
+        fontSize: "48px !important",
+      },
+
+      ".Heading": {
+        fontSize: "12px !important",
+        marginTop: "13px !important",
+      },
+
+      ".IconCallout-copy": {
+        display: "none",
+      },
+
+      ".MoreLink": {
+        display: "none",
+      },
+    },
+
+    [`(min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
+      ".IconCallout-icon": {
+        fontSize: "80px !important",
+      },
+    },
+
+    [`(min-width: ${media.min["480"]}) and (max-width: ${media.max["960"]})`]: {
+      ".IconCallout a": {
+        width: "80%",
+      },
+    },
+
+    [`(max-width: ${media.max["960"]})`]: {
+      ".IconCallout": {
+        flex: "1 1 calc(100% / 2)",
+        maxWidth: "none !important",
+      },
+
+      ".IconCallout:last-child": {
+        marginTop: "82px",
+      },
+
+      ".IconCallout:nth-last-child(2)": {
+        marginTop: "82px",
+      },
+    },
+
+    [`(min-width: ${media.min["960"]})`]: {
+      ".IconCallout": {
+        marginLeft: `calc(${gutter("static")} / 2)`,
+        marginRight: `calc(${gutter("static")} / 2)`,
+      },
+    },
+  },
 
   // Ideally, the anchor styles would exist within IconCallout, but we don't
   // want to repeat the <Style> block for each IconCallout
 
-  "a:hover .IconCallout-icon": {
+  ".IconCallout a:hover .IconCallout-icon": {
     transform: "translateY(-5px)",
   },
 
-  "a:hover .Heading": {
+  ".IconCallout a:hover .Heading": {
     color: `${color.blue} !important`,
   },
 };
@@ -37,7 +96,7 @@ function IconCalloutGroup({ children }) {
   return (
     <div className="IconCalloutGroup" style={styles.container}>
       <Style
-        scopeSelector=".IconCallout"
+        scopeSelector=".IconCalloutGroup"
         rules={scopedStyles}
       />
 
