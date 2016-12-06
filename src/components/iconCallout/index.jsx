@@ -64,16 +64,28 @@ function IconCallout({ iconName, title, copy, link }) {
       <a href={link.href} style={styles.anchor}>
         {IconElement}
 
-        <Heading level={3} weight="thick" override={styles.heading}>
+        <Heading
+          level={3}
+          weight="thick"
+          override={styles.heading}
+        >
           {title}
         </Heading>
 
-        <p style={styles.copy}>
+        <p
+          className="IconCallout-copy"
+          style={styles.copy}
+        >
           {copy}
         </p>
 
         {link.label &&
-          <MoreLink size="small" style={styles.link} caps isNested>
+          <MoreLink
+            size="small"
+            style={styles.link}
+            caps
+            isNested
+          >
             {link.label}
           </MoreLink>
         }
