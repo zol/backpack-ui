@@ -4,7 +4,6 @@ import font from "../../utils/font";
 import { add, span, gutter } from "../../utils/grid";
 import Icon from "../icon";
 import Heading from "../heading";
-import MoreLink from "../moreLink";
 
 const containerMaxWidth = add([span(2, "static"), gutter("static")], "static");
 
@@ -19,9 +18,7 @@ const styles = {
   },
 
   anchor: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
+    display: "block",
     textDecoration: "none",
   },
 
@@ -45,10 +42,6 @@ const styles = {
     marginLeft: "auto",
     marginRight: "auto",
     marginTop: "11px",
-  },
-
-  link: {
-    marginTop: "auto",
   },
 };
 
@@ -78,17 +71,6 @@ function IconCallout({ iconName, title, copy, link }) {
         >
           {copy}
         </p>
-
-        {link.label &&
-          <MoreLink
-            size="small"
-            style={styles.link}
-            caps
-            isNested
-          >
-            {link.label}
-          </MoreLink>
-        }
       </a>
     </div>
   );
@@ -99,7 +81,6 @@ IconCallout.propTypes = {
   title: PropTypes.string.isRequired,
   copy: PropTypes.string.isRequired,
   link: PropTypes.shape({
-    label: PropTypes.string,
     href: PropTypes.string,
   }).isRequired,
 };
