@@ -1,5 +1,22 @@
 # Change log
 
+## v1.1.0
+- [new] Add a group of new components ([#49](https://github.com/lonelyplanet/backpack-ui/pull/49))
+  - CalloutLink
+  - CategoryLabel
+  - FeaturedArticle
+  - FeaturedCallout
+  - FeaturedSectionHeading
+  - GradientOverlay
+  - HeroImageContainer
+  - HideAtBreakpoint
+  - ListItemNews
+  - ListItemThumbnail
+  - PromotedGuidebook
+  - SectionalNav
+- [new] Install react-scroll and react-stickynode dependencies for SectionalNav component ([#49](https://github.com/lonelyplanet/backpack-ui/pull/49))
+- [new] Add new color "crusta", hex `#ff882e` ([#49](https://github.com/lonelyplanet/backpack-ui/pull/49))
+
 ## v1.0.6
 - [fix] Rename `link` prop to `url` and make it a string in IconCallout component ([#48](https://github.com/lonelyplanet/backpack-ui/pull/48))
 
