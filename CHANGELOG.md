@@ -1,5 +1,11 @@
 # Change log
 
+## v1.1.1
+- [new] Add CONTRIBUTING.md ([#52](https://github.com/lonelyplanet/backpack-ui/pull/52))
+- [update] Update README.md; change "usage" section to reflect recommended method to import components, change heading hierarchy ([#52](https://github.com/lonelyplanet/backpack-ui/pull/52), [#51](https://github.com/lonelyplanet/backpack-ui/pull/51))
+- [update] Add missing imports to src/index.js so components can be imported like `import { Button } from backpack-ui;`, despite this not being the recommended method of importing components ([#51](https://github.com/lonelyplanet/backpack-ui/pull/51))
+- [new] Add Newsletter component ([#50](https://github.com/lonelyplanet/backpack-ui/pull/50))
+
 ## v1.1.0
 - [new] Add a group of new components ([#49](https://github.com/lonelyplanet/backpack-ui/pull/49))
   - CalloutLink
