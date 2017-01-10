@@ -1,5 +1,8 @@
 # Change log
 
+## v1.1.2
+- [new] Add ListContainer, NewsList components ([#53](https://github.com/lonelyplanet/backpack-ui/pull/53))
+
 ## v1.1.1
 - [new] Add CONTRIBUTING.md ([#52](https://github.com/lonelyplanet/backpack-ui/pull/52))
 - [update] Update README.md; change "usage" section to reflect recommended method to import components, change heading hierarchy ([#52](https://github.com/lonelyplanet/backpack-ui/pull/52), [#51](https://github.com/lonelyplanet/backpack-ui/pull/51))
