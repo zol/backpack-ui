@@ -1,5 +1,8 @@
 # Change log
 
+## v1.1.4
+- [fix] Fix font color for CategoryLabel and CalloutLink components in FeaturedCallout ([#55](https://github.com/lonelyplanet/backpack-ui/pull/55))
+
 ## v1.1.3
 - [update] Update CategoryLabel component; simplify component, use `children` prop ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
 - [new] Create SponsorLabel and CategoryLabelLink components; based off of CategoryLabel ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
