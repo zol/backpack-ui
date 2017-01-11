@@ -1,5 +1,13 @@
 # Change log
 
+## v1.1.3
+- [update] Update CategoryLabel component; simplify component, use `children` prop ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+- [new] Create SponsorLabel and CategoryLabelLink components; based off of CategoryLabel ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+- [update] Update CalloutLink component; use `children` prop ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+- [update] Update CategoryLabel and CalloutLink components in FeaturedCallout to use `children` prop ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+- [new] Create ArticlePreview component ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+- [new] Create RecommendedArticles component ([#54](https://github.com/lonelyplanet/backpack-ui/pull/54))
+
 ## v1.1.2
 - [new] Add ListContainer, NewsList components ([#53](https://github.com/lonelyplanet/backpack-ui/pull/53))
 
