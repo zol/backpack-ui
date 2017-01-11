@@ -5,12 +5,16 @@ import { storiesOf, action } from "@kadira/storybook";
 import data from "./data.json";
 import Colors from "./Colors";
 import Amenities from "../src/components/amenities";
+import ArticlePreview from "../src/components/articlePreview";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
+import CalloutLink from "../src/components/calloutLink";
+import CategoryLabel from "../src/components/categoryLabel";
+import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/form/checkbox";
 // ContactBar
 // ContentBlock
@@ -62,6 +66,7 @@ import Profile from "../src/components/profile";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
+import RecommendedArticles from "../src/components/recommendedArticles";
 import RelatedTour from "../src/components/relatedTour";
 import ReviewedBadge from "../src/components/reviewedBadge";
 import SectionalNav from "../src/components/sectionalNav";
@@ -69,6 +74,7 @@ import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 // SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
+import SponsorLabel from "../src/components/sponsorLabel";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import Tag from "../src/components/tag";
@@ -101,6 +107,20 @@ storiesOf("Amenities", module)
       columns={3}
       listType="grouped"
       items={data.amenities.groupedList}
+    />
+  ));
+
+storiesOf("Article preview", module)
+  .add("Default", () => (
+    <ArticlePreview
+      title="New York’s most iconic buildings reimagined on deserted streets"
+      paragraph={`A new exhibition in New York of the city’s most iconic
+        buildings shows them in a new light, with the bustle of modern life
+        stripped out. Photographer`}
+      image="http://placehold.it/410x230"
+      href="/"
+      category="Art and culture"
+      categoryHref="/"
     />
   ));
 
@@ -191,6 +211,30 @@ storiesOf("Callout", module)
         category="Food and drink"
       />
     </StyleRoot>
+  ));
+
+storiesOf("Callout link", module)
+  .add("Default", () => (
+    <CalloutLink href="/">
+      More recommendations
+    </CalloutLink>
+  ))
+  .add("Overlay", () => (
+    <div style={{ backgroundColor: "#000", padding: "20px" }}>
+      <CalloutLink href="/" overlay>
+        More recommendations
+      </CalloutLink>
+    </div>
+  ));
+
+storiesOf("Category label", module)
+  .add("Default", () => (
+    <CategoryLabel>Art and culture</CategoryLabel>
+  ));
+
+storiesOf("Category label link", module)
+  .add("Default", () => (
+    <CategoryLabelLink href="/">Art and culture</CategoryLabelLink>
   ));
 
 storiesOf("Checkbox", module)
@@ -778,6 +822,35 @@ storiesOf("Paginator button", module)
     />
   ));
 
+storiesOf("Recommended articles", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <RecommendedArticles>
+        <ArticlePreview
+          title="New York’s most iconic buildings reimagined on deserted streets"
+          paragraph={`A new exhibition in New York of the city’s most iconic
+            buildings shows them in a new light, with the bustle of modern life
+            stripped out. Photographer`}
+          image="http://placehold.it/410x230"
+          href="/"
+          category="Art and culture"
+          categoryHref="/"
+        />
+
+        <ArticlePreview
+          title="Pull up a seat for David Attenborough’s Planet Earth II"
+          paragraph={`Ten years after the BBC series, Planet Earth, captivated a
+            global audience of over half a billion people, Planet Earth II is
+            coming to our TV screens, narrated once`}
+          image="http://placehold.it/410x230"
+          href="/"
+          category="Wildlife and nature"
+          categoryHref="/"
+        />
+      </RecommendedArticles>
+    </StyleRoot>
+  ));
+
 storiesOf("Related tour", module)
   .add("Default", () => (
     <RelatedTour
@@ -850,6 +923,11 @@ storiesOf("Share menu", module)
       url="http://www.lonelyplanet.com/"
       mobile={false}
     />
+  ));
+
+storiesOf("Sponsor label", module)
+  .add("Default", () => (
+    <SponsorLabel>Sponsored</SponsorLabel>
   ));
 
 storiesOf("Static map", module)
