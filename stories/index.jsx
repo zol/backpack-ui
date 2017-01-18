@@ -17,6 +17,8 @@ import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
+import RegionNav from "../src/components/regionNav";
+
 import Checkbox from "../src/components/form/checkbox";
 import Container from "../src/components/container";
 // ContactBar
@@ -272,6 +274,7 @@ storiesOf("Category label link", module)
   .add("Default", () => (
     <CategoryLabelLink href="/">Art and culture</CategoryLabelLink>
   ));
+
 
 storiesOf("Checkbox", module)
   .add("Default", () => (
@@ -620,6 +623,7 @@ storiesOf("List item (news)", module)
         categoryLink="/"
         link="/"
         thumbnail="http://placehold.it/110x110"
+        size="medium"
       />
     </StyleRoot>
   ))
@@ -776,6 +780,7 @@ storiesOf("News list", module)
           known as Yoopers). Americans`,
         link: "/path/to/full/article",
         thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+        size:"small",
       }, {
         title: `Watch this adorable Kangaroo invade a family's campervan and
           then return with her friends`,
@@ -786,6 +791,8 @@ storiesOf("News list", module)
           known as Yoopers). Americans`,
         link: "/path/to/full/article",
         thumbnail: "https://lonelyplanetwp.imgix.net/2016/08/Hubud-657aa84af2b1.jpg?w=110&h=110&fit=crop&q=50&auto=enhance&crop=entropy",
+        size:"small",
+
       }]}
     />
   </StyleRoot>
@@ -1038,6 +1045,24 @@ storiesOf("Reviewed badge", module)
   .add("Default", () => (
     <ReviewedBadge />
   ));
+
+storiesOf("Region Nav", module)
+  .add("Default", () => (
+    <StyleRoot>
+      <RegionNav
+        items={[
+          { label: "Latest", slug: "/all", active: true },
+          { label: "Europe", slug: "/europe" },
+          { label: "Asia", slug: "/asia-the-pacific" },
+          { label: "Australia & the Pacific", slug: "/europe" },
+          { label: "The America's", slug: "/the-americas" },
+          { label: "Middle East & Africa", slug: "/middle-east-africa" },
+          { label: "World", slug: "/world" },
+        ]}
+      />
+    </StyleRoot>
+  ));
+
 
 storiesOf("Sectional nav", module)
   .add("Default", () => (

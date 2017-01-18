@@ -20,6 +20,7 @@ NewsList.propTypes = {
     PropTypes.shape(ListItemNews.propTypes)
   ).isRequired,
   adSlot: PropTypes.element,
+
 };
 
 NewsList.defaultProps = {
