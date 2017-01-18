@@ -1,5 +1,19 @@
 # Change log
 
+## v1.2.0
+- [update] Update FeaturedCallout ([#58](https://github.com/lonelyplanet/backpack-ui/pull/58))
+  - Move `position: relative` onto styles.container; previously this rule was being passed in via the `style` prop
+  - Update heading spacing styles
+  - Remove `width` prop
+- [update] Add `constrained` prop and styles to FeaturedArticle to constrain width and height ([#58](https://github.com/lonelyplanet/backpack-ui/pull/58))
+- [new] Add GridRow and GridColumn components ([#57](https://github.com/lonelyplanet/backpack-ui/pull/57))
+- [new] Create new components using styled-components for Travel News app ([#56](https://github.com/lonelyplanet/backpack-ui/pull/56))
+  - AuthorName
+  - ItalicText
+  - Author
+  - Timestamp
+  - NewsArticleAuthor
+
 ## v1.1.4
 - [fix] Fix font color for CategoryLabel and CalloutLink components in FeaturedCallout ([#55](https://github.com/lonelyplanet/backpack-ui/pull/55))
 
