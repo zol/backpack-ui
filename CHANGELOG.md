@@ -1,5 +1,8 @@
 # Change log
 
+## v1.2.1
+- [update] Update Newsletter styles ([#59](https://github.com/lonelyplanet/backpack-ui/pull/59))
+
 ## v1.2.0
 - [update] Update FeaturedCallout ([#58](https://github.com/lonelyplanet/backpack-ui/pull/58))
   - Move `position: relative` onto styles.container; previously this rule was being passed in via the `style` prop
