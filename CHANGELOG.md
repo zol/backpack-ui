@@ -1,5 +1,9 @@
 # Change log
 
+## v1.2.3
+
+- [new] Add mouse-outline icon ([#64](https://github.com/lonelyplanet/backpack-ui/pull/64))
+
 ## v1.2.2
 
 - [new] Add TravelAlert component ([#63](https://github.com/lonelyplanet/backpack-ui/pull/63))
