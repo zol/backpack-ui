@@ -1,5 +1,14 @@
 # Change log
 
+## v1.2.2
+
+- [new] Add TravelAlert component ([#63](https://github.com/lonelyplanet/backpack-ui/pull/63))
+- [new] Add Logo component ([#63](https://github.com/lonelyplanet/backpack-ui/pull/63))
+- [new] Add logo icon ([#63](https://github.com/lonelyplanet/backpack-ui/pull/63))
+- [new] Add mouse icon ([#62](https://github.com/lonelyplanet/backpack-ui/pull/62))
+- [new] Add MIT license ([#61](https://github.com/lonelyplanet/backpack-ui/pull/61))
+- [fix] Add prepublish script to run build script; fixes a bug where `dist` folder wouldn't be updated with new components ([#60](https://github.com/lonelyplanet/backpack-ui/pull/60))
+
 ## v1.2.1
 - [update] Update Newsletter styles ([#59](https://github.com/lonelyplanet/backpack-ui/pull/59))
 
