@@ -37,8 +37,10 @@
     "alertDefault": "#3b444f",
 
     "facebook": "#3b5998",
-    "twitter": "#00aced",
+    "facebookMessenger": "#1472fb",
     "pinterest": "#cb2027",
+    "reddit": "#f9232a",
+    "twitter": "#00aced",
 
     "poiEat": "#00ca8b",
     "poiDrink": "#88bde7",
