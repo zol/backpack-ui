@@ -1,7 +1,19 @@
 # Change log
 
-## v1.2.3
+## v1.3.0
+- [new] Install storybook-addon-knobs, update storybook ([#68](https://github.com/lonelyplanet/backpack-ui/pull/68))
+- [update] Change default `tracking` value from an empty string to “normal” to be
+consistent with other props in Heading component ([#68](https://github.com/lonelyplanet/backpack-ui/pull/68))
+- [new] Create SocialShareContainer component which is responsible for containing data and events for social sharing components ShareMenu and SocialShare ([#67](https://github.com/lonelyplanet/backpack-ui/pull/67))
+- [new] Create SocialIconButton component; used in SocialShare component ([#67](https://github.com/lonelyplanet/backpack-ui/pull/67))
+- [new] Create SocialShare component ([#67](https://github.com/lonelyplanet/backpack-ui/pull/67))
+- [update] Update ShareMenu component and move logic for social links and pop-up windows out; use SocialShareContainer ([#67](https://github.com/lonelyplanet/backpack-ui/pull/67))
+- [new] Add colors to setting for Facebook Messenger and Reddit social networks ([#67](https://github.com/lonelyplanet/backpack-ui/pull/67))
+- [update] Add `size` prop to ListItemNews component with small and medium sizes ([#66](https://github.com/lonelyplanet/backpack-ui/pull/66))
+- [new] Add Facebook Messenger and Reddit icons ([#65](https://github.com/lonelyplanet/backpack-ui/pull/65))
+- [update] Reduce stroke width on MouseOutline icon ([#65](https://github.com/lonelyplanet/backpack-ui/pull/65))
 
+## v1.2.3
 - [new] Add mouse-outline icon ([#64](https://github.com/lonelyplanet/backpack-ui/pull/64))
 
 ## v1.2.2
