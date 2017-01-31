@@ -1,12 +1,13 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
 
-import { color, typography } from "../../../settings.json";
-import { iconFromString } from "../../utils/icon";
+import { color, timing, typography } from "../../../settings.json";
+import iconFromString from "../../utils/icon";
 
 import BulletDescription from "../bulletDescription";
 import TextBubble from "../textBubble";
 import Heading from "../heading";
+import Icon from "../icon";
 
 const styles = {
   container: {
@@ -51,8 +52,13 @@ const styles = {
     marginRight: 5,
   },
   descriptionIcon: {
-    cursor: "pointer",
+    backgroundColor: "transparent",
+    border: 0,
     color: color.detailHeaderSmall,
+    cursor: "pointer",
+    fontSize: "16px",
+    padding: 0,
+    transition: `color ${timing.default} ease-in-out`,
     ":hover": {
       color: color.blue,
     },
@@ -78,6 +84,7 @@ const ThumbnailListItem = ({
   imagePath,
   description,
   descriptionIcon,
+  descriptionIconLabel,
   onDescriptionIconClick,
   textBubble,
   theme,
@@ -101,26 +108,27 @@ const ThumbnailListItem = ({
           {title}
         </Heading>
       </div>
-      {descriptionIcon &&
-        <div
+      {descriptionIcon && onDescriptionIconClick &&
+        <button
           style={[styles.descriptionIcon, theme && styles[theme].descriptionIcon]}
           onClick={onDescriptionIconClick}
         >
-          {iconFromString(descriptionIcon)}
-        </div>
+          {iconFromString(descriptionIcon, { label: descriptionIconLabel })}
+        </button>
       }
     </div>
   </div>
 );
 
 ThumbnailListItem.propTypes = {
-  title: React.PropTypes.string,
-  imagePath: React.PropTypes.string,
-  textBubble: React.PropTypes.string,
-  description: React.PropTypes.arrayOf(React.PropTypes.string),
-  descriptionIcon: React.PropTypes.string,
-  onDescriptionIconClick: React.PropTypes.func,
-  theme: React.PropTypes.string,
+  title: PropTypes.string,
+  imagePath: PropTypes.string,
+  textBubble: PropTypes.string,
+  description: PropTypes.arrayOf(PropTypes.string),
+  descriptionIcon: PropTypes.oneOf(Object.keys(Icon)),
+  descriptionIconLabel: PropTypes.string,
+  onDescriptionIconClick: PropTypes.func,
+  theme: PropTypes.string,
 };
 
 export default radium(ThumbnailListItem);
