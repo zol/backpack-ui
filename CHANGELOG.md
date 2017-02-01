@@ -1,5 +1,23 @@
 # Change log
 
+## v2.0.0
+- [new] Create TabbedNav component ([#83](https://github.com/lonelyplanet/backpack-ui/pull/83))
+- [update] Update iconFromString utility and use it to replace `React.createElement(Icon)` ([#82](https://github.com/lonelyplanet/backpack-ui/pull/82), [#81](https://github.com/lonelyplanet/backpack-ui/pull/81))
+- [new] Add ScrollIndicator component ([#78](https://github.com/lonelyplanet/backpack-ui/pull/78))
+- [new] Add BulletDescription component ([#79](https://github.com/lonelyplanet/backpack-ui/pull/79))
+- [new] Add TextBubble component ([#79](https://github.com/lonelyplanet/backpack-ui/pull/79))
+- [new] Add ThumbnailListItem component ([#79](https://github.com/lonelyplanet/backpack-ui/pull/79))
+- [new] Add `light` prop and styles to CategoryLabel ([#76](https://github.com/lonelyplanet/backpack-ui/pull/76))
+- [new] Add clock outline icon ([#77](https://github.com/lonelyplanet/backpack-ui/pull/77))
+- [fix] Clean up Bookmark component ([#75](https://github.com/lonelyplanet/backpack-ui/pull/75))
+  - Fix rendering, styles
+  - Add `style` prop
+  - Remove `center`, `align` props; positioning can be passed in via `style` prop
+- [new] Create article pagination components ([#74](https://github.com/lonelyplanet/backpack-ui/pull/74))
+- [new] Add alternate arrow icons ([#74](https://github.com/lonelyplanet/backpack-ui/pull/74))
+- [breaking] Delete styled-components dependency and use Radium for all components moving forward. Currently, styled-components doesn't support server rendering, so it cannot be used. ([#73](https://github.com/lonelyplanet/backpack-ui/pull/73))
+- [update] Add knobs to Newsletter story ([#69](https://github.com/lonelyplanet/backpack-ui/pull/69))
+
 ## v1.3.0
 - [new] Install storybook-addon-knobs, update storybook ([#68](https://github.com/lonelyplanet/backpack-ui/pull/68))
 - [update] Change default `tracking` value from an empty string to “normal” to be
