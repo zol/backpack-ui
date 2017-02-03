@@ -34,6 +34,7 @@ import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
 import EditLink from "../src/components/editLink";
+import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
@@ -48,6 +49,7 @@ import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
+import Input from "../src/components/form/input";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -409,6 +411,22 @@ storiesOf("Expand button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ExpandButton label={text("Label", "Open")} />
+  ));
+
+
+storiesOf("Form", module)
+  .addDecorator(withKnobs)
+  .add("Input", () => (
+    <Input
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ))
+  .add("ErrorMessages", () => (
+    <ErrorMessages
+      messages={array("List of Errors", ["This field is required"])}
+    />
   ));
 
 storiesOf("Featured article", module)
