@@ -1,7 +1,18 @@
 # Change log
 
-## v3.0.0
+## v3.1.0
+- Create `rgba` utility to output string for CSS ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create Card components ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardPrice component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardVideo component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardBasic component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Update TextBubble ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CoverPhoto component (deprecates ImageHero) ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Add card prop, styles to Price component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Update Play icon ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Add className to BulletDescription ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
 
+## v3.0.0
 - [update] Remove "all" tag from TagList ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
 - [fix] Change `tags` propType validation in TagList to `arrayOf(shape)` to suppress warning ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
 - [new] Add `style` prop to TagList ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
