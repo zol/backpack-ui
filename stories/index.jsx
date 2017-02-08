@@ -12,6 +12,7 @@ import ArticlePaginationNav from "../src/components/articlePaginationNav";
 import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
+import Avatar from "../src/components/avatar";
 // Availability
 import Bookmark from "../src/components/bookmark";
 import Breadcrumbs from "../src/components/breadcrumbs";
@@ -20,18 +21,23 @@ import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
+import CardBasic from "../src/components/cardBasic";
+import CardVideo from "../src/components/cardVideo";
+import CardPrice from "../src/components/cardPrice";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
-import Checkbox from "../src/components/form/checkbox";
+import Checkbox from "../src/components/checkbox";
 import Container from "../src/components/container";
 // ContactBar
 // ContentBlock
 import ContentHeader from "../src/components/contentHeader";
 // ContentSectionList
 // Decoration
+import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
 import EditLink from "../src/components/editLink";
+import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
 import Flyout from "../src/components/flyout";
@@ -46,6 +52,7 @@ import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
+import Input from "../src/components/form/input";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -57,6 +64,7 @@ import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
 // Location
+import LocationLabel from "../src/components/locationLabel";
 import Logo from "../src/components/logo";
 import MapMarker from "../src/components/mapMarker";
 // MobileToolbar
@@ -109,6 +117,7 @@ import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
+import UserProfileHeader from "../src/components/userProfileHeader";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -210,6 +219,17 @@ storiesOf("Author name", module)
     <AuthorName>
       {text("Name", "Alex Butler")}
     </AuthorName>
+  ));
+
+storiesOf("Avatar", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Avatar
+      src={text("Image source", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      alt={text("Alternate text", "Rizzo")}
+      size={select("Size", [25, 40, 70], 70)}
+      href={text("URL", "")}
+    />
   ));
 
 storiesOf("Bookmark", module)
@@ -322,6 +342,46 @@ storiesOf("Callout link", module)
     </div>
   ));
 
+storiesOf("Cards", module)
+  .addDecorator(withKnobs)
+  .add("Basic card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardBasic
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        bullets={array("Bullets", ["Card things", "More Card Things"])}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+      />
+    </div>
+  ))
+  .add("Video card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardVideo
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        bullets={array("Bullets", ["On The Road", "E.01"])}
+        runtime={text("Video runtime", "32 min")}
+        onClick={action("Watch this video later")}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+        layout={select("Layout", ["card", "tile"], "card")}
+      />
+    </div>
+  ))
+  .add("Price card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardPrice
+        heading={text("Heading", "End of the Earth")}
+        bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+        price={{
+          regular: 3999,
+          sale: 3399,
+        }}
+      />
+    </div>
+  ));
+
 storiesOf("Category label", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -344,9 +404,14 @@ storiesOf("Checkbox", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Checkbox
-      value="5 star hotel"
-      id="check"
-      checked
+      value={text("Value", "Some value")}
+      id={text("ID", "check")}
+      name={text("Name", "check")}
+      label={text("Label", "Checkbox")}
+      checked={boolean("Checked", true)}
+      rounded={boolean("Rounded", false)}
+      size={select("Size", [16, 24, 32], 16)}
+      onClick={action(event)}
     />
   ));
 
@@ -357,6 +422,18 @@ storiesOf("Content Header", module)
       title="Title"
       border="bottom"
     />
+
+storiesOf("Disclaimer text", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <DisclaimerText>
+      {text("Text", `To use Lonely Planet you must have cookies enabled. If you
+        sign up with Twitter or Facebook, we’ll start you off with a network by
+        automatically importing profile imformation. Also, we’ll never post to
+        Twitter or Facebook without your permission. For more info, please see
+        <a href="/">FAQ</a>.`
+      )}
+    </DisclaimerText>
   ));
 
 storiesOf("Dot loader", module)
@@ -387,6 +464,22 @@ storiesOf("Expand button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ExpandButton label={text("Label", "Open")} />
+  ));
+
+
+storiesOf("Form", module)
+  .addDecorator(withKnobs)
+  .add("Input", () => (
+    <Input
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ))
+  .add("ErrorMessages", () => (
+    <ErrorMessages
+      messages={array("List of Errors", ["This field is required"])}
+    />
   ));
 
 storiesOf("Featured article", module)
@@ -690,6 +783,12 @@ storiesOf("List item (news)", module)
         isSponsored={boolean("Sponsored", false)}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Location label", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <LocationLabel>Ottawa, ON</LocationLabel>
   ));
 
 storiesOf("Logo", module)
@@ -1029,29 +1128,33 @@ storiesOf("Recommended articles", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <RecommendedArticles>
-        <ArticlePreview
-          title="New York’s most iconic buildings reimagined on deserted streets"
-          paragraph={`A new exhibition in New York of the city’s most iconic
-            buildings shows them in a new light, with the bustle of modern life
-            stripped out. Photographer`}
-          image="http://placehold.it/410x230"
-          href="/"
-          category="Art and culture"
-          categoryHref="/"
-        />
-
-        <ArticlePreview
-          title="Pull up a seat for David Attenborough’s Planet Earth II"
-          paragraph={`Ten years after the BBC series, Planet Earth, captivated a
-            global audience of over half a billion people, Planet Earth II is
-            coming to our TV screens, narrated once`}
-          image="http://placehold.it/410x230"
-          href="/"
-          category="Wildlife and nature"
-          categoryHref="/"
-        />
-      </RecommendedArticles>
+      <RecommendedArticles
+        heading={text("heading", "Recommended articles")}
+        calloutLabel={text("Callout label", "More recommendations")}
+        calloutHref={text("Callout URL", "/category/recommended")}
+        articles={array("Articles", [
+          {
+            title: "New York’s most iconic buildings reimagined on deserted streets",
+            paragraph: `A new exhibition in New York of the city’s most iconic
+              buildings shows them in a new light, with the bustle of modern life
+              stripped out. Photographer`,
+            image: "http://placehold.it/410x230",
+            href: "/",
+            category: "Art and culture",
+            categoryHref: "/",
+          },
+          {
+            title: "Pull up a seat for David Attenborough’s Planet Earth II",
+            paragraph: `Ten years after the BBC series, Planet Earth, captivated a
+              global audience of over half a billion people, Planet Earth II is
+              coming to our TV screens, narrated once`,
+            image: "http://placehold.it/410x230",
+            href: "/",
+            category: "Wildlife and nature",
+            categoryHref: "/",
+          },
+        ])}
+      />
     </StyleRoot>
   ));
 
@@ -1293,6 +1396,7 @@ storiesOf("Tag list", module)
   .add("Default", () => (
     <TagList
       tags={[
+        { label: "All", slug: "/", selected: true },
         { label: "The Americas", slug: "/americas" },
         { label: "World", slug: "/world" },
         { label: "Asia & the Pacific", slug: "/asia-pacific" },
@@ -1370,6 +1474,17 @@ storiesOf("Travel alert", module)
     <TravelAlert>
       {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
     </TravelAlert>
+  ));
+
+storiesOf("User profile header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <UserProfileHeader
+      avatarSrc="http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png"
+      name="Rizzo the Rat"
+      subtitle="By air, land and sea"
+      location="Ottawa, ON"
+    />
   ));
 
 storiesOf("Type selector", module)
