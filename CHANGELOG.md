@@ -1,5 +1,51 @@
 # Change log
 
+## v3.1.0
+- Create `rgba` utility to output string for CSS ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create Card components ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardPrice component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardVideo component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CardBasic component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Update TextBubble ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Create CoverPhoto component (deprecates ImageHero) ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Add card prop, styles to Price component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Update Play icon ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- Add className to BulletDescription ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+
+## v3.0.0
+- [update] Remove "all" tag from TagList ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
+- [fix] Change `tags` propType validation in TagList to `arrayOf(shape)` to suppress warning ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
+- [new] Add `style` prop to TagList ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
+- [breaking] Move Bullet component from components/decoration to root components folder ([#95](https://github.com/lonelyplanet/backpack-ui/pull/95))
+- [new] Add `style` prop to BulletDescription, make `description` prop required ([#95](https://github.com/lonelyplanet/backpack-ui/pull/95))
+- [update] Use Bullet component in BulletDescription ([#95](https://github.com/lonelyplanet/backpack-ui/pull/95))
+- [new] Add Camera icon ([#94](https://github.com/lonelyplanet/backpack-ui/pull/94))
+- [update] Add missing exports to index.js ([#93](https://github.com/lonelyplanet/backpack-ui/pull/93))
+- [update] Update path for Checkbox component ([#93](https://github.com/lonelyplanet/backpack-ui/pull/93))
+- [new] Add ConfirmedCheckmark icon ([#90](https://github.com/lonelyplanet/backpack-ui/pull/90))
+- [new] Add new props (`heading`, `calloutLabel`, `calloutHref`, `style`) to RecommendedArticles component ([#92](https://github.com/lonelyplanet/backpack-ui/pull/92))
+- [breaking] Replace `children` prop with `articles` prop which accepts an array of
+objects that define the articles for RecommendedArticles component ([#92](https://github.com/lonelyplanet/backpack-ui/pull/92))
+- [new] Import core.css into Storybook to provide app-level styles ([#91](https://github.com/lonelyplanet/backpack-ui/pull/91))
+- [new] Create ErrorMessages component ([#91](https://github.com/lonelyplanet/backpack-ui/pull/91))
+- [new] Add error prop, styles to Input component ([#91](https://github.com/lonelyplanet/backpack-ui/pull/91))
+- [new] Add `float` styles to form theme styles ([#91](https://github.com/lonelyplanet/backpack-ui/pull/91))
+- [new] Create DisclaimerText component ([#89](https://github.com/lonelyplanet/backpack-ui/pull/89))
+- [new] Create LocationLabel component ([#89](https://github.com/lonelyplanet/backpack-ui/pull/89))
+- [new] Create UserProfileHeader component ([#89](https://github.com/lonelyplanet/backpack-ui/pull/89))
+- [update] Update social network colors in settings ([#88](https://github.com/lonelyplanet/backpack-ui/pull/88))
+- [new] Add Gear icon ([#88](https://github.com/lonelyplanet/backpack-ui/pull/88))
+- [new] Add Google icon ([#88](https://github.com/lonelyplanet/backpack-ui/pull/88))
+- [new] Add color versions of Facebook, Pinterest, Reddit and Twitter icons ([#88](https://github.com/lonelyplanet/backpack-ui/pull/88))
+- [update] Update Instagram icon ([#88](https://github.com/lonelyplanet/backpack-ui/pull/88))
+- [update] Update checkbox component ([#87](https://github.com/lonelyplanet/backpack-ui/pull/87))
+  - Update size prop, styles; no longer accepts a keyword string, but rather a predefined size as a number
+  - Remove inline callback and get values from event instead
+  - Tightened up styles
+  - Move to the root components/ folder but keep form/checkbox for backwards compatibility
+- [new] Create Avatar component ([#85](https://github.com/lonelyplanet/backpack-ui/pull/85))
+- [new] Create SocialLoginButton component ([#84](https://github.com/lonelyplanet/backpack-ui/pull/84))
+
 ## v2.0.0
 - [new] Create TabbedNav component ([#83](https://github.com/lonelyplanet/backpack-ui/pull/83))
 - [update] Update iconFromString utility and use it to replace `React.createElement(Icon)` ([#82](https://github.com/lonelyplanet/backpack-ui/pull/82), [#81](https://github.com/lonelyplanet/backpack-ui/pull/81))
