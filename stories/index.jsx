@@ -21,6 +21,9 @@ import Button from "../src/components/button";
 import Calendar from "../src/components/calendar";
 import Callout from "../src/components/callout";
 import CalloutLink from "../src/components/calloutLink";
+import CardBasic from "../src/components/cardBasic";
+import CardVideo from "../src/components/cardVideo";
+import CardPrice from "../src/components/cardPrice";
 import CategoryLabel from "../src/components/categoryLabel";
 import CategoryLabelLink from "../src/components/categoryLabelLink";
 import Checkbox from "../src/components/checkbox";
@@ -334,6 +337,46 @@ storiesOf("Callout link", module)
       <CalloutLink href="/" overlay>
         {text("Text", "More recommendations")}
       </CalloutLink>
+    </div>
+  ));
+
+storiesOf("Cards", module)
+  .addDecorator(withKnobs)
+  .add("Basic card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardBasic
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        bullets={array("Bullets", ["Card things", "More Card Things"])}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+      />
+    </div>
+  ))
+  .add("Video card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardVideo
+        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+        bullets={array("Bullets", ["On The Road", "E.01"])}
+        runtime={text("Video runtime", "32 min")}
+        onClick={action("Watch this video later")}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+        layout={select("Layout", ["card", "tile"], "card")}
+      />
+    </div>
+  ))
+  .add("Price card", () => (
+    <div style={{ padding: "32px" }}>
+      <CardPrice
+        heading={text("Heading", "End of the Earth")}
+        bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
+        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+        href={text("URL", "/")}
+        price={{
+          regular: 3999,
+          sale: 3399,
+        }}
+      />
     </div>
   ));
 
