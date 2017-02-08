@@ -422,6 +422,7 @@ storiesOf("Content Header", module)
       title="Title"
       border="bottom"
     />
+    ));
 
 storiesOf("Disclaimer text", module)
   .addDecorator(withKnobs)

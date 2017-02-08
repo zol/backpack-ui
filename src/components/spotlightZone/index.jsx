@@ -77,7 +77,7 @@ const styles = {
   }),
 
   zone: {
-    fontSize: "1.3rem",
+    fontSize: "1.5rem",
     fontWeight: settings.typography.fontWeightSemibold,
     paddingBottom: gutter("static", 1, 2)
   },
