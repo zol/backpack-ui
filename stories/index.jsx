@@ -26,7 +26,7 @@ import Checkbox from "../src/components/form/checkbox";
 import Container from "../src/components/container";
 // ContactBar
 // ContentBlock
-// ContentHeader
+import ContentHeader from "../src/components/contentHeader";
 // ContentSectionList
 // Decoration
 import DotLoader from "../src/components/dotLoader";
@@ -84,6 +84,7 @@ import RelatedTour from "../src/components/relatedTour";
 import ReviewedBadge from "../src/components/reviewedBadge";
 import ScrollIndicator from "../src/components/scrollIndicator";
 import SectionalNav from "../src/components/sectionalNav";
+import SectionHeader from "../src/components/sectionHeader";
 import Select from "../src/components/form/select";
 import ShareMenu from "../src/components/shareMenu";
 import SocialIconButton from "../src/components/socialIconButton";
@@ -94,6 +95,7 @@ import SocialShareContainer from "../src/components/socialShareContainer";
 // SidebarSection
 import SightsListItem from "../src/components/sightsListItem";
 import SponsorLabel from "../src/components/sponsorLabel";
+import SpotlightZone from "../src/components/spotlightZone";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import TabbedNav from "../src/components/tabbedNav";
@@ -345,6 +347,15 @@ storiesOf("Checkbox", module)
       value="5 star hotel"
       id="check"
       checked
+    />
+  ));
+
+storiesOf("Content Header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ContentHeader
+      title="Title"
+      border="bottom"
     />
   ));
 
@@ -1097,6 +1108,14 @@ storiesOf("Sectional nav", module)
     </StyleRoot>
   ));
 
+storiesOf("Section Header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <SectionHeader title={text("title", "Top experiences in Vietnam")}/>
+    </StyleRoot>
+  ));
+
 storiesOf("Select", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1204,6 +1223,22 @@ storiesOf("Sponsor label", module)
     <SponsorLabel>
       {text("Text", "Sponsored")}
     </SponsorLabel>
+  ));
+
+storiesOf("Spotlight zone", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <SpotlightZone
+        zone={text("Zone", "Series Spotlight")}
+        category={text("Category", "On The Road")}
+        title={text("Title", "Gaudi, Part 1")}
+        paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}
+        href={text("Href", "http://www.google.com")}
+        imageUrl={text("Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
+        backgroundImageUrl={text("Background Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Static map", module)
