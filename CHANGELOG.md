@@ -1,16 +1,38 @@
 # Change log
 
+## v3.2.0
+- [new] Create new component for video tile component which is an abstraction over `<CardVideo layout="tile" />` ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+- [new] Create video tile component with poster sized image ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+- [new] Add aspectRatio prop to CardVideo, change styles ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+- [new] Add aspectRatio prop, sizes object to CardImage ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+- [new] Create CardDescriptionPoster component ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+- [update] Update styles for CardActionIcon, CardAnchor and CardDescription components ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
+  - Adjust font-size for CardActionIcon
+  - Change left padding for CardAnchor
+  - Move styles in CardDescription
+- [update] Update clock icons ([#105](https://github.com/lonelyplanet/backpack-ui/pull/105))
+- [new] Create Masthead component ([#102](https://github.com/lonelyplanet/backpack-ui/pull/102))
+- [new] Create MastheadSlider component ([#102](https://github.com/lonelyplanet/backpack-ui/pull/102))
+- [new] Create Slide component ([#102](https://github.com/lonelyplanet/backpack-ui/pull/102))
+- [new] Install react-waypoint module ([#104](https://github.com/lonelyplanet/backpack-ui/pull/104))
+- [new] Create Ad and AdLazyLoaded components ([#104](https://github.com/lonelyplanet/backpack-ui/pull/104))
+- [update] Add lint script to package.json ([#101](https://github.com/lonelyplanet/backpack-ui/pull/101))
+- [new] Add ellipsis, expand and photo icons ([#99](https://github.com/lonelyplanet/backpack-ui/pull/99))
+- [new] Create SpotlightZone component ([#98](https://github.com/lonelyplanet/backpack-ui/pull/98))
+- [new] Create SectionHeader component ([#98](https://github.com/lonelyplanet/backpack-ui/pull/98))
+- [new] Add `extraThin` weight to Heading component ([#98](https://github.com/lonelyplanet/backpack-ui/pull/98))
+
 ## v3.1.0
-- Create `rgba` utility to output string for CSS ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Create Card components ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Create CardPrice component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Create CardVideo component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Create CardBasic component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Update TextBubble ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Create CoverPhoto component (deprecates ImageHero) ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Add card prop, styles to Price component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Update Play icon ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
-- Add className to BulletDescription ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create `rgba` utility to output string for CSS ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create Card components ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create CardPrice component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create CardVideo component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create CardBasic component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [update] Update TextBubble ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [new] Create CoverPhoto component (deprecates ImageHero) ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [update] Add card prop, styles to Price component ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [update] Update Play icon ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
+- [update] Add className to BulletDescription ([#97](https://github.com/lonelyplanet/backpack-ui/pull/97))
 
 ## v3.0.0
 - [update] Remove "all" tag from TagList ([#96](https://github.com/lonelyplanet/backpack-ui/pull/96))
