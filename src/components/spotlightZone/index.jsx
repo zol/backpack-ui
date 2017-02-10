@@ -213,7 +213,7 @@ SpotlightZone.propTypes = {
   paragraph: React.PropTypes.string.isRequired,
   href: React.PropTypes.string.isRequired,
   imageUrl: React.PropTypes.string.isRequired,
-  backgroundImageUrl: React.PropTypes.string.isRequired
+  backgroundImageUrl: React.PropTypes.string.isRequired,
 };
 
 SpotlightZone.defaultProps = {

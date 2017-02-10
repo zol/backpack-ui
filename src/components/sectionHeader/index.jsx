@@ -44,13 +44,12 @@ const SectionHeader = ({ children, heading }) => {
 }
 
 SectionHeader.propTypes = {
-  title: React.PropTypes.node.isRequired,
+  children: React.PropTypes.node.isRequired,
   heading: React.PropTypes.shape(Heading.propTypes).isRequired,
 };
 
 SectionHeader.defaultProps = {
-  children: React.PropTypes.node.isRequired,
-  heading: {}
+  heading: {},
 };
 
 SectionHeader.styles = styles;
