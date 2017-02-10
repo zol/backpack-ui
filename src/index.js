@@ -87,14 +87,18 @@ export { default as RelatedTour } from "./components/relatedTour";
 export { default as ReviewedBadge } from "./components/reviewedBadge";
 export { default as ScrollIndicator } from "./components/scrollIndicator";
 export { default as SectionalNav } from "./components/sectionalNav";
+export { default as SectionHeader } from "./components/sectionHeader";
 export { default as ShareMenu } from "./components/shareMenu";
 export { default as SidebarSection } from "./components/sidebarSection";
 export { default as SightsListItem } from "./components/sightsListItem";
+
 export { default as SocialIconButton } from "./components/socialIconButton";
 export { default as SocialLoginButton } from "./components/socialLoginButton";
 export { default as SocialShare } from "./components/socialShare";
 export { default as SocialShareContainer } from "./components/socialShareContainer";
 export { default as SponsorLabel } from "./components/sponsorLabel";
+
+export { default as SpotlightZone } from "./components/spotlightZone";
 export { default as StaticMap } from "./components/staticMap";
 export { default as Strapline } from "./components/strapline";
 export { default as TabbedNav } from "./components/tabbedNav";

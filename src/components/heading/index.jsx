@@ -49,6 +49,9 @@ const styles = {
   },
 
   weight: {
+    extraThin: {
+      fontWeight: 100,
+    },
     thin: {
       fontWeight: 300,
     },
@@ -188,6 +191,7 @@ Heading.propTypes = {
     "thick",
     "normal",
     "thin",
+    "extraThin",
   ]),
 
   /**
