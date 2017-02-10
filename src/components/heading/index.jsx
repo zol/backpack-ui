@@ -191,7 +191,7 @@ Heading.propTypes = {
     "thick",
     "normal",
     "thin",
-    "extraThin"
+    "extraThin",
   ]),
 
   /**

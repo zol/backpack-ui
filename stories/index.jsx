@@ -1216,7 +1216,9 @@ storiesOf("Section Header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <SectionHeader title={text("title", "Top experiences in Vietnam")}/>
+      <SectionHeader>
+        {text("title", "Top experiences in Vietnam")}
+      </SectionHeader>
     </StyleRoot>
   ));
 
@@ -1334,7 +1336,7 @@ storiesOf("Spotlight zone", module)
   .add("Default", () => (
     <StyleRoot>
       <SpotlightZone
-        zone={text("Zone", "Series Spotlight")}
+        zone={text("Zone", "Series spotlight")}
         category={text("Category", "On The Road")}
         title={text("Title", "Gaudi, Part 1")}
         paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}

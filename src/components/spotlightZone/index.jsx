@@ -4,12 +4,9 @@ import { Link } from "react-router";
 import settings from "../../../settings.json";
 import { gutter } from "../../utils/grid";
 import font from "../../utils/font";
-import { rgb } from "../../utils/color";
+import { rgb, lighten } from "../../utils/color";
 import Heading from "../heading";
 import { Play } from "../icon";
-
-const spotlightTitleGray = "#e4e4e4";
-const spotlightGray = "#d8d8d8";
 
 const commonStyles = {
   sideContent: {
@@ -20,46 +17,46 @@ const commonStyles = {
 
     [`@media (min-width: ${settings.media.min["480"]})`]: {
       paddingLeft: gutter("static"),
-      paddingRight: gutter("static")
+      paddingRight: gutter("static"),
     },
 
     [`@media (min-width: ${settings.media.min["1080"]})`]: {
       paddingLeft: gutter("static", 1, 2),
-      paddingRight: gutter("static", 1, 2)
-    }
-  }
+      paddingRight: gutter("static", 1, 2),
+    },
+  },
 }
 
 const styles = {
   container: {
     fontFamily: font("benton"),
-    position: 'relative',
+    position: "relative",
     backgroundColor: settings.color.black,
-    color: spotlightGray
+    color: lighten(settings.color.gray, 3),
   },
 
   background: {
-    position: 'absolute',
-    filter: 'grayscale(100%)',
+    position: "absolute",
+    filter: "grayscale(100%)",
     backgroundSize: "cover",
     backgroundPosition: "center",
-    width: '100%',
-    height: '100%'
+    width: "100%",
+    height: "100%",
   },
 
   backgroundOverlay: {
     backgroundColor: settings.color.black,
     opacity: 0.2,
-    position: 'absolute',
-    width: '100%',
-    height: '100%'
+    position: "absolute",
+    width: "100%",
+    height: "100%",
   },
 
   content: {
-    position: 'relative',
-    display: 'flex',
+    position: "relative",
+    display: "flex",
     zIndex: settings.zIndex.default,
-    alignItems: 'center',
+    alignItems: "center",
 
     [`@media (max-width: ${settings.media.max["720"]})`]: {
       display: "block",
@@ -67,39 +64,39 @@ const styles = {
   },
 
   leftContent: Object.assign({}, commonStyles.sideContent, {
-    minWidth: '36%',
+    minWidth: "36%",
     background: `rgba(${rgb(settings.color.black)}, .38)`,
-    alignSelf: 'stretch',
+    alignSelf: "stretch",
   }),
 
   rightContent: Object.assign({}, commonStyles.sideContent, {
-    flexGrow: 1
+    flexGrow: 1,
   }),
 
   zone: {
-    fontSize: "1.5rem",
+    fontSize: "18px",
     fontWeight: settings.typography.fontWeightSemibold,
-    paddingBottom: gutter("static", 1, 2)
+    paddingBottom: gutter("static", 1, 2),
   },
 
   title: {
-    color: spotlightTitleGray,
+    color: lighten(settings.color.gray, 5),
     lineHeight: 1.3,
-    letterSpacing: "-0.6px"
+    letterSpacing: "-0.6px",
   },
 
   category: {
-    color: spotlightGray,
-    fontSize: "0.7em",
-    marginTop: "0.4em",
-    marginBottom: "0.4em"
+    color: lighten(settings.color.gray, 3),
+    fontSize: "12px",
+    marginTop: "4px",
+    marginBottom: "4px",
   },
 
   paragraph: {
     lineHeight: (28 / 16),
-    fontSize: "0.7em",
-    marginTop: "1.3em",
-    marginBottom: "1.7em"
+    fontSize: "12px",
+    marginTop: "13px",
+    marginBottom: "17px",
   },
 
   divider: {
@@ -109,12 +106,12 @@ const styles = {
     borderStyle: "solid",
     borderTopWidth: 0,
     opacity: 0.27,
-    marginBottom: "1.3em",
+    marginBottom: "13px",
   },
 
   link: {
     position: "relative",
-    display: "inline-block"
+    display: "inline-block",
   },
 
   image: {
@@ -127,21 +124,22 @@ const styles = {
 
   imageOverlay: {
     backgroundColor: `rgba(${rgb(settings.color.black)}, 0.16)`,
-    position: 'absolute',
+    position: "absolute",
     top: 0,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    transition: `background-color ${settings.timing.default} ease`
+    transition: `background-color ${settings.timing.default} ease`,
   },
 
   playIcon: {
     color: settings.color.white,
     height: "21px",
-    width: "21px"
-  }
+    width: "21px",
+  },
+
 };
 
 const css = `
@@ -157,31 +155,42 @@ function markup(htmlContent) {
 }
 
 const SpotlightZone = ({
-  zone, 
-  category, 
-  title, 
-  paragraph, 
-  href, 
-  imageUrl, 
-  backgroundImageUrl}) => {
-  
-  let backgroundStyle = styles.background;
-  backgroundStyle.backgroundImage = `url('${backgroundImageUrl}')`;
+  zone,
+  category,
+  title,
+  paragraph,
+  href,
+  imageUrl,
+  backgroundImageUrl
+}) => {
+  const backgroundStyle = styles.background;
+  backgroundStyle.backgroundImage = `url("${backgroundImageUrl}")`;
 
   return (
     <div className="SpotlightZone" style={styles.container}>
       <style dangerouslySetInnerHTML={markup(css)} />
-      <div style={backgroundStyle}></div>
-      <div style={styles.backgroundOverlay}></div>
+      <div style={backgroundStyle}/>
+      <div style={styles.backgroundOverlay}/>
+
       <div style={styles.content}>
+
         <div style={styles.leftContent}>
-          <div style={styles.zone}>{zone}</div>
-          <div style={styles.category}>{category}</div>
-          <Heading override={styles.title}>{title}</Heading>
-          <p style={styles.paragraph}>{paragraph}</p>
+          <div style={styles.zone}>
+            {zone}
+          </div>
+          <div style={styles.category}>
+            {category}
+          </div>
+          <Heading override={styles.title}>
+            {title}
+          </Heading>
+          <p style={styles.paragraph}>
+            {paragraph}
+          </p>
           <hr style={styles.divider} />
           <div id="SpotlightZone_sponsor"></div>
         </div>
+
         <div style={styles.rightContent}>
           <Link to={href} style={styles.link}>
             <img style={styles.image} src={imageUrl} />
@@ -190,7 +199,9 @@ const SpotlightZone = ({
             </div>
           </Link>
         </div>
+
       </div>
+
     </div>
   );
 }

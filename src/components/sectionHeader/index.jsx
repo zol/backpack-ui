@@ -5,29 +5,30 @@ import settings from "../../../settings.json";
 
 const styles = {
   container: {
-    textAlign: "center"
+    textAlign: "center",
   },
 
   heading: {
-    marginBottom: "1.3rem",
+    marginBottom: "13px",
     lineHeight: 1.3,
-    fontSize: "2.8rem",
+    fontSize: "28px",
 
     [`@media (min-width: ${settings.media.min["720"]})`]: {
-      fontSize: "4.5rem"
+      fontSize: "45px",
     },
   },
 
   divider: {
     borderColor: settings.color.red,
-    width: "3rem",
+    width: "30px",
     borderStyle: "solid",
     borderWidth: "1px",
-    marginBottom: "3.1rem"
-  }
+    marginBottom: "31px",
+  },
+
 };
 
-const SectionHeader = ({ title, heading }) => {
+const SectionHeader = ({ children, heading }) => {
   heading = heading || {};
   heading.size = heading.size || "large";
   heading.weight = heading.weight || "extraThin";
@@ -35,7 +36,7 @@ const SectionHeader = ({ title, heading }) => {
   return (
     <div style={styles.container}>
       <Heading {...heading} override={styles.heading}>
-        {title}
+        {children}
       </Heading>
       <hr style={styles.divider} />
     </div>
@@ -48,7 +49,7 @@ SectionHeader.propTypes = {
 };
 
 SectionHeader.defaultProps = {
-  title: "",
+  children: React.PropTypes.node.isRequired,
   heading: {}
 };
 
