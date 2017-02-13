@@ -1,5 +1,15 @@
 # Change log
 
+## v3.3.0
+- [update] Use react-slick module for video card slider, delete swiper component ([#113](https://github.com/lonelyplanet/backpack-ui/pull/113))
+- [update] Add theme to SectionHeading component ([#112](https://github.com/lonelyplanet/backpack-ui/pull/112))
+- [new] Create shelf, swiper and grid components for cards and tiles ([#103](https://github.com/lonelyplanet/backpack-ui/pull/103))
+- [new] Add tall carousel and slide components ([#109](https://github.com/lonelyplanet/backpack-ui/pull/109))
+- [new] Add style prop to SectionHeader, SpotlightZone components; update styles ([#107](https://github.com/lonelyplanet/backpack-ui/pull/107))
+- [update] Update SpotlightZone component styles ([#107](https://github.com/lonelyplanet/backpack-ui/pull/107))
+- [new] Add VideoEmbed component ([#110](https://github.com/lonelyplanet/backpack-ui/pull/110), [#111](https://github.com/lonelyplanet/backpack-ui/pull/111))
+- [new] Add segment component ([#108](https://github.com/lonelyplanet/backpack-ui/pull/108))
+
 ## v3.2.0
 - [new] Create new component for video tile component which is an abstraction over `<CardVideo layout="tile" />` ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
 - [new] Create video tile component with poster sized image ([#106](https://github.com/lonelyplanet/backpack-ui/pull/106))
