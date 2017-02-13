@@ -1286,7 +1286,7 @@ storiesOf("Section Header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <SectionHeader>
+      <SectionHeader theme={select("Theme", ["default", "light"], "default")}>
         {text("title", "Top experiences in Vietnam")}
       </SectionHeader>
     </StyleRoot>
