@@ -125,6 +125,7 @@ import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
+import VideoEmbed from "../src/components/videoEmbed";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -1595,6 +1596,25 @@ storiesOf("Type selector", module)
           { item: "Articles", slug: "#" },
           { item: "News", slug: "#" },
         ]}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Video embed", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <VideoEmbed
+        id="Video Embed ID"
+        videoId={select(
+          "Video ID",
+          {
+            "5303355476001": "5303355476001",
+            "5299039063001": "5299039063001"
+          },
+          "5303355476001"
+          )}
+        override={{height:220}}
       />
     </StyleRoot>
   ));
