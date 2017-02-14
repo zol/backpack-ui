@@ -1,5 +1,8 @@
 # Change log
 
+## v3.4.2
+- [update] Update thumbnail list item styles ([#122](https://github.com/lonelyplanet/backpack-ui/pull/122))
+
 ## v3.4.1
 - [update] Subdue card hover effect by removing shadow and scale ([#121](https://github.com/lonelyplanet/backpack-ui/pull/121))
 - [update] Add fixed width and minHeight to card for short term fix of card size  ([#120](https://github.com/lonelyplanet/backpack-ui/pull/120))
