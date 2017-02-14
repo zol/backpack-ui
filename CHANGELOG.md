@@ -1,5 +1,9 @@
 # Change log
 
+## v3.4.1
+- [update] Subdue card hover effect by removing shadow and scale ([#121](https://github.com/lonelyplanet/backpack-ui/pull/121))
+- [update] Add fixed width and minHeight to card for short term fix of card size  ([#120](https://github.com/lonelyplanet/backpack-ui/pull/120))
+
 ## v3.4.0
 - [update] Change height on Masthead component ([#118](https://github.com/lonelyplanet/backpack-ui/pull/118))
 - [update] Update formatting in Author component ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
