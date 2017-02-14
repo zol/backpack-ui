@@ -1,5 +1,20 @@
 # Change log
 
+## v3.4.0
+- [update] Change height on Masthead component ([#118](https://github.com/lonelyplanet/backpack-ui/pull/118))
+- [update] Update formatting in Author component ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Set AuthorName component's color to inherit its parent ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Add theme prop, dark theme styles to NewsArticleAuthor component ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Add style prop to TypeSelector component ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Update ThumbnailListItem component; change styles, use react-router Link, rename textBubble prop to runtime, import time util ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Make VideoEmbed component responsive, clean up formatting ([#119](https://github.com/lonelyplanet/backpack-ui/pull/119))
+- [update] Update CardVideo with time utility to convert runtime prop to a human-readable format; change runtime prop from string to number; add runtimeUnit prop ([#117](https://github.com/lonelyplanet/backpack-ui/pull/117))
+- [new] Create time utility to convert seconds and milliseconds to hours and minutes  ([#117](https://github.com/lonelyplanet/backpack-ui/pull/117))
+- [new] Install humanize-duration module ([#117](https://github.com/lonelyplanet/backpack-ui/pull/117))
+- [update] Add transparent color option to Button component ([#116](https://github.com/lonelyplanet/backpack-ui/pull/116))
+- [update] Update scope for CardShelfVideoSwiper styles, offset bottom padding with negative bottom margin ([#114](https://github.com/lonelyplanet/backpack-ui/pull/114))
+- [update] Add margin to SectionHeader component ([#115](https://github.com/lonelyplanet/backpack-ui/pull/115))
+
 ## v3.3.0
 - [update] Use react-slick module for video card slider, delete swiper component ([#113](https://github.com/lonelyplanet/backpack-ui/pull/113))
 - [update] Add theme to SectionHeading component ([#112](https://github.com/lonelyplanet/backpack-ui/pull/112))
