@@ -18,6 +18,7 @@ const styles = {
     padding: "30px 50px 80px",
     marginTop: "-30px",
     marginLeft: "-50px",
+    marginBottom: "-80px",
     overflow: "hidden",
     position: "relative",
   },
@@ -96,7 +97,7 @@ function CardShelfVideoSwiper({ children, heading, href, slidesVisible, style })
 
       <div style={styles.slider}>
         <Style
-          scopeSelector=".slick-slider"
+          scopeSelector=".CardShelf--video"
           rules={assign(
             {},
             scopedStyles,
