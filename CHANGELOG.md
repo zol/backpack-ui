@@ -1,5 +1,9 @@
 # Change log
 
+## v3.5.0
+- [update] Add flex-grow property to thumbnail list item content ([#123](https://github.com/lonelyplanet/backpack-ui/pull/123))
+- [update] Refactor CardShelfVideoSwiper into stateful component in order to control the display of pagination buttons ([#124](https://github.com/lonelyplanet/backpack-ui/pull/124))
+
 ## v3.4.2
 - [update] Update thumbnail list item styles ([#122](https://github.com/lonelyplanet/backpack-ui/pull/122))
 
