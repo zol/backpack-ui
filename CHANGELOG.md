@@ -1,5 +1,9 @@
 # Change log
 
+## v3.7.0
+- [new] Add onClick prop to ListItem component ([#130](https://github.com/lonelyplanet/backpack-ui/pull/130))
+- [new] Add customSettings prop to TallCarousel component ([#129](https://github.com/lonelyplanet/backpack-ui/pull/129))
+
 ## v3.6.0
 - [new] Add onClick prop to thumbnail list item ([#128](https://github.com/lonelyplanet/backpack-ui/pull/128))
 - [new] Add autoPlay prop to VideoEmbed component ([#127](https://github.com/lonelyplanet/backpack-ui/pull/127))
