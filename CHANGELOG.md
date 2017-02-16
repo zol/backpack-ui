@@ -1,5 +1,10 @@
 # Change log
 
+## v3.6.0
+- [new] Add onClick prop to thumbnail list item ([#128](https://github.com/lonelyplanet/backpack-ui/pull/128))
+- [new] Add autoPlay prop to VideoEmbed component ([#127](https://github.com/lonelyplanet/backpack-ui/pull/127))
+- [update] Increase heading size in Slide component ([#126](https://github.com/lonelyplanet/backpack-ui/pull/126))
+
 ## v3.5.1
 - [update] Adjust opacity to create scrim for thumbnail list item image ([#125](https://github.com/lonelyplanet/backpack-ui/pull/125))
 
