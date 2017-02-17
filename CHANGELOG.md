@@ -1,5 +1,8 @@
 # Change log
 
+## v3.8.1
+- [update] Add onClick prop for call-to-action in Slide component for masthead ([#134](https://github.com/lonelyplanet/backpack-ui/pull/134))
+
 ## v3.8.0
 - [update] Remove minHeight and width from Card component, update its box-shadow ([#132](https://github.com/lonelyplanet/backpack-ui/pull/132))
 - [update] Make CardVideo component responsive ([#132](https://github.com/lonelyplanet/backpack-ui/pull/132))
