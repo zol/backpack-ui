@@ -92,11 +92,23 @@ class VideoEmbed extends Component {
   onLoadSetupScript() {
     const videoElement = document.getElementsByClassName(this.getPlayerVideoClassName())[0];
     this.player = window.videojs(videoElement);
+
+    // We don't show the controls until the player is instantiated
+    // or else the controls show briefly without the brightcove theme applied.
+    this.player.controls(true);
+
     this.player.ready(this.onPlayerReady.bind(this));
+    this.player.on("ended", this.onPlayerEnded.bind(this));
   }
 
   onPlayerReady() {
     this.loadVideo(this.props.videoId);
+  }
+
+  onPlayerEnded() {
+    if (this.props.onEnded) {
+      this.props.onEnded();
+    }
   }
 
   getPlayerVideoClassName() {
@@ -145,7 +157,7 @@ class VideoEmbed extends Component {
     this.player.catalog.getVideo(videoId, (error, video) => {
       if (!error) {
         this.player.catalog.load(video);
-        if (this.props.autoPlay) {
+        if (this.props.autoplay) {
           this.player.play();
         }
       }
@@ -171,7 +183,6 @@ class VideoEmbed extends Component {
           data-player={this.playerId}
           data-embed={this.embedId}
           className={`video-js ${this.getPlayerVideoClassName()}`}
-          controls
         />
       </div>
     );
@@ -181,14 +192,11 @@ class VideoEmbed extends Component {
 VideoEmbed.propTypes = {
   id: PropTypes.string.isRequired,
   videoId: PropTypes.string.isRequired,
-  autoPlay: PropTypes.bool,
+  autoplay: PropTypes.bool,
+  onEnded: React.PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
-};
-
-VideoEmbed.defaultProps = {
-  autoPlay: true,
 };
 
 export default radium(VideoEmbed);
