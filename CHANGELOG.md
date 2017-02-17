@@ -1,5 +1,13 @@
 # Change log
 
+## v3.8.0
+- [update] Remove minHeight and width from Card component, update its box-shadow ([#132](https://github.com/lonelyplanet/backpack-ui/pull/132))
+- [update] Make CardVideo component responsive ([#132](https://github.com/lonelyplanet/backpack-ui/pull/132))
+- [update] Make CardShelfVideoSwiper component responsive ([#132](https://github.com/lonelyplanet/backpack-ui/pull/132))
+- [update] Rename prop autoPlay to autoplay in VideoEmbed component ([#133](https://github.com/lonelyplanet/backpack-ui/pull/133))
+- [fix] Fix brief unstyled player controls glitch in VideoEmbed component ([#133](https://github.com/lonelyplanet/backpack-ui/pull/133))
+- [new] Add onEnded prop in VideoEmbed component ([#133](https://github.com/lonelyplanet/backpack-ui/pull/133))
+
 ## v3.7.0
 - [new] Add onClick prop to ListItem component ([#130](https://github.com/lonelyplanet/backpack-ui/pull/130))
 - [new] Add customSettings prop to TallCarousel component ([#129](https://github.com/lonelyplanet/backpack-ui/pull/129))
