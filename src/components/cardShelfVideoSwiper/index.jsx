@@ -1,8 +1,9 @@
-import React, { PropTypes } from "react";
+import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import assign from "object-assign";
 import Slider from "react-slick";
-import { grid, timing, zIndex } from "../../../settings.json";
+import { grid, media, timing, zIndex } from "../../../settings.json";
+import { percentage } from "../../utils/grid";
 import {
   CardShelf,
   CardShelfHeader,
@@ -14,13 +15,59 @@ import PaginatorButton from "../paginatorButton";
 
 const styles = {
   slider: {
-    width: "calc(100% + 100px)",
-    padding: "30px 50px 80px",
-    marginTop: "-30px",
-    marginLeft: "-50px",
-    marginBottom: "-80px",
-    overflow: "hidden",
-    position: "relative",
+    [`@media (max-width: ${media.max["768"]})`]: {
+      marginBottom: "-30px",
+      marginTop: "-15px",
+      paddingBottom: "30px",
+      paddingTop: "15px",
+    },
+
+    [`@media (min-width: ${media.min["768"]})`]: {
+      width: "calc(100% + 100px)",
+      padding: "30px 50px 80px",
+      marginTop: "-30px",
+      marginLeft: "-50px",
+      marginBottom: "-80px",
+      overflow: "hidden",
+      position: "relative",
+    },
+  },
+
+  sliderOuter: {
+    [`@media (max-width: ${media.max["480"]})`]: {
+      marginLeft: "-15px",
+      marginRight: "-15px",
+      width: "calc(100% + 15px + 15px)",
+    },
+
+    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
+      marginLeft: "-30px",
+      marginRight: "-30px",
+      width: "calc(100% + 30px + 30px)",
+    },
+
+    [`@media (max-width: ${media.max["768"]})`]: {
+      height: "252px",
+      overflow: "hidden",
+    },
+  },
+
+  sliderInner: {
+    [`@media (max-width: ${media.max["480"]})`]: {
+      paddingLeft: "15px",
+      paddingRight: "15px",
+    },
+
+    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
+      paddingLeft: "30px",
+      paddingRight: "30px",
+    },
+
+    [`@media (max-width: ${media.max["768"]})`]: {
+      overflowX: "auto",
+      overflowY: "hidden",
+      "-webkit-overflow-scrolling": "touch",
+    },
   },
 };
 
@@ -34,30 +81,26 @@ const scopedStyles = {
 
   ".slick-track": {
     display: "flex",
+    width: "100% !important",
   },
 
   ".slick-slide": {
-    opacity: 0,
     transition: `opacity ${timing.default} ease`,
     float: "none !important",
     height: "auto",
+    width: `${percentage("412px", grid.container)} !important`,
+    maxWidth: "412px",
+    minWidth: "216px",
+    flex: "1 0 auto",
   },
 
-  ".slick-slide:not(.slick-active)": {
-    pointerEvents: "none",
-  },
-
-  ".slick-active": {
-    opacity: 1,
-  },
-
-  ".slick-slide + .slick-slide": {
-    marginLeft: "27px",
+  ".slick-arrow": {
+    display: "none !important",
   },
 
   ".PaginatorButton": {
     position: "absolute",
-    top: "188px",
+    top: percentage("188px", "362px"),
     zIndex: zIndex.middle,
   },
 
@@ -68,9 +111,65 @@ const scopedStyles = {
   ".PaginatorButton:last-of-type": {
     right: "-20px",
   },
+
+  ".Card--video": {
+    height: "100% !important",
+    width: "100% !important",
+  },
 };
 
-class CardShelfVideoSwiper extends React.Component {
+const mediaQueries = {
+  [`(max-width: ${media.max["768"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "14px",
+    },
+
+    ".PaginatorButton": {
+      display: "none !important",
+    },
+  },
+
+  [`(min-width: ${media.min["768"]})`]: {
+    ".slick-slide:not(.slick-active)": {
+      opacity: 0,
+      pointerEvents: "none",
+    },
+  },
+};
+
+const threeSlides = {
+  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: percentage("27px", grid.container),
+    },
+  },
+
+  [`(min-width: ${media.min["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "27px",
+    },
+  },
+};
+
+const fourSlides = {
+  [`(min-width: ${media.min["768"]}) and (max-width: ${media.max["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: percentage("43px", grid.container),
+    },
+  },
+
+  [`(min-width: ${media.min["1410"]})`]: {
+    ".slick-slide + .slick-slide": {
+      marginLeft: "43px",
+    },
+  },
+};
+
+class CardShelfVideoSwiper extends Component {
+  static getPagination(direction) {
+    return <PaginatorButton direction={direction} />;
+  }
+
   constructor(props) {
     super(props);
 
@@ -89,10 +188,6 @@ class CardShelfVideoSwiper extends React.Component {
     this.renderPagination();
   }
 
-  getPagination(direction) {
-    return <PaginatorButton direction={direction} />;
-  }
-
   checkAcitveSlide(index) {
     return this.slideRefs[index] && this.slideRefs[index].classList.contains("slick-active");
   }
@@ -103,6 +198,7 @@ class CardShelfVideoSwiper extends React.Component {
 
   renderPagination() {
     const { children } = this.props;
+
     if (this.hasEnoughSlides()) {
       this.setState({
         prevPagination: !this.checkAcitveSlide(0),
@@ -120,6 +216,7 @@ class CardShelfVideoSwiper extends React.Component {
       sliderOptions,
       style,
     } = this.props;
+
     return (
       <CardShelf
         className="CardShelf--video"
@@ -132,41 +229,39 @@ class CardShelfVideoSwiper extends React.Component {
           />
         }
 
-        <div style={styles.slider}>
-          <Style
-            scopeSelector=".CardShelf--video"
-            rules={assign(
-              {},
-              scopedStyles,
-              slidesVisible === 3 && {
-                ".slick-slide + .slick-slide": {
-                  marginLeft: "27px",
+        <div style={[styles.slider, styles.sliderOuter]}>
+          <div style={[styles.slider, styles.sliderInner]}>
+            <Style
+              scopeSelector=".CardShelf--video"
+              rules={assign(
+                {},
+                scopedStyles,
+                slidesVisible === 3 && {
+                  mediaQueries: assign({}, mediaQueries, threeSlides),
                 },
-              },
-              slidesVisible === 4 && {
-                ".slick-slide + .slick-slide": {
-                  marginLeft: "43px",
+                slidesVisible === 4 && {
+                  mediaQueries: assign({}, mediaQueries, fourSlides),
                 },
-              },
-            )}
-          />
+              )}
+            />
 
-          <Slider
-            {...sliderOptions}
-            afterChange={this.renderPagination}
-            slidesToShow={slidesVisible}
-            nextArrow={this.state.nextPagination && this.getPagination("right")}
-            prevArrow={this.state.prevPagination && this.getPagination("left")}
-          >
-            {React.Children.map(children, (child, i) => (
-              <div
-                key={i}
-                ref={node => this.slideRefs[i] = node}
-              >
-                {child}
-              </div>
-            ))}
-          </Slider>
+            <Slider
+              {...sliderOptions}
+              afterChange={this.renderPagination}
+              slidesToShow={slidesVisible}
+              nextArrow={this.state.nextPagination && CardShelfVideoSwiper.getPagination("right")}
+              prevArrow={this.state.prevPagination && CardShelfVideoSwiper.getPagination("left")}
+            >
+              {React.Children.map(children, (child, i) => (
+                <div
+                  key={i}
+                  ref={node => (this.slideRefs[i] = node)}
+                >
+                  {child}
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </CardShelf>
     );
@@ -216,6 +311,23 @@ CardShelfVideoSwiper.defaultProps = {
     variableWidth: true,
     swipe: false,
     speed: 400,
+    responsive: [
+      {
+        breakpoint: 0,
+        settings: "unslick",
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          dots: false,
+          infinite: false,
+          slidesToScroll: 1,
+          variableWidth: true,
+          swipe: false,
+          speed: 400,
+        },
+      },
+    ],
   },
 };
 
