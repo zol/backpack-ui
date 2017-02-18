@@ -1,5 +1,8 @@
 # Change log
 
+## v3.8.2
+- [fix] Fix issue where MastheadSlider component loads with every slide visible for a brief moment ([#131](https://github.com/lonelyplanet/backpack-ui/pull/131))
+
 ## v3.8.1
 - [update] Add onClick prop for call-to-action in Slide component for masthead ([#134](https://github.com/lonelyplanet/backpack-ui/pull/134))
 
