@@ -1,5 +1,8 @@
 # Change log
 
+## 3.9.0
+- [new] Add PhotoGallery component; uses [react-photoswipe](https://github.com/minhtranite/react-photoswipe) which is a React wrapper around [Photoswipe](https://github.com/dimsemenov/PhotoSwipe) ([#100](https://github.com/lonelyplanet/backpack-ui/pull/100), [#136](https://github.com/lonelyplanet/backpack-ui/pull/136))
+
 ## 3.8.3
 - [fix] Remove min-height restriction on MastheadSlider component because its content was overflowing ([#135](https://github.com/lonelyplanet/backpack-ui/pull/135))
 
