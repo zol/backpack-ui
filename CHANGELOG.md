@@ -1,5 +1,8 @@
 # Change log
 
+## 3.8.3
+- [fix] Remove min-height restriction on MastheadSlider component because its content was overflowing ([#135](https://github.com/lonelyplanet/backpack-ui/pull/135))
+
 ## v3.8.2
 - [fix] Fix issue where MastheadSlider component loads with every slide visible for a brief moment ([#131](https://github.com/lonelyplanet/backpack-ui/pull/131))
 
