@@ -1,5 +1,13 @@
 # Change log
 
+## 3.10.0
+- [new] Install pre-commit module, add lint script to package.json; this makes the linter run before a piece of code is committed. ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [new] Install jQuery 3.1.1 ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [update] Temporarily disable `jsx-a11y/no-static-element-interactions` rule in a few components; this can be addressed in the future.
+- [fix] Clean up a bunch of linting violations ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [fix] Fix an issue with CardVideo in Storybook where component needed `StyleRoot` since it now has media queries ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [fix] Fix issue where static method `formatFormData` in Newsletter component was being called on `this` and not `Newsletter` class. ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+
 ## 3.9.0
 - [new] Add PhotoGallery component; uses [react-photoswipe](https://github.com/minhtranite/react-photoswipe) which is a React wrapper around [Photoswipe](https://github.com/dimsemenov/PhotoSwipe) ([#100](https://github.com/lonelyplanet/backpack-ui/pull/100), [#136](https://github.com/lonelyplanet/backpack-ui/pull/136))
 
