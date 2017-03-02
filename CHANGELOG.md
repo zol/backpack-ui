@@ -1,5 +1,66 @@
 # Change log
 
+## 4.0.0
+- [breaking] Replace Profile component with ArticleAuthor component; Profile will be reserved for user profile components ([#146](https://github.com/lonelyplanet/backpack-ui/pull/146))
+  - `size` and `type` props have been removed; use `style` prop to change
+  component’s style based on context
+  - `avatar` is now `avatarSrc`
+  - `profileUrl` is now `href`
+  - Default prop for `orientation` is now “vertical”
+- [update] Update avatar sizes, use `propTypes.style` ([#145](https://github.com/lonelyplanet/backpack-ui/pull/145))
+- [new] Create propTypes.js utility; exports commonly used propTypes for validation ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [update] Move styles from CardVideo to Card ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - CardVideo had some “base” styles that should’ve been applied to Card so that all card components can inherit the styles
+- [update] Move responsive styles out of CardVideo ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - CardAnchor inside of CardVideo had some responsive styles applied that were moved to the component so that other card components can inherit the styles
+- [new] Create CardBullets component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - This is a wrapper around BulletDescription with specific styles applied for use within Cards
+- [new] Create CardHeading component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - This is a wrapper around Heading with specific styles applied for use within Cards
+- [breaking] Repurpose CardDescription ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - CardDescription is now a paragraph element that was taken from CardDescriptionPoster. Previously CardDescription was a heading and bullet list, but due to responsive styles, the heading and bullets have been broken out into their own components
+- [breaking] Remove CardDescriptionPoster; paragraph in this component is now CardDescription ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [update] Use `propTypes.style` for validation in card components ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [update] Update CardVideo component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - Move container, bullets, heading and anchor styles into their
+  respective card components
+  - Import new CardHeading and CardBullets components
+  - Use `propTypes.style` for validation
+- [update] Change tile width from `412px` to `410px` ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - This is so that the proper gutter size, `30px`, can be used and allow the tiles to remain within the grid’s max-width `1290px`
+- [update] Change gutter from `27px` to `30px` in CardShelfVideo component
+- [update] Update TileVideoPoster component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - Change width from `290px` to `300px` so that `30px` gutter can be used and the tile stays on the grid
+  - Add responsive styles
+  - Remove CardDescriptionPoster component
+- [update] Update CardShelfVideoSwiper component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+  - Update responsive styles; now accounts for 4 visible slides
+  - Change card/slide width from `412px` to `410px` (3 slides) and `290px` to `300px` (4 slides) so that `30px` gutter can be used
+- [update] Replace CardDescription with CardHeader and CardBullets in CardBasic and CardPrice components ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [update] Change CardImage dimensions to use widths of `410px` and `300px` to match updates to CardVideo component ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [update] Export new card components; remove unused exports ([#144](https://github.com/lonelyplanet/backpack-ui/pull/144))
+- [breaking] Replace `tags` prop, which was an array of objects, with `children`, which accepts the Tag component, for TagList component ([#140](https://github.com/lonelyplanet/backpack-ui/pull/140))
+- [update] Update styles, “selected” background color in Tag component ([#140](https://github.com/lonelyplanet/backpack-ui/pull/140))
+- [new] Add `onClick` prop and allow a button element in Tag component ([#140](https://github.com/lonelyplanet/backpack-ui/pull/140))
+- [breaking] Rename `slug` prop to `href` in Tag component ([#140](https://github.com/lonelyplanet/backpack-ui/pull/140))
+- [breaking] Rename `label` prop to `children` in Tag component ([#140](https://github.com/lonelyplanet/backpack-ui/pull/140))
+- [update] Check for `bullets.length` in CardVideo component to prevent empty `div` from being rendered ([#142](https://github.com/lonelyplanet/backpack-ui/pull/142), [#143](https://github.com/lonelyplanet/backpack-ui/pull/143))
+- [update] Changes zone text in SpotlightZone to be absolutely positioned from the top opposed to a large negative top margin which was pushing the text out of view at times ([#141](https://github.com/lonelyplanet/backpack-ui/pull/141))
+
+## 3.10.0
+- [new] Install pre-commit module, add lint script to package.json; this makes the linter run before a piece of code is committed. ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [new] Install jQuery 3.1.1 ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [update] Temporarily disable `jsx-a11y/no-static-element-interactions` rule in a few components; this can be addressed in the future.
+- [fix] Clean up a bunch of linting violations ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [fix] Fix an issue with CardVideo in Storybook where component needed `StyleRoot` since it now has media queries ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+- [fix] Fix issue where static method `formatFormData` in Newsletter component was being called on `this` and not `Newsletter` class. ([#139](https://github.com/lonelyplanet/backpack-ui/pull/139))
+
+## 3.9.0
+- [new] Add PhotoGallery component; uses [react-photoswipe](https://github.com/minhtranite/react-photoswipe) which is a React wrapper around [Photoswipe](https://github.com/dimsemenov/PhotoSwipe) ([#100](https://github.com/lonelyplanet/backpack-ui/pull/100), [#136](https://github.com/lonelyplanet/backpack-ui/pull/136))
+
+## 3.8.3
+- [fix] Remove min-height restriction on MastheadSlider component because its content was overflowing ([#135](https://github.com/lonelyplanet/backpack-ui/pull/135))
+
 ## v3.8.2
 - [fix] Fix issue where MastheadSlider component loads with every slide visible for a brief moment ([#131](https://github.com/lonelyplanet/backpack-ui/pull/131))
 

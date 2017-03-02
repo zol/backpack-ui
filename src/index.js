@@ -1,6 +1,9 @@
+import * as backpack from ".";
+
 export { default as Ad } from "./components/ad";
 export { default as AdLazyLoader } from "./components/adLazyLoader";
 export { default as Amenities } from "./components/amenities";
+export { default as ArticleAuthor } from "./components/articleAuthor";
 export { default as ArticlePaginationItem } from "./components/articlePaginationItem";
 export { default as ArticlePaginationNav } from "./components/articlePaginationNav";
 export { default as ArticlePreview } from "./components/articlePreview";
@@ -80,7 +83,6 @@ export { default as PaginatorButton } from "./components/paginatorButton";
 export { default as Placeholder } from "./components/placeholder";
 export { default as PoiPaginator } from "./components/poiPaginator";
 export { default as Price } from "./components/price";
-export { default as Profile } from "./components/profile";
 export { default as PromotedGuidebook } from "./components/promotedGuidebook";
 export { default as ProviderLogo } from "./components/providerLogo";
 export { default as Rating } from "./components/rating";
@@ -131,5 +133,4 @@ export { default as Range } from "./components/form/range";
 export { default as Select } from "./components/form/select";
 export { default as Textarea } from "./components/form/textarea";
 
-import * as backpack from ".";
 export default backpack;

@@ -3,12 +3,15 @@ import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
 import data from "./data.json";
 import Colors from "./Colors";
+import { Accordion, AccordionItem } from "../src/components/accordion";
 import Amenities from "../src/components/amenities";
+import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
 import ArticlePaginationNav from "../src/components/articlePaginationNav";
 import ArticlePreview from "../src/components/articlePreview";
@@ -86,10 +89,10 @@ import NumberMarker from "../src/components/numberMarker";
 // Overlay
 import PageHeader from "../src/components/pageHeader";
 import PaginatorButton from "../src/components/paginatorButton";
+import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
-import Profile from "../src/components/profile";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
 import Rating from "../src/components/rating";
@@ -143,6 +146,82 @@ storiesOf("Iconography", module)
     <Icons />
   ));
 
+storiesOf("Accordion", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <Accordion id="storyAccordion">
+        <AccordionItem
+          heading="Things to do in Asia"
+          content={
+            <TileGrid>
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+                href={text("URL", "#")}
+              />
+
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+                href={text("URL", "#")}
+              />
+
+              <TileVideo
+                className="Tile"
+                heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+                bullets={array("Bullets", ["On The Road", "E.01"])}
+                runtime={number("Video runtime", 129365)}
+                onClick={action("Watch this video later")}
+                imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+                href={text("URL", "#")}
+              />
+            </TileGrid>
+          }
+          expanded
+        />
+
+        <AccordionItem
+          heading="Places to eat in Tokyo"
+          content={
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          }
+        />
+
+        <AccordionItem
+          heading="Adventures in Bombay"
+          content={
+            <div>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          }
+        />
+      </Accordion>
+    </StyleRoot>
+  ));
+
 storiesOf("Amenities", module)
   .addDecorator(withKnobs)
   .add("2-column, single list", () => (
@@ -157,6 +236,20 @@ storiesOf("Amenities", module)
       columns={number("Columns", 3)}
       listType="grouped"
       items={data.amenities.groupedList}
+    />
+  ));
+
+storiesOf("Article author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <ArticleAuthor
+      name={text("Name", "Alex Butler")}
+      title={text("Title", "Global news reporter")}
+      avatarSrc={text("Avatar image URL", "//assets.staticlp.com/profiles/users/placeholders/large.png")}
+      orientation={select("Orientation", {
+        vertical: "Vertical",
+        horizontal: "Horizontal",
+      }, "vertical")}
     />
   ));
 
@@ -358,40 +451,46 @@ storiesOf("Callout link", module)
 storiesOf("Cards", module)
   .addDecorator(withKnobs)
   .add("Basic card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardBasic
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["Card things", "More Card Things"])}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardBasic
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["Card things", "More Card Things"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Video card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardVideo
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Price card", () => (
-    <div style={{ padding: "32px" }}>
-      <CardPrice
-        heading={text("Heading", "End of the Earth")}
-        bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-        price={{
-          regular: 3999,
-          sale: 3399,
-        }}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <CardPrice
+          heading={text("Heading", "End of the Earth")}
+          bullets={array("Bullets", ["15 Days", "Buenos Aires to Buenos Aires"])}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          price={{
+            regular: 3999,
+            sale: 3399,
+          }}
+        />
+      </div>
+    </StyleRoot>
   ));
 
 storiesOf("Category label", module)
@@ -950,8 +1049,8 @@ storiesOf("Narrative", module)
         author={object("Author", {
           name: "Tim Plaum",
           title: "Lonely Planet Editor",
-          avatar: "",
-          url: "",
+          avatarSrc: "",
+          href: "",
         })}
       />
     </StyleRoot>
@@ -1060,6 +1159,80 @@ storiesOf("Number marker", module)
     <NumberMarker number={number("Number", 4)} />
   ));
 
+storiesOf("Page header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <PageHeader
+        heading={text("Title", "Ryman Auditorium")}
+        title={text("Category", "Nashville sights")}
+        titleHref={text("Category URL", "/")}
+        type={text("Type", "Historic building")}
+        place={text("Place", "Nashville")}
+        alignment={select("Alignment", ["", "center"], "center")}
+        topChoice={boolean("Top choice", false)}
+        contained={boolean("Contained", false)}
+        bookmark={boolean("Bookmark", false)}
+        stars={number("Stars", 0)}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Paginator button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PaginatorButton
+      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
+      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
+      size={select("Size", ["medium", "small"], "medium")}
+      shadow={select("Shadow", ["loose", "tight"], "loose")}
+      color={select("Color", ["", "blue"], "")}
+      onClick={action("PaginatorButton clicked")}
+    />
+  ));
+
+storiesOf("Photo gallery", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PhotoGallery
+      photos={[
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
+          w: 1500,
+          h: 1000,
+          title: "A radiant blue-chinned sapphire hummingbird perched in a branch in Trinidad © ArenFrancis",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
+          w: 1500,
+          h: 1000,
+          title: "Get an eyeful of Brazil's Iguazu Falls © Michael Runkel / Getty Images",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
+          w: 1500,
+          h: 1691,
+          title: "A giant panda cub at the Chengdu Giant Panda Breeding Research Base in Sichuan © Feng Wei Photography / Getty Images",
+        },
+        {
+          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
+          w: 1500,
+          h: 1000,
+          title: "Stalk the forests of Madhya Pradesh for a chance of spotting Shere Khan © Andrew Parkinson / Getty Images",
+        },
+      ]}
+      options={{
+        pinchToClose: false,
+        closeOnScroll: false,
+        closeOnVerticalDrag: false,
+        escKey: false,
+        arrowKeys: true,
+        history: false,
+      }}
+      isOpen
+    />
+  ));
+
 storiesOf("Placeholder", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1076,33 +1249,6 @@ storiesOf("POI Paginator", module)
       place={text("Place", "Vienna")}
       topChoice={boolean("Top choice", false)}
     />
-  ));
-
-storiesOf("Profile", module)
-  .addDecorator(withKnobs)
-  .add("Large, vertical", () => (
-    <StyleRoot>
-      <Profile
-        name="Jane Doe"
-        title="Lonely Planet Writer"
-        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-        profileUrl=""
-        size="large"
-        orientation="vertical"
-      />
-    </StyleRoot>
-  ))
-  .add("Small, horizontal", () => (
-    <StyleRoot>
-      <Profile
-        name="Jane Doe"
-        title="Lonely Planet Writer"
-        avatar="//assets.staticlp.com/profiles/users/placeholders/large.png"
-        profileUrl=""
-        size="small"
-        orientation="horizontal"
-      />
-    </StyleRoot>
   ));
 
 storiesOf("Promoted guidebook", module)
@@ -1160,38 +1306,6 @@ storiesOf("Rating", module)
       amount={number("Amount", 8)}
       max={number("Maximum amount", 10)}
       description={text("Description", "Great")}
-    />
-  ));
-
-storiesOf("Page header", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <StyleRoot>
-      <PageHeader
-        heading={text("Title", "Ryman Auditorium")}
-        title={text("Category", "Nashville sights")}
-        titleHref={text("Category URL", "/")}
-        type={text("Type", "Historic building")}
-        place={text("Place", "Nashville")}
-        alignment={select("Alignment", ["", "center"], "center")}
-        topChoice={boolean("Top choice", false)}
-        contained={boolean("Contained", false)}
-        bookmark={boolean("Bookmark", false)}
-        stars={number("Stars", 0)}
-      />
-    </StyleRoot>
-  ));
-
-storiesOf("Paginator button", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <PaginatorButton
-      direction={select("Arrow direction", ["up", "down", "left", "right"], "up")}
-      arrow={select("Arrow style", ["chevron", "triangle"], "chevron")}
-      size={select("Size", ["medium", "small"], "medium")}
-      shadow={select("Shadow", ["loose", "tight"], "loose")}
-      color={select("Color", ["", "blue"], "")}
-      onClick={action("PaginatorButton clicked")}
     />
   ));
 
@@ -1563,11 +1677,35 @@ storiesOf("Tabbed nav", module)
 
 storiesOf("Tag", module)
   .addDecorator(withKnobs)
-  .add("Default", () => (
+  .add("Anchor", () => (
     <Tag
-      label={text("Text", "The Americas")}
-      slug={text("URL slug", "/americas")}
-    />
+      href={text("URL", "#")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ))
+  .add("Button", () => (
+    <Tag
+      onClick={action("Tag clicked")}
+      selected={boolean("Selected", false)}
+    >
+      {text("Text", "The Americas")}
+    </Tag>
+  ));
+
+storiesOf("Tag list", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <TagList>
+      <Tag href="#" selected>All</Tag>
+      <Tag href="#">The Americas</Tag>
+      <Tag href="#">World</Tag>
+      <Tag href="#">Asia & the Pacific</Tag>
+      <Tag href="#">Europe</Tag>
+      <Tag href="#">Middle East & Africa</Tag>
+      <Tag href="#">Editor’s pick</Tag>
+    </TagList>
   ));
 
 storiesOf("Tall Carousel", module)
@@ -1591,22 +1729,6 @@ storiesOf("Tall Carousel", module)
         link: "/link/to/interest",
         image: "https://lonelyplanetimages.imgix.net/a/g/hi/t/57c5143d7297c21181c522eee9e3b05e-europe.jpg?h=768&sharp=10&vib=20",
       }]}
-    />
-  ));
-
-storiesOf("Tag list", module)
-  .addDecorator(withKnobs)
-  .add("Default", () => (
-    <TagList
-      tags={[
-        { label: "All", slug: "/", selected: true },
-        { label: "The Americas", slug: "/americas" },
-        { label: "World", slug: "/world" },
-        { label: "Asia & the Pacific", slug: "/asia-pacific" },
-        { label: "Europe", slug: "/europe" },
-        { label: "Middle East & Africa", slug: "/middle-east-africa" },
-        { label: "Editor's pick", slug: "/editors-pick" },
-      ]}
     />
   ));
 
@@ -1634,92 +1756,98 @@ storiesOf("Thumbnail list item", module)
 storiesOf("Tiles", module)
   .addDecorator(withKnobs)
   .add("Video tile", () => (
-    <div style={{ padding: "32px" }}>
-      <TileVideo
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <TileVideo
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
+      </div>
+    </StyleRoot>
   ))
   .add("Video poster tile", () => (
-    <div style={{ padding: "32px" }}>
-      <TileVideoPoster
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-        description={text("Year", "2016")}
-      />
-    </div>
+    <StyleRoot>
+      <div style={{ padding: "32px" }}>
+        <TileVideoPoster
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+          description={text("Year", "2016")}
+        />
+      </div>
+    </StyleRoot>
   ));
 
 storiesOf("Video tile grid", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <TileGrid>
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
-        href={text("URL", "#")}
-      />
+    <StyleRoot>
+      <TileGrid>
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/GettyImages-509196834_high-ba0228a2190f.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/LPT0414_063-2225e4dcf106.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/09/GettyImages-578179271_full-e3d250fd7575.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Myanmar-11146662b740.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
 
-      <TileVideo
-        className="Tile"
-        heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
-        bullets={array("Bullets", ["On The Road", "E.01"])}
-        runtime={number("Video runtime", 129365)}
-        onClick={action("Watch this video later")}
-        imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
-        href={text("URL", "#")}
-      />
-    </TileGrid>
+        <TileVideo
+          className="Tile"
+          heading={text("Heading", "High Sierra routes with Ken Walker Smith")}
+          bullets={array("Bullets", ["On The Road", "E.01"])}
+          runtime={number("Video runtime", 129365)}
+          onClick={action("Watch this video later")}
+          imageSrc={text("Image source", "https://lonelyplanetwp.imgix.net/2016/10/Antigua-f670d2806c69.jpg?fit=min&q=40&sharp=10&vib=20&w=1470")}
+          href={text("URL", "#")}
+        />
+      </TileGrid>
+    </StyleRoot>
   ))
   .add("Swiper", () => (
     <StyleRoot>
