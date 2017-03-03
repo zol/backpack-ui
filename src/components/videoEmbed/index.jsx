@@ -31,20 +31,8 @@ const styles = {
 };
 
 const scopedStyles = {
-  ".vjs-play-progress": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-volume-level": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:hover": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:active": {
-    backgroundColor: color.blue,
-  },
-  ".vjs-big-play-button:focus": {
-    backgroundColor: color.blue,
+  ".vjs-menu-item.vjs-selected": {
+    color: color.white,
   },
 
   mediaQueries: {
@@ -62,6 +50,7 @@ class VideoEmbed extends Component {
 
     this.accountId = "5104226627001";
     this.playerId = "default";
+    this.playerId = "S1lzq9E5Ol";
     this.embedId = "default";
 
     this.player = null;
