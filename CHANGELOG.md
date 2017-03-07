@@ -1,5 +1,32 @@
 # Change log
 
+## 4.1.0
+- [update] Add `actionIcon` prop to CardVideo component ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [new] Add Close icon ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [update] Update Modal component; add more responsive styles ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [new] Create modal content components; ModalContentSocialAuth and ModalContentWatchLaterList ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [update] Change `text` prop to `children` prop in SocialLoginButton component; update styles ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [new] Add WatchLater components ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
+- [update] Add accentGreen to colors ([#154](https://github.com/lonelyplanet/backpack-ui/pull/154))
+- [new] Create Toast component ([#154](https://github.com/lonelyplanet/backpack-ui/pull/154))
+- [update] Use typography style for AuthorName ([#156](https://github.com/lonelyplanet/backpack-ui/pull/156))
+- [update] Use `propTypes.style` for ItalicText ([#156](https://github.com/lonelyplanet/backpack-ui/pull/156))
+- [update] Update LocationLabel styles ([#156](https://github.com/lonelyplanet/backpack-ui/pull/156))
+- [update] Update Tag styles ([#156](https://github.com/lonelyplanet/backpack-ui/pull/156))
+- [update] Add hover scale effect to CoverPhoto ([#148](https://github.com/lonelyplanet/backpack-ui/pull/148))
+  - In card, tile and list item components, the CoverPhoto scales
+slightly when hovered
+- [new] Create new stories for typography and fonts ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+- [update] Update colors story to use colors defined in src/styles ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+- [new] Create typography util ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+  - Contains mixins for typographic stylings; they can be appended to existing styles with `Object.assign`
+- [update] Use color function to create `rgba` values ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+- [update] Update font utility; should accept only "benton" or "miller" ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+- [new] Begin moving settings.json into styles directory ([#153](https://github.com/lonelyplanet/backpack-ui/pull/153))
+  - As we continue to define a set of styles for LP apps, we’ll move away
+from the settings.json file and break styles into smaller modules. These styles have been defined in the front-end framework.
+- [new] Create accordion components ([#151](https://github.com/lonelyplanet/backpack-ui/pull/151))
+
 ## 4.0.0
 - [breaking] Replace Profile component with ArticleAuthor component; Profile will be reserved for user profile components ([#146](https://github.com/lonelyplanet/backpack-ui/pull/146))
   - `size` and `type` props have been removed; use `style` prop to change
