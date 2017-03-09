@@ -50,7 +50,6 @@ class VideoEmbed extends Component {
 
     this.accountId = "5104226627001";
     this.playerId = "default";
-    this.playerId = "S1lzq9E5Ol";
     this.embedId = "default";
 
     this.player = null;
