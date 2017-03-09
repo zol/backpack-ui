@@ -87,11 +87,18 @@ class VideoEmbed extends Component {
     this.player.controls(true);
 
     this.player.ready(this.onPlayerReady.bind(this));
-    this.player.on("ended", this.onPlayerEnded.bind(this));
+
+    this.player.on("timeupdate", this.onPlayerTimeUpdate.bind(this));
   }
 
   onPlayerReady() {
     this.loadVideo(this.props.videoId);
+  }
+
+  onPlayerTimeUpdate() {
+    if ((this.player.duration() - this.player.currentTime()) < 0.2) {
+      this.onPlayerEnded();
+    }
   }
 
   onPlayerEnded() {
