@@ -7,6 +7,7 @@ import "react-photoswipe/lib/photoswipe.css";
 import { storiesOf, action } from "@kadira/storybook";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
 import { color as bpColor } from "../settings.json";
+import colors from "../src/styles/colors";
 import data from "./data.json";
 import Colors from "./Colors";
 import Fonts from "./fonts";
@@ -79,7 +80,7 @@ import MapMarker from "../src/components/mapMarker";
 import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
-// Modal
+import Modal from "../src/components/modal";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -129,11 +130,13 @@ import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
 import TileVideoPoster from "../src/components/tileVideoPoster";
 import Timestamp from "../src/components/timestamp";
+import Toast from "../src/components/toast";
 import Tooltip from "../src/components/tooltip";
 import TourItinerary from "../src/components/tourItinerary";
 import TravelAlert from "../src/components/travelAlert";
 import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
+import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import VideoEmbed from "../src/components/videoEmbed";
 
 storiesOf("Styles", module)
@@ -1005,6 +1008,92 @@ storiesOf("Masthead", module)
     );
   });
 
+
+class ModalWrapper extends React.Component {
+  static propTypes = {
+    children: React.PropTypes.function,
+  }
+
+  state = {
+    open: true,
+  }
+
+
+  toggleOpen() {
+    this.setState({ open: !this.state.open });
+  }
+
+  render() {
+    return this.props.children(this.state.open, this.toggleOpen.bind(this));
+  }
+}
+
+const watchLaterVideos = [
+  {
+    id: 1,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep1"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+  {
+    id: 2,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep2"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+  {
+    id: 3,
+    heading: "Test Heading",
+    bullets: ["On the Road", "Ep3"],
+    runtime: 30000,
+    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
+    href: "/test",
+  },
+];
+
+storiesOf("Modal", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <div>
+            <button onClick={toggle}>Toggle Modal</button>
+            <Modal
+              isOpen={isOpen}
+              rightAction={() => console.log("clicked the left")}
+              rightActionContent={<p>Test</p>}
+              leftAction={toggle}
+              leftActionContent={<Icon.Close width={24} height={24} />}
+              closeModal={toggle}
+              title={text("Header Text", "Header Text")}
+            >
+              <div>
+                <h2>Some Content</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt consequuntur alias amet repellat quis veritatis dignissimos. Veniam adipisci qui facere culpa accusamus ducimus eum rem, amet, fugit, quasi, optio aut?</p>
+              </div>
+            </Modal>
+          </div>
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  )).add("Watch Later", () => (
+    <StyleRoot>
+      <WatchLaterModal
+        loggedIn={boolean("Logged in", false)}
+        isOpen={boolean("Modal Open", true)}
+        // videos={watchLaterVideos}
+        videos={[]}
+        removeVideo={action("Remove Video")}
+        authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
+      />
+    </StyleRoot>
+  ));
+
 storiesOf("More link", module)
   .addDecorator(withKnobs)
   .add("Anchor", () => (
@@ -1602,11 +1691,10 @@ storiesOf("Social Login Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <SocialLoginButton
-      text={text("Text", "Continue with Facebook")}
       iconName={select("Icon Name", Object.keys(Icon), "FacebookBlock")}
       iconColor={color("Icon Color", bpColor.facebook)}
       onClick={action("Handle Login")}
-    />
+    >{text("Text", "Continue with Facebook")}</SocialLoginButton>
   ));
 
 storiesOf("Social share", module)
@@ -1934,6 +2022,22 @@ storiesOf("Timestamp", module)
     >
       {text("Relative time", "3 days ago")}
     </Timestamp>
+  ));
+
+storiesOf("Toast", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Toast
+      color={select("Color", Object.keys(colors), "accentGreen")}
+      icon={select("Icon", Object.keys(Icon), "Checkmark")}
+      visible={boolean("Visible", true)}
+      direction={select("Direction", {
+        top: "Top",
+        bottom: "Bottom",
+      }, "bottom")}
+    >
+      {text("Text", "Added to Watch Later")}
+    </Toast>
   ));
 
 storiesOf("Tooltip", module)
