@@ -1,5 +1,12 @@
 # Change log
 
+## 4.2.0
+- [update] Add event to onClick event of the type selector ([#161](https://github.com/lonelyplanet/backpack-ui/pull/161))
+- [update] Change Modal to be stateless functional component ([#159](https://github.com/lonelyplanet/backpack-ui/pull/159))
+- [update] Fix PropType Warnings ([#159](https://github.com/lonelyplanet/backpack-ui/pull/159))
+- [new] Create Link (Wrapped React-Router) Component ([#158](https://github.com/lonelyplanet/backpack-ui/pull/158))
+- [update] Change text for empty video list ([#157](https://github.com/lonelyplanet/backpack-ui/pull/157))
+
 ## 4.1.0
 - [update] Add `actionIcon` prop to CardVideo component ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
 - [new] Add Close icon ([#152](https://github.com/lonelyplanet/backpack-ui/pull/152))
