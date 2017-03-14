@@ -138,6 +138,7 @@ import TypeSelector from "../src/components/typeSelector";
 import UserProfileHeader from "../src/components/userProfileHeader";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 import VideoEmbed from "../src/components/videoEmbed";
+import VideoPip from "../src/components/videoPip";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
@@ -2116,6 +2117,17 @@ storiesOf("Video embed", module)
       <VideoEmbed
         id="Video-Embed-ID"
         videoId={select("Video ID", ["5303355476001", "5299039063001"], "5303355476001")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Video Pip", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <VideoPip 
+        videoId={select("Video ID", ["5303355476001", "5299039063001"], "5303355476001")}
+        visible={boolean("Visible", true)}
       />
     </StyleRoot>
   ));

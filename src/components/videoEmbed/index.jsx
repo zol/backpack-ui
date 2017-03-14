@@ -13,12 +13,6 @@ const styles = {
     paddingBottom: `${(9 / 16) * 100}%`,
     position: "relative",
     overflow: "hidden",
-
-    /*
-     * Any shorter than 228px and Brightcove's
-     * share controls won't fit
-     */
-    minHeight: "228px",
   },
 
   video: {
@@ -60,11 +54,14 @@ class VideoEmbed extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    const nextPaused = _.get(nextProps, "paused", this.props.paused);
     const nextVideoId = _.get(nextProps, "videoId", this.props.videoId);
 
     if (nextVideoId !== this.props.videoId) {
       this.loadVideo(nextVideoId);
     }
+
+    this.setPlayState(nextPaused);
   }
 
   shouldComponentUpdate() { // eslint-disable-line class-methods-use-this
@@ -87,17 +84,11 @@ class VideoEmbed extends Component {
 
     this.player.ready(this.onPlayerReady.bind(this));
 
-    this.player.on("timeupdate", this.onPlayerTimeUpdate.bind(this));
+    this.player.on("ended", this.onPlayerEnded.bind(this));
   }
 
   onPlayerReady() {
     this.loadVideo(this.props.videoId);
-  }
-
-  onPlayerTimeUpdate() {
-    if ((this.player.duration() - this.player.currentTime()) < 0.2) {
-      this.onPlayerEnded();
-    }
   }
 
   onPlayerEnded() {
@@ -140,6 +131,10 @@ class VideoEmbed extends Component {
     }
   }
 
+  isPaused() {
+    return this.player && this.player.paused();
+  }
+
   isReady() {
     return this.player && this.player.isReady_;
   }
@@ -152,11 +147,27 @@ class VideoEmbed extends Component {
     this.player.catalog.getVideo(videoId, (error, video) => {
       if (!error) {
         this.player.catalog.load(video);
-        if (this.props.autoplay) {
+        if (!this.props.paused && this.props.autoplay) {
           this.player.play();
         }
       }
     });
+  }
+
+  setPlayState(paused) {
+    this.paused = paused;
+    if (!this.isReady()) {
+      return;
+    }
+
+    if (this.player.paused() != paused) {
+      if (paused) {
+        this.player.pause();
+      }
+      else {
+        this.player.play();
+      }
+    }
   }
 
   render() {
@@ -187,6 +198,7 @@ class VideoEmbed extends Component {
 VideoEmbed.propTypes = {
   id: PropTypes.string.isRequired,
   videoId: PropTypes.string.isRequired,
+  paused: PropTypes.bool,
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
   override: PropTypes.oneOfType([

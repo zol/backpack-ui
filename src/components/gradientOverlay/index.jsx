@@ -22,6 +22,11 @@ const GradientOverlay = ({ children, gradientType, color, style }) => {
         backgroundImage: `linear-gradient(-180deg, rgba(${rgb(color)}, 0) 53%, ${color} 100%)`,
       },
 
+      inverted: {
+        opacity: 0.45,
+        backgroundImage: `linear-gradient(0deg, rgba(${rgb(color)}, 0) 53%, ${color} 100%)`,
+      },
+
       radial: {
         backgroundImage: `radial-gradient(55% 60%, rgba(${rgb(color)}, 0) 40%, ${color} 100%)`,
       },
@@ -54,6 +59,7 @@ GradientOverlay.propTypes = {
   gradientType: PropTypes.oneOf([
     "",
     "linear",
+    "inverted",
     "radial",
     "leftCorner",
   ]),
