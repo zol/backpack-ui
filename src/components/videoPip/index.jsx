@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
+import uniqueId from "lodash/uniqueId";
 import settings from "../../../settings.json";
 import GradientOverlay from "../gradientOverlay";
 import Icon from "../icon";
@@ -68,25 +69,37 @@ class VideoPip extends Component {
     const { videoId } = this.props;
 
     const visibleStyle = visible ? styles.visible : {};
-    const paused = !visible;
+    const videoEmbedid = uniqueId();
+    const videoEmbedPaused = !visible;
 
     return (
       <div
         className="VideoPip"
         style={[styles.container, visibleStyle]}
         >
+
         <Style
           scopeSelector=".VideoPip"
           rules={scopedStyles}
         />
+
         <div className="VideoPip-container">
-          <VideoEmbed videoId={videoId} paused={paused} autoplay={true} />
+
+          <VideoEmbed
+            id={videoEmbedid}
+            videoId={videoId}
+            paused={videoEmbedPaused}
+            autoplay={true} />
+
           <div className="VideoPip-overlay" style={styles.overlay}>
             <GradientOverlay gradientType="inverted" />
-            <button style={styles.closeButton} onClick={this.onClickClose} >
+            <button
+              style={styles.closeButton}
+              onClick={this.onClickClose} >
               <Icon.Close width={24} height={24} fill="white" style={styles.closeIcon} />
             </button>
           </div>
+
         </div>
       </div>
     );
