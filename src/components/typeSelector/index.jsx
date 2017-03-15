@@ -220,11 +220,11 @@ class TypeSelector extends React.Component {
                   <Link
                     to={`${menuItem.slug}`}
                     key={`link ${index}`}
-                    onClick={() => {
+                    onClick={(e) => {
                       this.toggleMenu();
 
                       if (onClick) {
-                        onClick();
+                        onClick(e);
                       }
                     }}
                     className="TypeSelector-listItem"
@@ -252,7 +252,7 @@ TypeSelector.propTypes = {
   /**
    * Menu Items for Type Selector
    */
-  menuItems: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  menuItems: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
 
   /**
    * Method to run when the Link component is clicked
