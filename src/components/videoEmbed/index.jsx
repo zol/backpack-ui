@@ -141,7 +141,7 @@ class VideoEmbed extends Component {
   }
 
   loadVideo(videoId) {
-    if (!this.isReady()) {
+    if (!this.isReady() || !videoId) {
       return;
     }
 
@@ -197,7 +197,7 @@ class VideoEmbed extends Component {
 }
 
 VideoEmbed.propTypes = {
-  videoId: PropTypes.string.isRequired,
+  videoId: PropTypes.string,
   paused: PropTypes.bool,
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
