@@ -2120,7 +2120,6 @@ storiesOf("Video embed", module)
   .add("Default", () => (
     <StyleRoot>
       <VideoEmbed
-        id="Video-Embed-ID"
         videoId={select("Video ID", ["5303355476001", "5299039063001"], "5303355476001")}
       />
     </StyleRoot>

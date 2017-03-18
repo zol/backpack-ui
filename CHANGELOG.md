@@ -1,5 +1,9 @@
 # Change log
 
+## 4.2.1
+- [update] Remove id property from VideoEmbed ([#163](https://github.com/lonelyplanet/backpack-ui/pull/163))
+- [update] Add transition to animate accordion content ([#162](https://github.com/lonelyplanet/backpack-ui/pull/162))
+
 ## 4.2.0
 - [update] Add event to onClick event of the type selector ([#161](https://github.com/lonelyplanet/backpack-ui/pull/161))
 - [update] Change Modal to be stateless functional component ([#159](https://github.com/lonelyplanet/backpack-ui/pull/159))
