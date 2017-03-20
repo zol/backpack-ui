@@ -1,5 +1,10 @@
 # Change log
 
+## 4.2.2
+- [update] Add style prop to FeaturedArticle ([#167](https://github.com/lonelyplanet/backpack-ui/pull/167))
+- [fix] Use WebkitOverflowScrolling to fix radium warning in TabbedNav ([#165](https://github.com/lonelyplanet/backpack-ui/pull/165))
+- [fix] Set borderWidth in Newsletter to suppress radium warning ([#164](https://github.com/lonelyplanet/backpack-ui/pull/164))
+
 ## 4.2.1
 - [update] Remove id property from VideoEmbed ([#163](https://github.com/lonelyplanet/backpack-ui/pull/163))
 - [update] Add transition to animate accordion content ([#162](https://github.com/lonelyplanet/backpack-ui/pull/162))
