@@ -73,6 +73,7 @@
     "truncate": "^2.0.0"
   },
   "peerDependencies": {
+    "radium": "^0.18.1",
     "react": "^15.0.0"
   },
   "devDependencies": {
