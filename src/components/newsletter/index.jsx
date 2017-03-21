@@ -167,8 +167,9 @@ class Newsletter extends Component {
     this.setState({ waiting: true });
 
     const formattedData = Newsletter.formatFormData({
-      "sailthru[email_template]": "Welcome email",
-      "sailthru[source]": "homepage",
+      [this.props.signup.vars]: "true",
+      "sailthru[email_template]": this.props.signup.email_template,
+      "sailthru[source]": this.props.signup.source,
       "sailthru[opt_in]": "on",
       "sailthru[email]": this.state.email,
       "g-recaptcha-response": reCaptchaResponse,
@@ -180,7 +181,7 @@ class Newsletter extends Component {
       },
     };
 
-    axios.post("//www.lonelyplanet.com/newsletter", formattedData, config)
+    axios.post("http://localhost:8080/newsletter", formattedData, config)
       .then(response => this.setState({
         success: true,
         showSuccess: true,
@@ -276,7 +277,7 @@ class Newsletter extends Component {
 
               <form
                 style={styles.form}
-                action="//www.lonelyplanet.com/newsletter"
+                action="http://localhost:8080/newsletter"
                 onSubmit={this.handleSubmit}
               >
                 <Input
@@ -306,7 +307,7 @@ class Newsletter extends Component {
           {this.state.showCaptcha &&
             <div style={{ marginTop: "24px" }}>
               <Recaptcha
-                sitekey="6LegewcUAAAAAG-5-ZTtWJ9M8cUyz7Mh0-uzNbC_"
+                sitekey="6LftqwcUAAAAAE7N1Tnvm1m3fkyt54nk_BpWu6ix"
                 render="explicit"
                 verifyCallback={this.submitRequest}
                 onloadCallback={this.recaptchCallback}
@@ -328,6 +329,11 @@ Newsletter.propTypes = {
     title: PropTypes.string,
     text: PropTypes.string,
   }),
+  signup: PropTypes.shape({
+    vars: PropTypes.string,
+    email_template: PropTypes.string,
+    source: PropTypes.string,
+  }),
   style: PropTypes.objectOf(PropTypes.object),
 };
 
@@ -340,6 +346,11 @@ Newsletter.defaultProps = {
   confirmation: {
     title: "Thank you for signing up!",
     text: "We’ll send a confirmation email to",
+  },
+  signup: {
+    vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
+    email_template: "Welcome email",
+    source: "homepage",
   },
 };
 
