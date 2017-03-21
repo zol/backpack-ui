@@ -169,6 +169,7 @@ class Newsletter extends Component {
 
     const formattedData = Newsletter.formatFormData({
       [this.props.signup.vars]: "true",
+      "sailthru[editable]": "1",
       "sailthru[email_template]": this.props.signup.email_template,
       "sailthru[source]": this.props.signup.source,
       "sailthru[opt_in]": "on",
@@ -182,7 +183,7 @@ class Newsletter extends Component {
       },
     };
 
-    axios.post("http://localhost:8080/newsletter", formattedData, config)
+    axios.post("//www.lonelyplanet.com/newsletter", formattedData, config)
       .then(response => this.setState({
         success: true,
         showSuccess: true,
@@ -278,7 +279,7 @@ class Newsletter extends Component {
 
               <form
                 style={styles.form}
-                action="http://localhost:8080/newsletter"
+                action="//www.lonelyplanet.com/newsletter"
                 onSubmit={this.handleSubmit}
               >
                 <Input
@@ -308,7 +309,7 @@ class Newsletter extends Component {
           {this.state.showCaptcha &&
             <div style={{ marginTop: "24px" }}>
               <Recaptcha
-                sitekey="6LftqwcUAAAAAE7N1Tnvm1m3fkyt54nk_BpWu6ix"
+                sitekey="6LegewcUAAAAAG-5-ZTtWJ9M8cUyz7Mh0-uzNbC_"
                 render="explicit"
                 verifyCallback={this.submitRequest}
                 onloadCallback={this.recaptchCallback}
