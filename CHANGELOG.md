@@ -1,5 +1,13 @@
 # Change log
 
+## 4.2.3
+- [update] Update Newsletter to work with Salesforce and allow different newsletters to be subscribed to ([#169](https://github.com/lonelyplanet/backpack-ui/pull/169))
+- [update] Update disclaimer text styles ([#168](https://github.com/lonelyplanet/backpack-ui/pull/168))
+  * Import propTypes util for style prop validation
+  * Import and use color from styles/colors
+  * Import typography styles for font size
+  * Reformat JSX for better readability
+
 ## 4.2.2
 - [update] Add style prop to FeaturedArticle ([#167](https://github.com/lonelyplanet/backpack-ui/pull/167))
 - [fix] Use WebkitOverflowScrolling to fix radium warning in TabbedNav ([#165](https://github.com/lonelyplanet/backpack-ui/pull/165))
