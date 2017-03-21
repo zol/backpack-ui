@@ -108,19 +108,6 @@ class Newsletter extends Component {
     return str.join("&");
   }
 
-  static getErrorMessage() {
-    const has = Object.prototype.hasOwnProperty;
-    const error = this.state.error;
-    const errorMessage = {
-      409: "You are already subscribed.",
-    };
-
-    if (error.response && has.call(errorMessage, error.response.status)) {
-      return errorMessage[error.response.status];
-    }
-
-    return "There was an error processing your request. Please try again later.";
-  }
 
   constructor(props) {
     super(props);
@@ -142,6 +129,20 @@ class Newsletter extends Component {
     this.resetForm = this.resetForm.bind(this);
     this.submitRequest = this.submitRequest.bind(this);
     this.recaptchCallback = this.recaptchCallback.bind(this);
+  }
+
+  getErrorMessage() {
+    const has = Object.prototype.hasOwnProperty;
+    const error = this.state.error;
+    const errorMessage = {
+      409: "You are already subscribed.",
+    };
+
+    if (error.response && has.call(errorMessage, error.response.status)) {
+      return errorMessage[error.response.status];
+    }
+
+    return "There was an error processing your request. Please try again later.";
   }
 
   recaptchCallback() {
