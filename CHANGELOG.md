@@ -1,5 +1,8 @@
 # Change log
 
+## 4.4.0
+- [new] Add solid black to styles/colors as bgOverlay ([#174](https://github.com/lonelyplanet/backpack-ui/pull/174))
+
 ## 4.3.0
 - [new] Add heading, fontWeight to propType validation ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))
 - [new] Create text components to match typography styles ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))  
