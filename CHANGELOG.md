@@ -1,5 +1,10 @@
 # Change log
 
+## 4.3.0
+- [new] Add heading, fontWeight to propType validation ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))
+- [new] Create text components to match typography styles ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))  
+  These components map to styles/typography and use utils/typography to apply the styles. TextHeading is a stripped down version of Heading and the idea is to deprecate Heading in a future release. TextHeading was created 1) somewhat as an experiment to simplify Heading and 2) as to not break every implementation of Heading currently in use.
+
 ## 4.2.3
 - [update] Update Newsletter to work with Salesforce and allow different newsletters to be subscribed to ([#169](https://github.com/lonelyplanet/backpack-ui/pull/169))
 - [update] Update disclaimer text styles ([#168](https://github.com/lonelyplanet/backpack-ui/pull/168))
