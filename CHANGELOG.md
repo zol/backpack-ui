@@ -1,5 +1,32 @@
 # Change log
 
+## 4.5.0
+- [update] Remove isRequired from aspectRatio prop in CardVideo component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to ModalContentWatchLaterList component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [update] Replace anchor with Link component in SlideTall component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to WatchLaterList component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to WatchLaterModal component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [update] Update styles for Lede component ([#176](https://github.com/lonelyplanet/backpack-ui/pull/176))
+  * Import PropTypes from React
+  * Delete defaultProps
+  * Add style prop
+  * Delete docblock comments
+  * Rename styles.base to styles.container
+  * Add styles to paragraph
+  * Add children prop, deprecate content prop; keep content prop for backwards compatibility
+  * Replace settings.colors with styles/colors
+  * Import typography styles
+- [update] Update heading component ([#175](https://github.com/lonelyplanet/backpack-ui/pull/175))
+  * Remove white space between defaultProps
+  * Replace rgb util with rgba util
+  * Use font weights from styles/typography; extraThin (100) is not a weight, but it was set to be the same as thin (300) instead of being removed completely to maintain backwards compatibility and prevent errors
+  * Use colors from styles/colors
+  * Use media queries from styles/mq
+  * Remove settings.json
+  * Use font sizes from styles/typography
+  * Import PropTypes
+  * Use radium to merge conditional styles
+
 ## 4.4.0
 - [new] Add solid black to styles/colors as bgOverlay ([#174](https://github.com/lonelyplanet/backpack-ui/pull/174))
 
