@@ -1,7 +1,18 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
-import settings from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import colors from "../../styles/colors";
+import mq from "../../styles/mq";
+import {
+  fontSizeHeading1,
+  fontSizeHeading2,
+  fontSizeHeading3,
+  fontSizeHeading4,
+  fontSizeUppercase,
+  fontWeightLight,
+  fontWeightBook,
+  fontWeightMedium,
+} from "../../styles/typography";
+import { rgba } from "../../utils/color";
 import font from "../../utils/font";
 import propTypes from "../../utils/propTypes";
 
@@ -17,33 +28,33 @@ const styles = {
 
   size: {
     tiny: {
-      fontSize: "11px",
+      fontSize: `${fontSizeUppercase}px`,
     },
     small: {
-      fontSize: "11px",
+      fontSize: `${fontSizeUppercase}px`,
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "13px",
+      [`@media (min-width: ${mq.min["600"]})`]: {
+        fontSize: `${(fontSizeUppercase + 2)}px`,
       },
     },
     medium: {
-      fontSize: "26px",
+      fontSize: `${(fontSizeHeading4 + 2)}px`,
       lineHeight: (40 / 26),
     },
     large: {
-      fontSize: "40px",
+      fontSize: `${(fontSizeHeading2 - 8)}px`,
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "45px",
+      [`@media (min-width: ${mq.min["600"]})`]: {
+        fontSize: `${(fontSizeHeading2 - 3)}px`,
       },
     },
     huge: {
-      fontSize: "30px",
+      fontSize: `${(fontSizeHeading3 + 2)}px`,
       letterSpacing: "-1px",
       lineHeight: (36 / 30),
 
-      [`@media (min-width: ${settings.media.min["600"]})`]: {
-        fontSize: "64px",
+      [`@media (min-width: ${mq.min["600"]})`]: {
+        fontSize: `${fontSizeHeading1}px`,
         lineHeight: (70 / 64),
       },
     },
@@ -51,31 +62,31 @@ const styles = {
 
   weight: {
     extraThin: {
-      fontWeight: 100,
+      fontWeight: fontWeightLight,
     },
     thin: {
-      fontWeight: 300,
+      fontWeight: fontWeightLight,
     },
     normal: {
-      fontWeight: 400,
+      fontWeight: fontWeightBook,
     },
     thick: {
-      fontWeight: 600,
+      fontWeight: fontWeightMedium,
     },
   },
 
   importance: {
     low: {
-      color: `rgba(${rgb(settings.color.text)}, .4)`,
+      color: rgba(colors.textPrimary, 0.35),
     },
     normal: {
-      color: settings.color.titleGray,
+      color: colors.textPrimary,
     },
     high: {
-      color: settings.color.darkGray,
+      color: colors.textPrimary,
     },
     alert: {
-      color: settings.color.red,
+      color: colors.accentRed,
     },
   },
 
@@ -116,40 +127,20 @@ function Heading({
   override,
 }) {
   const Component = `h${level}`;
-  const style = [styles.base];
-
-  if (size) {
-    style.push(styles.size[size]);
-  }
-
-  if (weight) {
-    style.push(styles.weight[weight]);
-  }
-
-  if (importance) {
-    style.push(styles.importance[importance]);
-  }
-
-  if (tracking) {
-    style.push(styles.tracking[tracking]);
-  }
-
-  if (truncate) {
-    style.push(styles.variant.truncate);
-  }
-
-  if (caps) {
-    style.push(styles.variant.caps);
-  }
-
-  if (override) {
-    style.push(override);
-  }
 
   return (
     <Component
       className="Heading"
-      style={style}
+      style={[
+        styles.base,
+        size && styles.size[size],
+        weight && styles.weight[weight],
+        importance && styles.importance[importance],
+        tracking && styles.tracking[tracking],
+        truncate && styles.variant.truncate,
+        caps && styles.variant.caps,
+        override,
+      ]}
     >
       {children}
     </Component>
@@ -160,12 +151,12 @@ Heading.propTypes = {
   /**
    * Text for the heading
    */
-  children: React.PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 
   /**
    * Creates the heading element
    */
-  level: React.PropTypes.oneOf([
+  level: PropTypes.oneOf([
     1,
     2,
     3,
@@ -177,7 +168,7 @@ Heading.propTypes = {
   /**
    * Declares the font size of the heading
    */
-  size: React.PropTypes.oneOf([
+  size: PropTypes.oneOf([
     "huge",
     "large",
     "medium",
@@ -188,7 +179,7 @@ Heading.propTypes = {
   /**
    * Adjusts the font weight of the heading
    */
-  weight: React.PropTypes.oneOf([
+  weight: PropTypes.oneOf([
     "thick",
     "normal",
     "thin",
@@ -198,7 +189,7 @@ Heading.propTypes = {
   /**
    * The heading color changes based on importance
    */
-  importance: React.PropTypes.oneOf([
+  importance: PropTypes.oneOf([
     "alert",
     "high",
     "normal",
@@ -208,7 +199,7 @@ Heading.propTypes = {
   /**
    * Controls the letter spacing
    */
-  tracking: React.PropTypes.oneOf([
+  tracking: PropTypes.oneOf([
     "tight",
     "normal",
     "loose",
@@ -217,12 +208,12 @@ Heading.propTypes = {
   /**
    * Whether or not to hide the text overflow with an ellipsis
    */
-  truncate: React.PropTypes.bool,
+  truncate: PropTypes.bool,
 
   /**
    * Whether or not to set the heading in all caps
    */
-  caps: React.PropTypes.bool,
+  caps: PropTypes.bool,
 
   /**
    * Override styles
@@ -232,19 +223,12 @@ Heading.propTypes = {
 
 Heading.defaultProps = {
   level: 2,
-
   size: "medium",
-
   weight: "normal",
-
   importance: "normal",
-
   tracking: "normal",
-
   truncate: false,
-
   caps: false,
-
   override: {},
 };
 
