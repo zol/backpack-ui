@@ -1,42 +1,42 @@
-import React from "react";
+import React, { PropTypes } from "react";
 import radium from "radium";
-import settings from "../../../settings.json";
+import colors from "../../styles/colors";
+import { fontSizeHeading3 } from "../../styles/typography";
+import { textHeading3 } from "../../utils/typography";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  base: {
-    color: settings.color.darkGray,
-    fontSize: "2.6rem",
-    fontWeight: 300,
-    lineHeight: (40 / 26),
+  container: Object.assign({},
+    textHeading3("light"),
+    {
+      color: colors.textPrimary,
+      lineHeight: (42 / fontSizeHeading3),
+    },
+  ),
+
+  paragraph: {
     marginBottom: 0,
+    marginTop: 0,
   },
 };
 
-/**
- * Lede component
- */
-function Lede({ content }) {
+function Lede({ children, content, style }) {
   return (
     <div
       className="Lede"
-      style={styles.base}
+      style={[styles.container, style]}
     >
-      <p>
-        {content}
+      <p style={styles.paragraph}>
+        {children || content}
       </p>
     </div>
   );
 }
 
 Lede.propTypes = {
-  /**
-   * String of content
-   */
-  content: React.PropTypes.string.isRequired,
-};
-
-Lede.defaultProps = {
-  content: "",
+  children: PropTypes.string.isRequired,
+  content: PropTypes.string,
+  style: propTypes.style,
 };
 
 export default radium(Lede);

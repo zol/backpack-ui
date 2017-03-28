@@ -1,5 +1,57 @@
 # Change log
 
+## 4.5.0
+- [update] Remove isRequired from aspectRatio prop in CardVideo component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to ModalContentWatchLaterList component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [update] Replace anchor with Link component in SlideTall component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to WatchLaterList component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [new] Add removeAll prop to WatchLaterModal component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
+- [update] Update styles for Lede component ([#176](https://github.com/lonelyplanet/backpack-ui/pull/176))
+  * Import PropTypes from React
+  * Delete defaultProps
+  * Add style prop
+  * Delete docblock comments
+  * Rename styles.base to styles.container
+  * Add styles to paragraph
+  * Add children prop, deprecate content prop; keep content prop for backwards compatibility
+  * Replace settings.colors with styles/colors
+  * Import typography styles
+- [update] Update heading component ([#175](https://github.com/lonelyplanet/backpack-ui/pull/175))
+  * Remove white space between defaultProps
+  * Replace rgb util with rgba util
+  * Use font weights from styles/typography; extraThin (100) is not a weight, but it was set to be the same as thin (300) instead of being removed completely to maintain backwards compatibility and prevent errors
+  * Use colors from styles/colors
+  * Use media queries from styles/mq
+  * Remove settings.json
+  * Use font sizes from styles/typography
+  * Import PropTypes
+  * Use radium to merge conditional styles
+
+## 4.4.0
+- [new] Add solid black to styles/colors as bgOverlay ([#174](https://github.com/lonelyplanet/backpack-ui/pull/174))
+
+## 4.3.0
+- [new] Add heading, fontWeight to propType validation ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))
+- [new] Create text components to match typography styles ([#171](https://github.com/lonelyplanet/backpack-ui/pull/171))  
+  These components map to styles/typography and use utils/typography to apply the styles. TextHeading is a stripped down version of Heading and the idea is to deprecate Heading in a future release. TextHeading was created 1) somewhat as an experiment to simplify Heading and 2) as to not break every implementation of Heading currently in use.
+
+## 4.2.3
+- [update] Update Newsletter to work with Salesforce and allow different newsletters to be subscribed to ([#169](https://github.com/lonelyplanet/backpack-ui/pull/169))
+- [update] Update disclaimer text styles ([#168](https://github.com/lonelyplanet/backpack-ui/pull/168))
+  * Import propTypes util for style prop validation
+  * Import and use color from styles/colors
+  * Import typography styles for font size
+  * Reformat JSX for better readability
+
+## 4.2.2
+- [update] Add style prop to FeaturedArticle ([#167](https://github.com/lonelyplanet/backpack-ui/pull/167))
+- [fix] Use WebkitOverflowScrolling to fix radium warning in TabbedNav ([#165](https://github.com/lonelyplanet/backpack-ui/pull/165))
+- [fix] Set borderWidth in Newsletter to suppress radium warning ([#164](https://github.com/lonelyplanet/backpack-ui/pull/164))
+
+## 4.2.1
+- [update] Remove id property from VideoEmbed ([#163](https://github.com/lonelyplanet/backpack-ui/pull/163))
+- [update] Add transition to animate accordion content ([#162](https://github.com/lonelyplanet/backpack-ui/pull/162))
+
 ## 4.2.0
 - [update] Add event to onClick event of the type selector ([#161](https://github.com/lonelyplanet/backpack-ui/pull/161))
 - [update] Change Modal to be stateless functional component ([#159](https://github.com/lonelyplanet/backpack-ui/pull/159))

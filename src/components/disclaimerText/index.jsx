@@ -1,12 +1,14 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import font from "../../utils/font";
+import { fontSizeUppercase } from "../../styles/typography";
+import propTypes from "../../utils/propTypes";
 
 const styles = {
-  color: color.detailHeaderSmall,
+  color: colors.textSecondary,
   fontFamily: font("benton"),
-  fontSize: "11px",
+  fontSize: `${fontSizeUppercase}px`,
   lineHeight: (17 / 11),
 };
 
@@ -17,15 +19,25 @@ function markup(htmlContent) {
 }
 
 const DisclaimerText = ({ children, style }) => (
-  <div className="DisclaimerText" style={[styles, style]}>
-    <Style rules={{ ".DisclaimerText a": { color: "inherit" } }} />;
+  <div
+    className="DisclaimerText"
+    style={[styles, style]}
+  >
+    <Style
+      rules={{
+        ".DisclaimerText a": {
+          color: "inherit",
+        },
+      }}
+    />
+
     <div dangerouslySetInnerHTML={markup(children)} />
   </div>
 );
 
 DisclaimerText.propTypes = {
   children: PropTypes.node.isRequired,
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 export default radium(DisclaimerText);
