@@ -1,22 +1,46 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
-import { color } from "../../../settings.json";
+import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
-import Author from "../author";
+import propTypes from "../../utils/propTypes";
+import AuthorName from "../authorName";
+import ItalicText from "../italicText";
 import Timestamp from "../timestamp";
 
 const styles = {
   line: {
-    backgroundColor: color.red,
+    backgroundColor: colors.accentRed,
     content: "``",
     display: "block",
     height: "2px",
-    marginBottom: "27px",
     width: "48px",
   },
 
+  container: {
+    alignItems: "baseline",
+    display: "flex",
+    justifyContent: "space-between",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+
   author: {
-    display: "block",
+    alignItems: "baseline",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "flex-start",
+    marginTop: "16px",
+  },
+
+  authorName: {
+    marginRight: "8px",
+    marginTop: "10px",
+  },
+
+  italicText: {
+    marginRight: "8px",
+    marginTop: "8px",
   },
 
   timestamp: {
@@ -25,31 +49,54 @@ const styles = {
   },
 };
 
-const NewsArticleAuthor = ({ name, title, absoluteTime, relativeTime, theme, style }) => (
-  <div className="NewsArticleAuthor" style={style}>
+const NewsArticleAuthor = ({
+  name,
+  title,
+  absoluteTime,
+  relativeTime,
+  theme,
+  style,
+}) => (
+  <div
+    className="NewsArticleAuthor"
+    style={style}
+  >
     <div
       style={[
         styles.line,
-        (theme === "dark") && { backgroundColor: rgba(color.white, 0.5) },
+        (theme === "dark") && {
+          backgroundColor: rgba(colors.bgPrimary, 0.5),
+        },
       ]}
     />
 
-    <Author
-      name={name}
-      title={title}
-      style={[
-        styles.author,
-        (theme === "dark") && { color: color.white },
-      ]}
-    />
-    {relativeTime &&
-      <Timestamp
-        dateTime={absoluteTime}
-        style={styles.timestamp}
+    <div style={styles.container}>
+      <div
+        style={[
+          styles.author,
+          (theme === "dark") && {
+            color: colors.bgPrimary,
+          },
+        ]}
       >
-        {relativeTime}
-      </Timestamp>
-    }
+        <AuthorName style={styles.authorName}>
+          {name}
+        </AuthorName>
+
+        <ItalicText style={styles.italicText}>
+          {title}
+        </ItalicText>
+      </div>
+
+      {relativeTime &&
+        <Timestamp
+          dateTime={absoluteTime}
+          style={styles.timestamp}
+        >
+          {relativeTime}
+        </Timestamp>
+      }
+    </div>
   </div>
 );
 
@@ -59,7 +106,7 @@ NewsArticleAuthor.propTypes = {
   absoluteTime: PropTypes.string,
   relativeTime: PropTypes.string,
   theme: PropTypes.oneOf(["light", "dark"]),
-  style: PropTypes.objectOf(PropTypes.object),
+  style: propTypes.style,
 };
 
 NewsArticleAuthor.defaultProps = {
