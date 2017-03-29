@@ -1,5 +1,22 @@
 # Change log
 
+## 4.5.1
+- [update] Add style prop to ArticlePaginationNav ([#185](https://github.com/lonelyplanet/backpack-ui/pull/185))
+- [update] Add radium to GridRow component ([#184](https://github.com/lonelyplanet/backpack-ui/pull/184))
+- [update] Add full overlay options to Slide component ([#181](https://github.com/lonelyplanet/backpack-ui/pull/181))
+- [update] Refactor breadcrumbs to use styles ([#180](https://github.com/lonelyplanet/backpack-ui/pull/180))
+  * Replace color from settings with styles/color
+  * Use rgba function to adjust colors.textPrimary
+  * Import fontSizeBodySmall from styles/typography
+  * Import fontWeightBook from styles/typography
+  * Delete defaultProps
+  * Delete docblock comments
+  * Add style prop
+  * Rename container styles
+  * Import PropTypes from react
+  * Remove styles export
+  * Replace index with link.href in items map
+
 ## 4.5.0
 - [update] Remove isRequired from aspectRatio prop in CardVideo component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
 - [new] Add removeAll prop to ModalContentWatchLaterList component ([#177](https://github.com/lonelyplanet/backpack-ui/pull/177))
