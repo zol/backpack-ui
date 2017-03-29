@@ -1,5 +1,12 @@
 # Change log
 
+## 4.5.2
+- [update] Update ImageHero component ([#186](https://github.com/lonelyplanet/backpack-ui/pull/186))
+  * Delete default props
+  * Remove propTypes const
+  * Rename container styles key
+  * Add style prop
+
 ## 4.5.1
 - [update] Add style prop to ArticlePaginationNav ([#185](https://github.com/lonelyplanet/backpack-ui/pull/185))
 - [update] Add radium to GridRow component ([#184](https://github.com/lonelyplanet/backpack-ui/pull/184))
