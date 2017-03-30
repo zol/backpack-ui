@@ -1,5 +1,9 @@
 # Change log
 
+## 4.5.3
+- [update] Pass full ad id through as prop and hide by default ([#188](https://github.com/lonelyplanet/backpack-ui/pull/188))
+- [update] Update responsive masthead and slide styles ([#187](https://github.com/lonelyplanet/backpack-ui/pull/187))
+
 ## 4.5.2
 - [update] Update ImageHero component ([#186](https://github.com/lonelyplanet/backpack-ui/pull/186))
   * Delete default props
