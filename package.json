@@ -1,6 +1,6 @@
 {
   "name": "backpack-ui",
-  "version": "4.5.1",
+  "version": "4.5.5",
   "description": "Lonely Planet's Components",
   "main": "dist/index.js",
   "scripts": {

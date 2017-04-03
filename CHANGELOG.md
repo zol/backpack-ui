@@ -1,5 +1,24 @@
 # Change log
 
+## 4.5.5
+- [update] Hide first cloned slide in MastheadSlider ([#195](https://github.com/lonelyplanet/backpack-ui/pull/195))
+  * Fixes a bug where the first cloned slide, which is actually the last slide, can sometimes appear while the slider is still loading.
+- [update] Update mobile styles for ArticlePaginationItem ([#194](https://github.com/lonelyplanet/backpack-ui/pull/194))
+
+## 4.5.4
+- [fix] Change the path for social login buttons ([#193](https://github.com/lonelyplanet/backpack-ui/pull/193))
+
+## 4.5.3
+- [update] Pass full ad id through as prop and hide by default ([#188](https://github.com/lonelyplanet/backpack-ui/pull/188))
+- [update] Update responsive masthead and slide styles ([#187](https://github.com/lonelyplanet/backpack-ui/pull/187))
+
+## 4.5.2
+- [update] Update ImageHero component ([#186](https://github.com/lonelyplanet/backpack-ui/pull/186))
+  * Delete default props
+  * Remove propTypes const
+  * Rename container styles key
+  * Add style prop
+
 ## 4.5.1
 - [update] Add style prop to ArticlePaginationNav ([#185](https://github.com/lonelyplanet/backpack-ui/pull/185))
 - [update] Add radium to GridRow component ([#184](https://github.com/lonelyplanet/backpack-ui/pull/184))

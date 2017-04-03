@@ -32,6 +32,8 @@ const styles = {
     },
   },
   adContainer: {
+    // ad container will get display: block inline if present through GTM
+    display: "none",
     marginBottom: "36px",
     [`@media (min-width: ${media.min["720"]})`]: {
       marginBottom: "56px",
@@ -47,6 +49,7 @@ const styles = {
       fontSize: "calc(11px + 5vw)",
     },
     [`@media (min-width: ${media.min["720"]})`]: {
+      fontSize: "60px",
       marginBottom: "40px",
     },
     [`@media (min-width: ${media.min["840"]})`]: {
@@ -87,6 +90,9 @@ const styles = {
       justifyContent: "center",
       alignItems: "center",
       [`@media (min-width: ${media.min["720"]})`]: {
+        width: "68%",
+      },
+      [`@media (min-width: ${media.min["1290"]})`]: {
         width: "50%",
       },
     },
@@ -169,7 +175,7 @@ const Slide = ({
 
         {adPosition &&
           <div
-            id={`video-home-sponsor-advert-${adPosition}`}
+            id={adPosition}
             style={styles.adContainer}
           />
         }

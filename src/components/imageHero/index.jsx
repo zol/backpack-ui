@@ -1,51 +1,36 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
 import { color } from "../../../settings.json";
-
-const propTypes = {
-  /**
-   * Image path
-   */
-  image: PropTypes.string.isRequired,
-
-  /**
-   * Width and height of the image
-   */
-  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
-};
-
-const defaultProps = {
-  images: "",
-
-  imageSize: [],
-};
+import propTypes from "../../utils/propTypes";
 
 const styles = {
   container: {
-    base: {
-      backgroundColor: color.gray,
-      backgroundSize: "cover",
-      position: "relative",
-    },
+    backgroundColor: color.gray,
+    backgroundSize: "cover",
+    position: "relative",
   },
 };
 
-function ImageHero({ image, imageSize }) {
+function ImageHero({ image, imageSize, style }) {
   return (
     <div
       className="ImageHero"
       style={[
-        styles.container.base,
+        styles.container,
         {
           backgroundImage: `url(${image})`,
           paddingBottom: `${(imageSize[1] / imageSize[0]) * 100}%`,
         },
+        style,
       ]}
     />
   );
 }
 
-ImageHero.propTypes = propTypes;
-ImageHero.defaultProps = defaultProps;
+ImageHero.propTypes = {
+  image: PropTypes.string.isRequired,
+  imageSize: PropTypes.arrayOf(React.PropTypes.number).isRequired,
+  style: propTypes.style,
+};
 
 export default radium(ImageHero);
