@@ -16,14 +16,14 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     maxHeight: "420px",
-    minHeight: "208px",
+    minHeight: "320px",
     overflow: "hidden",
     padding: `30px ${(60 / 1290) * 100}%`,
     position: "relative",
     textAlign: "center",
     textDecoration: "none",
 
-    [`@media (min-width: ${media.min["768"]})`]: {
+    [`@media (min-width: ${media.min["960"]})`]: {
       minHeight: "420px",
     },
 
@@ -78,7 +78,11 @@ const css = `
     transform: scale(1.05);
   }
 
-  @media (min-width: ${media.min["768"]}) {
+  .Heading {
+    font-size: 32px !important;
+  }
+
+  @media (min-width: ${media.min["960"]}) {
     .Heading {
       font-size: 40px !important;
       line-height: ${(46 / 40)} !important;
