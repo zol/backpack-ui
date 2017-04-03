@@ -1,7 +1,12 @@
 # Change log
 
+## 4.5.5
+- [update] Hide first cloned slide in MastheadSlider ([#195](https://github.com/lonelyplanet/backpack-ui/pull/195))
+  * Fixes a bug where the first cloned slide, which is actually the last slide, can sometimes appear while the slider is still loading.
+- [update] Update mobile styles for ArticlePaginationItem ([#194](https://github.com/lonelyplanet/backpack-ui/pull/194))
+
 ## 4.5.4
-- [fix] change the path for social login buttons ([#189](https://github.com/lonelyplanet/backpack-ui/pull/189))
+- [fix] Change the path for social login buttons ([#193](https://github.com/lonelyplanet/backpack-ui/pull/193))
 
 ## 4.5.3
 - [update] Pass full ad id through as prop and hide by default ([#188](https://github.com/lonelyplanet/backpack-ui/pull/188))
