@@ -1,5 +1,8 @@
 # Change log
 
+## 4.5.4
+- [fix] change the path for social login buttons ([#189](https://github.com/lonelyplanet/backpack-ui/pull/189))
+
 ## 4.5.3
 - [update] Pass full ad id through as prop and hide by default ([#188](https://github.com/lonelyplanet/backpack-ui/pull/188))
 - [update] Update responsive masthead and slide styles ([#187](https://github.com/lonelyplanet/backpack-ui/pull/187))
