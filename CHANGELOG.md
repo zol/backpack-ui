@@ -1,5 +1,8 @@
 # Change log
 
+## 4.5.6
+- [update] Add methods to VideoEmbed component that check if ads are done loading before video automatically plays ([#197](https://github.com/lonelyplanet/backpack-ui/pull/197))
+
 ## 4.5.5
 - [update] Hide first cloned slide in MastheadSlider ([#195](https://github.com/lonelyplanet/backpack-ui/pull/195))
   * Fixes a bug where the first cloned slide, which is actually the last slide, can sometimes appear while the slider is still loading.
