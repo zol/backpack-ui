@@ -1,5 +1,8 @@
 # Change log
 
+## 4.5.7
+- [update] Add target prop to MoreLink ([#192](https://github.com/lonelyplanet/backpack-ui/pull/192))
+
 ## 4.5.6
 - [update] Add methods to VideoEmbed component that check if ads are done loading before video automatically plays ([#197](https://github.com/lonelyplanet/backpack-ui/pull/197))
 
