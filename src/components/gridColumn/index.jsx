@@ -4,15 +4,39 @@ import cn from "classnames";
 import { media } from "../../../settings.json";
 import { add, gutter, span } from "../../utils/grid";
 
-function outputStyles({ columns, shift, fluid, mq }) {
+function outputStyles({
+  columns,
+  shift,
+  fluid,
+  includeGutter,
+  gutterPosition,
+  mq,
+}) {
   const math = fluid ? "fluid" : "static";
   const query = `@media (min-width: ${media.min[mq]})`;
+  const valuesToAdd = shift ? [span(shift, math), gutter(math)] : [];
+  const shouldIncludeGutter = columns !== 12;
+  const includeGutterBefore = shouldIncludeGutter && (includeGutter && gutterPosition === "before");
+  const includeGutterAfter = shouldIncludeGutter && (includeGutter && gutterPosition === "after");
   const styles = {
     [query]: {},
   };
 
-  if (shift) {
-    styles[query].marginLeft = add([span(shift, math), gutter(math)], math);
+  if (shift && includeGutterBefore) {
+    valuesToAdd.push(gutter(math));
+    styles[query].marginLeft = add(valuesToAdd, math);
+  }
+
+  if (!shift && includeGutterBefore) {
+    styles[query].marginLeft = gutter(math);
+  }
+
+  if (shift && !includeGutter) {
+    styles[query].marginLeft = add(valuesToAdd, math);
+  }
+
+  if (includeGutterAfter) {
+    styles[query].marginRight = gutter(math);
   }
 
   if (columns) {
@@ -34,6 +58,8 @@ function GridColumn({
   mdShift,
   lg,
   lgShift,
+  includeGutter,
+  gutterPosition,
 }) {
   const styles = {
     base: {
@@ -41,9 +67,32 @@ function GridColumn({
       width: "100%",
     },
 
-    sm: outputStyles({ columns: sm, shift: smShift, fluid, mq: "480" }),
-    md: outputStyles({ columns: md, shift: mdShift, fluid, mq: "768" }),
-    lg: outputStyles({ columns: lg, shift: lgShift, fluid, mq: "1024" }),
+    sm: outputStyles({
+      columns: sm,
+      shift: smShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "480",
+    }),
+
+    md: outputStyles({
+      columns: md,
+      shift: mdShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "768",
+    }),
+
+    lg: outputStyles({
+      columns: lg,
+      shift: lgShift,
+      fluid,
+      includeGutter,
+      gutterPosition,
+      mq: "1024",
+    }),
   };
 
   return (
@@ -78,6 +127,8 @@ GridColumn.propTypes = {
   mdShift: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
   lg: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]),
   lgShift: PropTypes.oneOf([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]),
+  includeGutter: PropTypes.bool,
+  gutterPosition: PropTypes.oneOf(["before, after"]),
 };
 
 GridColumn.defaultProps = {
@@ -92,6 +143,8 @@ GridColumn.defaultProps = {
   mdShift: null,
   lg: null,
   lgShift: null,
+  includeGutter: false,
+  gutterPosition: "before",
 };
 
 export default radium(GridColumn);
