@@ -1,5 +1,8 @@
 # Change log
 
+## 4.6.1
+- [update] Update height of TabbedNav component for mobile to match desktop ([#198](https://github.com/lonelyplanet/backpack-ui/pull/198))
+
 ## 4.6.0
 - [new] Add gutter props to GridColumn ([#191](https://github.com/lonelyplanet/backpack-ui/pull/191))
 
