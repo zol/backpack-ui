@@ -1,5 +1,8 @@
 # Change log
 
+## 4.6.0
+- [new] Add gutter props to GridColumn ([#191](https://github.com/lonelyplanet/backpack-ui/pull/191))
+
 ## 4.5.7
 - [update] Add target prop to MoreLink ([#192](https://github.com/lonelyplanet/backpack-ui/pull/192))
 
