@@ -6,7 +6,6 @@ import font from "../../utils/font";
 import { rgb } from "../../utils/color";
 
 const navigationSubHeight = "80px";
-const navigationSubHeightMobile = settings.components.header.heightMobile;
 
 const styles = {
   container: {
@@ -14,7 +13,7 @@ const styles = {
     borderTop: `1px solid rgba(${rgb(color.lightBlue)}, 0.45)`,
     fontFamily: font("benton"),
     fontSize: 0,
-    height: navigationSubHeightMobile,
+    height: navigationSubHeight,
     lineHeight: 1,
     margin: 0,
     padding: 0,
@@ -22,24 +21,16 @@ const styles = {
     transform: "translateZ(0)", // force hardware acceleration for iOS
     transition: `opacity ${timing.default}, visibility ${timing.default}`,
     zIndex: zIndex.globalHeader,
-
-    [`@media (min-width: ${media.min["768"]})`]: {
-      height: navigationSubHeight,
-    },
   },
 
   innerContainer: {
-    height: navigationSubHeightMobile,
+    height: navigationSubHeight,
     overflow: "hidden",
-
-    [`@media (min-width: ${media.min["768"]})`]: {
-      height: navigationSubHeight,
-    },
   },
 
   list: {
     animation: `fly-in ${settings.timing.default}`,
-    height: (navigationSubHeightMobile + 2), // to push horizontal scrollbar out of view
+    height: navigationSubHeight, // to push horizontal scrollbar out of view
     margin: 0,
     WebkitOverflowScrolling: "touch",
     overflowX: "auto",
@@ -54,22 +45,14 @@ const styles = {
     [`@media (min-width: ${media.min["480"]})`]: {
       animation: "none",
     },
-
-    [`@media (min-width: ${media.min["768"]})`]: {
-      height: navigationSubHeight,
-    },
   },
 
   listItem: {
     display: "inline-block",
-    lineHeight: navigationSubHeightMobile,
+    lineHeight: navigationSubHeight,
     margin: 0,
     padding: 0,
-
-    [`@media (min-width: ${media.min["768"]})`]: {
-      height: "100%",
-      lineHeight: navigationSubHeight,
-    },
+    height: "calc(100% - 2px)",
 
     active: {
       borderBottom: `5px solid ${color.red}`,
@@ -96,14 +79,7 @@ const styles = {
       padding: `2px calc(${settings.default.gutter} / 2) 0`,
       transition: "300ms color ease-in",
       cursor: "pointer",
-    },
-    mediaQueries: {
-      [`(min-width: ${media.min["768"]})`]: {
-        button: {
-          fontSize: "16px",
-          height: "100%",
-        },
-      },
+      height: "100%",
     },
   },
 };
