@@ -1,5 +1,8 @@
 # Change log
 
+## 4.6.2
+- [fix] Prevent ArticlePaginationItem image from stretching ([#199](https://github.com/lonelyplanet/backpack-ui/pull/199))
+
 ## 4.6.1
 - [update] Update height of TabbedNav component for mobile to match desktop ([#198](https://github.com/lonelyplanet/backpack-ui/pull/198))
 
