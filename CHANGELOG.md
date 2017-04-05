@@ -1,5 +1,8 @@
 # Change log
 
+## 4.6.3
+- [update] Delete ellipsis from ArticlePreview ([#200](https://github.com/lonelyplanet/backpack-ui/pull/200))
+
 ## 4.6.2
 - [fix] Prevent ArticlePaginationItem image from stretching ([#199](https://github.com/lonelyplanet/backpack-ui/pull/199))
 
