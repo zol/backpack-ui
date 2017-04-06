@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import get from "lodash/get";
 import uniqueId from "lodash/uniqueId";
-import { color, media } from "../../../settings.json";
+import { media } from "../../../settings.json";
 
 const _ = { get, uniqueId };
 
@@ -31,22 +31,37 @@ const styles = {
 };
 
 const scopedStyles = {
-  ".vjs-play-progress": {
-    backgroundColor: color.blue,
+  ".vjs-overlay-bottom": {
+    left: "0px",
+    width: "100%",
+    marginLeft: "0px",
+    maxWidth: "100% !important",
   },
-  ".vjs-volume-level": {
-    backgroundColor: color.blue,
+  ".vjs-overlay-top-left": {
+    top: "0px",
+    left: "0px",
   },
-  ".vjs-big-play-button:hover": {
-    backgroundColor: color.blue,
+  ".vjs-overlay-top-right": {
+    maxWidth: "100% !important",
+    width: "100%",
+    textAlign: "right",
   },
-  ".vjs-big-play-button:active": {
-    backgroundColor: color.blue,
+  ".VideoEmbed-logo-overlay": {
+    width: "20%",
+    maxWidth: "100px",
+    minWidth: "76px",
   },
-  ".vjs-big-play-button:focus": {
-    backgroundColor: color.blue,
+  ".VideoEmbed-ad-overlay": {
+    marginTop: "8px",
+    lineHeight: "21px",
+    fontWeight: "normal",
+    verticalAlign: "middle",
+    backgroundColor: "rgba(0,0,0,0.8)",
+    color: "#e6e6e6",
+    fontSize: "11px",
+    fontFamily: "arial,sans-serif",
+    padding: "6px 24px",
   },
-
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
       ".vjs-big-play-button": {
@@ -99,11 +114,17 @@ class VideoEmbed extends Component {
     this.player.controls(true);
 
     this.player.ready(this.onPlayerReady.bind(this));
+    this.player.on("playing", this.onPlayerPlaying.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
-    this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
+    this.player.on("ads-ad-started", this.onAdStarted.bind(this));
   }
 
   onPlayerReady() {
+    this.loadVideo(this.props.videoId);
+  }
+
+  onPlayerPlaying() {
+    this.enableLogoOverlay();
     this.loadVideo(this.props.videoId);
   }
 
@@ -113,8 +134,41 @@ class VideoEmbed extends Component {
     }
   }
 
-  onAdEnded() {
-    this.loadVideo(this.props.videoId);
+  onPlayerCueChange() {
+    const tt = this.player.textTracks()[0];
+    const activeCue = tt.activeCues[0];
+    if (!activeCue || activeCue.text !== "CODE") {
+      return;
+    }
+
+    const cue = activeCue.originalCuePoint;
+
+    const overlayElementId = `ad-lowerthird-${this.id}-${cue.id}`;
+    const element = document.getElementById(overlayElementId);
+
+    if (!element) {
+      return;
+    }
+
+    let cueIndex = null;
+
+    tt.cues_.filter(c => c.text === "CODE").forEach((c, i) => {
+      if (c.originalCuePoint.id === cue.id) {
+        cueIndex = i;
+      }
+    });
+
+    if (cueIndex === null) {
+      return;
+    }
+
+    if (this.props.onCueChange) {
+      this.props.onCueChange(cue, cueIndex, overlayElementId);
+    }
+  }
+
+  onAdStarted() {
+    this.disableLogoOverlay();
   }
 
   getPlayerVideoClassName() {
@@ -123,6 +177,10 @@ class VideoEmbed extends Component {
 
   getPlayerScriptId() {
     return `VideoEmbed-initialize-${this.id}`;
+  }
+
+  getLogoOverlayId() {
+    return `VideoEmbed-logo-overlay-${this.id}`;
   }
 
   setupPlayer() {
@@ -178,11 +236,72 @@ class VideoEmbed extends Component {
       this.player.catalog.getVideo(videoId, (error, video) => {
         if (!error) {
           this.player.catalog.load(video);
-          if (this.props.autoplay) {
+
+          const tt = this.player.textTracks()[0];
+          tt.off("cuechange");
+          tt.on("cuechange", this.onPlayerCueChange.bind(this));
+
+          this.configureOverlays();
+
+          if (autoplay) {
             this.player.play();
           }
         }
       });
+    }
+  }
+
+  configureOverlays() {
+    const tt = this.player.textTracks()[0];
+
+    const overlays = tt.cues_.filter(c => c.text === "CODE").map((c) => {
+      const cue = c.originalCuePoint;
+
+      const defaultEnd = cue.startTime + 15;
+      const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
+
+      return {
+        content: `<div id="ad-lowerthird-${this.id}-${cue.id}" />`,
+        align: "bottom",
+        start: cue.startTime,
+        end,
+      };
+    });
+
+    overlays.push({
+      content: "<div class=\"VideoEmbed-ad-overlay\">Advertisement</div>",
+      align: "top-left",
+      start: "ads-ad-started",
+      end: "playing",
+    });
+
+    overlays.push({
+      content: `<img id="${this.getLogoOverlayId()}" class="VideoEmbed-logo-overlay" src="https://s3.amazonaws.com/static-asset/backpack-ui/videoembed.lp-logo.png" />`,
+      align: "top-right",
+      start: 0,
+      end: "ended",
+    });
+
+    this.player.overlay({
+      content: "",
+      overlays,
+      showBackground: false,
+      attachToControlBar: false,
+      debug: false,
+    });
+  }
+
+  disableLogoOverlay() {
+    const logo = document.getElementById(this.getLogoOverlayId());
+    if (logo) {
+      logo.style.display = "none";
+    }
+  }
+
+  enableLogoOverlay() {
+    const logo = document.getElementById(this.getLogoOverlayId());
+    if (logo) {
+      logo.style.display = "inline-block";
     }
   }
 
@@ -215,6 +334,7 @@ VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
+  onCueChange: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
