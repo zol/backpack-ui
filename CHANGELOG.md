@@ -1,5 +1,11 @@
 # Change log
 
+## 4.7.0
+- [new] Add overlays to VideoEmbed component ([#201](https://github.com/lonelyplanet/backpack-ui/pull/201))
+  * LP logo overlay for video playback
+  * "Advertisement" caption for ad playback
+  * Add cue point overlays for ad injection
+
 ## 4.6.3
 - [update] Delete ellipsis from ArticlePreview ([#200](https://github.com/lonelyplanet/backpack-ui/pull/200))
 
