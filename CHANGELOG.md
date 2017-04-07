@@ -1,5 +1,23 @@
 # Change log
 
+## 4.7.0
+- [new] Add overlays to VideoEmbed component ([#201](https://github.com/lonelyplanet/backpack-ui/pull/201))
+  * LP logo overlay for video playback
+  * "Advertisement" caption for ad playback
+  * Add cue point overlays for ad injection
+
+## 4.6.3
+- [update] Delete ellipsis from ArticlePreview ([#200](https://github.com/lonelyplanet/backpack-ui/pull/200))
+
+## 4.6.2
+- [fix] Prevent ArticlePaginationItem image from stretching ([#199](https://github.com/lonelyplanet/backpack-ui/pull/199))
+
+## 4.6.1
+- [update] Update height of TabbedNav component for mobile to match desktop ([#198](https://github.com/lonelyplanet/backpack-ui/pull/198))
+
+## 4.6.0
+- [new] Add gutter props to GridColumn ([#191](https://github.com/lonelyplanet/backpack-ui/pull/191))
+
 ## 4.5.7
 - [update] Add target prop to MoreLink ([#192](https://github.com/lonelyplanet/backpack-ui/pull/192))
 
