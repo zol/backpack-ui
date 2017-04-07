@@ -1,5 +1,18 @@
 # Change log
 
+## 4.8.0
+- [remove] Uninstall humanize-duration module ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [remove] Delete `runtimeUnit` prop from CardVideo component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [update] Make `runtime` prop in CardVideo component not required ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [update] Update overlay styles for VideoEmbed component, add classname "VideoEmbed-lowerthird-overlay" ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [new] Add `onAdEnded` method to VideoEmbed component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [update] Update `onPlayerPlaying` method in VideoEmbed component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [remove] Delete `onAdStarted`, `getLogoOverlayId`, `disableLogoOverlay` and `enableLogoOverlay` methods from VideoEmbed component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [update] Change `attachToControlBar` prop from false to true ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [remove] Delete push to `overlays` array in VideoEmbed component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [remove] Delete humanize-duration module from time utility ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+- [update] Refactor time utility ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
+
 ## 4.7.0
 - [new] Add overlays to VideoEmbed component ([#201](https://github.com/lonelyplanet/backpack-ui/pull/201))
   * LP logo overlay for video playback
