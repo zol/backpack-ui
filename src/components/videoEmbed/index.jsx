@@ -57,8 +57,21 @@ const scopedStyles = {
     fontFamily: "arial,sans-serif",
     padding: "6px 24px",
   },
+  ".VideoEmbed-lowerthird-overlay": {
+    position: "relative",
+    paddingBottom: "56.25%", /* 16:9 */
+    height: 0,
+  },
+  ".VideoEmbed-lowerthird-overlay>div": {
+    width: "100% !important",
+    height: "100% !important",
+  },
   ".VideoEmbed-lowerthird-overlay iframe": {
-    maxWidth: "100%",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
   },
   mediaQueries: {
     [`(max-width: ${media.max["480"]})`]: {
