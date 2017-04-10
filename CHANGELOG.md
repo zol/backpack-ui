@@ -1,7 +1,11 @@
 # Change log
 
-## 4.9.0
+## 4.10.0
+- [update] Add intrinsic ratio to VideoEmbed ad overlay elements to fix a bug where the ad would not display ([#212](https://github.com/lonelyplanet/backpack-ui/pull/212))
+- [update] Add avatar paths to stories data ([#155](https://github.com/lonelyplanet/backpack-ui/pull/155))
+- [new] Create AvatarUpload component ([#155](https://github.com/lonelyplanet/backpack-ui/pull/155))
 
+## 4.9.0
 - [new] Add borderPrimary color ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
 - [delete] Remove textPrimaryBody color ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
 - [update] Change textSecondary to 70% textPrimary ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
