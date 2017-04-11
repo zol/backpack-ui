@@ -6,6 +6,7 @@ import { rgb } from "../../utils/color";
 import { blueLink, outline } from "../../utils/mixins";
 import font from "../../utils/font";
 import { ChevronRight } from "../icon";
+import colors from "../../styles/colors";
 
 const styles = {
   container: {
@@ -15,7 +16,7 @@ const styles = {
   },
 
   border: {
-    backgroundColor: `rgba(${rgb(color.lightBlue)}, .3)`,
+    backgroundColor: `${colors.borderPrimary}`,
     height: "1px",
     marginBottom: "11px",
     width: "calc(100% + 64px)",
