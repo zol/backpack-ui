@@ -55,6 +55,7 @@ import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
+import HeightExpander from "../src/components/form/heightExpander";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
 import IconButton from "../src/components/iconButton";
@@ -107,6 +108,15 @@ import ScrollIndicator from "../src/components/scrollIndicator";
 import SectionalNav from "../src/components/sectionalNav";
 import SectionHeader from "../src/components/sectionHeader";
 import Select from "../src/components/form/select";
+import {
+    SettingBlockSection,
+    SettingBlockListItemWrapper,
+  } from "../src/components/settingBlock";
+import SettingBlockCheckbox from "../src/components/settingBlockCheckbox";
+import SettingBlockAccordion from "../src/components/settingBlockAccordion";
+import SettingBlockTextArea from "../src/components/settingBlockTextArea";
+import SettingBlockInput from "../src/components/settingBlockInput";
+import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
 import SocialIconButton from "../src/components/socialIconButton";
@@ -1528,6 +1538,212 @@ storiesOf("Select", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Select options={array("Options", ["USA", "France", "Spain"])} />
+  ));
+
+storiesOf("Setting Block", module)
+  .addDecorator(withKnobs)
+  .add("Text Input Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <SettingBlockInput
+        error={boolean("Error", false)}
+        title={text("Title", "Name")}
+        subtitle={text("Subtitle", "Publicly displayed in your profile")}
+        placeholder={text("Placeholder", "Enter full name")}
+      />
+    </div>
+  ))
+  .add("Textarea Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <SettingBlockTextArea
+        error={boolean("Error", false)}
+        title={text("Textarea Title", "Intro")}
+        subtitle={text("Textarea Subtitle", "")}
+        id={text("Id", "testerTime")}
+        placeholder="Add an intro"
+      />
+    </div>
+  ))
+  .add("Checkbox Button Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <ToggleController active={boolean("Checked", false)}>
+        {(active, toggle) => (
+          <SettingBlockCheckbox
+            error={boolean("Error", false)}
+            title={text("Title", "Lonely Planet Kids newsletter")}
+            subtitle={text("Subtitle", "")}
+            checked={active}
+            onClick={toggle}
+            description={text("Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
+          />
+        )}
+      </ToggleController>
+    </div>
+  ))
+  .add("Accordion Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <ToggleController active={boolean("Expanded", false)}>
+        {(expanded, toggle) => (
+          <SettingBlockAccordion
+            error={boolean("Error", false)}
+            title={text("Title", "Travel interests")}
+            subtitle={text("Subtitle", "")}
+            expanded={expanded}
+            onClick={toggle}
+            description={text("Description", "Manage your tags")}
+          >
+            <TagList>
+              <Tag href="#" selected>All</Tag>
+              <Tag href="#">The Americas</Tag>
+              <Tag href="#">World</Tag>
+              <Tag href="#">Asia & the Pacific</Tag>
+              <Tag href="#">Europe</Tag>
+              <Tag href="#">Middle East & Africa</Tag>
+              <Tag href="#">Editor’s pick</Tag>
+            </TagList>
+          </SettingBlockAccordion>
+        )}
+      </ToggleController>
+    </div>
+  ))
+  .add("Setting List", () => (
+    <div
+      style={{
+        paddingTop: "16px",
+        paddingLeft: "24px",
+        paddingRight: "24px",
+      }}
+    >
+      <SettingBlockSection heading={text("Section Heading", "Personal")}>
+        <SettingBlockListItemWrapper>
+          <SettingBlockInput
+            error={boolean("Error", false)}
+            title={text("Title", "Name")}
+            subtitle={text("Subtitle", "Publicly displayed in your profile")}
+            placeholder={text("Placeholder", "Enter full name")}
+          />
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <SettingBlockTextArea
+            error={boolean("Error", false)}
+            title={text("Textarea Title", "Intro")}
+            subtitle={text("Textarea Subtitle", "")}
+            id={text("Id", "tester3")}
+            placeholder="Add an intro"
+          />
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <ToggleController active={boolean("Expanded", false)}>
+            {(expanded, toggle) => (
+              <SettingBlockAccordion
+                error={boolean("Error", false)}
+                title={text("Accordion Title", "Travel interests")}
+                subtitle={text("Accordion Subtitle", "Choose 3 or more")}
+                expanded={expanded}
+                onClick={toggle}
+                description={text("Accordion Description", "")}
+              >
+                <TagList>
+                  <Tag href="#" selected>All</Tag>
+                  <Tag href="#">The Americas</Tag>
+                  <Tag href="#">World</Tag>
+                  <Tag href="#">Asia & the Pacific</Tag>
+                  <Tag href="#">Europe</Tag>
+                  <Tag href="#">Middle East & Africa</Tag>
+                  <Tag href="#">Editor’s pick</Tag>
+                </TagList>
+              </SettingBlockAccordion>
+            )}
+          </ToggleController>
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <ToggleController active={boolean("Checked", false)}>
+            {(active, toggle) => (
+              <SettingBlockCheckbox
+                error={boolean("Error", false)}
+                title={text("Button Title", "Travel news daily")}
+                subtitle={text("Button Subtitle", "")}
+                checked={active}
+                onClick={toggle}
+                description={text("Button Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
+              />
+            )}
+          </ToggleController>
+        </SettingBlockListItemWrapper>
+      </SettingBlockSection>
+      <SettingBlockSection heading="Another Section">
+        <SettingBlockListItemWrapper>
+          <SettingBlockInput
+            error={boolean("Error", false)}
+            title={text("Title", "Name")}
+            subtitle={text("Subtitle", "Publicly displayed in your profile")}
+            placeholder={text("Placeholder", "Enter full name")}
+          />
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <SettingBlockTextArea
+            error={boolean("Error", false)}
+            title={text("Textarea Title", "Intro")}
+            subtitle={text("Textarea Subtitle", "")}
+            id={text("Id", "tester1")}
+            placeholder="Add an intro"
+          />
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <ToggleController active={boolean("Expanded", false)}>
+            {(expanded, toggle) => (
+              <SettingBlockAccordion
+                error={boolean("Error", false)}
+                title={text("Accordion Title", "Travel interests")}
+                subtitle={text("Accordion Subtitle", "Choose 3 or more")}
+                expanded={expanded}
+                onClick={toggle}
+                description={text("Accordion Description", "")}
+              >
+                <TagList>
+                  <Tag href="#" selected>All</Tag>
+                  <Tag href="#">The Americas</Tag>
+                  <Tag href="#">World</Tag>
+                  <Tag href="#">Asia & the Pacific</Tag>
+                  <Tag href="#">Europe</Tag>
+                  <Tag href="#">Middle East & Africa</Tag>
+                  <Tag href="#">Editor’s pick</Tag>
+                </TagList>
+              </SettingBlockAccordion>
+            )}
+          </ToggleController>
+        </SettingBlockListItemWrapper>
+        <SettingBlockListItemWrapper>
+          <ToggleController active={boolean("Checked", false)}>
+            {(active, toggle) => (
+              <SettingBlockCheckbox
+                error={boolean("Error", false)}
+                title={text("Button Title", "Twitter")}
+                subtitle={text("Button Subtitle", "")}
+                checked={active}
+                onClick={toggle}
+                description={text("Button Description", "Find interesting people you follow")}
+              />
+            )}
+          </ToggleController>
+        </SettingBlockListItemWrapper>
+      </SettingBlockSection>
+    </div>
   ));
 
 storiesOf("Sights List Item", module)
