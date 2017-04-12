@@ -1,5 +1,18 @@
 # Change log
 
+## 4.11.0
+- [update] Update CalloutLink with colors from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
+- [update] Update ListContainer with colors, media query from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
+- [new] Add profile settings ([#213](https://github.com/lonelyplanet/backpack-ui/pull/213))
+  * feat: add base for user settings component
+  * update: change input font weight to light
+  * update: default textarea to not be draggable
+  * update: default checkbox color change
+  * update: separate ui and state for checkbox
+  * feat: add heightExpander component for textarea
+  * fix: remove radium warnings for for inputs
+  * update: move all settingBlock components into separate files
+
 ## 4.10.0
 - [update] Add intrinsic ratio to VideoEmbed ad overlay elements to fix a bug where the ad would not display ([#212](https://github.com/lonelyplanet/backpack-ui/pull/212))
 - [update] Add avatar paths to stories data ([#155](https://github.com/lonelyplanet/backpack-ui/pull/155))
