@@ -1,5 +1,14 @@
 # Change log
 
+## 4.12.0
+- [update] Move bgOverlay after bgSecondary in colors.js ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [update] Change linkPrimaryHover alpha to 70% ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [new] Add textOverlay color as #fff ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [update] Rename from UserProfileHeader to ProfileHeader ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [update] Update ProfileHeader props to reflect design; remove subtitle, add intro ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [new] Add interests prop to ProfileHeader([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [new] Add alignment prop for desktop, mobile layouts to ProfileHeader ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+
 ## 4.11.0
 - [update] Update CalloutLink with colors from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
 - [update] Update ListContainer with colors, media query from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
