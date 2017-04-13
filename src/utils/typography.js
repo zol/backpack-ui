@@ -3,22 +3,26 @@ import {
   fontWeightLight,
   fontWeightBook,
   fontWeightMedium,
+  fontSizeSuper,
   fontSizeHeading1,
   fontSizeHeading2,
   fontSizeHeading3,
   fontSizeHeading4,
   fontSizeHeading5,
   fontSizeHeading6,
+  fontSizeHeading7,
   fontSizeBodyArticle,
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
+  lineHeightSuper,
   lineHeightHeading1,
   lineHeightHeading2,
   lineHeightHeading3,
   lineHeightHeading4,
   lineHeightHeading5,
   lineHeightHeading6,
+  lineHeightHeading7,
   lineHeightBodyArticle,
   lineHeightBodySmall,
   lineHeightAccent,
@@ -30,6 +34,15 @@ const weights = {
   book: fontWeightBook,
   medium: fontWeightMedium,
 };
+
+export function textSuper() {
+  return {
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeSuper}px`,
+    fontWeight: fontWeightMedium,
+    lineHeight: lineHeightSuper,
+  };
+}
 
 export function textHeading1(weight = "book") {
   return {
@@ -82,6 +95,15 @@ export function textHeading6(weight = "book") {
     fontSize: `${fontSizeHeading6}px`,
     fontWeight: weights[weight],
     lineHeight: lineHeightHeading6,
+  };
+}
+
+export function textHeading7(weight = "book") {
+  return {
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeHeading7}px`,
+    fontWeight: weights[weight],
+    lineHeight: lineHeightHeading7,
   };
 }
 

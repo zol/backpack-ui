@@ -1,5 +1,55 @@
 # Change log
 
+## 4.12.0
+- [update] Move bgOverlay after bgSecondary in colors.js ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [update] Change linkPrimaryHover alpha to 70% ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [new] Add textOverlay color as #fff ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
+- [update] Rename from UserProfileHeader to ProfileHeader ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [update] Update ProfileHeader props to reflect design; remove subtitle, add intro ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [new] Add interests prop to ProfileHeader([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+- [new] Add alignment prop for desktop, mobile layouts to ProfileHeader ([#172](https://github.com/lonelyplanet/backpack-ui/pull/172))
+
+## 4.11.0
+- [update] Update CalloutLink with colors from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
+- [update] Update ListContainer with colors, media query from styles ([#215](https://github.com/lonelyplanet/backpack-ui/pull/215))
+- [new] Add profile settings ([#213](https://github.com/lonelyplanet/backpack-ui/pull/213))
+  * feat: add base for user settings component
+  * update: change input font weight to light
+  * update: default textarea to not be draggable
+  * update: default checkbox color change
+  * update: separate ui and state for checkbox
+  * feat: add heightExpander component for textarea
+  * fix: remove radium warnings for for inputs
+  * update: move all settingBlock components into separate files
+
+## 4.10.0
+- [update] Add intrinsic ratio to VideoEmbed ad overlay elements to fix a bug where the ad would not display ([#212](https://github.com/lonelyplanet/backpack-ui/pull/212))
+- [update] Add avatar paths to stories data ([#155](https://github.com/lonelyplanet/backpack-ui/pull/155))
+- [new] Create AvatarUpload component ([#155](https://github.com/lonelyplanet/backpack-ui/pull/155))
+
+## 4.9.0
+- [new] Add borderPrimary color ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [delete] Remove textPrimaryBody color ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Change textSecondary to 70% textPrimary ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [new] Add new accent colors to replace POI colors; blue, gray, pink, purple ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [deprecate] Deprecate POI colors in favor of accent colors; variables have been kept intact for backwards compatibility and are to be removed in the next major version ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Change color from textSecondary to accentGray in DisclaimerText ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Change color from textSecondary to accentGray in LocationLabel ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Change color from textSecondary to accentGray in Tag ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Change width of color name span in colors story ([#207](https://github.com/lonelyplanet/backpack-ui/pull/207))
+- [update] Refactor colors, use constants to define values ([#203](https://github.com/lonelyplanet/backpack-ui/pull/203))
+  * Constants allow alpha channel manipulation on colors; constants
+are exported as a default object like before
+- [new] Add "super" font size, styles to typographic styles, utils ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [new] Create TextSuper component; extends TextHeading component and is an h1 element by default; add export from text/index ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Redefine heading font size scale styles ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [new] Add "heading 7" font styles to typographic utils ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Import "heading 7" font styles to TextHeading ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Change fontSizeHeading4 to 32 and lineHeightHeading4 to 40 ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Update typography utility spec ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Adjust font sizes for Heading component; changes the fontSize style variables ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+- [update] Adjust font sizes for Lede component; changes the fontSize style variables ([#196](https://github.com/lonelyplanet/backpack-ui/pull/196))
+
 ## 4.8.0
 - [remove] Uninstall humanize-duration module ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))
 - [remove] Delete `runtimeUnit` prop from CardVideo component ([#204](https://github.com/lonelyplanet/backpack-ui/pull/204))

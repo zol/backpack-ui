@@ -1,18 +1,18 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import cn from "classnames";
-import { color, media } from "../../../settings.json";
-import { rgb } from "../../utils/color";
+import mq from "../../styles/mq";
+import colors from "../../styles/colors";
 
 const styles = {
   ".ListItemContainer:not(:last-of-type)": {
-    borderBottom: `1px solid rgba(${rgb(color.lightBlue)}, .3)`,
+    borderBottom: `1px solid ${colors.borderPrimary}`,
     marginBottom: "40px",
     paddingBottom: "40px",
   },
 
   mediaQueries: {
-    [`(min-width: ${media.min["720"]})`]: {
+    [`(min-width: ${mq.min["720"]})`]: {
       ".ListItemContainer:not(:last-of-type)": {
         marginBottom: "48px",
         paddingBottom: "48px",
