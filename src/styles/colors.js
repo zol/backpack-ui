@@ -1,13 +1,13 @@
 import { rgba } from "../utils/color";
 
 // Background colors
-const bgOverlay = "#000";
 const bgPrimary = "#fff";
 const bgSecondary = "#f4fbfe";
+const bgOverlay = "#000";
 
 // Link colors
 const linkPrimary = "#297cbb";
-const linkPrimaryHover = rgba(linkPrimary, 0.8);
+const linkPrimaryHover = rgba(linkPrimary, 0.7);
 
 // Border colors
 const borderPrimary = "#e4e4e4";
@@ -15,6 +15,7 @@ const borderPrimary = "#e4e4e4";
 // Text colors
 const textPrimary = "#2c3643";
 const textSecondary = rgba(textPrimary, 0.7);
+const textOverlay = "#fff";
 
 // Accent colors
 const accentBlue = "#88bde7";
@@ -44,9 +45,9 @@ const socialPinterest = "#cb2027";
 const socialReddit = "#fc4220";
 
 export default {
-  bgOverlay,
   bgPrimary,
   bgSecondary,
+  bgOverlay,
 
   linkPrimary,
   linkPrimaryHover,
@@ -55,6 +56,7 @@ export default {
 
   textPrimary,
   textSecondary,
+  textOverlay,
 
   accentBlue,
   accentGray,
