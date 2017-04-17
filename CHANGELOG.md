@@ -1,5 +1,10 @@
 # Change log
 
+## 4.13.0
+- [fix] Fix lowerthirds in VideoEmbed component not working on Safari ([#224](https://github.com/lonelyplanet/backpack-ui/pull/224))
+- [fix] Fix and add workaround for video load errors in VideoEmbed component ([#224](https://github.com/lonelyplanet/backpack-ui/pull/224))
+- [update] Remove `display: none` from ad placement in Slide component
+
 ## 4.12.0
 - [update] Move bgOverlay after bgSecondary in colors.js ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
 - [update] Change linkPrimaryHover alpha to 70% ([#220](https://github.com/lonelyplanet/backpack-ui/pull/220))
