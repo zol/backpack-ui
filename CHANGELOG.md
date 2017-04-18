@@ -1,5 +1,16 @@
 # Change log
 
+## 4.14.0
+[fix] remove file types from includes ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
+[fix] pass props through to input and update exports ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
+[fix] update textarea height on mount ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
+[update] add setting block action ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
+[new] create navigation components ([#226] (https://github.com/lonelyplanet/backpack-ui/pull/226))
+[new] Create tab components ([#227] (https://github.com/lonelyplanet/backpack-ui/pull/227))
+[fix] add object-fit property to avatar image  ([#228] (https://github.com/lonelyplanet/backpack-ui/pull/228))
+[update] add ID and classname props to container component  ([#229] (https://github.com/lonelyplanet/backpack-ui/pull/229))
+[fix] adjust setting block styles ([#230] (https://github.com/lonelyplanet/backpack-ui/pull/230))
+
 ## 4.13.0
 - [fix] Fix lowerthirds in VideoEmbed component not working on Safari ([#224](https://github.com/lonelyplanet/backpack-ui/pull/224))
 - [fix] Fix and add workaround for video load errors in VideoEmbed component ([#224](https://github.com/lonelyplanet/backpack-ui/pull/224))
