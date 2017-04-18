@@ -1,5 +1,6 @@
 import React, { PropTypes } from "react";
 import radium from "radium";
+import cn from "classnames";
 import { media } from "../../../settings.json";
 
 // @TODO: Replace grid settings with unitless values in settings.json
@@ -58,8 +59,12 @@ function markup(htmlContent) {
   };
 }
 
-const Container = ({ children, style }) => (
-  <div className="container" style={style}>
+const Container = ({ children, id, className, style }) => (
+  <div
+    id={id}
+    className={cn("container", className)}
+    style={style}
+  >
     <style dangerouslySetInnerHTML={markup(styles)} />
 
     {children}
@@ -68,6 +73,8 @@ const Container = ({ children, style }) => (
 
 Container.propTypes = {
   children: PropTypes.node.isRequired,
+  id: PropTypes.string,
+  className: PropTypes.string,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
