@@ -1,5 +1,8 @@
 # Change log
 
+## 4.15.1
+- [update] add value and other props to pass through to form inputs ([#238](https://github.com/lonelyplanet/backpack-ui/pull/238))
+
 ## 4.15.0
 - [fix] Require version 0.14.4 of react-slick ([#234](https://github.com/lonelyplanet/backpack-ui/pull/234))
   * The latest version of react-slick 0.14.10 includes enquire 2.1.6 which adds `window` as a global var and breaks the production build. 0.14.4 is the last known version that works, so this prevents the patch version from updating every time a new build is started.
