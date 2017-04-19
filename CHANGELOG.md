@@ -1,15 +1,22 @@
 # Change log
 
+## 4.15.0
+- [fix] Require version 0.14.4 of react-slick ([#234](https://github.com/lonelyplanet/backpack-ui/pull/234))
+  * The latest version of react-slick 0.14.10 includes enquire 2.1.6 which adds `window` as a global var and breaks the production build. 0.14.4 is the last known version that works, so this prevents the patch version from updating every time a new build is started.
+- [update] Remove style from tabContent wrapping div in Tabs component ([#233](https://github.com/lonelyplanet/backpack-ui/pull/233))
+  * Allow content to dictate spacing
+- [new] Create Flag component ([#231](https://github.com/lonelyplanet/backpack-ui/pull/231))
+
 ## 4.14.0
-[fix] remove file types from includes ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
-[fix] pass props through to input and update exports ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
-[fix] update textarea height on mount ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
-[update] add setting block action ([#225] (https://github.com/lonelyplanet/backpack-ui/pull/225))
-[new] create navigation components ([#226] (https://github.com/lonelyplanet/backpack-ui/pull/226))
-[new] Create tab components ([#227] (https://github.com/lonelyplanet/backpack-ui/pull/227))
-[fix] add object-fit property to avatar image  ([#228] (https://github.com/lonelyplanet/backpack-ui/pull/228))
-[update] add ID and classname props to container component  ([#229] (https://github.com/lonelyplanet/backpack-ui/pull/229))
-[fix] adjust setting block styles ([#230] (https://github.com/lonelyplanet/backpack-ui/pull/230))
+- [fix] Remove file types from includes ([#225](https://github.com/lonelyplanet/backpack-ui/pull/225))
+- [fix] Pass props through to input and update exports ([#225](https://github.com/lonelyplanet/backpack-ui/pull/225))
+- [fix] Update textarea height on mount ([#225](https://github.com/lonelyplanet/backpack-ui/pull/225))
+- [update] Add setting block action ([#225](https://github.com/lonelyplanet/backpack-ui/pull/225))
+- [new] Create navigation components ([#226](https://github.com/lonelyplanet/backpack-ui/pull/226))
+- [new] Create tab components ([#227](https://github.com/lonelyplanet/backpack-ui/pull/227))
+- [fix] Add object-fit property to avatar image ([#228](https://github.com/lonelyplanet/backpack-ui/pull/228))
+- [update] Add ID and classname props to container component ([#229](https://github.com/lonelyplanet/backpack-ui/pull/229))
+- [fix] Adjust setting block styles ([#230](https://github.com/lonelyplanet/backpack-ui/pull/230))
 
 ## 4.13.0
 - [fix] Fix lowerthirds in VideoEmbed component not working on Safari ([#224](https://github.com/lonelyplanet/backpack-ui/pull/224))
