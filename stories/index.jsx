@@ -51,6 +51,7 @@ import EditLink from "../src/components/editLink";
 import ErrorMessages from "../src/components/form/errorMessages";
 import ExpandButton from "../src/components/expandButton";
 import FeaturedArticle from "../src/components/featuredArticle";
+import Flag from "../src/components/flag";
 import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
@@ -85,6 +86,7 @@ import MastheadSlider from "../src/components/mastheadSlider";
 import Modal from "../src/components/modal";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
+import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
 import NewsList from "../src/components/newsList";
 import Newsletter from "../src/components/newsletter";
@@ -114,9 +116,11 @@ import {
     SettingBlockListItemWrapper,
   } from "../src/components/settingBlock";
 import SettingBlockCheckbox from "../src/components/settingBlockCheckbox";
+import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
+import TextArea from "../src/components/form/textarea";
 import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
@@ -132,6 +136,7 @@ import SpotlightZone from "../src/components/spotlightZone";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
 import TabbedNav from "../src/components/tabbedNav";
+import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
 import TagList from "../src/components/tagList";
 // Takeover
@@ -619,6 +624,13 @@ storiesOf("Form", module)
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
     />
   ))
+  .add("Text Area", () => (
+    <TextArea
+      placeholder={text("Placeholder", "johndoe@gmail.com")}
+      error={boolean("Has Error", false)}
+      theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+    />
+  ))
   .add("ErrorMessages", () => (
     <ErrorMessages
       messages={array("List of Errors", ["This field is required"])}
@@ -658,6 +670,12 @@ storiesOf("Featured article", module)
         }}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Flag", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Flag>{text("Text", "Private")}</Flag>
   ));
 
 storiesOf("Flyout", module)
@@ -1155,6 +1173,22 @@ storiesOf("More link", module)
     </MoreLink>
   ));
 
+storiesOf("Navigation", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Navigation height={number("Height", 80)} sticky={boolean("Sticky", false)}>
+      <NavigationTab active={boolean("Active", true)} onClick={action("Experiences tab clicked")}>
+        {text("Text", "Experiences")}
+      </NavigationTab>
+
+      <NavigationTab onClick={action("Map tab clicked")}>Map</NavigationTab>
+      <NavigationTab onClick={action("Articles tab clicked")}>Articles</NavigationTab>
+      <NavigationTab onClick={action("Interests tab clicked")}>Interests</NavigationTab>
+      <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
+      <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
+    </Navigation>
+  ));
+
 storiesOf("Narrative", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1576,6 +1610,7 @@ storiesOf("Setting Block", module)
       <SettingBlockInput
         error={boolean("Error", false)}
         title={text("Title", "Name")}
+        name={text("Name", "name")}
         subtitle={text("Subtitle", "Publicly displayed in your profile")}
         placeholder={text("Placeholder", "Enter full name")}
       />
@@ -1592,6 +1627,7 @@ storiesOf("Setting Block", module)
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
         id={text("Id", "testerTime")}
+        name={text("Name", "testerTime")}
         placeholder="Add an intro"
       />
     </div>
@@ -1614,6 +1650,22 @@ storiesOf("Setting Block", module)
           />
         )}
       </ToggleController>
+    </div>
+  ))
+  .add("Action Button Setting", () => (
+    <div
+      style={{
+        padding: "16px 24px",
+      }}
+    >
+      <SettingBlockAction
+        error={boolean("Error", false)}
+        title={text("Title", "Delete Account")}
+        actionText={text("Action Text", "Delete Account")}
+        subtitle={text("Subtitle", "")}
+        onClick={action("DeleteAcount")}
+        description={text("Description", "Think twice! All your stuff will be deleted.")}
+      />
     </div>
   ))
   .add("Accordion Setting", () => (
@@ -1659,6 +1711,7 @@ storiesOf("Setting Block", module)
           <SettingBlockInput
             error={boolean("Error", false)}
             title={text("Title", "Name")}
+            name={text("Name", "name")}
             subtitle={text("Subtitle", "Publicly displayed in your profile")}
             placeholder={text("Placeholder", "Enter full name")}
           />
@@ -1669,6 +1722,7 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
             id={text("Id", "tester3")}
+            name={text("Name", "tester3")}
             placeholder="Add an intro"
           />
         </SettingBlockListItemWrapper>
@@ -1716,6 +1770,7 @@ storiesOf("Setting Block", module)
           <SettingBlockInput
             error={boolean("Error", false)}
             title={text("Title", "Name")}
+            name={text("Name", "tester4")}
             subtitle={text("Subtitle", "Publicly displayed in your profile")}
             placeholder={text("Placeholder", "Enter full name")}
           />
@@ -1726,6 +1781,7 @@ storiesOf("Setting Block", module)
             title={text("Textarea Title", "Intro")}
             subtitle={text("Textarea Subtitle", "")}
             id={text("Id", "tester1")}
+            name={text("Name", "tester5")}
             placeholder="Add an intro"
           />
         </SettingBlockListItemWrapper>
@@ -2031,6 +2087,23 @@ storiesOf("Tabbed nav", module)
         onClick={action("Tab clicked")}
       />
     </StyleRoot>
+  ));
+
+storiesOf("Tabs", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Tabs
+      id="tabbedNavigation"
+      navigationHeight={number("Navigation height", 80)}
+      navigationSticky={boolean("Sticky navigation", false)}
+    >
+      <Tab label="Experiences" active>Experiences tab content</Tab>
+      <Tab label="Map">Map tab content</Tab>
+      <Tab label="Articles">Articles tab content</Tab>
+      <Tab label="Interests">Interests tab content</Tab>
+      <Tab label="Books">Books tab content</Tab>
+      <Tab label="Adventures">Adventures tab content</Tab>
+    </Tabs>
   ));
 
 storiesOf("Tag", module)
