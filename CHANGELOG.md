@@ -1,7 +1,11 @@
 # Change log
 
+## 4.15.2
+- [update] Refactor mixins to use styles ([#179](https://github.com/lonelyplanet/backpack-ui/pull/179))
+- [fix] Fix lint error, define onChange in SettingBlockTextArea component ([#243](https://github.com/lonelyplanet/backpack-ui/pull/243))
+
 ## 4.15.1
-- [update] add value and other props to pass through to form inputs ([#238](https://github.com/lonelyplanet/backpack-ui/pull/238))
+- [update] Add value and other props to pass through to form inputs ([#238](https://github.com/lonelyplanet/backpack-ui/pull/238))
 
 ## 4.15.0
 - [fix] Require version 0.14.4 of react-slick ([#234](https://github.com/lonelyplanet/backpack-ui/pull/234))

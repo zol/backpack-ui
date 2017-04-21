@@ -1,6 +1,6 @@
-import assign from "object-assign";
-import settings from "../../settings.json";
-import { rgb } from "./color";
+import colors from "../styles/colors";
+import timing from "../styles/timing";
+import { rgba } from "./color";
 
 /**
  * Adds outline styles
@@ -19,16 +19,22 @@ function outline(offset = 2) {
  * @return {Object} CSS styles
  */
 function blueLink() {
-  const hoverColor = "#4699d9";
-
   return {
-    color: settings.color.blue,
+    color: colors.linkPrimary,
     textDecoration: "none",
-    transition: `color ${settings.timing.fast} ease-in-out`,
+    transition: `color ${timing.fast} ease-in-out`,
 
-    ":hover": { color: hoverColor },
-    ":active": { color: hoverColor },
-    ":focus": assign({}, outline(), { color: hoverColor }),
+    ":hover": {
+      color: colors.linkPrimaryHover,
+    },
+
+    ":active": {
+      color: colors.linkPrimaryHover,
+    },
+
+    ":focus": Object.assign({}, outline(), {
+      color: colors.linkPrimaryHover,
+    }),
   };
 }
 
@@ -37,17 +43,17 @@ function blueLink() {
  * @param  {String} linkColor Link color
  * @return {Object}           CSS styles object
  */
-function underlinedLink(linkColor = settings.color.titleGray) {
+function underlinedLink(linkColor = colors.textPrimary) {
   const underlineOffset = 2;
   const underlineWeight = 1;
-  const backgroundColor = settings.color.white;
-  const underlineColor = `rgba(${rgb(linkColor)}, .4)`;
+  const backgroundColor = colors.bgPrimary;
+  const underlineColor = rgba(linkColor, 0.4);
 
   return {
     color: linkColor,
     position: "relative",
     textDecoration: "none",
-    transition: `color ${settings.timing.fast} ease`,
+    transition: `color ${timing.fast} ease`,
 
     // Draw the underline with a background gradient
     backgroundImage: `linear-gradient(
