@@ -56,7 +56,6 @@ import Flyout from "../src/components/flyout";
 import GridColumn from "../src/components/gridColumn";
 import GridRow from "../src/components/gridRow";
 import Heading from "../src/components/heading";
-import HeightExpander from "../src/components/form/heightExpander";
 import Icons from "./icons";
 import Icon from "../src/components/icon";
 import IconButton from "../src/components/iconButton";
@@ -2133,14 +2132,15 @@ storiesOf("Tag", module)
 storiesOf("Tag list", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <TagList>
+    <TagList
+      limit={number("Limit", 3)}
+    >
       <Tag href="#" selected>All</Tag>
       <Tag href="#">The Americas</Tag>
       <Tag href="#">World</Tag>
       <Tag href="#">Asia & the Pacific</Tag>
       <Tag href="#">Europe</Tag>
       <Tag href="#">Middle East & Africa</Tag>
-      <Tag href="#">Editor’s pick</Tag>
     </TagList>
   ));
 
