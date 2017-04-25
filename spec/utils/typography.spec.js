@@ -27,7 +27,7 @@ describe("Text heading 1", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.125,
     });
   });
@@ -65,7 +65,7 @@ describe("Text heading 2", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "48px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.1666666666666667,
     });
   });
@@ -103,7 +103,7 @@ describe("Text heading 3", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "40px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.2,
     });
   });
@@ -141,7 +141,7 @@ describe("Text heading 4", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "32px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.25,
     });
   });
@@ -179,7 +179,7 @@ describe("Text heading 5", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.3333333333333333,
     });
   });
@@ -217,7 +217,7 @@ describe("Text heading 6", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.4,
     });
   });
@@ -255,7 +255,7 @@ describe("Text heading 7", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.5,
     });
   });
@@ -293,7 +293,7 @@ describe("Text heading 8", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "11px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.4545454545454546,
     });
   });
