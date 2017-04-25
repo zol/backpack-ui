@@ -1,5 +1,35 @@
 # Change log
 
+## 4.16.0
+- [update] Use regular weight for Benton Sans ([#252](https://github.com/lonelyplanet/backpack-ui/pull/252))
+  * Replaces and deprecates book weight
+- [update] Add className to button in SocialShare ([#254](https://github.com/lonelyplanet/backpack-ui/pull/254))
+- [new] Add color variable for Twitter ([#253](https://github.com/lonelyplanet/backpack-ui/pull/253))
+- [update] Update SocialIconButton ([#253](https://github.com/lonelyplanet/backpack-ui/pull/253))
+  * Remove/replace lodash dependency
+  * Add classname and ID props
+  * Use styles
+  * Add outline to focus state
+- [update] Re-style the RelatedTour component ([#248](https://github.com/lonelyplanet/backpack-ui/pull/248))
+- [new] Add bodyArticleSmall typography, component ([#250](https://github.com/lonelyplanet/backpack-ui/pull/250))
+- [update] Update styles for Tag ([#249](https://github.com/lonelyplanet/backpack-ui/pull/249))
+  * Add outline styles to focus state
+  * Change border and hover background colors
+  * Add max-height
+  * Move typography styles to end of default style object
+- [new] Add heading 8 font size ([#239](https://github.com/lonelyplanet/backpack-ui/pull/239))
+- [update] Update line height for headings ([#240](https://github.com/lonelyplanet/backpack-ui/pull/240))
+- [update] Update SocialLoginButton to match updated design ([#247](https://github.com/lonelyplanet/backpack-ui/pull/247))
+  * Update CSS
+  * Use typography styles
+  * Require specific iconName
+  * Remove iconColor prop; use colored version of icons
+  * Use {...props} to allow any valid HTML properties, i.e., class, id, aria, etc
+- [new] Add limiter feature to TagList component ([#245](https://github.com/lonelyplanet/backpack-ui/pull/245))
+- [update] Add limit prop to TagList in to ProfileHeader component ([#245](https://github.com/lonelyplanet/backpack-ui/pull/245))
+- [update] Update styling on SlideTall component title ([#241](https://github.com/lonelyplanet/backpack-ui/pull/241))
+- [update] Update title logic for WatchLaterModal component ([#241](https://github.com/lonelyplanet/backpack-ui/pull/241))
+
 ## 4.15.2
 - [update] Refactor mixins to use styles ([#179](https://github.com/lonelyplanet/backpack-ui/pull/179))
 - [fix] Fix lint error, define onChange in SettingBlockTextArea component ([#243](https://github.com/lonelyplanet/backpack-ui/pull/243))
