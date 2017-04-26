@@ -1,5 +1,10 @@
 # Change log
 
+## 4.16.1
+- [update] pass through all props to input/textarea ([#255](https://github.com/lonelyplanet/backpack-ui/pull/255))
+- [update] added gray button style and updated colors ([#256](https://github.com/lonelyplanet/backpack-ui/pull/256))
+- [update] expose uploaded avatr image ([#257](https://github.com/lonelyplanet/backpack-ui/pull/257))
+
 ## 4.16.0
 - [update] Use regular weight for Benton Sans ([#252](https://github.com/lonelyplanet/backpack-ui/pull/252))
   * Replaces and deprecates book weight
