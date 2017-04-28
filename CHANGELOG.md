@@ -1,9 +1,12 @@
 # Change log
 
+## 4.16.2
+- [fix] Prevent double Twitter pop-up window in SocialShareContainer ([#258](https://github.com/lonelyplanet/backpack-ui/pull/258))
+
 ## 4.16.1
-- [update] pass through all props to input/textarea ([#255](https://github.com/lonelyplanet/backpack-ui/pull/255))
-- [update] added gray button style and updated colors ([#256](https://github.com/lonelyplanet/backpack-ui/pull/256))
-- [update] expose uploaded avatr image ([#257](https://github.com/lonelyplanet/backpack-ui/pull/257))
+- [update] Pass through all props to input/textarea ([#255](https://github.com/lonelyplanet/backpack-ui/pull/255))
+- [update] Add gray button style and updated colors in Button component ([#256](https://github.com/lonelyplanet/backpack-ui/pull/256))
+- [update] Expose uploaded avatar image in AvatarUpload component ([#257](https://github.com/lonelyplanet/backpack-ui/pull/257))
 
 ## 4.16.0
 - [update] Use regular weight for Benton Sans ([#252](https://github.com/lonelyplanet/backpack-ui/pull/252))
@@ -16,6 +19,7 @@
   * Use styles
   * Add outline to focus state
 - [update] Re-style the RelatedTour component ([#248](https://github.com/lonelyplanet/backpack-ui/pull/248))
+- [new] Add yarn.lock file ([#248](https://github.com/lonelyplanet/backpack-ui/pull/248))
 - [new] Add bodyArticleSmall typography, component ([#250](https://github.com/lonelyplanet/backpack-ui/pull/250))
 - [update] Update styles for Tag ([#249](https://github.com/lonelyplanet/backpack-ui/pull/249))
   * Add outline styles to focus state
