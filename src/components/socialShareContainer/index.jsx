@@ -67,22 +67,24 @@ class SocialShareContainer extends Component {
 
   static openWindow(event) {
     const { windowOptions, windowSize } = SocialShareContainer.windowSettings();
+    const isFacebook = event.currentTarget.dataset.network === "facebook";
+    const isReddit = event.currentTarget.dataset.network === "reddit";
+    const isTwitter = event.currentTarget.dataset.network === "twitter";
+    const hasTwitterWidgets = typeof window !== "undefined" &&
+      typeof window.__twttr !== "undefined" &&
+      window.__twttr.widgets &&
+      window.__twttr.widgets.init;
+    const shouldOpenWindow = isFacebook || isReddit || (isTwitter && !hasTwitterWidgets);
 
-    if (
-      event.currentTarget.dataset.network === "facebook" ||
-      event.currentTarget.dataset.network === "reddit" ||
-      event.currentTarget.dataset.network === "twitter"
-    ) {
+    if (shouldOpenWindow) {
       window.open(
         event.currentTarget.href,
         "share",
         `${windowOptions},${windowSize}`
       );
-    } else {
-      window.location = event.currentTarget.href;
-    }
 
-    event.preventDefault();
+      event.preventDefault();
+    }
   }
 
   constructor() {
