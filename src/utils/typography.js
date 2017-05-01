@@ -1,4 +1,5 @@
 import font from "./font";
+import mq from "../styles/mq";
 import {
   fontWeightLight,
   fontWeightRegular,
@@ -39,6 +40,20 @@ const weights = {
   medium: fontWeightMedium,
   book: fontWeightRegular, // Book is deprecated and will be removed in the next major release
 };
+
+export function responsive(minFontSize, maxFontSize, minWidth = 480, maxWidth = 1024) {
+  return {
+    fontSize: `${minFontSize}px`,
+
+    [`@media (min-width: ${mq.min[minWidth]}) and (max-width: ${mq.max[maxWidth]})`]: {
+      fontSize: `calc(${minFontSize}px + (${maxFontSize} - ${minFontSize}) * (100vw - ${minWidth}px) / (${maxWidth} - ${minWidth}))`,
+    },
+
+    [`@media (min-width: ${mq.min[maxWidth]})`]: {
+      fontSize: `${maxFontSize}px`,
+    },
+  };
+}
 
 export function textSuper() {
   return {
