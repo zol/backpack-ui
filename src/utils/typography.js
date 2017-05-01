@@ -56,12 +56,15 @@ export function responsive(minFontSize, maxFontSize, minWidth = 480, maxWidth = 
 }
 
 export function textSuper() {
-  return {
+  const minFontSize = fontSizeHeading2;
+  const maxFontSize = fontSizeSuper;
+
+  return Object.assign({}, {
     fontFamily: font("benton"),
     fontSize: `${fontSizeSuper}px`,
     fontWeight: fontWeightMedium,
     lineHeight: lineHeightSuper,
-  };
+  }, responsive(minFontSize, maxFontSize));
 }
 
 export function textHeading1(weight = "regular") {
