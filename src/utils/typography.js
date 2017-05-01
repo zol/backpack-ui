@@ -128,12 +128,15 @@ export function textHeading5(weight = "regular") {
 }
 
 export function textHeading6(weight = "regular") {
-  return {
+  const minFontSize = fontSizeHeading7 - 2; // 14
+  const maxFontSize = fontSizeHeading6;
+
+  return Object.assign({}, {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading6}px`,
     fontWeight: weights[weight],
     lineHeight: lineHeightHeading6,
-  };
+  }, responsive(minFontSize, maxFontSize));
 }
 
 export function textHeading7(weight = "regular") {
