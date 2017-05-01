@@ -161,11 +161,14 @@ export function textHeading8(weight = "regular") {
 }
 
 export function textBodyArticle() {
-  return {
+  const minFontSize = fontSizeBodyArticleSmall;
+  const maxFontSize = fontSizeBodyArticle;
+
+  return Object.assign({}, {
     fontFamily: font("miller"),
     fontSize: `${fontSizeBodyArticle}px`,
     lineHeight: lineHeightBodyArticle,
-  };
+  }, responsive(minFontSize, maxFontSize));
 }
 
 export function textBodyArticleSmall() {
