@@ -1,5 +1,11 @@
 # Change log
 
+## 4.16.3
+- [update] Add border prop to Button component inside Slide component ([#264](https://github.com/lonelyplanet/backpack-ui/pull/264))
+- [fix] Check for child in Tabs component ([#263](https://github.com/lonelyplanet/backpack-ui/pull/263))
+- [update] Add 24 to sizes for Avatar component ([#262](https://github.com/lonelyplanet/backpack-ui/pull/262))
+- [update] Change icon's margin in Toast component from 20px to 6px ([#261](https://github.com/lonelyplanet/backpack-ui/pull/261))
+
 ## 4.16.2
 - [fix] Prevent double Twitter pop-up window in SocialShareContainer ([#258](https://github.com/lonelyplanet/backpack-ui/pull/258))
 
