@@ -2182,13 +2182,15 @@ storiesOf("Text", module)
     </TextAccent>
   ))
   .add("Body article", () => (
-    <TextBodyArticle>
-      {text("Text", `Lorem ipsum dolor sit amet,
-        consectetur adipiscing elit. Aenean sed
-        mauris sit amet massa interdum bibendum.
-        Ut ac ex leo. Cras blandit enim ut metus
-        feugiat, vitae pharetra massa aliquet.`)}
-    </TextBodyArticle>
+    <StyleRoot>
+      <TextBodyArticle>
+        {text("Text", `Lorem ipsum dolor sit amet,
+          consectetur adipiscing elit. Aenean sed
+          mauris sit amet massa interdum bibendum.
+          Ut ac ex leo. Cras blandit enim ut metus
+          feugiat, vitae pharetra massa aliquet.`)}
+      </TextBodyArticle>
+    </StyleRoot>
   ))
   .add("Body small", () => (
     <TextBodySmall>
