@@ -9,7 +9,9 @@ import {
   fontSizeHeading5,
   fontSizeHeading6,
   fontSizeHeading7,
+  fontSizeHeading8,
   fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
@@ -24,7 +26,9 @@ import {
   textHeading5,
   textHeading6,
   textHeading7,
+  textHeading8,
   textBodyArticle,
+  textBodyArticleSmall,
   textBodySmall,
   textAccent,
   textUppercase,
@@ -94,8 +98,26 @@ function Typography() {
       <br /><br />
 
       <div>
+        <div style={styles.smallText}><small>Heading 8 ({fontSizeHeading8})</small></div>
+        <div style={textHeading8()}>Top experiences in Asia</div>
+      </div>
+
+      <br /><br />
+
+      <div>
         <div style={styles.smallText}><small>Body article ({fontSizeBodyArticle})</small></div>
         <div style={textBodyArticle()}>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
+          mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit
+          enim ut metus feugiat, vitae pharetra massa aliquet.
+        </div>
+      </div>
+
+      <br /><br />
+
+      <div>
+        <div style={styles.smallText}><small>Body article small ({fontSizeBodyArticleSmall})</small></div>
+        <div style={textBodyArticleSmall()}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed
           mauris sit amet massa interdum bibendum. Ut ac ex leo. Cras blandit
           enim ut metus feugiat, vitae pharetra massa aliquet.

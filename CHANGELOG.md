@@ -1,5 +1,50 @@
 # Change log
 
+## 4.16.3
+- [update] Add border prop to Button component inside Slide component ([#264](https://github.com/lonelyplanet/backpack-ui/pull/264))
+- [fix] Check for child in Tabs component ([#263](https://github.com/lonelyplanet/backpack-ui/pull/263))
+- [update] Add 24 to sizes for Avatar component ([#262](https://github.com/lonelyplanet/backpack-ui/pull/262))
+- [update] Change icon's margin in Toast component from 20px to 6px ([#261](https://github.com/lonelyplanet/backpack-ui/pull/261))
+
+## 4.16.2
+- [fix] Prevent double Twitter pop-up window in SocialShareContainer ([#258](https://github.com/lonelyplanet/backpack-ui/pull/258))
+
+## 4.16.1
+- [update] Pass through all props to input/textarea ([#255](https://github.com/lonelyplanet/backpack-ui/pull/255))
+- [update] Add gray button style and updated colors in Button component ([#256](https://github.com/lonelyplanet/backpack-ui/pull/256))
+- [update] Expose uploaded avatar image in AvatarUpload component ([#257](https://github.com/lonelyplanet/backpack-ui/pull/257))
+
+## 4.16.0
+- [update] Use regular weight for Benton Sans ([#252](https://github.com/lonelyplanet/backpack-ui/pull/252))
+  * Replaces and deprecates book weight
+- [update] Add className to button in SocialShare ([#254](https://github.com/lonelyplanet/backpack-ui/pull/254))
+- [new] Add color variable for Twitter ([#253](https://github.com/lonelyplanet/backpack-ui/pull/253))
+- [update] Update SocialIconButton ([#253](https://github.com/lonelyplanet/backpack-ui/pull/253))
+  * Remove/replace lodash dependency
+  * Add classname and ID props
+  * Use styles
+  * Add outline to focus state
+- [update] Re-style the RelatedTour component ([#248](https://github.com/lonelyplanet/backpack-ui/pull/248))
+- [new] Add yarn.lock file ([#248](https://github.com/lonelyplanet/backpack-ui/pull/248))
+- [new] Add bodyArticleSmall typography, component ([#250](https://github.com/lonelyplanet/backpack-ui/pull/250))
+- [update] Update styles for Tag ([#249](https://github.com/lonelyplanet/backpack-ui/pull/249))
+  * Add outline styles to focus state
+  * Change border and hover background colors
+  * Add max-height
+  * Move typography styles to end of default style object
+- [new] Add heading 8 font size ([#239](https://github.com/lonelyplanet/backpack-ui/pull/239))
+- [update] Update line height for headings ([#240](https://github.com/lonelyplanet/backpack-ui/pull/240))
+- [update] Update SocialLoginButton to match updated design ([#247](https://github.com/lonelyplanet/backpack-ui/pull/247))
+  * Update CSS
+  * Use typography styles
+  * Require specific iconName
+  * Remove iconColor prop; use colored version of icons
+  * Use {...props} to allow any valid HTML properties, i.e., class, id, aria, etc
+- [new] Add limiter feature to TagList component ([#245](https://github.com/lonelyplanet/backpack-ui/pull/245))
+- [update] Add limit prop to TagList in to ProfileHeader component ([#245](https://github.com/lonelyplanet/backpack-ui/pull/245))
+- [update] Update styling on SlideTall component title ([#241](https://github.com/lonelyplanet/backpack-ui/pull/241))
+- [update] Update title logic for WatchLaterModal component ([#241](https://github.com/lonelyplanet/backpack-ui/pull/241))
+
 ## 4.15.2
 - [update] Refactor mixins to use styles ([#179](https://github.com/lonelyplanet/backpack-ui/pull/179))
 - [fix] Fix lint error, define onChange in SettingBlockTextArea component ([#243](https://github.com/lonelyplanet/backpack-ui/pull/243))

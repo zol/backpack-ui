@@ -1,7 +1,7 @@
 import font from "./font";
 import {
   fontWeightLight,
-  fontWeightBook,
+  fontWeightRegular,
   fontWeightMedium,
   fontSizeSuper,
   fontSizeHeading1,
@@ -11,7 +11,9 @@ import {
   fontSizeHeading5,
   fontSizeHeading6,
   fontSizeHeading7,
+  fontSizeHeading8,
   fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeAccent,
   fontSizeUppercase,
@@ -23,7 +25,9 @@ import {
   lineHeightHeading5,
   lineHeightHeading6,
   lineHeightHeading7,
+  lineHeightHeading8,
   lineHeightBodyArticle,
+  lineHeightBodyArticleSmall,
   lineHeightBodySmall,
   lineHeightAccent,
   lineHeightUppercase,
@@ -31,8 +35,9 @@ import {
 
 const weights = {
   light: fontWeightLight,
-  book: fontWeightBook,
+  regular: fontWeightRegular,
   medium: fontWeightMedium,
+  book: fontWeightRegular, // Book is deprecated and will be removed in the next major release
 };
 
 export function textSuper() {
@@ -44,7 +49,7 @@ export function textSuper() {
   };
 }
 
-export function textHeading1(weight = "book") {
+export function textHeading1(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading1}px`,
@@ -53,7 +58,7 @@ export function textHeading1(weight = "book") {
   };
 }
 
-export function textHeading2(weight = "book") {
+export function textHeading2(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading2}px`,
@@ -62,7 +67,7 @@ export function textHeading2(weight = "book") {
   };
 }
 
-export function textHeading3(weight = "book") {
+export function textHeading3(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading3}px`,
@@ -71,7 +76,7 @@ export function textHeading3(weight = "book") {
   };
 }
 
-export function textHeading4(weight = "book") {
+export function textHeading4(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading4}px`,
@@ -80,7 +85,7 @@ export function textHeading4(weight = "book") {
   };
 }
 
-export function textHeading5(weight = "book") {
+export function textHeading5(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading5}px`,
@@ -89,7 +94,7 @@ export function textHeading5(weight = "book") {
   };
 }
 
-export function textHeading6(weight = "book") {
+export function textHeading6(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading6}px`,
@@ -98,7 +103,7 @@ export function textHeading6(weight = "book") {
   };
 }
 
-export function textHeading7(weight = "book") {
+export function textHeading7(weight = "regular") {
   return {
     fontFamily: font("benton"),
     fontSize: `${fontSizeHeading7}px`,
@@ -107,11 +112,28 @@ export function textHeading7(weight = "book") {
   };
 }
 
+export function textHeading8(weight = "regular") {
+  return {
+    fontFamily: font("benton"),
+    fontSize: `${fontSizeHeading8}px`,
+    fontWeight: weights[weight],
+    lineHeight: lineHeightHeading8,
+  };
+}
+
 export function textBodyArticle() {
   return {
     fontFamily: font("miller"),
     fontSize: `${fontSizeBodyArticle}px`,
     lineHeight: lineHeightBodyArticle,
+  };
+}
+
+export function textBodyArticleSmall() {
+  return {
+    fontFamily: font("miller"),
+    fontSize: `${fontSizeBodyArticleSmall}px`,
+    lineHeight: lineHeightBodyArticleSmall,
   };
 }
 

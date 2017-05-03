@@ -7,7 +7,9 @@ import {
   textHeading5,
   textHeading6,
   textHeading7,
+  textHeading8,
   textBodyArticle,
+  textBodyArticleSmall,
   textBodySmall,
   textAccent,
   textUppercase,
@@ -25,8 +27,8 @@ describe("Text heading 1", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
-      fontWeight: 400,
-      lineHeight: 1.1875,
+      fontWeight: 500,
+      lineHeight: 1.125,
     });
   });
 
@@ -38,7 +40,7 @@ describe("Text heading 1", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
       fontWeight: 300,
-      lineHeight: 1.1875,
+      lineHeight: 1.125,
     });
   });
 
@@ -50,7 +52,7 @@ describe("Text heading 1", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "64px",
       fontWeight: 600,
-      lineHeight: 1.1875,
+      lineHeight: 1.125,
     });
   });
 });
@@ -63,7 +65,7 @@ describe("Text heading 2", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "48px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.1666666666666667,
     });
   });
@@ -101,7 +103,7 @@ describe("Text heading 3", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "40px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.2,
     });
   });
@@ -139,7 +141,7 @@ describe("Text heading 4", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "32px",
-      fontWeight: 400,
+      fontWeight: 500,
       lineHeight: 1.25,
     });
   });
@@ -177,8 +179,8 @@ describe("Text heading 5", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
-      fontWeight: 400,
-      lineHeight: 1.1666666666666667,
+      fontWeight: 500,
+      lineHeight: 1.3333333333333333,
     });
   });
 
@@ -190,7 +192,7 @@ describe("Text heading 5", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
       fontWeight: 300,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.3333333333333333,
     });
   });
 
@@ -202,7 +204,7 @@ describe("Text heading 5", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "24px",
       fontWeight: 600,
-      lineHeight: 1.1666666666666667,
+      lineHeight: 1.3333333333333333,
     });
   });
 });
@@ -215,8 +217,8 @@ describe("Text heading 6", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
-      fontWeight: 400,
-      lineHeight: 1.2,
+      fontWeight: 500,
+      lineHeight: 1.4,
     });
   });
 
@@ -228,7 +230,7 @@ describe("Text heading 6", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
       fontWeight: 300,
-      lineHeight: 1.2,
+      lineHeight: 1.4,
     });
   });
 
@@ -240,7 +242,7 @@ describe("Text heading 6", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "20px",
       fontWeight: 600,
-      lineHeight: 1.2,
+      lineHeight: 1.4,
     });
   });
 });
@@ -253,8 +255,8 @@ describe("Text heading 7", () => {
       color: "black",
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
-      fontWeight: 400,
-      lineHeight: 1.25,
+      fontWeight: 500,
+      lineHeight: 1.5,
     });
   });
 
@@ -266,7 +268,7 @@ describe("Text heading 7", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 300,
-      lineHeight: 1.25,
+      lineHeight: 1.5,
     });
   });
 
@@ -278,7 +280,45 @@ describe("Text heading 7", () => {
       fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
       fontSize: "16px",
       fontWeight: 600,
-      lineHeight: 1.25,
+      lineHeight: 1.5,
+    });
+  });
+});
+
+describe("Text heading 8", () => {
+  it("should add text heading 8 styles with default weight book", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8());
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 500,
+      lineHeight: 1.4545454545454546,
+    });
+  });
+
+  it("should add text heading 8 styles with weight light", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8("light"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 300,
+      lineHeight: 1.4545454545454546,
+    });
+  });
+
+  it("should add text heading 8 styles with weight medium", () => {
+    const styles = Object.assign({}, baseStyles, textHeading8("medium"));
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Benton Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif",
+      fontSize: "11px",
+      fontWeight: 600,
+      lineHeight: 1.4545454545454546,
     });
   });
 });
@@ -292,6 +332,19 @@ describe("Text body article", () => {
       fontFamily: "'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif",
       fontSize: "20px",
       lineHeight: 1.8,
+    });
+  });
+});
+
+describe("Text body article small", () => {
+  it("should add text body article styles", () => {
+    const styles = Object.assign({}, baseStyles, textBodyArticleSmall());
+
+    expect(styles).to.deep.equal({
+      color: "black",
+      fontFamily: "'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif",
+      fontSize: "16px",
+      lineHeight: 2,
     });
   });
 });

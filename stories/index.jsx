@@ -21,6 +21,7 @@ import ArticlePreview from "../src/components/articlePreview";
 import Author from "../src/components/author";
 import AuthorName from "../src/components/authorName";
 import Avatar from "../src/components/avatar";
+import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
 import Bookmark from "../src/components/bookmark";
@@ -359,8 +360,18 @@ storiesOf("Avatar", module)
     <Avatar
       src={text("Image source", data.avatar.rizzo)}
       alt={text("Alternate text", "Rizzo")}
-      size={select("Size", [40, 48, 80, 104], 80)}
+      size={select("Size", [24, 40, 48, 80, 104], 80)}
       href={text("URL", "")}
+    />
+  ));
+
+storiesOf("Avatar marker", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <AvatarMarker
+      href={text("URL", "/profile")}
+      src={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      username={text("Username", "Rizzo the Rat")}
     />
   ));
 
@@ -402,8 +413,9 @@ storiesOf("Button", module)
   .addDecorator(withKnobs)
   .add("Primary", () => (
     <Button
-      color={select("Color", ["blue", "white", "transparent"], "blue")}
+      color={select("Color", ["blue", "white", "gray", "transparent"], "blue")}
       size={select("Size", ["tiny", "small", "medium", "large", "huge"], "medium")}
+      border={boolean("Border", true)}
       disabled={boolean("Disabled", false)}
       full={boolean("Full width", false)}
       rounded={boolean("Rounded", false)}
@@ -1532,18 +1544,20 @@ storiesOf("Recommended articles", module)
 storiesOf("Related tour", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <RelatedTour
-      title="Vienna City by Bike and Boat"
-      slug="/#"
-      image="http://dummyimage.com/630x284/4d494d/686a82.gif"
-      price={{
-        currency: "USD",
-        amount: 2595,
-      }}
-      tripLength="14 days"
-      destination="Kochi to Kolkata"
-      reviews={8}
-    />
+    <StyleRoot>
+      <RelatedTour
+        title="Vienna City by Bike and Boat"
+        slug="/#"
+        image="http://dummyimage.com/630x284/4d494d/686a82.gif"
+        price={{
+          currency: "USD",
+          amount: 2595,
+        }}
+        tripLength="14 days"
+        destination="Kochi to Kolkata"
+        reviews={8}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Reviewed badge", module)
@@ -2008,9 +2022,12 @@ storiesOf("Social Login Button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <SocialLoginButton
-      iconName={select("Icon Name", Object.keys(Icon), "FacebookBlock")}
-      iconColor={color("Icon Color", bpColor.facebook)}
-      onClick={action("Handle Login")}
+      iconName={select("Icon Name", [
+        "FacebookBlockColor",
+        "GoogleColor",
+        "TwitterColor",
+      ], "FacebookBlockColor")}
+      onClick={action("Handle Log In")}
     >{text("Text", "Continue with Facebook")}</SocialLoginButton>
   ));
 
@@ -2196,12 +2213,12 @@ storiesOf("Text", module)
   .add("Heading", () => (
     <TextHeading
       level={select("Level", [1, 2, 3, 4, 5, 6], 2)}
-      size={select("Size", [1, 2, 3, 4, 5, 6, 7], 2)}
+      size={select("Size", [1, 2, 3, 4, 5, 6, 7, 8], 2)}
       weight={select("Weight", {
         light: "Light",
-        book: "Book",
+        regular: "Regular",
         medium: "Medium",
-      }, "book")}
+      }, "regular")}
     >
       {text("Text", "Lorem ipsum")}
     </TextHeading>
