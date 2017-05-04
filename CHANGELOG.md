@@ -1,5 +1,11 @@
 # Change log
 
+## 4.16.4
+- [fix] reorder social login props to not override styles ([#269](https://github.com/lonelyplanet/backpack-ui/pull/269))
+- [feat] Create AvatarMarker component ([#266](https://github.com/lonelyplanet/backpack-ui/pull/266))
+- [update] Update Avatar defaultProps, story ([#265](https://github.com/lonelyplanet/backpack-ui/pull/265))
+
+
 ## 4.16.3
 - [update] Add border prop to Button component inside Slide component ([#264](https://github.com/lonelyplanet/backpack-ui/pull/264))
 - [fix] Check for child in Tabs component ([#263](https://github.com/lonelyplanet/backpack-ui/pull/263))
