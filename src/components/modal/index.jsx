@@ -10,7 +10,7 @@ import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 
 const largeMQ = `(min-width: ${mq.min["768"]})`;
-const modalPadding = 56;
+const modalPadding = 24;
 
 const styles = {
   overlay: {
@@ -20,54 +20,36 @@ const styles = {
   },
 
   header: {
-    borderBottom: `1px solid ${colors.borderPrimary}`,
-    paddingBottom: "16px",
-    paddingTop: "16px",
+    height: "56px",
     position: "relative",
     textAlign: "center",
-    textTransform: "uppercase",
 
     [`@media ${largeMQ}`]: {
-      paddingLeft: `${modalPadding}px`,
-      paddingRight: `${modalPadding}px`,
-      paddingTop: `${modalPadding}px`,
-      paddingBottom: 0,
-      borderBottom: 0,
-      textAlign: "left",
+      height: "72px",
     },
   },
 
   contentContainer: {
-    paddingLeft: `${modalPadding}px`,
-    paddingRight: `${modalPadding}px`,
-    paddingTop: "32px",
-    paddingBottom: `${modalPadding * 2}px`,
+    padding: "40px",
   },
 
   actionItem: {
     position: "absolute",
     backgroundColor: "transparent",
-    top: "12px",
+    top: 0,
+    padding: "16px",
 
     [`@media ${largeMQ}`]: {
-      top: `${modalPadding}px`,
+      padding: `${modalPadding}px`,
     },
   },
 
   rightAction: {
-    right: "16px",
-
-    [`@media ${largeMQ}`]: {
-      right: `${modalPadding}px`,
-    },
+    right: 0,
   },
 
   leftAction: {
-    left: "16px",
-
-    [`@media ${largeMQ}`]: {
-      left: `${modalPadding}px`,
-    },
+    left: 0,
   },
 
   desktopTitle: {
@@ -82,8 +64,9 @@ const styles = {
   },
 
   mobileTitle: {
-    display: "block",
+    display: "inline-block",
     minHeight: "10px",
+    paddingTop: "23px",
 
     [`@media ${largeMQ}`]: {
       display: "none",
@@ -167,6 +150,7 @@ function ModalComponent({
       },
     },
   };
+
   return (
     <Modal
       isOpen={isOpen}
@@ -183,7 +167,14 @@ function ModalComponent({
 
       <header
         className="Modal-header clearfix"
-        style={styles.header}
+        style={[
+          styles.header,
+          title && {
+            [`@media (max-width: ${mq.max["768"]})`]: {
+              borderBottom: `1px solid ${colors.borderPrimary}`,
+            },
+          },
+        ]}
       >
         {leftAction &&
           <button
@@ -194,15 +185,17 @@ function ModalComponent({
           </button>
         }
 
-        <Heading
-          level={4}
-          size="small"
-          weight="thick"
-          override={styles.mobileTitle}
-          caps
-        >
-          {title}
-        </Heading>
+        {title &&
+          <Heading
+            level={4}
+            size="small"
+            weight="thick"
+            override={styles.mobileTitle}
+            caps
+          >
+            {title}
+          </Heading>
+        }
 
         {rightAction &&
           <button
