@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.17.0"></a>
+# [4.17.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.16.5...v4.17.0) (2017-05-08)
+
+
+### Features
+
+* Create ModalLogIn component ([#282](https://github.com/lonelyplanet/backpack-ui/issues/282)) ([15347c4](https://github.com/lonelyplanet/backpack-ui/commit/15347c4))
+
+
+
 <a name="4.16.5"></a>
 ## [4.16.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.16.4...v4.16.5) (2017-05-05)
 
