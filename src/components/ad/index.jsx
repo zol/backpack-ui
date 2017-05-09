@@ -11,7 +11,6 @@ const styles = {
       marginRight: "auto",
       position: "relative",
       textAlign: "center",
-      width: "100%",
     },
 
     framed: {
@@ -20,10 +19,7 @@ const styles = {
       paddingTop: "24px",
 
       [`@media (min-width: ${media.min["960"]})`]: {
-        paddingTop: "24px",
-        paddingBottom: "24px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        paddingTop: "30px",
       },
     },
   },
