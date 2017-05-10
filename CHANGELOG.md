@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.18.0"></a>
+# [4.18.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.1...v4.18.0) (2017-05-10)
+
+
+### Bug Fixes
+
+* Add export for ModalLogIn component ([#287](https://github.com/lonelyplanet/backpack-ui/issues/287)) ([599fddf](https://github.com/lonelyplanet/backpack-ui/commit/599fddf))
+* Add hover, active, focus to DisclaimerText link ([#286](https://github.com/lonelyplanet/backpack-ui/issues/286)) ([9ef7905](https://github.com/lonelyplanet/backpack-ui/commit/9ef7905))
+* Change content padding for large screen in Modal ([#288](https://github.com/lonelyplanet/backpack-ui/issues/288)) ([a9ab1d4](https://github.com/lonelyplanet/backpack-ui/commit/a9ab1d4))
+* Set max-height for ModalLogIn ([#291](https://github.com/lonelyplanet/backpack-ui/issues/291)) ([433d4bf](https://github.com/lonelyplanet/backpack-ui/commit/433d4bf))
+* Update ModalContentSocialAuth ([#290](https://github.com/lonelyplanet/backpack-ui/issues/290)) ([8bf5beb](https://github.com/lonelyplanet/backpack-ui/commit/8bf5beb))
+
+
+### Features
+
+* Add bgDark color ([#285](https://github.com/lonelyplanet/backpack-ui/issues/285)) ([e6e55a0](https://github.com/lonelyplanet/backpack-ui/commit/e6e55a0))
+* Add desktopMaxHeight prop to Modal ([#289](https://github.com/lonelyplanet/backpack-ui/issues/289)) ([f887984](https://github.com/lonelyplanet/backpack-ui/commit/f887984))
+
+
+
 <a name="4.17.1"></a>
 ## [4.17.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.0...v4.17.1) (2017-05-10)
 
