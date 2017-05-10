@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.17.1"></a>
+## [4.17.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.0...v4.17.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* change ad padding to not let ad break out of container ([#284](https://github.com/lonelyplanet/backpack-ui/issues/284)) ([76adc3a](https://github.com/lonelyplanet/backpack-ui/commit/76adc3a))
+
+
+
 <a name="4.17.0"></a>
 # [4.17.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.16.5...v4.17.0) (2017-05-08)
 
