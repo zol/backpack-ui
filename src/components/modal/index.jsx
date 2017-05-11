@@ -16,7 +16,7 @@ const styles = {
   overlay: {
     backgroundColor: rgba(colors.bgOverlay, 0.3),
     overflow: "hidden",
-    zIndex: zIndex.modal - 2,
+    zIndex: zIndex.modal,
   },
 
   header: {
@@ -106,22 +106,20 @@ function ModalComponent({
     },
 
     ".ReactModal__Content--after-open": {
-      opacity: "1 !important",
-      transform: "tranlateY(0) !important",
+      opacity: 1,
+      transform: "translateY(0)",
       transition: `opacity ${timing.default},
         transform ${timing.default}`,
     },
 
     ".ReactModal__Overlay--after-open.ReactModal__Overlay--before-close": {
       opacity: 0,
-      transition: `opacity ${timing.default},
-        transform ${timing.default}`,
+      transition: `opacity ${timing.default}`,
     },
 
     ".ReactModal__Overlay--after-open": {
       opacity: 1,
-      transition: `opacity ${timing.default},
-        transform ${timing.default}`,
+      transition: `opacity ${timing.default}`,
     },
 
     ".ModalBase": {
@@ -135,7 +133,6 @@ function ModalComponent({
       top: 0,
       left: 0,
       right: 0,
-      zIndex: zIndex.modal,
       marginLeft: "auto",
       marginRight: "auto",
       bottom: "auto",
