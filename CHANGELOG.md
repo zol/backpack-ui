@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.19.0"></a>
+# [4.19.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.18.0...v4.19.0) (2017-05-12)
+
+
+### Bug Fixes
+
+* Change z-index, color for Overlay ([#293](https://github.com/lonelyplanet/backpack-ui/issues/293)) ([b8a001f](https://github.com/lonelyplanet/backpack-ui/commit/b8a001f))
+* Update storybook to 2.35.3 ([#295](https://github.com/lonelyplanet/backpack-ui/issues/295)) ([6a8cdaf](https://github.com/lonelyplanet/backpack-ui/commit/6a8cdaf))
+
+
+### Features
+
+* Add new values for z-index ([#292](https://github.com/lonelyplanet/backpack-ui/issues/292)) ([51ab22f](https://github.com/lonelyplanet/backpack-ui/commit/51ab22f))
+
+
+
 <a name="4.18.0"></a>
 # [4.18.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.1...v4.18.0) (2017-05-10)
 
