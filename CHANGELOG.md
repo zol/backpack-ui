@@ -1,4 +1,85 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="4.19.1"></a>
+## [4.19.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.19.0...v4.19.1) (2017-05-12)
+
+
+### Bug Fixes
+
+* Update typo in newsletter component ([#296](https://github.com/lonelyplanet/backpack-ui/issues/296)) ([98c056f](https://github.com/lonelyplanet/backpack-ui/commit/98c056f))
+
+
+
+<a name="4.19.0"></a>
+# [4.19.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.18.0...v4.19.0) (2017-05-12)
+
+
+### Bug Fixes
+
+* Change z-index, color for Overlay ([#293](https://github.com/lonelyplanet/backpack-ui/issues/293)) ([b8a001f](https://github.com/lonelyplanet/backpack-ui/commit/b8a001f))
+* Update storybook to 2.35.3 ([#295](https://github.com/lonelyplanet/backpack-ui/issues/295)) ([6a8cdaf](https://github.com/lonelyplanet/backpack-ui/commit/6a8cdaf))
+
+
+### Features
+
+* Add new values for z-index ([#292](https://github.com/lonelyplanet/backpack-ui/issues/292)) ([51ab22f](https://github.com/lonelyplanet/backpack-ui/commit/51ab22f))
+
+
+
+<a name="4.18.0"></a>
+# [4.18.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.1...v4.18.0) (2017-05-10)
+
+
+### Bug Fixes
+
+* Add export for ModalLogIn component ([#287](https://github.com/lonelyplanet/backpack-ui/issues/287)) ([599fddf](https://github.com/lonelyplanet/backpack-ui/commit/599fddf))
+* Add hover, active, focus to DisclaimerText link ([#286](https://github.com/lonelyplanet/backpack-ui/issues/286)) ([9ef7905](https://github.com/lonelyplanet/backpack-ui/commit/9ef7905))
+* Change content padding for large screen in Modal ([#288](https://github.com/lonelyplanet/backpack-ui/issues/288)) ([a9ab1d4](https://github.com/lonelyplanet/backpack-ui/commit/a9ab1d4))
+* Set max-height for ModalLogIn ([#291](https://github.com/lonelyplanet/backpack-ui/issues/291)) ([433d4bf](https://github.com/lonelyplanet/backpack-ui/commit/433d4bf))
+* Update ModalContentSocialAuth ([#290](https://github.com/lonelyplanet/backpack-ui/issues/290)) ([8bf5beb](https://github.com/lonelyplanet/backpack-ui/commit/8bf5beb))
+
+
+### Features
+
+* Add bgDark color ([#285](https://github.com/lonelyplanet/backpack-ui/issues/285)) ([e6e55a0](https://github.com/lonelyplanet/backpack-ui/commit/e6e55a0))
+* Add desktopMaxHeight prop to Modal ([#289](https://github.com/lonelyplanet/backpack-ui/issues/289)) ([f887984](https://github.com/lonelyplanet/backpack-ui/commit/f887984))
+
+
+
+<a name="4.17.1"></a>
+## [4.17.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.17.0...v4.17.1) (2017-05-10)
+
+
+### Bug Fixes
+
+* change ad padding to not let ad break out of container ([#284](https://github.com/lonelyplanet/backpack-ui/issues/284)) ([76adc3a](https://github.com/lonelyplanet/backpack-ui/commit/76adc3a))
+
+
+
+<a name="4.17.0"></a>
+# [4.17.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.16.5...v4.17.0) (2017-05-08)
+
+
+### Features
+
+* Create ModalLogIn component ([#282](https://github.com/lonelyplanet/backpack-ui/issues/282)) ([15347c4](https://github.com/lonelyplanet/backpack-ui/commit/15347c4))
+
+
+
+<a name="4.16.5"></a>
+## [4.16.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.16.4...v4.16.5) (2017-05-05)
+
+
+
 # Change log
+
+## 4.16.4
+- [fix] reorder social login props to not override styles ([#269](https://github.com/lonelyplanet/backpack-ui/pull/269))
+- [feat] Create AvatarMarker component ([#266](https://github.com/lonelyplanet/backpack-ui/pull/266))
+- [update] Update Avatar defaultProps, story ([#265](https://github.com/lonelyplanet/backpack-ui/pull/265))
+
 
 ## 4.16.3
 - [update] Add border prop to Button component inside Slide component ([#264](https://github.com/lonelyplanet/backpack-ui/pull/264))

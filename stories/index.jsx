@@ -84,6 +84,7 @@ import Masthead from "../src/components/masthead";
 import MastheadSlider from "../src/components/mastheadSlider";
 // MobileToolbar
 import Modal from "../src/components/modal";
+import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
@@ -1038,6 +1039,7 @@ storiesOf("Masthead", module)
       image: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtNTM0NzUzNjQ1X3N1cGVyLmpwZ01vbiBKYW4gMzAgMjAxNyAwOTo0MToyOSBHTVQrMDAwMCAoVVRDKQ%3D%3D.jpg?q=40&sharp=10&w=2500",
       type: "FEATURED ARTICLE",
       headline: "Architecture for travellers: a novice's guide",
+      graphic: "https://s3.amazonaws.com/static-asset/op-video-sync/assets/gopro_graphic_test.png",
       description: "",
       callToAction: {
         text: "Play",
@@ -1142,6 +1144,18 @@ storiesOf("Modal", module)
             videos={[]}
             removeVideo={action("Remove Video")}
             authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
+          />
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  ))
+  .add("Log in", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <ModalLogIn
+            isOpen={isOpen}
+            onClose={toggle}
           />
         )}
       </ModalWrapper>
@@ -1302,8 +1316,8 @@ storiesOf("Newsletter", module)
         placeholder={text("Input placeholder text", "Enter email")}
         cta={text("Button text", "Sign up")}
         confirmation={object("Confirmation data", {
-          title: "Thank you for signing up!",
-          text: "We’ll send a confirmation email to",
+          title: "Thanks for signing up!",
+          text: "We just sent a confirmation email to",
         })}
         signup={object("Signup data", {
           vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",

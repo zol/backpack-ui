@@ -1,15 +1,16 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import font from "../../utils/font";
-import { fontSizeUppercase } from "../../styles/typography";
+import { fontWeightMedium } from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
-  color: colors.accentGray,
+  color: colors.textSecondary,
   fontFamily: font("benton"),
-  fontSize: `${fontSizeUppercase}px`,
-  lineHeight: (17 / 11),
+  fontSize: "9px",
+  lineHeight: (15 / 9),
 };
 
 function markup(htmlContent) {
@@ -26,7 +27,20 @@ const DisclaimerText = ({ children, style }) => (
     <Style
       rules={{
         ".DisclaimerText a": {
-          color: "inherit",
+          fontWeight: fontWeightMedium,
+          transition: `color ${timing.fast} ease-in-out`,
+        },
+
+        ".DisclaimerText a:hover": {
+          color: colors.linkPrimaryHover,
+        },
+
+        ".DisclaimerText a:active": {
+          color: colors.linkPrimaryHover,
+        },
+
+        ".DisclaimerText a:focus": {
+          color: colors.linkPrimaryHover,
         },
       }}
     />

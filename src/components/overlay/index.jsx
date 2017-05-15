@@ -100,13 +100,13 @@ Overlay.defaultProps = {
 
   attached: false,
 
-  color: `rgba(${rgb(settings.color.black)}, .4)`,
+  color: `rgba(${rgb(settings.color.black)}, .3)`,
 
   onClick: null,
 
   visible: false,
 
-  zIndex: settings.zIndex.modal - 2,
+  zIndex: settings.zIndex.overlay,
 };
 
 export default radium(Overlay);
