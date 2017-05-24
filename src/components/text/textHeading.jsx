@@ -13,13 +13,15 @@ import {
 } from "../../utils/typography";
 import propTypes from "../../utils/propTypes";
 
-function Heading({
+const Heading = ({
   children,
   level,
   size,
   weight,
+  className,
+  id,
   style,
-}) {
+}) => {
   const Element = `h${level}`;
 
   const styles = {
@@ -35,6 +37,8 @@ function Heading({
 
   return (
     <Element
+      className={className}
+      id={id}
       style={[
         {
           color: colors.textPrimary,
@@ -48,13 +52,15 @@ function Heading({
       {children}
     </Element>
   );
-}
+};
 
 Heading.propTypes = {
   children: PropTypes.node.isRequired,
   level: propTypes.heading,
   size: PropTypes.oneOf([1, 2, 3, 4, 5, 6, 7, 8]),
   weight: propTypes.fontWeight,
+  className: PropTypes.string,
+  id: PropTypes.string,
   style: propTypes.style,
 };
 
