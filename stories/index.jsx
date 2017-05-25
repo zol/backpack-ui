@@ -975,8 +975,8 @@ storiesOf("Italic text", module)
 storiesOf("Lede", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Lede
-      content={text("Text", `Lorem ipsum dolor sit amet, consectetur
+    <Lede>
+      {text("Text", `Lorem ipsum dolor sit amet, consectetur
         adipiscing elit, sed do eiusmod tempor incididunt
         ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris
@@ -986,7 +986,7 @@ storiesOf("Lede", module)
         Excepteur sint occaecat cupidatat non proident,
         sunt in culpa qui officia deserunt mollit anim id
         est laborum`)}
-    />
+    </Lede>
   ));
 
 storiesOf("List item (news)", module)
