@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.20.1"></a>
+## [4.20.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.0...v4.20.1) (2017-05-25)
+
+
+### Bug Fixes
+
+* Add media query to disable motion in Toast ([#301](https://github.com/lonelyplanet/backpack-ui/issues/301)) ([5d6df27](https://github.com/lonelyplanet/backpack-ui/commit/5d6df27))
+* Delete unused watchLaterVideos from stories ([#283](https://github.com/lonelyplanet/backpack-ui/issues/283)) ([5279f7c](https://github.com/lonelyplanet/backpack-ui/commit/5279f7c))
+* Make bgDark 96% black ([#302](https://github.com/lonelyplanet/backpack-ui/issues/302)) ([7e5f436](https://github.com/lonelyplanet/backpack-ui/commit/7e5f436)), closes [#297](https://github.com/lonelyplanet/backpack-ui/issues/297)
+* Set width of WatchLaterModal to 630px ([#277](https://github.com/lonelyplanet/backpack-ui/issues/277)) ([1e16dda](https://github.com/lonelyplanet/backpack-ui/commit/1e16dda))
+
+
+
 <a name="4.20.0"></a>
 # [4.20.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.19.1...v4.20.0) (2017-05-25)
 
