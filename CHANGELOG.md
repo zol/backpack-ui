@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.21.0"></a>
+# [4.21.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.1...v4.21.0) (2017-05-26)
+
+
+### Features
+
+* add magic link form component for sign in modal ([#317](https://github.com/lonelyplanet/backpack-ui/issues/317)) ([c38641b](https://github.com/lonelyplanet/backpack-ui/commit/c38641b))
+
+
+
 <a name="4.20.1"></a>
 ## [4.20.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.0...v4.20.1) (2017-05-25)
 
