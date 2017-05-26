@@ -45,6 +45,7 @@ import Container from "../src/components/container";
 import ContentHeader from "../src/components/contentHeader";
 // ContentSectionList
 // Decoration
+import Dialog from "../src/components/dialog";
 import DisclaimerText from "../src/components/disclaimerText";
 import DotLoader from "../src/components/dotLoader";
 import Dropdown from "../src/components/dropdown";
@@ -86,6 +87,7 @@ import MastheadSlider from "../src/components/mastheadSlider";
 import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
+import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -581,7 +583,52 @@ storiesOf("Content Header", module)
       title="Title"
       border="bottom"
     />
-    ));
+  ));
+
+storiesOf("Dialog", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ModalWrapper>
+        {(isOpen, toggle) => (
+          <div>
+            <button onClick={toggle}>Toggle Dialog</button>
+
+            <Dialog
+              id="storybookDialog"
+              title={text("Title", "Are you sure?")}
+              isOpen={isOpen}
+              onClose={toggle}
+              modal={boolean("Modal", true)}
+              centered={boolean("Centered", true)}
+              hasOverlay={boolean("Overlay", true)}
+              actions={[
+                <Button
+                  size="small"
+                  onClick={() => { console.log("✌🏼"); }}
+                  rounded
+                >
+                  Yes, delete my account
+                </Button>,
+                <Button
+                  size="small"
+                  onClick={toggle}
+                  color="gray"
+                  rounded
+                  border
+                >
+                  Cancel
+                </Button>,
+              ]}
+            >
+              Deleting your account will result in the loss of all content,
+              including collections and profile information, forever.
+            </Dialog>
+          </div>
+        )}
+      </ModalWrapper>
+    </StyleRoot>
+  ));
 
 storiesOf("Disclaimer text", module)
   .addDecorator(withKnobs)
@@ -1069,7 +1116,6 @@ class ModalWrapper extends React.Component {
     open: true,
   }
 
-
   toggleOpen() {
     this.setState({ open: !this.state.open });
   }
@@ -1078,33 +1124,6 @@ class ModalWrapper extends React.Component {
     return this.props.children(this.state.open, this.toggleOpen.bind(this));
   }
 }
-
-const watchLaterVideos = [
-  {
-    id: 1,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep1"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 2,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep2"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-  {
-    id: 3,
-    heading: "Test Heading",
-    bullets: ["On the Road", "Ep3"],
-    runtime: 30000,
-    imageSrc: "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FR2V0dHlJbWFnZXMtMTQ2OTUyMjI2X2hpZ2guanBnU3VuIEZlYiAyNiAyMDE3IDE0OjMxOjIwIEdNVCswMDAwIChVVEMp.jpg?q=60&sharp=10&fit=crop&h=520&w=697",
-    href: "/test",
-  },
-];
 
 storiesOf("Modal", module)
   .addDecorator(withKnobs)
@@ -1132,7 +1151,8 @@ storiesOf("Modal", module)
         )}
       </ModalWrapper>
     </StyleRoot>
-  )).add("Watch Later", () => (
+  ))
+  .add("Watch Later", () => (
     <StyleRoot>
       <ModalWrapper>
         {(isOpen, toggle) => (
@@ -1140,7 +1160,6 @@ storiesOf("Modal", module)
             loggedIn={boolean("Logged in", false)}
             isOpen={isOpen}
             onClose={toggle}
-            // videos={watchLaterVideos}
             videos={[]}
             removeVideo={action("Remove Video")}
             authMessage={text("Auth Message", "Organize your research & unlock tools like bookmarking.")}
@@ -1212,6 +1231,40 @@ storiesOf("Navigation", module)
       <NavigationTab onClick={action("Books tab clicked")}>Books</NavigationTab>
       <NavigationTab onClick={action("Adventures tab clicked")}>Adventures</NavigationTab>
     </Navigation>
+  ));
+
+storiesOf("Multi-step", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => (
+        <MultiStep currentStep={currentStep}>
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(4); }}>Jump to step 4</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={goToNextStep}>Next step</Button>
+          </div>
+
+          <div>
+            <h1>Step {currentStep}</h1>
+            <Button size="tiny" onClick={goToPreviousStep}>Previous step</Button>
+            <Button size="tiny" onClick={() => { setCurrentStep(1); }}>Jump to step 1</Button>
+          </div>
+        </MultiStep>
+      )}
+    </MultiStepWrapper>
   ));
 
 storiesOf("Narrative", module)
