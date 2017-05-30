@@ -13,39 +13,33 @@ const styles = {
   lineHeight: (15 / 9),
 };
 
-function markup(htmlContent) {
-  return {
-    __html: htmlContent,
-  };
-}
+const scopedStyles = {
+  ".DisclaimerText a": {
+    fontWeight: fontWeightMedium,
+    transition: `color ${timing.fast} ease-in-out`,
+  },
+
+  ".DisclaimerText a:hover": {
+    color: colors.linkPrimaryHover,
+  },
+
+  ".DisclaimerText a:active": {
+    color: colors.linkPrimaryHover,
+  },
+
+  ".DisclaimerText a:focus": {
+    color: colors.linkPrimaryHover,
+  },
+};
 
 const DisclaimerText = ({ children, style }) => (
   <div
     className="DisclaimerText"
     style={[styles, style]}
   >
-    <Style
-      rules={{
-        ".DisclaimerText a": {
-          fontWeight: fontWeightMedium,
-          transition: `color ${timing.fast} ease-in-out`,
-        },
+    <Style rules={scopedStyles} />
 
-        ".DisclaimerText a:hover": {
-          color: colors.linkPrimaryHover,
-        },
-
-        ".DisclaimerText a:active": {
-          color: colors.linkPrimaryHover,
-        },
-
-        ".DisclaimerText a:focus": {
-          color: colors.linkPrimaryHover,
-        },
-      }}
-    />
-
-    <div dangerouslySetInnerHTML={markup(children)} />
+    {children}
   </div>
 );
 
