@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.22.1"></a>
+## [4.22.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.0...v4.22.1) (2017-05-31)
+
+
+### Bug Fixes
+
+* update login forms for modal content ([#326](https://github.com/lonelyplanet/backpack-ui/issues/326)) ([6946e99](https://github.com/lonelyplanet/backpack-ui/commit/6946e99))
+
+
+
 <a name="4.22.0"></a>
 # [4.22.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.21.0...v4.22.0) (2017-05-31)
 
