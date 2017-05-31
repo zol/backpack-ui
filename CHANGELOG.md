@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.22.0"></a>
+# [4.22.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.21.0...v4.22.0) (2017-05-31)
+
+
+### Bug Fixes
+
+* Add avatar uploader onChangeFiles method ([#304](https://github.com/lonelyplanet/backpack-ui/issues/304)) ([8eb8009](https://github.com/lonelyplanet/backpack-ui/commit/8eb8009))
+* Update DisclaimerText component ([#320](https://github.com/lonelyplanet/backpack-ui/issues/320)) ([efbf72e](https://github.com/lonelyplanet/backpack-ui/commit/efbf72e))
+* Update Modal component ([#321](https://github.com/lonelyplanet/backpack-ui/issues/321)) ([f26c90d](https://github.com/lonelyplanet/backpack-ui/commit/f26c90d))
+
+
+### Features
+
+* Create Auth components ([#322](https://github.com/lonelyplanet/backpack-ui/issues/322)) ([9c3e1cd](https://github.com/lonelyplanet/backpack-ui/commit/9c3e1cd))
+
+
+
 <a name="4.21.0"></a>
 # [4.21.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.20.1...v4.21.0) (2017-05-26)
 
