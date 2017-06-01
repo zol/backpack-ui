@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.22.2"></a>
+## [4.22.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.1...v4.22.2) (2017-06-01)
+
+
+### Bug Fixes
+
+* update modal content error display ([6ebbbac](https://github.com/lonelyplanet/backpack-ui/commit/6ebbbac))
+* Update Toast component ([#328](https://github.com/lonelyplanet/backpack-ui/issues/328)) ([1bb9259](https://github.com/lonelyplanet/backpack-ui/commit/1bb9259))
+
+
+
 <a name="4.22.1"></a>
 ## [4.22.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.0...v4.22.1) (2017-05-31)
 
