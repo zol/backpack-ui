@@ -6,6 +6,10 @@ import { media } from "../../../settings.json";
 
 const _ = { get, uniqueId };
 
+const icons = {
+  theaterMode: '<svg style="width:12px;height:12px;" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="white"><path d="M20.9 0v3h6l-9.6 9.6 2.1 2.1 9.6-9.6v6h3v-11.1z" /><path d="M12.6 17.3l-9.6 9.6v-6h-3v11.1h11.1v-3h-6l9.6-9.6z" /></svg>',
+}
+
 const styles = {
   container: {
     width: "100%",
@@ -134,6 +138,22 @@ class VideoEmbed extends Component {
     this.player.on("ended", this.onPlayerEnded.bind(this));
     this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
+
+    this.createTheaterModeButton();
+  }
+
+  createTheaterModeButton() {
+    var buttonClass = videojs.getComponent('Button');
+    var theaterModeButtonClass = videojs.extend(buttonClass, {
+      handleClick: function(){
+        // Do your stuff
+        console.log("clicked");
+      }
+    });
+
+    this.theaterModeButton = this.player.controlBar.addChild(new theaterModeButtonClass());
+    this.theaterModeButton.addClass("chad");
+    this.theaterModeButton.el().innerHTML = icons.theaterMode;
   }
 
   onPlayerReady() {
