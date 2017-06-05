@@ -35,6 +35,9 @@ const styles = {
 };
 
 const scopedStyles = {
+  ".VideoEmbed-control:hover": {
+    backgroundImage: "-webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%)",
+  },
   ".vjs-overlay-bottom": {
     left: "0px",
     width: "100%",
@@ -143,16 +146,18 @@ class VideoEmbed extends Component {
   }
 
   createTheaterModeButton() {
+    if (!this.props.onClickTheaterMode) {
+      return;
+    }
+
     var buttonClass = videojs.getComponent('Button');
     var theaterModeButtonClass = videojs.extend(buttonClass, {
-      handleClick: function(){
-        // Do your stuff
-        console.log("clicked");
-      }
+      handleClick: this.props.onClickTheaterMode,
     });
 
     this.theaterModeButton = this.player.controlBar.addChild(new theaterModeButtonClass());
-    this.theaterModeButton.addClass("chad");
+    this.theaterModeButton.addClass("VideoEmbed-control");
+    this.theaterModeButton.el().setAttribute("title", "Theater Mode");
     this.theaterModeButton.el().innerHTML = icons.theaterMode;
   }
 
@@ -410,6 +415,7 @@ VideoEmbed.propTypes = {
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
+  onClickTheaterMode: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
