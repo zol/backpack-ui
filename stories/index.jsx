@@ -4,8 +4,8 @@ import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
-import { storiesOf, action } from "@kadira/storybook";
-import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
+import { storiesOf, action } from "@storybook/react";
+import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
@@ -2547,7 +2547,7 @@ storiesOf("Travel alert", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TravelAlert>
-      {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
+      {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
     </TravelAlert>
   ));
 

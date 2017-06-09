@@ -36,8 +36,6 @@
     "url": "https://github.com/lonelyplanet/backpack-ui.git"
   },
   "dependencies": {
-    "@kadira/storybook": "^2.35.3",
-    "@kadira/storybook-addon-knobs": "^1.7.1",
     "axios": "^0.15.3",
     "chai": "^3.5.0",
     "classnames": "^2.2.5",
@@ -94,6 +92,10 @@
     "pre-commit": "^1.2.2",
     "react-addons-shallow-compare": "^15.0.2",
     "sinon": "^1.17.6",
-    "standard-version": "^4.0.0"
+    "standard-version": "^4.0.0",
+    "@storybook/react": "^3.0.1",
+    "@storybook/addon-actions": "^3.0.0",
+    "@storybook/addon-knobs": "^3.0.0",
+    "@storybook/addon-links": "^3.0.0"
   }
 }
