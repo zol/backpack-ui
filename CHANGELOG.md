@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.23.3"></a>
+## [4.23.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.2...v4.23.3) (2017-06-12)
+
+
+### Bug Fixes
+
+* icon color on interactive map being overwritten ([#337](https://github.com/lonelyplanet/backpack-ui/issues/337)) ([b1c8032](https://github.com/lonelyplanet/backpack-ui/commit/b1c8032))
+
+
+
 <a name="4.23.2"></a>
 ## [4.23.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.1...v4.23.2) (2017-06-12)
 
