@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.23.0"></a>
+# [4.23.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.2...v4.23.0) (2017-06-12)
+
+
+### Bug Fixes
+
+* Add lineHeightReset value to typography styles ([#332](https://github.com/lonelyplanet/backpack-ui/issues/332)) ([47cfd2f](https://github.com/lonelyplanet/backpack-ui/commit/47cfd2f))
+* Add via prop to SocialShareContainer ([#331](https://github.com/lonelyplanet/backpack-ui/issues/331)) ([d92cc6b](https://github.com/lonelyplanet/backpack-ui/commit/d92cc6b))
+* Export dimension styles as single object ([#333](https://github.com/lonelyplanet/backpack-ui/issues/333)) ([dc68b01](https://github.com/lonelyplanet/backpack-ui/commit/dc68b01))
+* Separate deprecated z-index values into their own object ([#334](https://github.com/lonelyplanet/backpack-ui/issues/334)) ([67f707e](https://github.com/lonelyplanet/backpack-ui/commit/67f707e))
+
+
+### Features
+
+* Add design tokens story ([#335](https://github.com/lonelyplanet/backpack-ui/issues/335)) ([c45a105](https://github.com/lonelyplanet/backpack-ui/commit/c45a105))
+
+
+
 <a name="4.22.2"></a>
 ## [4.22.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.1...v4.22.2) (2017-06-01)
 
