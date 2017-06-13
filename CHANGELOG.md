@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.24.1"></a>
+## [4.24.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.0...v4.24.1) (2017-06-13)
+
+
+### Bug Fixes
+
+* Update Toast styles ([#343](https://github.com/lonelyplanet/backpack-ui/issues/343)) ([54adc0a](https://github.com/lonelyplanet/backpack-ui/commit/54adc0a))
+
+
+
 <a name="4.24.0"></a>
 # [4.24.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.3...v4.24.0) (2017-06-13)
 
