@@ -8,6 +8,7 @@ import { benton } from "../../styles/fonts";
 import zIndex from "../../styles/zIndex";
 import { span } from "../../utils/grid";
 import { outline } from "../../utils/mixins";
+import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
@@ -21,6 +22,7 @@ const styles = {
       backgroundColor: colors.bgPrimary,
       borderRadius: `${(4 / fontSizeUppercase)}em`,
       borderTop: "3px currentColor solid",
+      boxShadow: `0 4px 6px ${rgba(colors.bgOverlay, 0.25)}`,
       display: "flex",
       fontFamily: benton,
       fontSize: `${fontSizeUppercase}px`,
@@ -93,13 +95,13 @@ const styles = {
     color: colors.textPrimary,
     cursor: "pointer",
     display: "block",
-    fontSize: "8px",
+    fontSize: `${(8 / fontSizeUppercase)}em`,
     flexShrink: 0,
-    height: "24px",
+    height: `${(24 / 8)}em`,
     marginLeft: "auto",
-    marginRight: "-8px",
+    marginRight: `${(-8 / 8)}em`,
     transition: `color ${timing.fast} ease-in-out`,
-    width: "24px",
+    width: `${(24 / 8)}em`,
 
     ":hover": {
       color: colors.textSecondary,
