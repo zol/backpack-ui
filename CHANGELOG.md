@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.24.0"></a>
+# [4.24.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.3...v4.24.0) (2017-06-13)
+
+
+### Bug Fixes
+
+* Add component to center components in storybook ([#338](https://github.com/lonelyplanet/backpack-ui/issues/338)) ([fec67c2](https://github.com/lonelyplanet/backpack-ui/commit/fec67c2))
+* Fix, update TravelAlert component ([#342](https://github.com/lonelyplanet/backpack-ui/issues/342)) ([40b5ace](https://github.com/lonelyplanet/backpack-ui/commit/40b5ace))
+* Reorder storybook addon imports ([#341](https://github.com/lonelyplanet/backpack-ui/issues/341)) ([1003f06](https://github.com/lonelyplanet/backpack-ui/commit/1003f06))
+* Update Toast design ([#340](https://github.com/lonelyplanet/backpack-ui/issues/340)) ([d5cf346](https://github.com/lonelyplanet/backpack-ui/commit/d5cf346))
+
+
+### Features
+
+* Add icons for toast message ([#339](https://github.com/lonelyplanet/backpack-ui/issues/339)) ([ba9d1bf](https://github.com/lonelyplanet/backpack-ui/commit/ba9d1bf))
+
+
+
 <a name="4.23.3"></a>
 ## [4.23.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.2...v4.23.3) (2017-06-12)
 
