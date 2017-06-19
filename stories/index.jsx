@@ -4,12 +4,14 @@ import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
-import { storiesOf, action } from "@kadira/storybook";
-import { withKnobs, text, boolean, number, array, object, select, color } from "@kadira/storybook-addon-knobs";
+import { storiesOf, action } from "@storybook/react";
+import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
+import Center from "./center";
 import Colors from "./Colors";
+import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
@@ -161,6 +163,9 @@ import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
 storiesOf("Styles", module)
   .addDecorator(withKnobs)
+  .add("Design tokens", () => (
+    <DesignTokens />
+  ))
   .add("Colors", () => (
     <Colors />
   ))
@@ -2495,22 +2500,26 @@ storiesOf("Timestamp", module)
 storiesOf("Toast", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Toast
-      visible={boolean("Visible", true)}
-      affixed={boolean("Affixed", false)}
-      type={select("Type", {
-        alert: "Alert",
-        error: "Error",
-        neutral: "Neutral",
-        success: "Success",
-      }, "neutral")}
-      direction={select("Direction", {
-        top: "Top",
-        bottom: "Bottom",
-      }, "bottom")}
-    >
-      {text("Text", "Added to Watch Later")}
-    </Toast>
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClose={action("Function to dismiss toast")}
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
   ));
 
 storiesOf("Tooltip", module)
@@ -2547,7 +2556,7 @@ storiesOf("Travel alert", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TravelAlert>
-      {text("Text", `The US Center for Disease Control <a href="http://www.cdc.gov/zika/geo/active-countries.html">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.`)}
+      {text("Text", "The US Center for Disease Control <a href=\"http://www.cdc.gov/zika/geo/active-countries.html\">has issued a travel alert suggesting that pregnant women postpone travel to the Bahamas due to the presence of the zika virus</a>.")}
     </TravelAlert>
   ));
 

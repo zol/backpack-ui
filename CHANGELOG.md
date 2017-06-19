@@ -2,6 +2,86 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.25.0"></a>
+# [4.25.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.1...v4.25.0) (2017-06-17)
+
+
+### Bug Fixes
+
+* Update spotlightZone to allow HTML within its paragraph property value ([#344](https://github.com/lonelyplanet/backpack-ui/issues/344)) ([802bcc6](https://github.com/lonelyplanet/backpack-ui/commit/802bcc6))
+
+
+
+<a name="4.24.1"></a>
+## [4.24.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.0...v4.24.1) (2017-06-13)
+
+
+### Bug Fixes
+
+* Update Toast styles ([#343](https://github.com/lonelyplanet/backpack-ui/issues/343)) ([54adc0a](https://github.com/lonelyplanet/backpack-ui/commit/54adc0a))
+
+
+
+<a name="4.24.0"></a>
+# [4.24.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.3...v4.24.0) (2017-06-13)
+
+
+### Bug Fixes
+
+* Add component to center components in storybook ([#338](https://github.com/lonelyplanet/backpack-ui/issues/338)) ([fec67c2](https://github.com/lonelyplanet/backpack-ui/commit/fec67c2))
+* Fix, update TravelAlert component ([#342](https://github.com/lonelyplanet/backpack-ui/issues/342)) ([40b5ace](https://github.com/lonelyplanet/backpack-ui/commit/40b5ace))
+* Reorder storybook addon imports ([#341](https://github.com/lonelyplanet/backpack-ui/issues/341)) ([1003f06](https://github.com/lonelyplanet/backpack-ui/commit/1003f06))
+* Update Toast design ([#340](https://github.com/lonelyplanet/backpack-ui/issues/340)) ([d5cf346](https://github.com/lonelyplanet/backpack-ui/commit/d5cf346))
+
+
+### Features
+
+* Add icons for toast message ([#339](https://github.com/lonelyplanet/backpack-ui/issues/339)) ([ba9d1bf](https://github.com/lonelyplanet/backpack-ui/commit/ba9d1bf))
+
+
+
+<a name="4.23.3"></a>
+## [4.23.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.2...v4.23.3) (2017-06-12)
+
+
+### Bug Fixes
+
+* icon color on interactive map being overwritten ([#337](https://github.com/lonelyplanet/backpack-ui/issues/337)) ([b1c8032](https://github.com/lonelyplanet/backpack-ui/commit/b1c8032))
+
+
+
+<a name="4.23.2"></a>
+## [4.23.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.1...v4.23.2) (2017-06-12)
+
+
+
+<a name="4.23.1"></a>
+## [4.23.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.23.0...v4.23.1) (2017-06-12)
+
+
+### Bug Fixes
+
+* pull out multistep auth into its own component ([9285816](https://github.com/lonelyplanet/backpack-ui/commit/9285816))
+
+
+
+<a name="4.23.0"></a>
+# [4.23.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.2...v4.23.0) (2017-06-12)
+
+
+### Bug Fixes
+
+* Add lineHeightReset value to typography styles ([#332](https://github.com/lonelyplanet/backpack-ui/issues/332)) ([47cfd2f](https://github.com/lonelyplanet/backpack-ui/commit/47cfd2f))
+* Add via prop to SocialShareContainer ([#331](https://github.com/lonelyplanet/backpack-ui/issues/331)) ([d92cc6b](https://github.com/lonelyplanet/backpack-ui/commit/d92cc6b))
+* Export dimension styles as single object ([#333](https://github.com/lonelyplanet/backpack-ui/issues/333)) ([dc68b01](https://github.com/lonelyplanet/backpack-ui/commit/dc68b01))
+* Separate deprecated z-index values into their own object ([#334](https://github.com/lonelyplanet/backpack-ui/issues/334)) ([67f707e](https://github.com/lonelyplanet/backpack-ui/commit/67f707e))
+
+
+### Features
+
+* Add design tokens story ([#335](https://github.com/lonelyplanet/backpack-ui/issues/335)) ([c45a105](https://github.com/lonelyplanet/backpack-ui/commit/c45a105))
+
+
 <a name="4.22.2"></a>
 ## [4.22.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.22.1...v4.22.2) (2017-06-01)
 
