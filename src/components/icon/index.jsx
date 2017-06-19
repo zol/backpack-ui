@@ -207,7 +207,7 @@ exports.ClockOutline = props => (
 
 exports.Close = props => (
   <Icon {...props}>
-    <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" transform="rotate(-45 16 16)" />
+    <path d="M18 16l10-10-2-2-10 10-10-10-2 2 10 10-10 10 2 2 10-10 10 10 2-2-10-10z" />
   </Icon>
 );
 
@@ -390,7 +390,7 @@ exports.Play = props => (
 
 exports.Plus = props => (
   <Icon {...props}>
-    <path d="M32 14.7h-14.7v-14.7h-2.6v14.7h-14.7v2.6h14.7v14.7h2.6v-14.7h14.7z" />
+    <path d="M18 16l10-10-2-2-10 10-10-10-2 2 10 10-10 10 2 2 10-10 10 10 2-2-10-10z" transform="rotate(-45 16 16)" />
   </Icon>
 );
 
