@@ -337,6 +337,12 @@ exports.MarkerFlag = props => (
   </Icon>
 );
 
+exports.Menu = props => (
+  <Icon {...props}>
+    <path d="M0 9.333v-2.667h32v2.667h-32zM10.667 25.333v-2.667h21.333v2.667h-21.333zM5.333 17.333v-2.667h26.667v2.667h-26.667z" />
+  </Icon>
+);
+
 exports.Minus = props => (
   <Icon {...props}>
     <path d="M0 14.7h32v2.6h-32v-2.6z" />
