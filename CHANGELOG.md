@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.26.0"></a>
+# [4.26.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.25.0...v4.26.0) (2017-06-27)
+
+
+### Bug Fixes
+
+* pass style through to settingBlockWrapper ([#353](https://github.com/lonelyplanet/backpack-ui/issues/353)) ([aff095d](https://github.com/lonelyplanet/backpack-ui/commit/aff095d))
+* remove form submission hijack ([#350](https://github.com/lonelyplanet/backpack-ui/issues/350)) ([aed9c0c](https://github.com/lonelyplanet/backpack-ui/commit/aed9c0c))
+* Update arrow icons ([a488c06](https://github.com/lonelyplanet/backpack-ui/commit/a488c06))
+* Update close, plus icons ([4ead707](https://github.com/lonelyplanet/backpack-ui/commit/4ead707))
+* update disclaimer based on type of authentication ([#347](https://github.com/lonelyplanet/backpack-ui/issues/347)) ([56f39ba](https://github.com/lonelyplanet/backpack-ui/commit/56f39ba))
+
+
+### Features
+
+* Add menu icon ([a03ba20](https://github.com/lonelyplanet/backpack-ui/commit/a03ba20))
+* Add search icon ([a5e1adf](https://github.com/lonelyplanet/backpack-ui/commit/a5e1adf))
+* Create Typeahead component ([#354](https://github.com/lonelyplanet/backpack-ui/issues/354)) ([32036f3](https://github.com/lonelyplanet/backpack-ui/commit/32036f3))
+
+
+
 <a name="4.25.0"></a>
 # [4.25.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.24.1...v4.25.0) (2017-06-17)
 
