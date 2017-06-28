@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.26.2"></a>
+## [4.26.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.1...v4.26.2) (2017-06-28)
+
+
+### Bug Fixes
+
+* change navigation z index down to 99 from 100 to stay behind public profile dropdowns ([1c39fbb](https://github.com/lonelyplanet/backpack-ui/commit/1c39fbb))
+* Resolve lint error in Navigation component ([#357](https://github.com/lonelyplanet/backpack-ui/issues/357)) ([a518978](https://github.com/lonelyplanet/backpack-ui/commit/a518978))
+
+
+
 <a name="4.26.1"></a>
 ## [4.26.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.0...v4.26.1) (2017-06-27)
 
