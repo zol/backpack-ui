@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.26.3"></a>
+## [4.26.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.2...v4.26.3) (2017-06-29)
+
+
+### Bug Fixes
+
+* add passthrough to listItemWrapper ([#358](https://github.com/lonelyplanet/backpack-ui/issues/358)) ([f0d77d2](https://github.com/lonelyplanet/backpack-ui/commit/f0d77d2))
+
+
+
 <a name="4.26.2"></a>
 ## [4.26.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.1...v4.26.2) (2017-06-28)
 
