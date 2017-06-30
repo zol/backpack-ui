@@ -22,6 +22,7 @@ const Typeahead = ({
   placeholder,
   useTokens,
   style,
+  onKeyUp,
 }) => (
   <div>
     <Style
@@ -162,6 +163,7 @@ const Typeahead = ({
         placeholder={placeholder}
         options={options}
         style={style}
+        onKeyUp={onKeyUp}
       />
     }
   </div>
@@ -172,6 +174,7 @@ Typeahead.propTypes = {
   placeholder: PropTypes.string,
   useTokens: PropTypes.bool,
   style: propTypes.style,
+  onKeyUp: PropTypes.func,
 };
 
 export default radium(Typeahead);
