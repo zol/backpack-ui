@@ -11,6 +11,8 @@ const styles = {
   fontFamily: font("benton"),
   fontSize: "9px",
   lineHeight: (15 / 9),
+  maxWidth: "calc(100vw - 60px)",
+  width: "512px",
 };
 
 const scopedStyles = {
