@@ -37,8 +37,6 @@ const Typeahead = (props) => (
           marginTop: 0,
           overflow: "hidden",
           paddingLeft: 0,
-          position: "absolute",
-          top: "auto",
           width: "100%",
         },
 
