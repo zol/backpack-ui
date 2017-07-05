@@ -15,14 +15,8 @@ import {
 import { outline } from "../../utils/mixins";
 import { rgba } from "../../utils/color";
 import font from "../../utils/font";
-import propTypes from "../../utils/propTypes";
 
-const Typeahead = ({
-  options,
-  placeholder,
-  useTokens,
-  style,
-}) => (
+const Typeahead = (props) => (
   <div>
     <Style
       rules={{
@@ -43,8 +37,6 @@ const Typeahead = ({
           marginTop: 0,
           overflow: "hidden",
           paddingLeft: 0,
-          position: "absolute",
-          top: "auto",
           width: "100%",
         },
 
@@ -149,29 +141,22 @@ const Typeahead = ({
       }}
     />
 
-    {useTokens &&
+    {props.useTokens &&
       <TokenizerComponent
-        placeholder={placeholder}
-        options={options}
-        style={style}
+        {...props}
       />
     }
 
-    {!useTokens &&
+    {!props.useTokens &&
       <TypeaheadComponent
-        placeholder={placeholder}
-        options={options}
-        style={style}
+        {...props}
       />
     }
   </div>
 );
 
 Typeahead.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string).isRequired,
-  placeholder: PropTypes.string,
   useTokens: PropTypes.bool,
-  style: propTypes.style,
 };
 
 export default radium(Typeahead);
