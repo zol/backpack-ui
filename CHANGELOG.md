@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.26.4"></a>
+## [4.26.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.3...v4.26.4) (2017-07-05)
+
+
+### Bug Fixes
+
+* Add focus state to checkbox in SettingBlockButtonWrapper ([#363](https://github.com/lonelyplanet/backpack-ui/issues/363)) ([5db69e2](https://github.com/lonelyplanet/backpack-ui/commit/5db69e2))
+* add max width to disclaimer text for wrapping in IE and auto hide scrollbars on container ([4d4ce1a](https://github.com/lonelyplanet/backpack-ui/commit/4d4ce1a))
+* Set Checkbox input’s opacity to 0 to fix double border bug in legacy IE ([#362](https://github.com/lonelyplanet/backpack-ui/issues/362)) ([f645aae](https://github.com/lonelyplanet/backpack-ui/commit/f645aae))
+
+
+
 <a name="4.26.3"></a>
 ## [4.26.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.2...v4.26.3) (2017-06-29)
 
