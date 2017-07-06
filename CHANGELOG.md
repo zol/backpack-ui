@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.27.0"></a>
+# [4.27.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.4...v4.27.0) (2017-07-06)
+
+
+### Features
+
+* Refactor Typeahead component ([#364](https://github.com/lonelyplanet/backpack-ui/issues/364)) ([757d364](https://github.com/lonelyplanet/backpack-ui/commit/757d364))
+
+
+
 <a name="4.26.4"></a>
 ## [4.26.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.3...v4.26.4) (2017-07-05)
 
