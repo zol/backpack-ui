@@ -51,6 +51,7 @@ class Typeahead extends Component {
 
     this.previousInputValue = null;
 
+    this.onKeyUp = this.onKeyUp.bind(this);
     this.onMouseOver = this.onMouseOver.bind(this);
     this.onMouseOut = this.onMouseOut.bind(this);
     this.onEnter = this.onEnter.bind(this);
@@ -141,6 +142,22 @@ class Typeahead extends Component {
     this.setState({
       selectionIndex: null,
     });
+  }
+
+  onKeyUp(e) {
+    const query = e.target.value;
+    clearTimeout(this.searchTimer);
+
+    if (e.key !== "Enter" && e.key !== "ArrowUp" && e.key !== "ArrowDown") {
+      this.searchTimer = setTimeout(() => {
+        this.props.dataSource(query)
+        .then((json) => {
+          const results = json.places.map(place => place.attributes.name);
+          this.props.onKeyUp(results);
+          this.setState({ searchResults: results });
+        });
+      }, 200);
+    }
   }
 
   onEnter(event) {
@@ -589,7 +606,6 @@ class Typeahead extends Component {
       disabled,
       placeholder,
       onKeyPress,
-      onKeyUp,
       autoFocus,
       required,
       inputId,
@@ -645,7 +661,7 @@ class Typeahead extends Component {
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           onKeyPress={onKeyPress}
-          onKeyUp={onKeyUp.bind(this)} // eslint-disable-line react/jsx-no-bind
+          onKeyUp={this.onKeyUp} // eslint-disable-line react/jsx-no-bind
           onFocus={this.onFocus}
           onBlur={this.onBlur}
         />
@@ -671,6 +687,7 @@ Typeahead.propTypes = {
     resultsTruncated: PropTypes.string,
     customAdd: PropTypes.string,
   }),
+  dataSource: PropTypes.func,
   maxVisible: PropTypes.number,
   resultsTruncatedMessage: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.string),
@@ -756,6 +773,7 @@ Typeahead.defaultProps = {
   name: null,
   resultsTruncatedMessage: null,
   style: null,
+  dataSource: () => new Promise((resolve) => resolve([])),
 };
 
 export default Typeahead;
