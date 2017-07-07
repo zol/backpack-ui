@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.27.1"></a>
+## [4.27.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.0...v4.27.1) (2017-07-07)
+
+
+### Bug Fixes
+
+* Move fetch logic into dataSource prop for typeahead ([a9f0f61](https://github.com/lonelyplanet/backpack-ui/commit/a9f0f61))
+
+
+
 <a name="4.27.0"></a>
 # [4.27.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.26.4...v4.27.0) (2017-07-06)
 
