@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.27.2"></a>
+## [4.27.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.1...v4.27.2) (2017-07-12)
+
+
+### Bug Fixes
+
+* allow legacy user to use both email/username to login ([#371](https://github.com/lonelyplanet/backpack-ui/issues/371)) ([5c83e83](https://github.com/lonelyplanet/backpack-ui/commit/5c83e83))
+* remove typeahead border style ([#369](https://github.com/lonelyplanet/backpack-ui/issues/369)) ([dd3752b](https://github.com/lonelyplanet/backpack-ui/commit/dd3752b))
+
+
+
 <a name="4.27.1"></a>
 ## [4.27.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.0...v4.27.1) (2017-07-07)
 
