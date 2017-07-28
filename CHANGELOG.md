@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.28.0"></a>
+# [4.28.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.3...v4.28.0) (2017-07-28)
+
+
+### Bug Fixes
+
+* password function was being called on component being rendered ([#389](https://github.com/lonelyplanet/backpack-ui/issues/389)) ([0701527](https://github.com/lonelyplanet/backpack-ui/commit/0701527))
+
+
+### Features
+
+* Add HOC to detect outside clicks ([#373](https://github.com/lonelyplanet/backpack-ui/issues/373)) ([f04e650](https://github.com/lonelyplanet/backpack-ui/commit/f04e650))
+* Create UserListAuthor component ([#387](https://github.com/lonelyplanet/backpack-ui/issues/387)) ([656351b](https://github.com/lonelyplanet/backpack-ui/commit/656351b))
+* refactor Bookmark component; update actions to addon-actions ([#375](https://github.com/lonelyplanet/backpack-ui/issues/375)) ([#376](https://github.com/lonelyplanet/backpack-ui/issues/376)) ([00a992c](https://github.com/lonelyplanet/backpack-ui/commit/00a992c))
+
+
+
 <a name="4.27.3"></a>
 ## [4.27.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.2...v4.27.3) (2017-07-12)
 
