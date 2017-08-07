@@ -16,6 +16,7 @@ import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
+import AlbumThumbnailImage from "../src/components/albumThumbnailImage";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
@@ -262,6 +263,27 @@ storiesOf("Accordion", module)
         />
       </Accordion>
     </StyleRoot>
+  ));
+
+storiesOf("Album thumbnail image", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <AlbumThumbnailImage />
+    </Center>
+  ))
+  .add("Plus icon", () => (
+    <Center>
+      <AlbumThumbnailImage icon="Plus" />
+    </Center>
+  ))
+  .add("Image", () => (
+    <Center>
+      <AlbumThumbnailImage
+        src="https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104"
+        alt=""
+      />
+    </Center>
   ));
 
 storiesOf("Amenities", module)
