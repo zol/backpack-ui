@@ -78,6 +78,7 @@ import Lede from "../src/components/lede";
 // ListItemBookable
 // ListItemImage
 import ListButton from "../src/components/listButton";
+import ListHeader from "../src/components/listHeader";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -1008,6 +1009,27 @@ storiesOf("List Button", module)
       icon={select("Icon", Object.keys(Icon), "ListBookmark")}
       markedIcon={select("Marked Icon", Object.keys(Icon), "ListBookmarked")}
     />
+  ));
+
+storiesOf("List Header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListHeader
+        profileHref={text("Profile URL", "/profile")}
+        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+        username={text("Username", "Rizzo the Rat")}
+        title={text("Title", "Europe Summer Highlights")}
+        items={[
+          "pancakes",
+          "bacon",
+          "eggs",
+          "sausage",
+          "hashbrowns",
+        ]}
+        isPublic={boolean("Public", false)}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("List item (news)", module)
