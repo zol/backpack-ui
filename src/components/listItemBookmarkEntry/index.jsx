@@ -11,7 +11,9 @@ import {
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import colors from "../../styles/colors";
+import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
+import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import PriceRangeLabel from "../priceRangeLabel";
 import { Heading, TextAccent } from "../../components/text";
@@ -38,12 +40,31 @@ const styles = {
   category: {
     color: rgba(colors.textPrimary, 0.5),
     fontWeight: fontWeightMedium,
-    margin: "6px 0",
+    marginBottom: "6px",
+    marginTop: "6px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodySmall}px`,
-      margin: "7px 0",
+      marginBottom: "7px",
+      marginTop: "7px",
     },
+  },
+
+  anchor: {
+    color: "inherit",
+    transition: `color ${timing.fast} ease-in-out`,
+
+    ":hover": {
+      color: colors.linkPrimary,
+    },
+
+    ":active": {
+      color: colors.linkPrimary,
+    },
+
+    ":focus": Object.assign({}, {
+      color: colors.linkPrimary,
+    }, outline()),
   },
 
   note: {
@@ -56,7 +77,7 @@ const styles = {
     },
   },
 
-  value: {
+  priceRange: {
     float: "right",
   },
 };
@@ -65,8 +86,11 @@ const ListItemBookmarkEntry = ({
   name,
   category,
   city,
+  url,
+  priceRange,
+  categoryUrl,
+  cityUrl,
   note,
-  value,
   style,
 }) => (
   <article
@@ -74,8 +98,8 @@ const ListItemBookmarkEntry = ({
     style={[styles.container, style]}
   >
     <PriceRangeLabel
-      value={value}
-      style={styles.value}
+      value={priceRange}
+      style={styles.priceRange}
     />
 
     <Heading
@@ -84,11 +108,33 @@ const ListItemBookmarkEntry = ({
       weight="medium"
       style={styles.name}
     >
-      {name}
+      <a
+        key={name}
+        style={styles.anchor}
+        href={url}
+      >
+        {name}
+      </a>
     </Heading>
 
     <CategoryLabel style={styles.category}>
-      {category} in {city}
+      {categoryUrl ?
+        <a
+          key={category}
+          style={styles.anchor}
+          href={categoryUrl}
+        >
+          {category}
+        </a> : category
+      } in {cityUrl ?
+        <a
+          key={city}
+          style={styles.anchor}
+          href={cityUrl}
+        >
+          {city}
+        </a> : city
+      }
     </CategoryLabel>
 
     <TextAccent style={styles.note}>
@@ -101,8 +147,11 @@ ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
+  categoryUrl: PropTypes.string,
+  cityUrl: PropTypes.string,
   note: PropTypes.string,
-  value: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
   style: propTypes.style,
 };
 
