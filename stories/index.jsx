@@ -81,6 +81,8 @@ import Lede from "../src/components/lede";
 // ListItemBookable
 // ListItemImage
 import ListButton from "../src/components/listButton";
+import ListEntry from "../src/components/listEntry";
+import ListItemBookmark from "../src/components/listItemBookmark";
 import ListHeader from "../src/components/listHeader";
 import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
@@ -1058,15 +1060,15 @@ storiesOf("List Header", module)
         profileHref={text("Profile URL", "/profile")}
         avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
         username={text("Username", "Rizzo the Rat")}
-        title={text("Title", "Europe Summer Highlights")}
-        items={[
+        name={text("Title", "Europe Summer Highlights")}
+        entries={[
           "pancakes",
           "bacon",
           "eggs",
           "sausage",
           "hashbrowns",
         ]}
-        isPublic={boolean("Public", false)}
+        visibility={select("Visibility", ["private", "public"], "private")}
       />
     </StyleRoot>
   ));
@@ -1081,6 +1083,27 @@ storiesOf("List item (bookmark entry)", module)
         city={text("City", "City")}
         note={text("Note", "This is where a nice little note goes.")}
         value={select("Range", ["$", "$$", "$$$"], "$")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("List Item Bookmark", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        onClick={action("List Button clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
+        entries={[
+          // "pancakes",
+          // "bacon",
+          // "eggs",
+          // "sausage",
+          // "hashbrowns",
+        ]}
+        visibility={select("Visibility", ["private", "public"], "private")}
       />
     </StyleRoot>
   ));

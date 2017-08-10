@@ -59,6 +59,7 @@ export { default as LastUpdated } from "./components/lastUpdated";
 export { default as Lede } from "./components/lede";
 export { default as ListButton } from "./components/listButton";
 export { default as ListHeader } from "./components/listHeader";
+export { default as ListItemBookmark } from "./components/listItemBookmark";
 export { default as ListContainer } from "./components/listContainer";
 // export { default as ListItem } from "./components/listItem";
 // export { default as ListItemBookable } from "./components/listItemBookable";
