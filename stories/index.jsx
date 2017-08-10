@@ -426,11 +426,12 @@ storiesOf("Avatar upload", module)
 storiesOf("Bookmark", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Bookmark
-      onClick={action("Bookmark clicked")}
-      size={select("Size", ["", "large"], "")}
-      marked={boolean("Marked", false)}
-    />
+    <Center>
+      <Bookmark
+        onClick={action("Bookmark clicked")}
+        marked={boolean("Marked", false)}
+      />
+    </Center>
   ));
 
 storiesOf("Bookmark list author", module)
