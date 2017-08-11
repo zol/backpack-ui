@@ -2,6 +2,39 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.29.0"></a>
+# [4.29.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.1...v4.29.0) (2017-08-11)
+
+
+### Bug Fixes
+
+* Change icon names in ListButton story ([#398](https://github.com/lonelyplanet/backpack-ui/issues/398)) ([a9495b8](https://github.com/lonelyplanet/backpack-ui/commit/a9495b8))
+* Fix import for BookmarkListAuthor in stories ([#409](https://github.com/lonelyplanet/backpack-ui/issues/409)) ([617bc7d](https://github.com/lonelyplanet/backpack-ui/commit/617bc7d))
+* limit watchlater width when no videos exist ([#395](https://github.com/lonelyplanet/backpack-ui/issues/395)) ([4e44849](https://github.com/lonelyplanet/backpack-ui/commit/4e44849))
+* Rename ListEntry to ListItemBookmarkEntry ([#411](https://github.com/lonelyplanet/backpack-ui/issues/411)) ([374a899](https://github.com/lonelyplanet/backpack-ui/commit/374a899))
+* Rename UserListAuthor to BookmarkListAuthor ([#408](https://github.com/lonelyplanet/backpack-ui/issues/408)) ([22f5ebf](https://github.com/lonelyplanet/backpack-ui/commit/22f5ebf))
+* Simplify ListButton component ([#404](https://github.com/lonelyplanet/backpack-ui/issues/404)) ([31d8c07](https://github.com/lonelyplanet/backpack-ui/commit/31d8c07))
+* update avatar image when prop changes ([#415](https://github.com/lonelyplanet/backpack-ui/issues/415)) ([ee48980](https://github.com/lonelyplanet/backpack-ui/commit/ee48980))
+* Update Bookmark component to use ListButton ([#405](https://github.com/lonelyplanet/backpack-ui/issues/405)) ([1bda329](https://github.com/lonelyplanet/backpack-ui/commit/1bda329))
+* Update flyout component ([#403](https://github.com/lonelyplanet/backpack-ui/issues/403)) ([c696a29](https://github.com/lonelyplanet/backpack-ui/commit/c696a29))
+* Update ListItemBookmarkEntry ([#412](https://github.com/lonelyplanet/backpack-ui/issues/412)) ([4f255d5](https://github.com/lonelyplanet/backpack-ui/commit/4f255d5))
+* Use HOC for click outside in ShareMenu ([#393](https://github.com/lonelyplanet/backpack-ui/issues/393)) ([1ebd993](https://github.com/lonelyplanet/backpack-ui/commit/1ebd993))
+
+
+### Features
+
+* Add list icon ([d6f9fa0](https://github.com/lonelyplanet/backpack-ui/commit/d6f9fa0))
+* Add ListEntry component, header border and priceRange size ([#348](https://github.com/lonelyplanet/backpack-ui/issues/348)) ([#407](https://github.com/lonelyplanet/backpack-ui/issues/407)) ([3fd9d22](https://github.com/lonelyplanet/backpack-ui/commit/3fd9d22))
+* Add listItemBookmark component ([#410](https://github.com/lonelyplanet/backpack-ui/issues/410)) ([a018a5d](https://github.com/lonelyplanet/backpack-ui/commit/a018a5d))
+* Add PriceRangeLabel component ([25f2744](https://github.com/lonelyplanet/backpack-ui/commit/25f2744))
+* Add primary shadow color ([#402](https://github.com/lonelyplanet/backpack-ui/issues/402)) ([87918b5](https://github.com/lonelyplanet/backpack-ui/commit/87918b5))
+* Add visuallyHidden style mixin ([0c910a2](https://github.com/lonelyplanet/backpack-ui/commit/0c910a2))
+* Create BookmarkListMenu component ([#406](https://github.com/lonelyplanet/backpack-ui/issues/406)) ([781a3cb](https://github.com/lonelyplanet/backpack-ui/commit/781a3cb))
+* Create ListHeader component ([#383](https://github.com/lonelyplanet/backpack-ui/issues/383)) ([#396](https://github.com/lonelyplanet/backpack-ui/issues/396)) ([52b6e55](https://github.com/lonelyplanet/backpack-ui/commit/52b6e55))
+* Create thumbnail component for user list ([2a45e6e](https://github.com/lonelyplanet/backpack-ui/commit/2a45e6e))
+
+
+
 <a name="4.28.1"></a>
 ## [4.28.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.0...v4.28.1) (2017-08-02)
 
