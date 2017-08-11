@@ -63,61 +63,81 @@ const styles = {
   meta: {
     color: rgba(colors.textPrimary, 0.5),
     fontWeight: fontWeightMedium,
-    margin: "6px 0 0",
+    marginTop: "6px",
   },
 };
 
-const ListItemBookmark = ({
+function ListItemBookmark({
   name,
+  href,
   onClick,
   checked,
   thumbnail,
-  entries,
+  entriesCount,
   visibility,
   style,
-}) => (
-  <button
-    className="ListItemBookmark"
-    name={name}
-    onClick={onClick}
-    style={[styles.container, style]}
-  >
-    <AlbumThumbnailImage
-      src={thumbnail}
-      alt={name}
-    />
+}) {
+  const Element = onClick ? "button" : "a";
 
-    <div style={styles.caption}>
-      <Heading
-        level="2"
-        size="7"
-        weight="medium"
-        style={[styles.name, checked && styles.checkedName]}
-      >
-        {name}
-      </Heading>
+  return (
+    <Element
+      className="ListItemBookmark"
+      name={name}
+      onClick={onClick}
+      href={href}
+      style={[styles.container, style]}
+    >
+      <AlbumThumbnailImage
+        src={thumbnail}
+        alt={name}
+      />
 
-      <CategoryLabel style={styles.meta}>
-        {visibility} • {entries.length} places
-      </CategoryLabel>
-    </div>
+      <div style={styles.caption}>
+        <Heading
+          level="2"
+          size="7"
+          weight="medium"
+          style={[styles.name, checked && styles.checkedName]}
+        >
+          {name}
+        </Heading>
 
-    <div style={[styles.checkbox, checked && styles.checkedBox]}>
-      {checked && <Icon.Checkmark label="Bookmark" fill={colors.bgPrimary} width="11px" />}
-    </div>
-  </button>
-);
+        <CategoryLabel style={styles.meta}>
+          {visibility} • {entriesCount} places
+        </CategoryLabel>
+      </div>
+
+      {onClick &&
+        <div style={[styles.checkbox, checked && styles.checkedBox]}>
+          {checked &&
+            <Icon.Checkmark
+              label="Bookmark"
+              fill={colors.bgPrimary}
+              width="11px"
+            />
+          }
+        </div>
+      }
+    </Element>
+  );
+}
 
 ListItemBookmark.propTypes = {
   name: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
   checked: PropTypes.bool.isRequired,
+  entriesCount: PropTypes.number.isRequired,
+  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
   thumbnail: PropTypes.string,
-  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
-  visibility: PropTypes.oneOf(["private", "public"]).isRequired,
   style: propTypes.style,
 };
 
-ListItemBookmark.styles = styles;
+ListItemBookmark.defaultProps = {
+  href: null,
+  onClick: null,
+  thumbnail: null,
+  style: null,
+};
 
 export default radium(ListItemBookmark);
