@@ -3,16 +3,16 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import {
   fontSizeHeading5,
-  fontSizeHeading6,
-  fontSizeHeading7,
+  fontSizeBodyArticle,
+  fontSizeBodyArticleSmall,
   fontSizeBodySmall,
   fontSizeUppercase,
   fontWeightMedium,
-  lineHeightHeading3,
+  lineHeightHeading5,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
-import font from "../../utils/font";
 import AvatarMarker from "../avatarMarker";
+import { TextAccent, TextHeading } from "../text";
 import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 
@@ -26,7 +26,6 @@ const styles = {
     [`@media (min-width: ${mq.min["768"]})`]: {
       borderBottom: 0,
       flexFlow: "row wrap",
-      fontSize: `${(fontSizeHeading5 + 2)}px`,
       padding: "0 0 24px",
     },
   },
@@ -51,49 +50,43 @@ const styles = {
   },
 
   name: {
-    fontWeight: fontWeightMedium,
-    letterSpacing: ".9px",
-    lineHeight: lineHeightHeading3,
-    marginBottom: "6px",
     order: 2,
 
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      marginBottom: "6px",
+      fontSize: `${fontSizeHeading5}px`,
+      lineHeight: lineHeightHeading5,
+    },
+
     [`@media (min-width: ${mq.min["768"]})`]: {
-      letterSpacing: ".6px",
-      marginBottom: 0,
       width: "100%",
     },
   },
 
   meta: {
-    fontFamily: font("miller"),
-    fontSize: `${fontSizeHeading7}px`,
-    fontStyle: "italic",
-    letterSpacing: ".3px",
-    marginRight: "24px",
+    fontSize: `${fontSizeBodyArticleSmall}px`,
+    letterSpacing: ".4px",
     order: 2,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeHeading6}px`,
-      letterSpacing: 0,
+      fontSize: `${fontSizeBodyArticle}px`,
+      letterSpacing: ".5px",
+      marginRight: "24px",
     },
-  },
-
-  visibility: {
-    textTransform: "capitalize",
   },
 };
 
-const ListHeader = ({
+const BookmarkListHeader = ({
   profileHref,
   avatarSrc,
   username,
   name,
-  entries,
+  entriesCount,
   visibility,
   style,
 }) => (
   <header
-    className="ListHeader"
+    className="BookmarkListHeader"
     style={[styles.header, style]}
   >
     <AvatarMarker
@@ -103,28 +96,31 @@ const ListHeader = ({
       style={styles.avatarMarker}
     />
 
-    <h2
+    <TextHeading
+      size={3}
+      level={2}
+      weight="medium"
       style={styles.name}
     >
       {name}
-    </h2>
+    </TextHeading>
 
-    <p
-      style={styles.meta}
-    >{entries.length} places • <span style={styles.visibility}>{visibility}</span></p>
+    <TextAccent style={styles.meta}>
+      {entriesCount} places • {visibility}
+    </TextAccent>
   </header>
 );
 
-ListHeader.propTypes = {
+BookmarkListHeader.propTypes = {
   profileHref: PropTypes.string.isRequired,
   avatarSrc: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  entries: PropTypes.arrayOf(PropTypes.string).isRequired,
-  visibility: PropTypes.oneOf(["private", "public"]).isRequired,
+  entriesCount: PropTypes.number.isRequired,
+  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };
 
-ListHeader.styles = styles;
+BookmarkListHeader.styles = styles;
 
-export default radium(ListHeader);
+export default radium(BookmarkListHeader);
