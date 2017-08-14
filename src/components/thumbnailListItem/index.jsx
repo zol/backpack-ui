@@ -1,7 +1,7 @@
 import React, { PropTypes } from "react";
 import radium, { Style } from "radium";
 import Link from "../link";
-import { color, timing, typography, zIndex } from "../../../settings.json";
+import { media, color, timing, typography, zIndex } from "../../../settings.json";
 import font from "../../utils/font";
 import { rgba } from "../../utils/color";
 import duration from "../../utils/time";
@@ -65,6 +65,10 @@ const styles = {
     textOverflow: "ellipsis",
     WebkitBoxOrient: "vertical",
     WebkitLineClamp: 1,
+
+    [`@media (max-width: ${media.max["840"]})`]: {
+      fontSize: "14px",
+    }
   },
 
   textContainer: {
@@ -180,7 +184,7 @@ const ThumbnailListItem = ({
             override={[
               styles.title,
               (theme === "dark") && { color: color.white },
-              (description && description.length) && { display: "-webkit-box"},
+              (description && description.filter(x => x).length) && { display: "-webkit-box"},
             ]}
           >
             {title}
