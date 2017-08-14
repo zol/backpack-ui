@@ -58,7 +58,6 @@ const styles = {
   },
 
   title: {
-    display: "-webkit-box",
     fontSize: "16px",
     lineHeight: (19 / 16),
     marginTop: "4px",
@@ -181,6 +180,7 @@ const ThumbnailListItem = ({
             override={[
               styles.title,
               (theme === "dark") && { color: color.white },
+              (description && description.length) && { display: "-webkit-box"},
             ]}
           >
             {title}

@@ -7,24 +7,48 @@ import propTypes from "../../utils/propTypes";
 const mq = `@media (max-width: ${media.max["768"]})`;
 
 const styles = {
-  marginBottom: "9px",
-
-  [mq]: {
-    fontSize: "9px",
-    marginBottom: "6px",
+  default: {
+    [mq]: {
+      fontSize: "9px",
+    },
   },
+
+  normal: {
+    marginBottom: "9px",
+
+    [mq]: {
+      marginBottom: "6px",
+    },
+  },
+
+  compact: {
+    marginBottom: "0px",
+  },
+
 };
 
-const CardBullets = ({ bullets, style }) => (
+const CardBullets = ({ bullets, spacing, style }) => (
   <BulletDescription
     description={bullets}
-    style={[styles, style]}
+    style={[
+      styles.default,
+      spacing === "compact" ? styles.copmact : styles.normal,
+      style
+    ]}
   />
 );
 
 CardBullets.propTypes = {
   bullets: PropTypes.arrayOf(PropTypes.string).isRequired,
+  spacing: PropTypes.oneOf([
+    "normal",
+    "compact",
+  ]),
   style: propTypes.style,
+};
+
+CardBullets.defaultProps = {
+  spacing: "normal",
 };
 
 export default radium(CardBullets);

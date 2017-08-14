@@ -69,7 +69,7 @@ const styles = {
     overflowY: "hidden",
     minHeight: "370px",
     [`@media (min-width: ${media.min["720"]})`]: {
-      minHeight: "650px",
+      minHeight: "600px",
     },
   },
   slide: {
@@ -77,7 +77,7 @@ const styles = {
     position: "absolute",
     minHeight: "370px",
     [`@media (min-width: ${media.min["720"]})`]: {
-      minHeight: "650px",
+      minHeight: "600px",
     },
   },
   // REM units being used to match what is currently in rizz-next

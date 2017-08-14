@@ -58,24 +58,33 @@ const styles = {
         overflow: "hidden",
       },
     },
+
+    inactiveSlidesVisible: {
+      overflow: "visible !important",
+    },
   },
 
   sliderInner: {
-    [`@media (max-width: ${media.max["480"]})`]: {
-      paddingLeft: "15px",
-      paddingRight: "15px",
-    },
+    default: {
+      [`@media (max-width: ${media.max["480"]})`]: {
+        paddingLeft: "15px",
+        paddingRight: "15px",
+      },
 
-    [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
-      paddingLeft: "30px",
-      paddingRight: "30px",
-    },
+      [`@media (min-width: ${media.min["480"]}) and (max-width: ${media.max["768"]})`]: {
+        paddingLeft: "30px",
+        paddingRight: "30px",
+      },
 
-    [`@media (max-width: ${media.max["768"]})`]: {
-      overflowX: "auto",
-      overflowY: "hidden",
-      "-webkit-overflow-scrolling": "touch",
+      [`@media (max-width: ${media.max["768"]})`]: {
+        overflowX: "auto",
+        overflowY: "hidden",
+        "-webkit-overflow-scrolling": "touch",
+      },
     },
+    inactiveSlidesVisible: {
+      overflow: "visible !important",
+    }
   },
 };
 
@@ -179,6 +188,13 @@ const fourSlides = {
   },
 };
 
+const inactiveSlides = {
+  ".slick-slide:not(.slick-active)": {
+    opacity: "1 !important",
+    pointerEvents: "initial",
+  },
+}
+
 class CardShelfVideoSwiper extends Component {
   static getPagination(direction) {
     return <PaginatorButton direction={direction} />;
@@ -227,6 +243,7 @@ class CardShelfVideoSwiper extends Component {
       heading,
       href,
       slidesVisible,
+      inactiveSlidesVisible,
       sliderOptions,
       style,
     } = this.props;
@@ -249,9 +266,14 @@ class CardShelfVideoSwiper extends Component {
             styles.sliderOuter.default,
             slidesVisible === 3 && styles.sliderOuter.threeSlides,
             slidesVisible === 4 && styles.sliderOuter.fourSlides,
+            inactiveSlidesVisible && styles.sliderOuter.inactiveSlidesVisible,
           ]}
         >
-          <div style={[styles.slider, styles.sliderInner]}>
+          <div style={[
+            styles.slider,
+            styles.sliderInner.default,
+            inactiveSlidesVisible && styles.sliderInner.inactiveSlidesVisible,
+          ]}>
             <Style
               scopeSelector=".CardShelf--video"
               rules={scopedStyles}
@@ -266,6 +288,12 @@ class CardShelfVideoSwiper extends Component {
               <Style
                 scopeSelector=".CardShelf--video"
                 rules={fourSlides}
+              />
+            }
+            {inactiveSlidesVisible &&
+              <Style
+                scopeSelector=".CardShelf--video"
+                rules={inactiveSlides}
               />
             }
 
@@ -297,6 +325,7 @@ CardShelfVideoSwiper.propTypes = {
   heading: PropTypes.string,
   href: PropTypes.string,
   slidesVisible: PropTypes.oneOf([3, 4]),
+  inactiveSlidesVisible: PropTypes.bool,
   sliderOptions: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
@@ -312,6 +341,7 @@ CardShelfVideoSwiper.propTypes = {
 
 CardShelfVideoSwiper.defaultProps = {
   slidesVisible: 3,
+  inactiveSlidesVisible: false,
   sliderOptions: {
     dots: false,
     infinite: false,

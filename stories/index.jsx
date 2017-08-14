@@ -528,6 +528,8 @@ storiesOf("Cards", module)
           onClick={action("Watch this video later")}
           imageSrc={text("Image source", "//media.gadventures.com/media-server/cache/a6/2c/a62ca9f86982dd950319138334e7248b.jpg")}
           href={text("URL", "#")}
+          theme={select("Theme", ["light", "dark"], "light")}
+          spacing={select("Spacing", ["normal", "compact"], "normal")}
         />
       </div>
     </StyleRoot>

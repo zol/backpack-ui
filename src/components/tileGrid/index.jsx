@@ -14,28 +14,63 @@ const styles = {
   width: "100%",
 };
 
-const scopedStyles = {
-  ".Tile": {
-    flex: "0 0 auto",
-    width: "100%",
-  },
-
-  mediaQueries: {
-    [`(min-width: ${media.min["480"]})`]: {
-      ".Tile": {
-        width: "calc(50% - 15px)",
-      },
+const getScopedStyles = (columns) => {
+  const scopedStyles = {
+    ".Tile": {
+      flex: "0 0 auto",
+      width: "100%",
     },
 
-    [`(min-width: ${media.min["840"]})`]: {
+    mediaQueries: {
+      [`(min-width: ${media.min["360"]})`]: {
+        ".Tile": {
+          width: "calc(50% - 10px)",
+        },
+      },
+    },
+  };
+
+  if (columns === 3) {
+    scopedStyles.mediaQueries[`(min-width: ${media.min["840"]})`] = {
       ".Tile": {
         width: percentage("410px", grid.container),
       },
-    },
-  },
+    };
+  }
+  else if (columns === 4) {
+    scopedStyles.mediaQueries[`(min-width: ${media.min["720"]})`] = {
+      ".Tile": {
+        width: percentage("410px", grid.container),
+      },
+    };
+    scopedStyles.mediaQueries[`(min-width: ${media.min["960"]})`] = {
+      ".Tile": {
+        width: percentage("300px", grid.container),
+      },
+    };
+  }
+  else if (columns === 5) {
+    scopedStyles.mediaQueries[`(min-width: ${media.min["720"]})`] = {
+      ".Tile": {
+        width: percentage("410px", grid.container),
+      },
+    };
+    scopedStyles.mediaQueries[`(min-width: ${media.min["960"]})`] = {
+      ".Tile": {
+        width: percentage("300px", grid.container),
+      },
+    };
+    scopedStyles.mediaQueries[`(min-width: ${media.min["1430"]})`] = {
+      ".Tile": {
+        width: "19%",
+      },
+    };
+  }
+
+  return scopedStyles;
 };
 
-function TileGrid({ children, className, style }) {
+function TileGrid({ children, className, columns, style }) {
   return (
     <section
       className={cn("TileGrid", className)}
@@ -43,7 +78,7 @@ function TileGrid({ children, className, style }) {
     >
       <Style
         scopeSelector=".TileGrid"
-        rules={scopedStyles}
+        rules={getScopedStyles(columns)}
       />
 
       {children}
@@ -54,7 +89,12 @@ function TileGrid({ children, className, style }) {
 TileGrid.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
+  columns: PropTypes.oneOf([3, 4, 5]),
   style: propTypes.style,
+};
+
+TileGrid.defaultProps = {
+  columns: 3,
 };
 
 export default radium(TileGrid);

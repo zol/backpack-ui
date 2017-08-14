@@ -21,7 +21,6 @@ const styles = {
   container: {
     height: "auto",
     maxWidth: "410px",
-    minWidth: "216px",
     position: "relative",
   },
 

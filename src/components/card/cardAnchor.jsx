@@ -10,15 +10,21 @@ const styles = {
   default: {
     color: "inherit",
     display: "block",
+  },
+
+  normal: {
     paddingBottom: "34px",
-    paddingRight: "60px",
     paddingTop: "32px",
 
     [mq]: {
       paddingBottom: "11px",
-      paddingRight: "40px",
       paddingTop: "19px",
     },
+  },
+
+  compact: {
+    paddingTop: "6px",
+    paddingBottom: "6px",
   },
 
   card: {
@@ -35,6 +41,7 @@ const CardAnchor = ({
   href,
   tabIndex,
   layout,
+  spacing,
   style,
 }) => (
   <Link
@@ -45,6 +52,7 @@ const CardAnchor = ({
     <span
       style={[
         styles.default,
+        (spacing === "normal" && styles.normal) || styles.compact,
         layout !== "tile" && styles.card,
         style,
       ]}
@@ -59,11 +67,13 @@ CardAnchor.propTypes = {
   href: PropTypes.string.isRequired,
   tabIndex: PropTypes.number,
   layout: PropTypes.oneOf(["tile", "card"]),
+  spacing: PropTypes.oneOf(["normal", "compact"]),
   style: propTypes.style,
 };
 
 CardAnchor.defaultProps = {
   layout: "card",
+  spacing: "normal",
 };
 
 export default radium(CardAnchor);

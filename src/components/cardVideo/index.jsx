@@ -57,16 +57,35 @@ const styles = {
   },
 
   action: {
-    position: "absolute",
-    right: "22px",
-    top: "25px",
+    default: {
+      position: "absolute",
+      top: "25px",
+      right: "22px",
 
-    [mq]: {
-      fontSize: "12px",
-      right: "9px",
-      top: "12px",
+      [mq]: {
+        fontSize: "12px",
+        right: "9px",
+        top: "12px",
+      },
+    },
+
+    compact: {
+      top: "0px",
+      fontSize: "16px",
+
+      [mq]: {
+        top: "3px",
+      },
     },
   },
+
+  anchorPadding: {
+    paddingRight: "60px",
+
+    [mq]: {
+      paddingRight: "40px",
+    },
+  }
 };
 
 const CardVideo = ({
@@ -79,6 +98,8 @@ const CardVideo = ({
   bullets,
   onClick,
   layout,
+  theme,
+  spacing,
   className,
   style,
 }) => (
@@ -91,7 +112,7 @@ const CardVideo = ({
       href={href}
       src={imageSrc}
       aspectRatio={aspectRatio}
-      opacity={0.8}
+      opacity={1}
     >
       <div
         className="PlayIcon"
@@ -111,13 +132,14 @@ const CardVideo = ({
       <CardAnchor
         href={href}
         layout={layout}
-        style={styles.anchor}
+        spacing={spacing}
+        style={onClick && styles.anchorPadding}
       >
         {bullets && bullets.length > 0 &&
-          <CardBullets bullets={bullets} />
+          <CardBullets bullets={bullets} spacing={spacing}/>
         }
 
-        <CardHeading>
+        <CardHeading theme={theme} spacing={spacing}>
           {heading}
         </CardHeading>
       </CardAnchor>
@@ -125,7 +147,8 @@ const CardVideo = ({
       {onClick &&
         <CardActionIcon
           style={[
-            styles.action,
+            styles.action.default,
+            spacing === "compact" && styles.action.compact,
             layout === "tile" && { right: "3px" },
           ]}
           onClick={onClick}
@@ -151,6 +174,14 @@ CardVideo.propTypes = {
     "card",
     "tile",
   ]),
+  theme: PropTypes.oneOf([
+    "light",
+    "dark",
+  ]),
+  spacing: PropTypes.oneOf([
+    "normal",
+    "compact",
+  ]),
   actionIcon: PropTypes.string,
   onClick: PropTypes.func,
   className: PropTypes.string,
@@ -161,6 +192,8 @@ CardVideo.defaultProps = {
   aspectRatio: "video",
   actionIcon: "ClockOutline",
   layout: "card",
+  theme: "light",
+  spacing: "normal",
 };
 
 export default radium(CardVideo);

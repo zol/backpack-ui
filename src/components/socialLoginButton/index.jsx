@@ -82,11 +82,11 @@ const SocialLoginButton = (props) => {
 
 SocialLoginButton.propTypes = {
   children: PropTypes.string.isRequired,
-  iconName: PropTypes.oneOf(
+  iconName: PropTypes.oneOf([
     "FacebookBlockColor",
     "GoogleColor",
     "TwitterColor",
-  ).isRequired,
+  ]).isRequired,
   onClick: PropTypes.func,
   iconProps: PropTypes.objectOf(PropTypes.object),
   style: propTypes.style,
