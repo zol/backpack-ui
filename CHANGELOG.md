@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.30.0"></a>
+# [4.30.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.29.0...v4.30.0) (2017-08-15)
+
+
+### Bug Fixes
+
+* Make AlbumThumbnailImage responsive ([#420](https://github.com/lonelyplanet/backpack-ui/issues/420)) ([a1bfabe](https://github.com/lonelyplanet/backpack-ui/commit/a1bfabe))
+* Make ListItemBookmark responsive ([#422](https://github.com/lonelyplanet/backpack-ui/issues/422)) ([5018bd3](https://github.com/lonelyplanet/backpack-ui/commit/5018bd3))
+* Remove href prop, change anchor to div ([#419](https://github.com/lonelyplanet/backpack-ui/issues/419)) ([9640a1a](https://github.com/lonelyplanet/backpack-ui/commit/9640a1a))
+* Update BookmarkListHeader ([#423](https://github.com/lonelyplanet/backpack-ui/issues/423)) ([969b5ce](https://github.com/lonelyplanet/backpack-ui/commit/969b5ce))
+* Update BookmarkListHeader ([#429](https://github.com/lonelyplanet/backpack-ui/issues/429)) ([500508f](https://github.com/lonelyplanet/backpack-ui/commit/500508f))
+* Update CategoryLabel to use new styles ([#421](https://github.com/lonelyplanet/backpack-ui/issues/421)) ([5aa1f91](https://github.com/lonelyplanet/backpack-ui/commit/5aa1f91))
+* Update ListItemBookmark ([#424](https://github.com/lonelyplanet/backpack-ui/issues/424)) ([b49fb75](https://github.com/lonelyplanet/backpack-ui/commit/b49fb75))
+* Update ListItemBookmarkEntry ([#425](https://github.com/lonelyplanet/backpack-ui/issues/425)) ([08bc890](https://github.com/lonelyplanet/backpack-ui/commit/08bc890))
+
+
+### Features
+
+* Add usernameStyle prop to AvatarMarker ([#428](https://github.com/lonelyplanet/backpack-ui/issues/428)) ([150e802](https://github.com/lonelyplanet/backpack-ui/commit/150e802))
+* Rename Bookmark to BookmarkButton ([#426](https://github.com/lonelyplanet/backpack-ui/issues/426)) ([7543ac3](https://github.com/lonelyplanet/backpack-ui/commit/7543ac3))
+* Rename ListHeader to BookmarkListHeader ([#416](https://github.com/lonelyplanet/backpack-ui/issues/416)) ([99ff6d9](https://github.com/lonelyplanet/backpack-ui/commit/99ff6d9))
+* Update bookmark list item ([#418](https://github.com/lonelyplanet/backpack-ui/issues/418)) ([9662cef](https://github.com/lonelyplanet/backpack-ui/commit/9662cef))
+
+
+
 <a name="4.29.0"></a>
 # [4.29.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.1...v4.29.0) (2017-08-11)
 
