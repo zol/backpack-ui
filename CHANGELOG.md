@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.30.1"></a>
+## [4.30.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.0...v4.30.1) (2017-08-15)
+
+
+### Bug Fixes
+
+* update height of SettingBlockText area on prop change ([#427](https://github.com/lonelyplanet/backpack-ui/issues/427)) ([ecd5206](https://github.com/lonelyplanet/backpack-ui/commit/ecd5206))
+
+
+
 <a name="4.30.0"></a>
 # [4.30.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.29.0...v4.30.0) (2017-08-15)
 
