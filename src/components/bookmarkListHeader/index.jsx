@@ -18,15 +18,11 @@ import { rgba } from "../../utils/color";
 
 const styles = {
   header: {
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     display: "flex",
-    flexFlow: "column wrap",
-    padding: "32px 16px",
+    flexWrap: "wrap",
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      borderBottom: 0,
-      flexFlow: "row wrap",
-      padding: "0 0 24px",
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      flexDirection: "column",
     },
   },
 
@@ -106,7 +102,7 @@ const BookmarkListHeader = ({
     </TextHeading>
 
     <TextAccent style={styles.meta}>
-      {entriesCount} places • {visibility}
+      {entriesCount} place{entriesCount !== 1 && "s"} · {visibility}
     </TextAccent>
   </header>
 );
