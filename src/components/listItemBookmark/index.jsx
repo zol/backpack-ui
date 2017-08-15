@@ -23,7 +23,6 @@ import Icon from "../icon";
 const styles = {
   container: {
     alignItems: "center",
-    background: 0,
     borderBottom: `1px solid ${colors.borderPrimary}`,
     display: "flex",
     flexFlow: "row wrap",
@@ -133,7 +132,7 @@ function ListItemBookmark({
         </Heading>
 
         <CategoryLabel style={styles.meta}>
-          {visibility} • {entriesCount} places
+          {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
         </CategoryLabel>
       </div>
 
