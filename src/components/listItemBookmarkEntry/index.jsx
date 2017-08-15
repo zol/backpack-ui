@@ -4,10 +4,12 @@ import radium from "radium";
 import {
   fontSizeHeading6,
   fontSizeHeading7,
-  fontSizeAccent,
   fontSizeBodySmall,
   fontSizeBodyArticle,
   fontWeightMedium,
+  lineHeightBodyArticle,
+  lineHeightHeading6,
+  lineHeightHeading7,
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import colors from "../../styles/colors";
@@ -22,31 +24,34 @@ import CategoryLabel from "../categoryLabel";
 const styles = {
   container: {
     borderBottom: `1px solid ${colors.borderPrimary}`,
-    padding: "16px",
+    paddingBottom: "16px",
+    paddingTop: "16px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
-      padding: "24px 0",
+      paddingBottom: "24px",
+      paddingTop: "24px",
     },
   },
 
   name: {
     fontSize: `${fontSizeHeading7}px`,
+    lineHeight: lineHeightHeading7,
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeHeading6}px`,
+      lineHeight: lineHeightHeading6,
     },
   },
 
   category: {
     color: rgba(colors.textPrimary, 0.5),
+    display: "block",
     fontWeight: fontWeightMedium,
-    marginBottom: "6px",
-    marginTop: "6px",
+    marginTop: "4px",
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodySmall}px`,
-      marginBottom: "7px",
-      marginTop: "7px",
+      marginTop: "8px",
     },
   },
 
@@ -68,12 +73,14 @@ const styles = {
   },
 
   note: {
-    fontSize: `${fontSizeAccent}px`,
-    letterSpacing: ".4px",
+    [`@media (max-width: ${mq.max["768"]})`]: {
+      letterSpacing: ".4px",
+    },
 
     [`@media (min-width: ${mq.min["768"]})`]: {
       fontSize: `${fontSizeBodyArticle}px`,
-      letterSpacing: 0,
+      lineHeight: lineHeightBodyArticle,
+      marginTop: "16px",
     },
   },
 
