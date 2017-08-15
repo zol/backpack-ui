@@ -27,21 +27,26 @@ const styles = {
   },
 
   avatarMarker: {
-    fontSize: `${fontSizeUppercase}px`,
-    fontWeight: fontWeightMedium,
-    marginBottom: "16px",
-    order: 1,
-    textTransform: "uppercase",
+    container: {
+      fontSize: `${fontSizeUppercase}px`,
+      fontWeight: fontWeightMedium,
+      marginBottom: "16px",
+      order: 1,
+      textTransform: "uppercase",
 
-    [`@media (min-width: ${mq.min["768"]})`]: {
-      fontSize: `${fontSizeBodySmall}px`,
-      marginBottom: 0,
-      order: 3,
+      [`@media (min-width: ${mq.min["768"]})`]: {
+        fontSize: `${fontSizeBodySmall}px`,
+        marginBottom: 0,
+        order: 3,
+      },
     },
 
     username: {
       alignSelf: "center",
       color: rgba(colors.textPrimary, 0.5),
+      marginLeft: "8px",
+      maxWidth: "none",
+      paddingTop: "3px",
     },
   },
 
@@ -86,10 +91,11 @@ const BookmarkListHeader = ({
     style={[styles.header, style]}
   >
     <AvatarMarker
-      profileHref={profileHref}
-      avatarSrc={avatarSrc}
+      href={profileHref}
+      src={avatarSrc}
       username={username}
-      style={styles.avatarMarker}
+      style={styles.avatarMarker.container}
+      usernameStyle={styles.avatarMarker.username}
     />
 
     <TextHeading
@@ -116,7 +122,5 @@ BookmarkListHeader.propTypes = {
   visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
   style: PropTypes.objectOf(PropTypes.object),
 };
-
-BookmarkListHeader.styles = styles;
 
 export default radium(BookmarkListHeader);
