@@ -30,14 +30,14 @@ const styles = {
     boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
   },
 
-  ":focus": Object.assign({}, {
-    boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
-  }, outline()),
+  ":focus": outline(),
 };
 
 const iconProps = {
   style: {
     display: "block",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
 };
 
