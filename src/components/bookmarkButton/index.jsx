@@ -1,10 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import mq from "../../styles/mq";
+import { fontSizeBodyArticle } from "../../styles/typography";
 import ListButton from "../listButton";
 import propTypes from "../../utils/propTypes";
 
 const BookmarkButton = ({ onClick, marked, iconType, style }) => {
+  const styles = {
+    [`@media (min-width: ${mq.max["768"]})`]: {
+      boxShadow: "none",
+      display: "flex",
+      fontSize: fontSizeBodyArticle,
+      marginBottom: "40px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: "-21px",
+      position: "relative",
+      right: 0,
+    },
+
   const icons = {
     default: ["BookmarkActive", "Bookmark"],
     alternate: ["BookmarkAltActive", "BookmarkAlt"],
@@ -13,8 +28,9 @@ const BookmarkButton = ({ onClick, marked, iconType, style }) => {
   return (
     <ListButton
       onClick={onClick}
+      style={[styles, style]}
       icon={marked ? icons[iconType][0] : icons[iconType][1]}
-      style={style}
+      style={[styles, style]}
     />
   );
 };

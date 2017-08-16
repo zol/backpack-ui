@@ -429,14 +429,16 @@ storiesOf("Bookmark button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Center>
-      <BookmarkButton
-        onClick={action("Bookmark clicked")}
-        iconType={select("Icon type", {
-          default: "Default",
-          alternate: "Alternate",
-        }, "default")}
-        marked={boolean("Marked", false)}
-      />
+      <StyleRoot>
+        <BookmarkButton
+          onClick={action("Bookmark clicked")}
+          iconType={select("Icon type", {
+            default: "Default",
+            alternate: "Alternate",
+          }, "default")}
+          marked={boolean("Marked", false)}
+        />
+      </StyleRoot>
     </Center>
   ));
 
