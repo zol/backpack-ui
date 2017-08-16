@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.30.3"></a>
+## [4.30.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.2...v4.30.3) (2017-08-16)
+
+
+### Bug Fixes
+
+* Update ListButton styles ([#431](https://github.com/lonelyplanet/backpack-ui/issues/431)) ([9c9df35](https://github.com/lonelyplanet/backpack-ui/commit/9c9df35))
+
+
+
 <a name="4.30.2"></a>
 ## [4.30.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.1...v4.30.2) (2017-08-16)
 
