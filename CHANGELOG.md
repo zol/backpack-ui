@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.0"></a>
+# [4.32.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.31.0...v4.32.0) (2017-08-17)
+
+
+### Bug Fixes
+
+* Fix syntax errors introduced in previous pull request ([#437](https://github.com/lonelyplanet/backpack-ui/issues/437)) ([7dac380](https://github.com/lonelyplanet/backpack-ui/commit/7dac380))
+* Increase mobile heading size in BookmarkListHeader ([#434](https://github.com/lonelyplanet/backpack-ui/issues/434)) ([fbc89bb](https://github.com/lonelyplanet/backpack-ui/commit/fbc89bb))
+* Remove hover styles from ListItemBookmark ([#435](https://github.com/lonelyplanet/backpack-ui/issues/435)) ([b7f7fe8](https://github.com/lonelyplanet/backpack-ui/commit/b7f7fe8))
+* Remove positioning related styles from bookmark button ([#438](https://github.com/lonelyplanet/backpack-ui/issues/438)) ([03e6683](https://github.com/lonelyplanet/backpack-ui/commit/03e6683))
+* Update BookmarkListItemEntry ([#436](https://github.com/lonelyplanet/backpack-ui/issues/436)) ([6ad8d7a](https://github.com/lonelyplanet/backpack-ui/commit/6ad8d7a))
+
+
+### Features
+
+* add desktop styles to bookmark button ([#433](https://github.com/lonelyplanet/backpack-ui/issues/433)) ([f70208b](https://github.com/lonelyplanet/backpack-ui/commit/f70208b))
+
+
+
 <a name="4.31.0"></a>
 # [4.31.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.3...v4.31.0) (2017-08-16)
 
