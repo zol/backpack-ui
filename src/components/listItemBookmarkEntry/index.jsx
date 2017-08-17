@@ -13,9 +13,7 @@ import {
 } from "../../styles/typography";
 import mq from "../../styles/mq";
 import colors from "../../styles/colors";
-import timing from "../../styles/timing";
 import { rgba } from "../../utils/color";
-import { outline } from "../../utils/mixins";
 import propTypes from "../../utils/propTypes";
 import PriceRangeLabel from "../priceRangeLabel";
 import { Heading, TextAccent } from "../../components/text";
@@ -23,7 +21,6 @@ import CategoryLabel from "../categoryLabel";
 
 const styles = {
   container: {
-    borderBottom: `1px solid ${colors.borderPrimary}`,
     paddingBottom: "16px",
     paddingTop: "16px",
 
@@ -55,23 +52,6 @@ const styles = {
     },
   },
 
-  anchor: {
-    color: "inherit",
-    transition: `color ${timing.fast} ease-in-out`,
-
-    ":hover": {
-      color: colors.linkPrimary,
-    },
-
-    ":active": {
-      color: colors.linkPrimary,
-    },
-
-    ":focus": Object.assign({}, {
-      color: colors.linkPrimary,
-    }, outline()),
-  },
-
   note: {
     [`@media (max-width: ${mq.max["768"]})`]: {
       letterSpacing: ".4px",
@@ -93,10 +73,7 @@ const ListItemBookmarkEntry = ({
   name,
   category,
   city,
-  url,
   priceRange,
-  categoryUrl,
-  cityUrl,
   note,
   style,
 }) => (
@@ -115,38 +92,18 @@ const ListItemBookmarkEntry = ({
       weight="medium"
       style={styles.name}
     >
-      <a
-        key={name}
-        style={styles.anchor}
-        href={url}
-      >
-        {name}
-      </a>
+      {name}
     </Heading>
 
     <CategoryLabel style={styles.category}>
-      {categoryUrl ?
-        <a
-          key={category}
-          style={styles.anchor}
-          href={categoryUrl}
-        >
-          {category}
-        </a> : category
-      } in {cityUrl ?
-        <a
-          key={city}
-          style={styles.anchor}
-          href={cityUrl}
-        >
-          {city}
-        </a> : city
-      }
+      {category} in {city}
     </CategoryLabel>
 
-    <TextAccent style={styles.note}>
-      {note}
-    </TextAccent>
+    {note &&
+      <TextAccent style={styles.note}>
+        {note}
+      </TextAccent>
+    }
   </article>
 );
 
@@ -154,10 +111,7 @@ ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
   priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
-  categoryUrl: PropTypes.string,
-  cityUrl: PropTypes.string,
   note: PropTypes.string,
   style: propTypes.style,
 };
