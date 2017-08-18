@@ -118,6 +118,11 @@ const styles = {
       color: colors.textSecondary,
     }, outline()),
   },
+
+  actionIcon: {
+    stroke: "currentColor",
+    strokeWidth: "2px",
+  },
 };
 
 const messageTypes = {
@@ -207,7 +212,7 @@ const Toast = ({
         onClick={onClose}
         title="Close"
       >
-        <Icon.Close title="Close" />
+        <Icon.Close title="Close" style={styles.actionIcon} />
       </button>
     }
   </div>
