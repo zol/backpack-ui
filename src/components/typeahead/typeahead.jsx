@@ -153,7 +153,7 @@ class Typeahead extends Component {
         this.props.dataSource(query)
         .then((json) => {
           const results = json.places.map(place => place.attributes.name);
-          this.props.onKeyUp(results);
+          this.props.onKeyUp(json.places);
           this.setState({ searchResults: results });
         });
       }, 200);
