@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.1"></a>
+## [4.32.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.0...v4.32.1) (2017-08-18)
+
+
+### Bug Fixes
+
+* Change 'bookmarking' to 'lists' in log in modal ([#441](https://github.com/lonelyplanet/backpack-ui/issues/441)) ([0b4b2df](https://github.com/lonelyplanet/backpack-ui/commit/0b4b2df))
+* remove exif data from avatar uploader ([#443](https://github.com/lonelyplanet/backpack-ui/issues/443)) ([d4dad76](https://github.com/lonelyplanet/backpack-ui/commit/d4dad76))
+
+
+
 <a name="4.32.0"></a>
 # [4.32.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.31.0...v4.32.0) (2017-08-17)
 
