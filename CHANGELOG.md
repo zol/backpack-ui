@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.2"></a>
+## [4.32.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.1...v4.32.2) (2017-08-18)
+
+
+### Bug Fixes
+
+* convert url to image blob ([#444](https://github.com/lonelyplanet/backpack-ui/issues/444)) ([dbf606d](https://github.com/lonelyplanet/backpack-ui/commit/dbf606d))
+
+
+
 <a name="4.32.1"></a>
 ## [4.32.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.0...v4.32.1) (2017-08-18)
 
