@@ -98,13 +98,13 @@ const styles = {
     color: colors.textPrimary,
     cursor: "pointer",
     display: "block",
-    fontSize: `${(8 / fontSizeUppercase)}em`,
+    fontSize: `${(10 / fontSizeUppercase)}em`,
     flexShrink: 0,
-    height: `${(24 / 8)}em`,
+    height: `${(24 / 10)}em`,
     marginLeft: "auto",
-    marginRight: `${(-8 / 8)}em`,
+    marginRight: `${(-8 / 10)}em`,
     transition: `color ${timing.fast} ease-in-out`,
-    width: `${(24 / 8)}em`,
+    width: `${(24 / 10)}em`,
 
     ":hover": {
       color: colors.textSecondary,
