@@ -23,11 +23,13 @@ const styles = {
   justifyContent: "center",
   lineHeight: 1,
   padding: 0,
-  transition: `box-shadow ${timing.fast} ease-in-out`,
+  transition: `box-shadow ${timing.fast} ease-in-out,
+    transform ${timing.fast} ease-in-out`,
   width: `${(54 / fontSizeHeading5)}em`,
 
   ":active": {
     boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
+    transform: "translateY(1px)",
   },
 
   ":focus": outline(),
