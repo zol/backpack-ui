@@ -98,13 +98,13 @@ const styles = {
     color: colors.textPrimary,
     cursor: "pointer",
     display: "block",
-    fontSize: `${(8 / fontSizeUppercase)}em`,
+    fontSize: `${(10 / fontSizeUppercase)}em`,
     flexShrink: 0,
-    height: `${(24 / 8)}em`,
+    height: `${(24 / 10)}em`,
     marginLeft: "auto",
-    marginRight: `${(-8 / 8)}em`,
+    marginRight: `${(-8 / 10)}em`,
     transition: `color ${timing.fast} ease-in-out`,
-    width: `${(24 / 8)}em`,
+    width: `${(24 / 10)}em`,
 
     ":hover": {
       color: colors.textSecondary,
@@ -117,6 +117,11 @@ const styles = {
     ":focus": Object.assign({}, {
       color: colors.textSecondary,
     }, outline()),
+  },
+
+  actionIcon: {
+    stroke: "currentColor",
+    strokeWidth: "2px",
   },
 };
 
@@ -207,7 +212,7 @@ const Toast = ({
         onClick={onClose}
         title="Close"
       >
-        <Icon.Close title="Close" />
+        <Icon.Close title="Close" style={styles.actionIcon} />
       </button>
     }
   </div>
