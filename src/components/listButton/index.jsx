@@ -32,7 +32,7 @@ const styles = {
     transform: "translateY(1px)",
   },
 
-  ":focus": outline(),
+  ":focus": outline(4),
 };
 
 const iconProps = {
