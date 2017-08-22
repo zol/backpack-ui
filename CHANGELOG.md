@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.4"></a>
+## [4.32.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.3...v4.32.4) (2017-08-22)
+
+
+### Bug Fixes
+
+* Add stroke to toast X icon to thicken it ([0806b74](https://github.com/lonelyplanet/backpack-ui/commit/0806b74))
+* Add webkit tap highlight color for ListButton ([56bae20](https://github.com/lonelyplanet/backpack-ui/commit/56bae20))
+* Give illusion of ListButton being pressed down ([8d377c4](https://github.com/lonelyplanet/backpack-ui/commit/8d377c4))
+* Increase outline spacing on focus state of ListButton ([f5e5e54](https://github.com/lonelyplanet/backpack-ui/commit/f5e5e54))
+* Increase toast X icon font size from 8 to 10 ([bf9b39d](https://github.com/lonelyplanet/backpack-ui/commit/bf9b39d))
+* Pass label prop for BookmarkButton ([#448](https://github.com/lonelyplanet/backpack-ui/issues/448)) ([9580597](https://github.com/lonelyplanet/backpack-ui/commit/9580597))
+* Use double quotes in AvatarUpload ([#447](https://github.com/lonelyplanet/backpack-ui/issues/447)) ([721145b](https://github.com/lonelyplanet/backpack-ui/commit/721145b))
+
+
+
 <a name="4.32.3"></a>
 ## [4.32.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.2...v4.32.3) (2017-08-18)
 
