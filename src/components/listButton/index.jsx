@@ -26,6 +26,7 @@ const styles = {
   transition: `box-shadow ${timing.fast} ease-in-out,
     transform ${timing.fast} ease-in-out`,
   width: `${(54 / fontSizeHeading5)}em`,
+  WebkitTapHighlightColor: rgba(colors.bgOverlay, 0.04),
 
   ":active": {
     boxShadow: `${rgba(colors.bgOverlay, 0.2)} 0 ${(4 / fontSizeHeading5) / 3}em ${(16 / fontSizeHeading5) / 2}em`,
