@@ -1,10 +1,23 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
+import Link from "../link";
+// import ThumbnailListItem from "../thumbnailListItem";
+import CoverPhoto from "../coverPhoto";
 import get from "lodash/get";
 import uniqueId from "lodash/uniqueId";
-import { media } from "../../../settings.json";
+import colors from "../../styles/colors";
+import timing from "../../styles/timing";
+import media from "../../styles/mq";
 
 const _ = { get, uniqueId };
+
+const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.8)";
+
+const nextVideoScopedStyles = {
+  ".CoverPhoto": {
+    transform: "scale(1.03) !important",
+  },
+};
 
 const styles = {
   container: {
@@ -28,14 +41,66 @@ const styles = {
     top: 0,
     left: 0,
   },
+
+  nextVideoLink: {
+    maxWidth: "100%",
+    width: "300px",
+    textAlign: "left",
+    backgroundColor: videoOverlayBackgroundColor,
+    borderWidth: "1px",
+    borderStyle: "solid",
+    borderColor: videoOverlayBackgroundColor,
+    opacity: 0,
+    transition: `opacity ${timing.default} linear`,
+    position: "absolute",
+    right: 0,
+    bottom: "60px",
+    color: colors.textOverlay,
+  },
+
+  nextVideoImageContainer: {
+    width: "100px",
+    height: "56px",
+    overflow: "hidden",
+    marginRight: "6px",
+    float: "left",
+  },
+
+  nextVideoImage: {
+    width: "100px",
+    height: "56px",
+    // float: "left",
+    // marginRight: "6px",
+    transition: `transform ${timing.slow} ease-in-out`,
+  },
+
+  nextVideoLabel: {
+    color: colors.accentGray,
+    fontSize: "11px",
+    marginTop: "2px",
+    marginRight: "6px",
+  },
+
+  nextVideoName: {
+    lineHeight: "17px",
+    fontSize: "14px",
+    height: "34px",
+    overflow: "hidden",
+    marginTop: "1px",
+    marginRight: "6px",
+  },
 };
 
 const scopedStyles = {
+  ".vjs-overlay-right": {
+    maxWidth: "none !important",
+    right: "0px",
+  },
   ".vjs-overlay-bottom": {
     left: "0px",
     width: "100%",
     marginLeft: "0px",
-    maxWidth: "100% !important",
+    maxWidth: "none !important",
   },
   ".vjs-overlay-top-left": {
     top: "0px",
@@ -51,7 +116,7 @@ const scopedStyles = {
     lineHeight: "21px",
     fontWeight: "normal",
     verticalAlign: "middle",
-    backgroundColor: "rgba(0,0,0,0.8)",
+    backgroundColor: videoOverlayBackgroundColor,
     color: "#e6e6e6",
     fontSize: "11px",
     fontFamily: "arial,sans-serif",
@@ -95,6 +160,14 @@ class VideoEmbed extends Component {
     this.embedId = "default";
 
     this.player = null;
+
+    this.state = {
+      hover: false,
+      nextVideoEnabled: false,
+    };
+
+    this.onMouseEnter = this.onMouseEnter.bind(this);
+    this.onMouseLeave = this.onMouseLeave.bind(this);
   }
 
   componentDidMount() {
@@ -107,12 +180,6 @@ class VideoEmbed extends Component {
     if (nextVideoId !== this.props.videoId && !this.isAdRunning()) {
       this.loadVideo(nextVideoId);
     }
-  }
-
-  shouldComponentUpdate() { // eslint-disable-line class-methods-use-this
-    // Video.js restructures our video element in ways that it relies on so
-    // we bypass all re-rendering through React and put all control on video.js.
-    return false;
   }
 
   componentWillUnmount() {
@@ -150,7 +217,7 @@ class VideoEmbed extends Component {
     this.configureOverlays();
 
     if (this.props.autoplay) {
-      this.player.play();
+      this.play();
     }
   }
 
@@ -165,13 +232,17 @@ class VideoEmbed extends Component {
     // so we make sure to disable the "ad overlay" when any of these events fire.
     this.disableAdOverlay();
 
+    this.setState({ nextVideoEnabled: true });
+
     // If videoId was set while an ad was playing, and the user skips the ad,
     // the onAdEnded() handler will not be run.  This makes sure we load the new video.
     this.loadVideo(this.props.videoId);
+
   }
 
   onAdStarted() {
     this.enableAdOverlay();
+    this.setState({ nextVideoEnabled: false });
   }
 
   onAdEnded() {
@@ -221,6 +292,14 @@ class VideoEmbed extends Component {
     if (this.props.onCueChange) {
       this.props.onCueChange(cue, cueIndex, overlayElementId);
     }
+  }
+
+  onMouseEnter() {
+    this.setState({ hover: true });
+  }
+
+  onMouseLeave() {
+    this.setState({ hover: false });
   }
 
   getCues() {
@@ -295,9 +374,14 @@ class VideoEmbed extends Component {
 
     if (this.isVideoLoaded(videoId)) {
       if (this.props.autoplay) {
-        this.player.play();
+        this.play();
       }
     } else {
+
+      // Hide the "next video" preview whenever we
+      // tell the player to load a new video
+      this.setState({ nextVideoEnabled: false });
+
       this.player.catalog.getVideo(videoId, (error, video) => {
         if (!error) {
           this.player.catalog.load(video);
@@ -313,6 +397,19 @@ class VideoEmbed extends Component {
 
   isAdRunning() {
     return this.player && this.player.ads.state === "ad-playback";
+  }
+
+  play() {
+    if (!this.player) {
+      return;
+    }
+
+    const promise = this.player.play();
+
+    // Catch any errors thrown within play promise (only applicable on some browsers)
+    if (promise) {
+      promise.catch(reason => console.log("VIDEOJS:", reason)).then(() => {});
+    }
   }
 
   tearDownPlayer() {
@@ -361,16 +458,24 @@ class VideoEmbed extends Component {
   }
 
   render() {
-    const { override } = this.props;
+    const { override, nextVideo } = this.props;
+    const { hover, nextVideoEnabled } = this.state;
 
     return (
       <div
         className="VideoEmbed"
         style={[styles.container, override]}
+        onMouseEnter={this.onMouseEnter}
+        onMouseLeave={this.onMouseLeave}
       >
         <Style
           scopeSelector=".VideoEmbed"
           rules={scopedStyles}
+        />
+
+        <Style
+          scopeSelector=".VideoEmbed-nextvideo:hover"
+          rules={nextVideoScopedStyles}
         />
 
         <video
@@ -380,6 +485,32 @@ class VideoEmbed extends Component {
           data-embed={this.embedId}
           className={`video-js ${this.getPlayerVideoClassName()}`}
         />
+
+        {nextVideo &&
+          <Link
+            to={nextVideo.href}
+            className="VideoEmbed-nextvideo"
+            style={{
+              ...styles.nextVideoLink,
+              opacity: hover ? 1 : 0,
+              display: nextVideoEnabled ? "block" : "none",
+            }}
+            >
+            <div style={styles.nextVideoImageContainer}>
+              <CoverPhoto
+                src={nextVideo.image}
+                alt={nextVideo.name}
+                style={styles.nextVideoImage}
+              />
+            </div>
+
+            <div>
+              <div style={styles.nextVideoLabel}>UP NEXT</div>
+              <div style={styles.nextVideoName}>{nextVideo.name}</div>
+            </div>
+          </Link>
+        }
+
       </div>
     );
   }
@@ -387,6 +518,11 @@ class VideoEmbed extends Component {
 
 VideoEmbed.propTypes = {
   videoId: PropTypes.string.isRequired,
+  nextVideo: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    href: PropTypes.string,
+  }),
   autoplay: PropTypes.bool,
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
