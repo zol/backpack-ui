@@ -86,6 +86,7 @@ export { default as NumberMarker } from "./components/numberMarker";
 export { default as Overlay } from "./components/overlay";
 export { default as PageHeader } from "./components/pageHeader";
 export { default as PaginatorButton } from "./components/paginatorButton";
+export { default as Pip } from "./components/pip";
 export { default as Placeholder } from "./components/placeholder";
 export { default as PoiPaginator } from "./components/poiPaginator";
 export { default as Price } from "./components/price";

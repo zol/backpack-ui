@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import radium, { Style } from "radium";
 import Link from "../link";
-// import ThumbnailListItem from "../thumbnailListItem";
 import CoverPhoto from "../coverPhoto";
 import get from "lodash/get";
 import uniqueId from "lodash/uniqueId";
@@ -10,6 +9,11 @@ import timing from "../../styles/timing";
 import media from "../../styles/mq";
 
 const _ = { get, uniqueId };
+
+// TODO:
+// 1. where should nextVideo go when lower thirds appear?
+// 2. Verify nothing is wrong with shouldRender when new videoId is passed in.
+// 3. Storybook
 
 const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.8)";
 
@@ -47,11 +51,11 @@ const styles = {
     width: "300px",
     textAlign: "left",
     backgroundColor: videoOverlayBackgroundColor,
-    borderWidth: "1px",
+    borderWidth: "1px 0px 1px 1px",
     borderStyle: "solid",
     borderColor: videoOverlayBackgroundColor,
     opacity: 0,
-    transition: `opacity ${timing.default} linear`,
+    transition: `opacity ${timing.fast} linear`,
     position: "absolute",
     right: 0,
     bottom: "60px",
