@@ -2,6 +2,203 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.4"></a>
+## [4.32.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.3...v4.32.4) (2017-08-22)
+
+
+### Bug Fixes
+
+* Add stroke to toast X icon to thicken it ([0806b74](https://github.com/lonelyplanet/backpack-ui/commit/0806b74))
+* Add webkit tap highlight color for ListButton ([56bae20](https://github.com/lonelyplanet/backpack-ui/commit/56bae20))
+* Give illusion of ListButton being pressed down ([8d377c4](https://github.com/lonelyplanet/backpack-ui/commit/8d377c4))
+* Increase outline spacing on focus state of ListButton ([f5e5e54](https://github.com/lonelyplanet/backpack-ui/commit/f5e5e54))
+* Increase toast X icon font size from 8 to 10 ([bf9b39d](https://github.com/lonelyplanet/backpack-ui/commit/bf9b39d))
+* Pass label prop for BookmarkButton ([#448](https://github.com/lonelyplanet/backpack-ui/issues/448)) ([9580597](https://github.com/lonelyplanet/backpack-ui/commit/9580597))
+* Use double quotes in AvatarUpload ([#447](https://github.com/lonelyplanet/backpack-ui/issues/447)) ([721145b](https://github.com/lonelyplanet/backpack-ui/commit/721145b))
+
+
+
+<a name="4.32.3"></a>
+## [4.32.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.2...v4.32.3) (2017-08-18)
+
+
+### Bug Fixes
+
+* dumb i+ error ([#445](https://github.com/lonelyplanet/backpack-ui/issues/445)) ([92aa9bd](https://github.com/lonelyplanet/backpack-ui/commit/92aa9bd))
+
+
+
+<a name="4.32.2"></a>
+## [4.32.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.1...v4.32.2) (2017-08-18)
+
+
+### Bug Fixes
+
+* convert url to image blob ([#444](https://github.com/lonelyplanet/backpack-ui/issues/444)) ([dbf606d](https://github.com/lonelyplanet/backpack-ui/commit/dbf606d))
+
+
+
+<a name="4.32.1"></a>
+## [4.32.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.0...v4.32.1) (2017-08-18)
+
+
+### Bug Fixes
+
+* Change 'bookmarking' to 'lists' in log in modal ([#441](https://github.com/lonelyplanet/backpack-ui/issues/441)) ([0b4b2df](https://github.com/lonelyplanet/backpack-ui/commit/0b4b2df))
+* remove exif data from avatar uploader ([#443](https://github.com/lonelyplanet/backpack-ui/issues/443)) ([d4dad76](https://github.com/lonelyplanet/backpack-ui/commit/d4dad76))
+
+
+
+<a name="4.32.0"></a>
+# [4.32.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.31.0...v4.32.0) (2017-08-17)
+
+
+### Bug Fixes
+
+* Fix syntax errors introduced in previous pull request ([#437](https://github.com/lonelyplanet/backpack-ui/issues/437)) ([7dac380](https://github.com/lonelyplanet/backpack-ui/commit/7dac380))
+* Increase mobile heading size in BookmarkListHeader ([#434](https://github.com/lonelyplanet/backpack-ui/issues/434)) ([fbc89bb](https://github.com/lonelyplanet/backpack-ui/commit/fbc89bb))
+* Remove hover styles from ListItemBookmark ([#435](https://github.com/lonelyplanet/backpack-ui/issues/435)) ([b7f7fe8](https://github.com/lonelyplanet/backpack-ui/commit/b7f7fe8))
+* Remove positioning related styles from bookmark button ([#438](https://github.com/lonelyplanet/backpack-ui/issues/438)) ([03e6683](https://github.com/lonelyplanet/backpack-ui/commit/03e6683))
+* Update BookmarkListItemEntry ([#436](https://github.com/lonelyplanet/backpack-ui/issues/436)) ([6ad8d7a](https://github.com/lonelyplanet/backpack-ui/commit/6ad8d7a))
+
+
+### Features
+
+* add desktop styles to bookmark button ([#433](https://github.com/lonelyplanet/backpack-ui/issues/433)) ([f70208b](https://github.com/lonelyplanet/backpack-ui/commit/f70208b))
+
+
+
+<a name="4.31.0"></a>
+# [4.31.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.3...v4.31.0) (2017-08-16)
+
+
+### Bug Fixes
+
+* Allow alternate bookmark icons in ListButton ([33386e1](https://github.com/lonelyplanet/backpack-ui/commit/33386e1))
+
+
+### Features
+
+* Add alternate bookmark icons ([49cab86](https://github.com/lonelyplanet/backpack-ui/commit/49cab86))
+* Add iconType to BookmarkButton for alternate icons ([9a83879](https://github.com/lonelyplanet/backpack-ui/commit/9a83879))
+
+
+
+<a name="4.30.3"></a>
+## [4.30.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.2...v4.30.3) (2017-08-16)
+
+
+### Bug Fixes
+
+* Update ListButton styles ([#431](https://github.com/lonelyplanet/backpack-ui/issues/431)) ([9c9df35](https://github.com/lonelyplanet/backpack-ui/commit/9c9df35))
+
+
+
+<a name="4.30.2"></a>
+## [4.30.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.1...v4.30.2) (2017-08-16)
+
+
+### Bug Fixes
+
+* pass style override through ([#430](https://github.com/lonelyplanet/backpack-ui/issues/430)) ([84e0d30](https://github.com/lonelyplanet/backpack-ui/commit/84e0d30))
+
+
+
+<a name="4.30.1"></a>
+## [4.30.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.30.0...v4.30.1) (2017-08-15)
+
+
+### Bug Fixes
+
+* update height of SettingBlockText area on prop change ([#427](https://github.com/lonelyplanet/backpack-ui/issues/427)) ([ecd5206](https://github.com/lonelyplanet/backpack-ui/commit/ecd5206))
+
+
+
+<a name="4.30.0"></a>
+# [4.30.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.29.0...v4.30.0) (2017-08-15)
+
+
+### Bug Fixes
+
+* Make AlbumThumbnailImage responsive ([#420](https://github.com/lonelyplanet/backpack-ui/issues/420)) ([a1bfabe](https://github.com/lonelyplanet/backpack-ui/commit/a1bfabe))
+* Make ListItemBookmark responsive ([#422](https://github.com/lonelyplanet/backpack-ui/issues/422)) ([5018bd3](https://github.com/lonelyplanet/backpack-ui/commit/5018bd3))
+* Remove href prop, change anchor to div ([#419](https://github.com/lonelyplanet/backpack-ui/issues/419)) ([9640a1a](https://github.com/lonelyplanet/backpack-ui/commit/9640a1a))
+* Update BookmarkListHeader ([#423](https://github.com/lonelyplanet/backpack-ui/issues/423)) ([969b5ce](https://github.com/lonelyplanet/backpack-ui/commit/969b5ce))
+* Update BookmarkListHeader ([#429](https://github.com/lonelyplanet/backpack-ui/issues/429)) ([500508f](https://github.com/lonelyplanet/backpack-ui/commit/500508f))
+* Update CategoryLabel to use new styles ([#421](https://github.com/lonelyplanet/backpack-ui/issues/421)) ([5aa1f91](https://github.com/lonelyplanet/backpack-ui/commit/5aa1f91))
+* Update ListItemBookmark ([#424](https://github.com/lonelyplanet/backpack-ui/issues/424)) ([b49fb75](https://github.com/lonelyplanet/backpack-ui/commit/b49fb75))
+* Update ListItemBookmarkEntry ([#425](https://github.com/lonelyplanet/backpack-ui/issues/425)) ([08bc890](https://github.com/lonelyplanet/backpack-ui/commit/08bc890))
+
+
+### Features
+
+* Add usernameStyle prop to AvatarMarker ([#428](https://github.com/lonelyplanet/backpack-ui/issues/428)) ([150e802](https://github.com/lonelyplanet/backpack-ui/commit/150e802))
+* Rename Bookmark to BookmarkButton ([#426](https://github.com/lonelyplanet/backpack-ui/issues/426)) ([7543ac3](https://github.com/lonelyplanet/backpack-ui/commit/7543ac3))
+* Rename ListHeader to BookmarkListHeader ([#416](https://github.com/lonelyplanet/backpack-ui/issues/416)) ([99ff6d9](https://github.com/lonelyplanet/backpack-ui/commit/99ff6d9))
+* Update bookmark list item ([#418](https://github.com/lonelyplanet/backpack-ui/issues/418)) ([9662cef](https://github.com/lonelyplanet/backpack-ui/commit/9662cef))
+
+
+
+<a name="4.29.0"></a>
+# [4.29.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.1...v4.29.0) (2017-08-11)
+
+
+### Bug Fixes
+
+* Change icon names in ListButton story ([#398](https://github.com/lonelyplanet/backpack-ui/issues/398)) ([a9495b8](https://github.com/lonelyplanet/backpack-ui/commit/a9495b8))
+* Fix import for BookmarkListAuthor in stories ([#409](https://github.com/lonelyplanet/backpack-ui/issues/409)) ([617bc7d](https://github.com/lonelyplanet/backpack-ui/commit/617bc7d))
+* limit watchlater width when no videos exist ([#395](https://github.com/lonelyplanet/backpack-ui/issues/395)) ([4e44849](https://github.com/lonelyplanet/backpack-ui/commit/4e44849))
+* Rename ListEntry to ListItemBookmarkEntry ([#411](https://github.com/lonelyplanet/backpack-ui/issues/411)) ([374a899](https://github.com/lonelyplanet/backpack-ui/commit/374a899))
+* Rename UserListAuthor to BookmarkListAuthor ([#408](https://github.com/lonelyplanet/backpack-ui/issues/408)) ([22f5ebf](https://github.com/lonelyplanet/backpack-ui/commit/22f5ebf))
+* Simplify ListButton component ([#404](https://github.com/lonelyplanet/backpack-ui/issues/404)) ([31d8c07](https://github.com/lonelyplanet/backpack-ui/commit/31d8c07))
+* update avatar image when prop changes ([#415](https://github.com/lonelyplanet/backpack-ui/issues/415)) ([ee48980](https://github.com/lonelyplanet/backpack-ui/commit/ee48980))
+* Update Bookmark component to use ListButton ([#405](https://github.com/lonelyplanet/backpack-ui/issues/405)) ([1bda329](https://github.com/lonelyplanet/backpack-ui/commit/1bda329))
+* Update flyout component ([#403](https://github.com/lonelyplanet/backpack-ui/issues/403)) ([c696a29](https://github.com/lonelyplanet/backpack-ui/commit/c696a29))
+* Update ListItemBookmarkEntry ([#412](https://github.com/lonelyplanet/backpack-ui/issues/412)) ([4f255d5](https://github.com/lonelyplanet/backpack-ui/commit/4f255d5))
+* Use HOC for click outside in ShareMenu ([#393](https://github.com/lonelyplanet/backpack-ui/issues/393)) ([1ebd993](https://github.com/lonelyplanet/backpack-ui/commit/1ebd993))
+
+
+### Features
+
+* Add list icon ([d6f9fa0](https://github.com/lonelyplanet/backpack-ui/commit/d6f9fa0))
+* Add ListEntry component, header border and priceRange size ([#348](https://github.com/lonelyplanet/backpack-ui/issues/348)) ([#407](https://github.com/lonelyplanet/backpack-ui/issues/407)) ([3fd9d22](https://github.com/lonelyplanet/backpack-ui/commit/3fd9d22))
+* Add listItemBookmark component ([#410](https://github.com/lonelyplanet/backpack-ui/issues/410)) ([a018a5d](https://github.com/lonelyplanet/backpack-ui/commit/a018a5d))
+* Add PriceRangeLabel component ([25f2744](https://github.com/lonelyplanet/backpack-ui/commit/25f2744))
+* Add primary shadow color ([#402](https://github.com/lonelyplanet/backpack-ui/issues/402)) ([87918b5](https://github.com/lonelyplanet/backpack-ui/commit/87918b5))
+* Add visuallyHidden style mixin ([0c910a2](https://github.com/lonelyplanet/backpack-ui/commit/0c910a2))
+* Create BookmarkListMenu component ([#406](https://github.com/lonelyplanet/backpack-ui/issues/406)) ([781a3cb](https://github.com/lonelyplanet/backpack-ui/commit/781a3cb))
+* Create ListHeader component ([#383](https://github.com/lonelyplanet/backpack-ui/issues/383)) ([#396](https://github.com/lonelyplanet/backpack-ui/issues/396)) ([52b6e55](https://github.com/lonelyplanet/backpack-ui/commit/52b6e55))
+* Create thumbnail component for user list ([2a45e6e](https://github.com/lonelyplanet/backpack-ui/commit/2a45e6e))
+
+
+
+<a name="4.28.1"></a>
+## [4.28.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.28.0...v4.28.1) (2017-08-02)
+
+
+### Bug Fixes
+
+* Add opt-in checkbox to newsletter component ([#390](https://github.com/lonelyplanet/backpack-ui/issues/390)) ([90124f8](https://github.com/lonelyplanet/backpack-ui/commit/90124f8))
+
+
+
+<a name="4.28.0"></a>
+# [4.28.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.3...v4.28.0) (2017-07-28)
+
+
+### Bug Fixes
+
+* password function was being called on component being rendered ([#389](https://github.com/lonelyplanet/backpack-ui/issues/389)) ([0701527](https://github.com/lonelyplanet/backpack-ui/commit/0701527))
+
+
+### Features
+
+* Add HOC to detect outside clicks ([#373](https://github.com/lonelyplanet/backpack-ui/issues/373)) ([f04e650](https://github.com/lonelyplanet/backpack-ui/commit/f04e650))
+* Create UserListAuthor component ([#387](https://github.com/lonelyplanet/backpack-ui/issues/387)) ([656351b](https://github.com/lonelyplanet/backpack-ui/commit/656351b))
+* refactor Bookmark component; update actions to addon-actions ([#375](https://github.com/lonelyplanet/backpack-ui/issues/375)) ([#376](https://github.com/lonelyplanet/backpack-ui/issues/376)) ([00a992c](https://github.com/lonelyplanet/backpack-ui/commit/00a992c))
+
+
+
 <a name="4.27.3"></a>
 ## [4.27.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.27.2...v4.27.3) (2017-07-12)
 

@@ -1,4 +1,5 @@
-import React, { PropTypes } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import {
   SettingBlockDescription,
@@ -14,11 +15,12 @@ const SettingBlockCheckbox = ({
   checked,
   error,
   title,
+  hasBorder,
   subtitle,
   onClick,
 }) => (
   <SettingBlockButtonWrapper onClick={onClick}>
-    <SettingBlockWrapper error={error} hasAction>
+    <SettingBlockWrapper error={error} hasAction hasBorder={hasBorder}>
       <SettingBlockButtonDescription>
         <SettingBlockHeader subtitle={subtitle}>
           {title}
@@ -35,6 +37,7 @@ SettingBlockCheckbox.propTypes = {
   checked: PropTypes.bool,
   error: PropTypes.bool,
   title: PropTypes.string,
+  hasBorder: PropTypes.bool,
   subtitle: PropTypes.string,
   onClick: PropTypes.func,
 };

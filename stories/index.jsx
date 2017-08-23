@@ -1,11 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { StyleRoot } from "radium";
 import "leaflet/dist/leaflet.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "react-photoswipe/lib/photoswipe.css";
-import { storiesOf, action } from "@storybook/react";
+import { storiesOf } from "@storybook/react";
 import { withKnobs, text, boolean, number, array, object, select, color } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
 import { color as bpColor } from "../settings.json";
 import colors from "../src/styles/colors";
 import data from "./data.json";
@@ -15,6 +17,7 @@ import DesignTokens from "./designTokens";
 import Fonts from "./fonts";
 import Typography from "./typography";
 import { Accordion, AccordionItem } from "../src/components/accordion";
+import AlbumThumbnailImage from "../src/components/albumThumbnailImage";
 import Amenities from "../src/components/amenities";
 import ArticleAuthor from "../src/components/articleAuthor";
 import ArticlePaginationItem from "../src/components/articlePaginationItem";
@@ -26,7 +29,11 @@ import Avatar from "../src/components/avatar";
 import AvatarMarker from "../src/components/avatarMarker";
 import AvatarUpload from "../src/components/avatarUpload";
 // Availability
-import Bookmark from "../src/components/bookmark";
+import BookmarkButton from "../src/components/bookmarkButton";
+import BookmarkListAuthor from "../src/components/bookmarkListAuthor";
+import BookmarkListHeader from "../src/components/bookmarkListHeader";
+import BookmarkListMenu from "../src/components/bookmarkListMenu";
+import BookmarkListMenuOption from "../src/components/bookmarkListMenu/option.jsx";
 import Breadcrumbs from "../src/components/breadcrumbs";
 import BulletDescription from "../src/components/bulletDescription";
 import Button from "../src/components/button";
@@ -76,6 +83,9 @@ import Lede from "../src/components/lede";
 // ListItem
 // ListItemBookable
 // ListItemImage
+import ListButton from "../src/components/listButton";
+import ListItemBookmark from "../src/components/listItemBookmark";
+import ListItemBookmarkEntry from "../src/components/listItemBookmarkEntry";
 import ListItemNews from "../src/components/listItemNews";
 // ListItemWireframe
 // Loading
@@ -90,6 +100,7 @@ import Modal from "../src/components/modal";
 import ModalLogIn from "../src/components/modalLogIn";
 import MoreLink from "../src/components/moreLink";
 import { MultiStep, MultiStepWrapper } from "../src/components/multiStep";
+import MultiStepLogin from "../src/components/multiStep/multiStepLogin";
 import Narrative from "../src/components/narrative";
 import { Navigation, NavigationTab } from "../src/components/navigation";
 import NewsArticleAuthor from "../src/components/newsArticleAuthor";
@@ -105,6 +116,7 @@ import PhotoGallery from "../src/components/photoGallery";
 import Placeholder from "../src/components/placeholder";
 import PoiPaginator from "../src/components/poiPaginator";
 // Price
+import PriceRangeLabel from "../src/components/priceRangeLabel";
 import ProfileHeader from "../src/components/profileHeader";
 import PromotedGuidebook from "../src/components/promotedGuidebook";
 import ProviderLogo from "../src/components/providerLogo";
@@ -259,6 +271,27 @@ storiesOf("Accordion", module)
     </StyleRoot>
   ));
 
+storiesOf("Album thumbnail image", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <AlbumThumbnailImage />
+    </Center>
+  ))
+  .add("Plus icon", () => (
+    <Center>
+      <AlbumThumbnailImage icon="Plus" />
+    </Center>
+  ))
+  .add("Image", () => (
+    <Center>
+      <AlbumThumbnailImage
+        src={text("Source", "https://lonelyplanetwp.imgix.net/2017/07/GettyImages-647005142_high_1-360ee8e327d5.jpg?crop=entropy&fit=crop&h=96&sharp=10&vib=20&w=104")}
+        alt={text("Alternate text", "")}
+      />
+    </Center>
+  ));
+
 storiesOf("Amenities", module)
   .addDecorator(withKnobs)
   .add("2-column, single list", () => (
@@ -392,14 +425,62 @@ storiesOf("Avatar upload", module)
     />
   ));
 
-storiesOf("Bookmark", module)
+storiesOf("Bookmark button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <Bookmark
-      onClick={action("Bookmark clicked")}
-      size={select("Size", ["", "large"], "")}
-      marked={boolean("Marked", false)}
-    />
+    <Center>
+      <StyleRoot>
+        <BookmarkButton
+          onClick={action("Bookmark clicked")}
+          iconType={select("Icon type", {
+            default: "Default",
+            alternate: "Alternate",
+          }, "default")}
+          marked={boolean("Marked", false)}
+        />
+      </StyleRoot>
+    </Center>
+  ));
+
+storiesOf("Bookmark list author", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <BookmarkListAuthor
+      href={text("URL", "/")}
+      imageSrc={text("Image source", data.avatar.default)}
+    >
+      {text("Name", "Alex Butler")}
+    </BookmarkListAuthor>
+  ));
+
+storiesOf("Bookmark list header", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <BookmarkListHeader
+        profileHref={text("Profile URL", "/profile")}
+        avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+        username={text("Username", "Rizzo the Rat")}
+        name={text("Title", "Europe Summer Highlights")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Bookmark list menu", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <BookmarkListMenu>
+        <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Reorder click")}>Reorder places</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Twitter</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Share click")}>Share on Facebook</BookmarkListMenuOption>
+        <BookmarkListMenuOption onClick={action("Copy click")}>Copy link</BookmarkListMenuOption>
+      </BookmarkListMenu>
+    </Center>
   ));
 
 storiesOf("Breadcrumbs", module)
@@ -753,6 +834,7 @@ storiesOf("Flyout", module)
       size={select("Size", ["small", "medium"], "small")}
       shadow={select("Shadow", ["small", "large"], "small")}
       arrow={select("Arrow direction", ["up", "down", "left", "right"], "down")}
+      arrowPosition={select("Arrow alignment", ["", "left", "right"], "")}
       removePadding={boolean("Remove padding", false)}
       fill={boolean("Fill", false)}
     />
@@ -997,6 +1079,66 @@ storiesOf("Lede", module)
     />
   ));
 
+storiesOf("List Button", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <ListButton
+        onClick={action("List Button clicked")}
+        icon={select("Icon", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "Ellipsis",
+        ], "Ellipsis")}
+      />
+    </Center>
+  ));
+
+storiesOf("List item (bookmark)", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        href={text("URL", "/")}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ))
+  .add("With checkbox", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "Favorites")}
+        onClick={action("List Button clicked")}
+        checked={boolean("Checked", false)}
+        thumbnail={text("Thumbnail", "")}
+        entriesCount={5}
+        visibility={select("Visibility", ["Private", "Public"], "Private")}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("List item (bookmark entry)", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <ListItemBookmarkEntry
+        name={text("Name", "POI Name")}
+        category={text("Category", "Category")}
+        city={text("City", "City")}
+        url={text("URL", "/")}
+        priceRange={select("Range", ["$", "$$", "$$$"], "$")}
+        categoryUrl={text("Category URL", "/")}
+        cityUrl={text("City URL", "/")}
+        note={text("Note", "This is where a nice little note goes.")}
+      />
+    </StyleRoot>
+  ));
+
 storiesOf("List item (news)", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1117,7 +1259,7 @@ storiesOf("Masthead", module)
 
 class ModalWrapper extends React.Component {
   static propTypes = {
-    children: React.PropTypes.function,
+    children: PropTypes.function,
   }
 
   state = {
@@ -1275,6 +1417,25 @@ storiesOf("Multi-step", module)
     </MultiStepWrapper>
   ));
 
+storiesOf("MultiStep Login", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <MultiStepWrapper totalSteps={4}>
+      {(currentStep, goToNextStep, goToPreviousStep, setCurrentStep) => {
+        return (
+          <MultiStepLogin
+            currentStep={currentStep}
+            setStep={setCurrentStep}
+            authActions={{}}
+            showLogo
+            doneAction={() => {}}
+          />
+        );
+      }}
+    </MultiStepWrapper>
+
+  ));
+
 storiesOf("Narrative", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
@@ -1297,6 +1458,7 @@ storiesOf("Narrative", module)
       />
     </StyleRoot>
   ));
+
 
 storiesOf("News article author", module)
   .addDecorator(withKnobs)
@@ -1381,7 +1543,7 @@ storiesOf("Newsletter", module)
           text: "We just sent a confirmation email to",
         })}
         signup={object("Signup data", {
-          vars: "sailthru[vars][sf_LP_Editorial_Newsletter]",
+          vars: "newsletter[LP_Editorial_Newsletter]",
           email_template: "Welcome email",
           source: "homepage",
         })}
@@ -1496,6 +1658,14 @@ storiesOf("POI Paginator", module)
       neighborhood={text("Neighborhood", "Hofburg")}
       place={text("Place", "Vienna")}
       topChoice={boolean("Top choice", false)}
+    />
+  ));
+
+storiesOf("Price range", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <PriceRangeLabel
+      value={select("Range", ["$", "$$", "$$$"], "$$")}
     />
   ));
 
@@ -1711,6 +1881,7 @@ storiesOf("Setting Block", module)
       }}
     >
       <SettingBlockTextArea
+        value={text("Value", "")}
         error={boolean("Error", false)}
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
