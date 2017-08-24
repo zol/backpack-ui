@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.32.5"></a>
+## [4.32.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.4...v4.32.5) (2017-08-24)
+
+
+### Bug Fixes
+
+* Add topChoice prop to bookmark list entry ([ef139ae](https://github.com/lonelyplanet/backpack-ui/commit/ef139ae))
+* Make city prop not required in bookmark list entry ([5cfc314](https://github.com/lonelyplanet/backpack-ui/commit/5cfc314))
+
+
+
 <a name="4.32.4"></a>
 ## [4.32.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.3...v4.32.4) (2017-08-22)
 
