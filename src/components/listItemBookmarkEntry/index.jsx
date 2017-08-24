@@ -78,8 +78,8 @@ const styles = {
 const ListItemBookmarkEntry = ({
   name,
   category,
-  city,
   priceRange,
+  city,
   topChoice,
   note,
   style,
@@ -103,7 +103,7 @@ const ListItemBookmarkEntry = ({
     </Heading>
 
     <CategoryLabel style={styles.category}>
-      {category} in {city} {topChoice &&
+      {category}{city && ` in ${city}`} {topChoice &&
         <em style={styles.topChoiceLabel}>
           Top choice
         </em>
@@ -121,8 +121,8 @@ const ListItemBookmarkEntry = ({
 ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
   priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
+  city: PropTypes.string,
   topChoice: PropTypes.bool,
   note: PropTypes.string,
   style: propTypes.style,
