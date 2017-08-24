@@ -52,6 +52,12 @@ const styles = {
     },
   },
 
+  topChoiceLabel: {
+    color: colors.accentRed,
+    fontStyle: "normal",
+    paddingLeft: "8px",
+  },
+
   note: {
     [`@media (max-width: ${mq.max["768"]})`]: {
       letterSpacing: ".4px",
@@ -72,8 +78,9 @@ const styles = {
 const ListItemBookmarkEntry = ({
   name,
   category,
-  city,
   priceRange,
+  city,
+  topChoice,
   note,
   style,
 }) => (
@@ -96,7 +103,11 @@ const ListItemBookmarkEntry = ({
     </Heading>
 
     <CategoryLabel style={styles.category}>
-      {category} in {city}
+      {category}{city && ` in ${city}`} {topChoice &&
+        <em style={styles.topChoiceLabel}>
+          Top choice
+        </em>
+      }
     </CategoryLabel>
 
     {note &&
@@ -110,8 +121,9 @@ const ListItemBookmarkEntry = ({
 ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-  city: PropTypes.string.isRequired,
   priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
+  city: PropTypes.string,
+  topChoice: PropTypes.bool,
   note: PropTypes.string,
   style: propTypes.style,
 };
