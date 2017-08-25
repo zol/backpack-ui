@@ -88,10 +88,12 @@ const ListItemBookmarkEntry = ({
     className="ListItemBookmarkEntry"
     style={[styles.container, style]}
   >
-    <PriceRangeLabel
-      value={priceRange}
-      style={styles.priceRange}
-    />
+    {priceRange &&
+      <PriceRangeLabel
+        value={priceRange}
+        style={styles.priceRange}
+      />
+    }
 
     <Heading
       level="2"
@@ -102,13 +104,15 @@ const ListItemBookmarkEntry = ({
       {name}
     </Heading>
 
-    <CategoryLabel style={styles.category}>
-      {category}{city && ` in ${city}`} {topChoice &&
-        <em style={styles.topChoiceLabel}>
-          Top choice
-        </em>
-      }
-    </CategoryLabel>
+    {category &&
+      <CategoryLabel style={styles.category}>
+        {category}{city && ` in ${city}`} {topChoice &&
+          <em style={styles.topChoiceLabel}>
+            Top choice
+          </em>
+        }
+      </CategoryLabel>
+    }
 
     {note &&
       <TextAccent style={styles.note}>
@@ -120,8 +124,8 @@ const ListItemBookmarkEntry = ({
 
 ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
+  category: PropTypes.string,
+  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]),
   city: PropTypes.string,
   topChoice: PropTypes.bool,
   note: PropTypes.string,
