@@ -104,13 +104,15 @@ const ListItemBookmarkEntry = ({
       {name}
     </Heading>
 
-    <CategoryLabel style={styles.category}>
-      {category}{city && ` in ${city}`} {topChoice &&
-        <em style={styles.topChoiceLabel}>
-          Top choice
-        </em>
-      }
-    </CategoryLabel>
+    {category &&
+      <CategoryLabel style={styles.category}>
+        {category}{city && ` in ${city}`} {topChoice &&
+          <em style={styles.topChoiceLabel}>
+            Top choice
+          </em>
+        }
+      </CategoryLabel>
+    }
 
     {note &&
       <TextAccent style={styles.note}>
