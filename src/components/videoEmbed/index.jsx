@@ -16,7 +16,7 @@ const _ = { get, uniqueId };
 // 2. Verify nothing is wrong with shouldRender when new videoId is passed in.
 // 3. Storybook
 
-const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.8)";
+const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.45)";
 
 const nextVideoScopedStyles = {
   ".CoverPhoto": {
@@ -74,8 +74,6 @@ const styles = {
   nextVideoImage: {
     width: "100px",
     height: "56px",
-    // float: "left",
-    // marginRight: "6px",
     transition: `transform ${timing.slow} ease-in-out`,
   },
 

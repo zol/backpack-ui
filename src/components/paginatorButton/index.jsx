@@ -7,6 +7,7 @@ import settings from "../../../settings.json";
 import { rgb } from "../../utils/color";
 import { outline } from "../../utils/mixins";
 import iconFromString from "../../utils/icon";
+import zIndex from "../../styles/zIndex";
 
 const _ = { upperFirst };
 
@@ -70,6 +71,7 @@ const styles = {
   align: {
     base: {
       position: "absolute",
+      zIndex: zIndex.default,
     },
     vertical: {
       bottom: 0,
