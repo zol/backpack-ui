@@ -124,8 +124,8 @@ const ListItemBookmarkEntry = ({
 
 ListItemBookmarkEntry.propTypes = {
   name: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]).isRequired,
+  category: PropTypes.string,
+  priceRange: PropTypes.oneOf(["$", "$$", "$$$"]),
   city: PropTypes.string,
   topChoice: PropTypes.bool,
   note: PropTypes.string,
