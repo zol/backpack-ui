@@ -22,6 +22,7 @@ import Icon from "../icon";
 const styles = {
   container: {
     alignItems: "center",
+    backgroundColor: "transparent",
     display: "flex",
     flexFlow: "row wrap",
     paddingBottom: "16px",
@@ -97,6 +98,7 @@ function ListItemBookmark({
   thumbnail,
   entriesCount,
   visibility,
+  addItem,
   style,
 }) {
   const Element = onClick ? "button" : "div";
@@ -110,6 +112,7 @@ function ListItemBookmark({
     >
       <AlbumThumbnailImage
         src={thumbnail}
+        icon={addItem ? "Plus" : "List"}
         alt={name}
         style={styles.thumbnail}
       />
@@ -124,12 +127,14 @@ function ListItemBookmark({
           {name}
         </Heading>
 
-        <CategoryLabel style={styles.meta}>
-          {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
-        </CategoryLabel>
+        {visibility && entriesCount &&
+          <CategoryLabel style={styles.meta}>
+            {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
+          </CategoryLabel>
+        }
       </div>
 
-      {onClick &&
+      {onClick && !addItem &&
         <div style={[styles.checkbox, checked && styles.checkedBox]}>
           {checked &&
             <Icon.Checkmark
@@ -146,17 +151,22 @@ function ListItemBookmark({
 
 ListItemBookmark.propTypes = {
   name: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
-  entriesCount: PropTypes.number.isRequired,
-  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
+  checked: PropTypes.bool,
+  entriesCount: PropTypes.number,
+  visibility: PropTypes.oneOf(["Private", "Public"]),
   onClick: PropTypes.func,
   thumbnail: PropTypes.string,
+  addItem: PropTypes.bool,
   style: propTypes.style,
 };
 
 ListItemBookmark.defaultProps = {
+  checked: false,
+  entriesCount: null,
+  visibility: null,
   onClick: null,
   thumbnail: null,
+  addItem: false,
   style: null,
 };
 
