@@ -88,10 +88,12 @@ const ListItemBookmarkEntry = ({
     className="ListItemBookmarkEntry"
     style={[styles.container, style]}
   >
-    <PriceRangeLabel
-      value={priceRange}
-      style={styles.priceRange}
-    />
+    {priceRange &&
+      <PriceRangeLabel
+        value={priceRange}
+        style={styles.priceRange}
+      />
+    }
 
     <Heading
       level="2"
