@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.33.1"></a>
+## [4.33.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.33.0...v4.33.1) (2017-08-25)
+
+
+### Bug Fixes
+
+* Make category conditional in list item bookmark entry ([ff36b2d](https://github.com/lonelyplanet/backpack-ui/commit/ff36b2d))
+* Make price range conditional in list item bookmark entry ([7a9a800](https://github.com/lonelyplanet/backpack-ui/commit/7a9a800))
+* Make props not required in list item bookmark entry ([305c245](https://github.com/lonelyplanet/backpack-ui/commit/305c245))
+
+
+
 <a name="4.33.0"></a>
 # [4.33.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.5...v4.33.0) (2017-08-25)
 
