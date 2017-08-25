@@ -127,9 +127,11 @@ function ListItemBookmark({
           {name}
         </Heading>
 
-        <CategoryLabel style={styles.meta}>
-          {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
-        </CategoryLabel>
+        {visibility && entriesCount &&
+          <CategoryLabel style={styles.meta}>
+            {visibility} · {entriesCount} place{entriesCount !== 1 && "s"}
+          </CategoryLabel>
+        }
       </div>
 
       {onClick && !addItem &&
@@ -149,9 +151,9 @@ function ListItemBookmark({
 
 ListItemBookmark.propTypes = {
   name: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
-  entriesCount: PropTypes.number.isRequired,
-  visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
+  checked: PropTypes.bool,
+  entriesCount: PropTypes.number,
+  visibility: PropTypes.oneOf(["Private", "Public"]),
   onClick: PropTypes.func,
   thumbnail: PropTypes.string,
   addItem: PropTypes.bool,
@@ -159,6 +161,9 @@ ListItemBookmark.propTypes = {
 };
 
 ListItemBookmark.defaultProps = {
+  checked: false,
+  entriesCount: null,
+  visibility: null,
   onClick: null,
   thumbnail: null,
   addItem: false,
