@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.33.0"></a>
+# [4.33.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.5...v4.33.0) (2017-08-25)
+
+
+### Bug Fixes
+
+* Make background color transparent in list item bookmark ([d9fdb5d](https://github.com/lonelyplanet/backpack-ui/commit/d9fdb5d))
+* Make props not required in list item bookmark ([e3846d4](https://github.com/lonelyplanet/backpack-ui/commit/e3846d4))
+* Remove iconType, responsive styles from BookmarkButton ([#453](https://github.com/lonelyplanet/backpack-ui/issues/453)) ([43e6b4e](https://github.com/lonelyplanet/backpack-ui/commit/43e6b4e))
+* Use color token for list button shadow ([#454](https://github.com/lonelyplanet/backpack-ui/issues/454)) ([ff7406d](https://github.com/lonelyplanet/backpack-ui/commit/ff7406d))
+
+
+### Features
+
+* Add addItem prop to list item bookmark ([872a253](https://github.com/lonelyplanet/backpack-ui/commit/872a253))
+* Create alternate bookmark button ([#452](https://github.com/lonelyplanet/backpack-ui/issues/452)) ([29a00fc](https://github.com/lonelyplanet/backpack-ui/commit/29a00fc))
+
+
+
 <a name="4.32.5"></a>
 ## [4.32.5](https://github.com/lonelyplanet/backpack-ui/compare/v4.32.4...v4.32.5) (2017-08-24)
 
