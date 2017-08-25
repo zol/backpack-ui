@@ -22,6 +22,7 @@ import Icon from "../icon";
 const styles = {
   container: {
     alignItems: "center",
+    backgroundColor: "transparent",
     display: "flex",
     flexFlow: "row wrap",
     paddingBottom: "16px",
