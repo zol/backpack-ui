@@ -98,6 +98,7 @@ function ListItemBookmark({
   thumbnail,
   entriesCount,
   visibility,
+  addItem,
   style,
 }) {
   const Element = onClick ? "button" : "div";
@@ -111,6 +112,7 @@ function ListItemBookmark({
     >
       <AlbumThumbnailImage
         src={thumbnail}
+        icon={addItem ? "Plus" : "List"}
         alt={name}
         style={styles.thumbnail}
       />
@@ -130,7 +132,7 @@ function ListItemBookmark({
         </CategoryLabel>
       </div>
 
-      {onClick &&
+      {onClick && !addItem &&
         <div style={[styles.checkbox, checked && styles.checkedBox]}>
           {checked &&
             <Icon.Checkmark
@@ -152,12 +154,14 @@ ListItemBookmark.propTypes = {
   visibility: PropTypes.oneOf(["Private", "Public"]).isRequired,
   onClick: PropTypes.func,
   thumbnail: PropTypes.string,
+  addItem: PropTypes.bool,
   style: propTypes.style,
 };
 
 ListItemBookmark.defaultProps = {
   onClick: null,
   thumbnail: null,
+  addItem: false,
   style: null,
 };
 
