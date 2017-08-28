@@ -20,7 +20,7 @@ const styles = {
   },
 };
 
-const SettingBlockHeader = ({ children, subtitle }) => (
+const SettingBlockHeader = ({ children, htmlFor, subtitle }) => (
   <div className="SettingBlockHeader">
     <TextHeading
       level={7}
@@ -36,6 +36,7 @@ const SettingBlockHeader = ({ children, subtitle }) => (
 
 SettingBlockHeader.propTypes = {
   children: PropTypes.string.isRequired,
+  htmlFor: PropTypes.string,
   subtitle: PropTypes.string,
 };
 
