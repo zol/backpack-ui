@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import color from "../../styles/colors";
 import * as typography from "../../styles/typography";
-import TextHeading from "../text/textHeading";
 
 const styles = {
   title: {
@@ -22,14 +21,10 @@ const styles = {
 
 const SettingBlockHeader = ({ children, htmlFor, subtitle }) => (
   <div className="SettingBlockHeader">
-    <TextHeading
-      level={7}
-      size={7}
-      weight="medium"
-      style={styles.title}
-    >
+    <label htmlFor={htmlFor} style={styles.title}>
       {children}
-    </TextHeading>
+    </label>
+
     { subtitle && <p style={styles.subtitle}>{subtitle}</p>}
   </div>
 );
