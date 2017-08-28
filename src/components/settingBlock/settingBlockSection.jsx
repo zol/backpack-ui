@@ -2,31 +2,35 @@ import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import CategoryLabel from "../categoryLabel";
-import color from "../../styles/colors";
-import { typography } from "../../../settings.json";
+import colors from "../../styles/colors";
+import * as typography from "../../styles/typography";
 import propTypes from "../../utils/propTypes";
 import { rgba } from "../../utils/color";
 
 
 const styles = {
-  base: {
+  container: {
     marginBottom: "40px",
   },
+
   sectionHeading: {
-    paddingBottom: "16px",
+    color: colors.textSecondary,
     fontWeight: typography.fontWeightBold,
-    color: color.textSecondary,
+    paddingBottom: "16px",
     verticalAlign: "bottom",
   },
+
   inputPlaceholderRules: {
     "::-webkit-input-placeholder": {
-      color: rgba(color.textPrimary, 0.3),
+      color: rgba(colors.textPrimary, 0.3),
     },
+
     "::-moz-placeholder": {
-      color: rgba(color.textPrimary, 0.3),
+      color: rgba(colors.textPrimary, 0.3),
     },
+
     ":-ms-input-placeholder": {
-      color: rgba(color.textPrimary, 0.3),
+      color: rgba(colors.textPrimary, 0.3),
     },
   },
 };
@@ -34,13 +38,17 @@ const styles = {
 const SettingBlockSection = ({ children, heading, style }) => (
   <div
     className="SettingBlockSection"
-    style={[styles.base, style]}
+    style={[styles.container, style]}
   >
     <Style
       scopeSelector=".SettingBlockSection"
       rules={styles.inputPlaceholderRules}
     />
-    <CategoryLabel light style={styles.sectionHeading}>{heading}</CategoryLabel>
+
+    <CategoryLabel style={styles.sectionHeading} light>
+      {heading}
+    </CategoryLabel>
+
     {children}
   </div>
 );
