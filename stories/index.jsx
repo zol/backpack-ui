@@ -1868,6 +1868,7 @@ storiesOf("Setting Block", module)
         error={boolean("Error", false)}
         title={text("Title", "Name")}
         name={text("Name", "name")}
+        id={text("ID", "name")}
         subtitle={text("Subtitle", "Publicly displayed in your profile")}
         placeholder={text("Placeholder", "Enter full name")}
       />
@@ -1880,11 +1881,10 @@ storiesOf("Setting Block", module)
       }}
     >
       <SettingBlockTextArea
-        value={text("Value", "")}
         error={boolean("Error", false)}
         title={text("Textarea Title", "Intro")}
         subtitle={text("Textarea Subtitle", "")}
-        id={text("Id", "testerTime")}
+        id={text("ID", "testerTime")}
         name={text("Name", "testerTime")}
         placeholder="Add an intro"
       />
@@ -1904,6 +1904,7 @@ storiesOf("Setting Block", module)
             subtitle={text("Subtitle", "")}
             checked={active}
             onClick={toggle}
+            type={select("Type", ["checkbox", "radio"], "checkbox")}
             description={text("Description", "hand-picked selection of family travel articles, fun activity sheets and competitions")}
           />
         )}
