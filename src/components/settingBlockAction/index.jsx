@@ -7,7 +7,7 @@ import {
   SettingBlockButtonWrapper,
   SettingBlockWrapper,
   SettingBlockHeader,
-} from "../settingBlock/";
+} from "../settingBlock";
 import MoreLink from "../moreLink/";
 
 const SettingBlockAction = ({
@@ -24,15 +24,21 @@ const SettingBlockAction = ({
         <SettingBlockHeader subtitle={subtitle}>
           {title}
         </SettingBlockHeader>
-        {description && <SettingBlockDescription>{description}</SettingBlockDescription>}
+
+        {description &&
+          <SettingBlockDescription>
+            {description}
+          </SettingBlockDescription>
+        }
       </SettingBlockButtonDescription>
+
       <MoreLink
-        caps
-        hideIcon
-        isNested
         size="small"
         style={{ textAlign: "right" }}
         onClick={(e) => e.preventDefault()}
+        hideIcon
+        isNested
+        caps
       >
         {actionText}
       </MoreLink>
