@@ -7,7 +7,7 @@ import {
   SettingBlockButtonWrapper,
   SettingBlockWrapper,
   SettingBlockHeader,
-} from "../settingBlock/";
+} from "../settingBlock";
 import CheckboxComponent from "../checkbox/checkboxComponent";
 
 const SettingBlockCheckbox = ({
@@ -17,17 +17,37 @@ const SettingBlockCheckbox = ({
   title,
   hasBorder,
   subtitle,
+  name,
+  type,
   onClick,
 }) => (
   <SettingBlockButtonWrapper onClick={onClick}>
-    <SettingBlockWrapper error={error} hasAction hasBorder={hasBorder}>
+    <SettingBlockWrapper
+      error={error}
+      hasAction
+      hasBorder={hasBorder}
+    >
       <SettingBlockButtonDescription>
         <SettingBlockHeader subtitle={subtitle}>
           {title}
         </SettingBlockHeader>
-        {description && <SettingBlockDescription>{description}</SettingBlockDescription>}
+
+        {description &&
+          <SettingBlockDescription>
+            {description}
+          </SettingBlockDescription>
+        }
       </SettingBlockButtonDescription>
-      <CheckboxComponent onClick={(e) => e.stopPropagation()} id={`setting_${title}`} checked={checked} size={24} rounded />
+
+      <CheckboxComponent
+        onClick={(e) => e.stopPropagation()}
+        id={`setting_${title.toLowerCase()}`}
+        name={name}
+        checked={checked}
+        size={24}
+        type={type}
+        rounded
+      />
     </SettingBlockWrapper>
   </SettingBlockButtonWrapper>
 );
@@ -39,7 +59,21 @@ SettingBlockCheckbox.propTypes = {
   title: PropTypes.string,
   hasBorder: PropTypes.bool,
   subtitle: PropTypes.string,
+  name: PropTypes.string,
+  type: PropTypes.oneOf(["checkbox", "radio"]),
   onClick: PropTypes.func,
+};
+
+SettingBlockCheckbox.defaultProps = {
+  description: null,
+  checked: false,
+  error: false,
+  title: null,
+  hasBorder: false,
+  subtitle: null,
+  name: null,
+  type: "checkbox",
+  onClick: null,
 };
 
 export default radium(SettingBlockCheckbox);

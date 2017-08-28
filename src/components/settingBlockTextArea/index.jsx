@@ -4,7 +4,6 @@ import SettingBlock from "../settingBlock";
 import TextArea from "../form/textarea";
 import HeightExpander from "../form/heightExpander";
 
-
 const SettingBlockTextArea = (props) => {
   const { onChange } = props;
 
@@ -13,6 +12,7 @@ const SettingBlockTextArea = (props) => {
       error={props.error}
       title={props.title}
       subtitle={props.subtitle}
+      htmlFor={props.id}
     >
       <HeightExpander idToFind={props.id} baseHeight="0px">
         {(expandHeight, newHeight) => (

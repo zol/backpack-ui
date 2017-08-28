@@ -1,21 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import color from "../../styles/colors";
+import colors from "../../styles/colors";
 import propTypes from "../../utils/propTypes";
 
 const styles = {
   hasBorder: {
-    borderBottom: "1px solid",
-    borderBottomColor: color.borderPrimary,
+    borderBottomColor: colors.borderPrimary,
+    borderBottomStyle: "solid",
+    borderBottomWidth: "1px",
   },
+
   hasAction: {
-    display: "flex",
     alignItems: "center",
+    display: "flex",
     justifyContent: "space-between",
   },
+
   error: {
-    borderBottomColor: color.accentRed,
+    borderBottomColor: colors.accentRed,
   },
 };
 
