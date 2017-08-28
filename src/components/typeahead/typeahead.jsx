@@ -657,7 +657,7 @@ class Typeahead extends Component {
           name={inputName}
           disabled={disabled}
           placeholder={placeholder}
-          value={this.state.entryValue}
+          value={this.state.entryValue || this.props.value}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           onKeyPress={onKeyPress}
