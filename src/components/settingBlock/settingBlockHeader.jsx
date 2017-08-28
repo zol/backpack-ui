@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
-import color from "../../styles/colors";
+import colors from "../../styles/colors";
 import * as typography from "../../styles/typography";
 
 const styles = {
@@ -12,12 +12,12 @@ const styles = {
     lineHeight: typography.lineHeightReset,
     paddingTop: "16px",
   },
+
   subtitle: {
-    color: color.textSecondary,
+    color: colors.textSecondary,
+    fontSize: typography.fontSizeUppercase,
     fontWeight: typography.fontWeightLight,
     marginTop: "4px",
-    fontSize: typography.fontSizeUppercase,
-    lineHeight: 1,
   },
 };
 
@@ -27,7 +27,11 @@ const SettingBlockHeader = ({ children, htmlFor, subtitle }) => (
       {children}
     </label>
 
-    { subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+    {subtitle &&
+      <p style={styles.subtitle}>
+        {subtitle}
+      </p>
+    }
   </div>
 );
 
