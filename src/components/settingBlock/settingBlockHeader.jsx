@@ -5,10 +5,12 @@ import color from "../../styles/colors";
 import * as typography from "../../styles/typography";
 
 const styles = {
-  title: {
-    paddingTop: "16px",
+  label: {
     display: "block",
-    lineHeight: 1,
+    fontSize: `${typography.fontSizeHeading7}px`,
+    fontWeight: typography.fontWeightMedium,
+    lineHeight: typography.lineHeightReset,
+    paddingTop: "16px",
   },
   subtitle: {
     color: color.textSecondary,
@@ -21,7 +23,7 @@ const styles = {
 
 const SettingBlockHeader = ({ children, htmlFor, subtitle }) => (
   <div className="SettingBlockHeader">
-    <label htmlFor={htmlFor} style={styles.title}>
+    <label htmlFor={htmlFor} style={styles.label}>
       {children}
     </label>
 
