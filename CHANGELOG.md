@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.34.0"></a>
+# [4.34.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.33.1...v4.34.0) (2017-08-29)
+
+
+### Bug Fixes
+
+* Add `cursor: pointer` to modal action styles ([#458](https://github.com/lonelyplanet/backpack-ui/issues/458)) ([08ac440](https://github.com/lonelyplanet/backpack-ui/commit/08ac440))
+* Clean up SettingBlockAccordion ([f0d9623](https://github.com/lonelyplanet/backpack-ui/commit/f0d9623))
+* Clean up SettingBlockAction ([96b38a1](https://github.com/lonelyplanet/backpack-ui/commit/96b38a1))
+* Clean up SettingBlockSection ([e3f613c](https://github.com/lonelyplanet/backpack-ui/commit/e3f613c))
+* Clean up SettingBlockWrapper ([bb0f19a](https://github.com/lonelyplanet/backpack-ui/commit/bb0f19a))
+* Pass htmlFor prop into Header from SettingBlockInput ([abaea9c](https://github.com/lonelyplanet/backpack-ui/commit/abaea9c))
+* Pass htmlFor prop into Header from SettingBlockTextarea ([6b6afa3](https://github.com/lonelyplanet/backpack-ui/commit/6b6afa3))
+* Rename base to container in SettingBLockListItemWrapper ([7a17063](https://github.com/lonelyplanet/backpack-ui/commit/7a17063))
+* Update styles for label in SettingBlockHeader ([861f1b0](https://github.com/lonelyplanet/backpack-ui/commit/861f1b0))
+* Update subtitle in SettingBlockHeader ([b323bbe](https://github.com/lonelyplanet/backpack-ui/commit/b323bbe))
+* Use label instead of heading in SettingBlockHeader ([453b3b1](https://github.com/lonelyplanet/backpack-ui/commit/453b3b1))
+
+
+### Features
+
+* Add htmlFor prop to SettingBlockHeader ([708fd57](https://github.com/lonelyplanet/backpack-ui/commit/708fd57))
+* Add htmlFor, style props to SettingBlock ([6463506](https://github.com/lonelyplanet/backpack-ui/commit/6463506))
+* Add name, type props to SettingBlockCheckbox ([9985149](https://github.com/lonelyplanet/backpack-ui/commit/9985149))
+* Add radium, style prop to SettingBlockButtonDescription ([6ffe545](https://github.com/lonelyplanet/backpack-ui/commit/6ffe545))
+* add shareSettings wrapper component ([#461](https://github.com/lonelyplanet/backpack-ui/issues/461)) ([0ea822c](https://github.com/lonelyplanet/backpack-ui/commit/0ea822c))
+* Add style prop to SettingBlockDescription ([6295a9c](https://github.com/lonelyplanet/backpack-ui/commit/6295a9c))
+* Add type prop to checkbox component; allows radio button ([#459](https://github.com/lonelyplanet/backpack-ui/issues/459)) ([1ebf44f](https://github.com/lonelyplanet/backpack-ui/commit/1ebf44f))
+
+
+
 <a name="4.33.1"></a>
 ## [4.33.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.33.0...v4.33.1) (2017-08-25)
 
