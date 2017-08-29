@@ -172,6 +172,7 @@ import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import VideoEmbed from "../src/components/videoEmbed";
+import VideoPlaylist from "../src/components/videoPlaylist";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
 storiesOf("Styles", module)
@@ -2489,16 +2490,18 @@ storiesOf("Text bubble", module)
 storiesOf("Thumbnail list item", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <ThumbnailListItem
-      title={text("Title", "The shop")}
-      runtime={number("Video runtime", 129365)}
-      imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
-      description={array("Description", ["Item 1", "Item 2"])}
-      descriptionIcon={text("Icon name", "Clock")}
-      descriptionIconLabel={text("Icon name", "Watch later")}
-      onDescriptionIconClick={action("Action for icon")}
-      theme={select("Theme", ["light", "dark"], "light")}
-    />
+    <StyleRoot>
+      <ThumbnailListItem
+        title={text("Title", "The shop")}
+        runtime={number("Video runtime", 129365)}
+        imagePath={text("Image path", "https://lonelyplanetstatic.imgix.net/copilot%2Fimages%2FYXJ0YW5kY3VsdHVyZS5qcGdTYXQgRGVjIDE3IDIwMTYgMjE6MDA6MDUgR01UKzAwMDAgKFVUQyk%3D.jpg?q=60&sharp=10&fit=crop&w=180")}
+        description={array("Description", ["Item 1", "Item 2"])}
+        descriptionIcon={text("Icon name", "Clock")}
+        descriptionIconLabel={text("Icon name", "Watch later")}
+        onDescriptionIconClick={action("Action for icon")}
+        theme={select("Theme", ["light", "dark"], "light")}
+      />
+    </StyleRoot>
   ));
 
 storiesOf("Tiles", module)
@@ -2776,6 +2779,33 @@ storiesOf("Video embed", module)
       <VideoEmbed
         videoId={select("Video ID", ["5363317250001", "5184494924001"], "5363317250001")}
         autoplay={boolean("Autoplay", false)}
+      />
+    </StyleRoot>
+  ));
+
+storiesOf("Video playlist", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <VideoPlaylist
+        videos={
+          [
+            {
+              id: "5502921139001",
+              name: "Back to my roots: Northern Ireland",
+              image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5502921139001-brightcove-back-to-my-roots-northern-ireland-20170719-060256.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
+              duration: 170212,
+            },
+            {
+              id: "5426210266001",
+              name: "Discover Thailand: hiking in Si Phang Nga National Park",
+              image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5426210266001-brightcove-discover-thailand-hiking-in-si-phang-nga-national-park-20170516-061832.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
+              duration: 144061,
+            },
+          ]
+        }
+        visibleVideos={number("Visible videos", 2)}
+        theme={select("Theme", ["light", "dark"], "light")}
       />
     </StyleRoot>
   ));

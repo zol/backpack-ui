@@ -7,9 +7,16 @@ import ThumbnailListItem from "../thumbnailListItem";
 
 const styles = {
   container: {
-    display: "flex",
-    backgroundColor: "#1b1b1b",
-    position: "relative",
+    default: {
+      display: "flex",
+      position: "relative",
+    },
+    light: {
+      backgroundColor: "white",
+    },
+    dark: {
+      backgroundColor: "#1b1b1b",
+    }
   },
 
   embedContainer: {
@@ -26,20 +33,27 @@ const styles = {
   },
 
   playlistContainer: {
-    height: "100%",
-    overflowY: "auto",
-    marginLeft: "0px",
-    width: "370px",
-    position: "absolute",
-    right: 0,
-    top: 0,
-    border: "1px solid #2b2b2b",
+    default: {
+      height: "100%",
+      overflowY: "auto",
+      marginLeft: "0px",
+      width: "370px",
+      position: "absolute",
+      right: 0,
+      top: 0,
 
-    [`@media (max-width: 758px`]: {
-      width: "300px",
+      [`@media (max-width: ${media.max["840"]}`]: {
+        width: "300px",
+      },
+      [`@media (max-width: ${media.max["720"]}`]: {
+        width: "0px",
+      },
     },
-    [`@media (max-width: 758px`]: {
-      width: "0px",
+    light: {
+      borderLeft: "1px solid #f4f4f4",
+    },
+    dark: {
+      borderLeft: "1px solid #2b2b2b",
     },
   },
 
@@ -50,18 +64,32 @@ const styles = {
       paddingTop: "6px",
       paddingBottom: "6px",
       paddingLeft: "6px",
+    },
+    light: {
+      ":hover": {
+        backgroundColor: "#f3f3f3"
+      },
+    },
+    dark: {
       ":hover": {
         backgroundColor: "#222222"
       },
     },
     active: {
-      backgroundColor: "#272727",
-      ":hover": {
-        backgroundColor: "#272727"
-      }
+      light: {
+        backgroundColor: "#eaeaea",
+        ":hover": {
+          backgroundColor: "#eaeaea",
+        },
+      },
+      dark: {
+        backgroundColor: "#272727",
+        ":hover": {
+          backgroundColor: "#272727"
+        },
+      },
     },
   },
-
 };
 
 class VideoPlaylist extends Component {
@@ -69,9 +97,8 @@ class VideoPlaylist extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      video: props.video,
-    };
+    const { video, videos } = props;
+    this.state = { video: !video && videos && videos.length ? videos[0] : video };
 
     this.onEnded = this.onEnded.bind(this);
   }
@@ -106,14 +133,18 @@ class VideoPlaylist extends Component {
   }
 
   render () {
-    const { videos, visibleVideos, theme, videoEmbed } = this.props;
+    const { videos, visibleVideos, theme, videoEmbed, style } = this.props;
     const { video } = this.state;
 
     const nextVideo = this.getNextVideo();
 
     return (
-        <div className="VideoPlaylist" style={styles.container}>
-          {video && videos && videos.length > 0 &&
+        <div className="VideoPlaylist" style={[
+          styles.container.default,
+          styles.container[theme],
+          style,
+        ]}>
+        {video && videos && videos.length > 0 &&
           <div style={styles.embedContainer}>
             {video &&
               <VideoEmbed
@@ -122,10 +153,15 @@ class VideoPlaylist extends Component {
                 onEnded={this.onEnded}
               />
             }
-            <div style={styles.playlistContainer}>
+            <div style={[
+              styles.playlistContainer.default,
+              styles.playlistContainer[theme],
+            ]}>
               {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
                 <ThumbnailListItem
+                  key={v.id}
                   title={v.name}
+                  href=""
                   onClick={() => this.loadVideo(videos[i])}
                   runtime={v.duration}
                   imagePath={v.image}
@@ -133,7 +169,8 @@ class VideoPlaylist extends Component {
                   theme={theme}
                   style={[
                     styles.thumbnailListItem.default,
-                    video && video.id === v.id ? styles.thumbnailListItem.active : {},
+                    styles.thumbnailListItem[theme],
+                    video && video.id === v.id ? styles.thumbnailListItem.active[theme] : {},
                   ]}
                 />
               ))}
@@ -156,8 +193,18 @@ VideoPlaylist.propTypes = {
   video: PropTypes.shape(videoShape),
   videos: PropTypes.arrayOf(PropTypes.shape(videoShape)),
   visibleVideos: PropTypes.number,
-  videoEmbed: PropTypes.shape(VideoEmbed.propTypes),
+  videoEmbed: PropTypes.shape({
+    ...VideoEmbed.propTypes,
+    videoId: PropTypes.string,
+  }),
   theme: PropTypes.oneOf(["light", "dark"]),
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
   onVideoWillChange: PropTypes.func,
 };
 

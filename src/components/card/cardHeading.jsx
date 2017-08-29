@@ -40,12 +40,12 @@ const CardHeading = ({ children, theme, spacing, style }) => (
   <Heading
     level={3}
     weight={spacing === "compact" ? "normal" : "thin"}
-    override={[
-      styles.default,
-      theme === "dark" && styles.dark,
-      spacing === "compact" && styles.compact,
-      style
-    ]}
+    override={{
+      ...styles.default,
+      ...(theme === "dark" ? styles.dark: {}),
+      ...(spacing === "compact" ? styles.compact: {}),
+      ...style
+    }}
   >
     {children}
   </Heading>

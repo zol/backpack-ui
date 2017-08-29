@@ -182,11 +182,11 @@ const ThumbnailListItem = ({
           <Heading
             level={5}
             weight="thin"
-            override={[
-              styles.title,
-              (theme === "dark") && { color: color.white },
-              (description && description.filter(x => x).length) && { display: "-webkit-box"},
-            ]}
+            override={{
+              ...styles.title,
+              ...(theme === "dark" ? { color: color.white } : {}),
+              ...((description && description.filter(x => x).length) ? { display: "-webkit-box"} : {}),
+            }}
           >
             {title}
           </Heading>
