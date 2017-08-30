@@ -42,10 +42,10 @@ const styles = {
       right: 0,
       top: 0,
 
-      [`@media (max-width: ${media.max["840"]}`]: {
+      [`@media (max-width: ${media.max["840"]})`]: {
         width: "300px",
       },
-      [`@media (max-width: ${media.max["720"]}`]: {
+      [`@media (max-width: ${media.max["720"]})`]: {
         width: "0px",
       },
     },
