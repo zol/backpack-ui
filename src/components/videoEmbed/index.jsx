@@ -17,7 +17,10 @@ const _ = { get, uniqueId };
 // 3. Storybook
 
 const icons = {
-  theaterMode: '<svg style="width:68px;height:38px;position:relative;top:8px;left:0px;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32"><image id="Vector_Smart_Object" data-name="Vector Smart Object" width="12" height="12"             xlink:href="data:img/png;base64,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"/></svg>',
+
+  theaterMode: '<svg style="width:66px;height:38px;position:relative;top:8px;left:0px;" viewBox="0 0 32 32"><image width="12" height="12"  xlink:href="data:img/png;base64,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"/></svg>',
+
+  watchLater: '<svg style="width:14px;position:relative;top:1px;left:0px;fill:white;" viewBox="0 0 32 32"><path d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16c8.8 0 16-7.2 16-16s-7.2-16-16-16zM16 27.7c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7c0 6.5-5.2 11.7-11.7 11.7z" /><path d="M17.1 7.5h-2.2v9l5.5 5.5 1.6-1.6-4.9-4.9z" /></svg>',
 };
 
 const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.45)";
@@ -213,28 +216,48 @@ class VideoEmbed extends Component {
     this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
 
-    this.createTheaterModeButton();
+    this.createPlayerButton("watchLater", "Watch Later", this.props.onClickWatchLater);
+    this.createPlayerButton("theaterMode", "Theater Mode", this.props.onClickTheaterMode);
   }
 
-  createTheaterModeButton() {
-    if (!this.props.onClickTheaterMode) {
+  createPlayerButton(iconName, title, onClick) {
+    if (!this.player || !onClick) {
       return;
     }
 
-    var buttonClass = videojs.getComponent("Button");
-    var theaterModeButtonClass = videojs.extend(buttonClass, {
-      handleClick: this.props.onClickTheaterMode,
+    const buttonClass = videojs.getComponent("Button");
+    const newButtonClass = videojs.extend(buttonClass, {
+      handleClick: onClick,
     });
 
-    this.theaterModeButton = new theaterModeButtonClass();
-    // this.theaterModeButton = this.player.controlBar.el().insertBefore((new theaterModeButtonClass()).el(), fullscreenButton);
-    this.theaterModeButton.addClass("vjs-button");
-    this.theaterModeButton.el().setAttribute("title", "Theater Mode");
-    this.theaterModeButton.el().innerHTML = icons.theaterMode;
+    const newButton = new newButtonClass();
+    newButton.addClass("vjs-button");
+    newButton.el().setAttribute("title", title);
+    newButton.el().innerHTML = icons[iconName];
 
     const fullscreenButton = this.player.controlBar.el().getElementsByClassName("vjs-fullscreen-control")[0];
-    this.player.controlBar.el().insertBefore(this.theaterModeButton.el(), fullscreenButton);
+    this.player.controlBar.el().insertBefore(newButton.el(), fullscreenButton);
   }
+
+  // createTheaterModeButton() {
+  //   if (!this.props.onClickTheaterMode) {
+  //     return;
+  //   }
+  //
+  //   var buttonClass = videojs.getComponent("Button");
+  //   var theaterModeButtonClass = videojs.extend(buttonClass, {
+  //     handleClick: this.props.onClickTheaterMode,
+  //   });
+  //
+  //   this.theaterModeButton = new theaterModeButtonClass();
+  //   // this.theaterModeButton = this.player.controlBar.el().insertBefore((new theaterModeButtonClass()).el(), fullscreenButton);
+  //   this.theaterModeButton.addClass("vjs-button");
+  //   this.theaterModeButton.el().setAttribute("title", "Theater Mode");
+  //   this.theaterModeButton.el().innerHTML = icons.theaterMode;
+  //
+  //   const fullscreenButton = this.player.controlBar.el().getElementsByClassName("vjs-fullscreen-control")[0];
+  //   this.player.controlBar.el().insertBefore(this.theaterModeButton.el(), fullscreenButton);
+  // }
 
   onPlayerReady() {
     // We load our video as soon as the player is instantiated and ready
@@ -560,6 +583,7 @@ VideoEmbed.propTypes = {
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
   onClickTheaterMode: PropTypes.func,
+  onClickWatchLater: PropTypes.func,
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
