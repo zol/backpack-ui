@@ -2778,6 +2778,7 @@ storiesOf("Video embed", module)
     <StyleRoot>
       <VideoEmbed
         videoId={select("Video ID", ["5363317250001", "5184494924001"], "5363317250001")}
+        onClickTheaterMode={() => alert("clicked theater mode")}
         autoplay={boolean("Autoplay", false)}
       />
     </StyleRoot>

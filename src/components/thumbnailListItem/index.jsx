@@ -14,14 +14,29 @@ import Icon from "../icon";
 import CoverPhoto from "../coverPhoto";
 
 const hoverStyles = {
-  ".CoverPhoto": {
-    transform: "scale(1.03) !important",
+  default: {
+    ".CoverPhoto": {
+      transform: "scale(1.03) !important",
+    },
+  },
+  light: {
+    ".Heading": {
+      color: `${color.blue} !important`,
+    },
   },
 };
 
 const styles = {
   container: {
-    display: "flex",
+    default: {
+      display: "flex",
+    },
+    dark: {
+      transition: `background-color ${timing.default} ease`,
+      ":hover": {
+        backgroundColor: "#2b2b2b",
+      },
+    },
   },
 
   image: {
@@ -59,16 +74,22 @@ const styles = {
   },
 
   title: {
-    fontSize: "16px",
-    lineHeight: (19 / 16),
-    marginTop: "4px",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    WebkitBoxOrient: "vertical",
-    WebkitLineClamp: 1,
+    default: {
+      fontSize: "16px",
+      lineHeight: (19 / 16),
+      marginTop: "4px",
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+      WebkitBoxOrient: "vertical",
+      WebkitLineClamp: 1,
+      transition: `color ${timing.default} ease`,
 
-    [`@media (max-width: ${media.max["840"]})`]: {
-      fontSize: "14px",
+      [`@media (max-width: ${media.max["840"]})`]: {
+        fontSize: "14px",
+      }
+    },
+    dark: {
+      color: color.white,
     }
   },
 
@@ -131,14 +152,17 @@ const ThumbnailListItem = ({
   <div
     className="ListItem-thumbnail"
     style={[
-      styles.container,
-      theme === "dark" && { backgroundColor: "transparent" },
+      styles.container.default,
+      styles.container[theme],
       style,
     ]}
   >
     <Style
       scopeSelector=".ListItem-thumbnail:hover"
-      rules={hoverStyles}
+      rules={{
+        ...hoverStyles.default,
+        ...hoverStyles[theme],
+      }}
     />
 
     <div style={styles.image}>
@@ -183,8 +207,8 @@ const ThumbnailListItem = ({
             level={5}
             weight="thin"
             override={{
-              ...styles.title,
-              ...(theme === "dark" ? { color: color.white } : {}),
+              ...styles.title.default,
+              ...styles.title[theme],
               ...((description && description.filter(x => x).length) ? { display: "-webkit-box"} : {}),
             }}
           >

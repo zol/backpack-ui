@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import media from "../../styles/mq";
+import timing from "../../styles/timing";
 import VideoEmbed from "../videoEmbed";
 import ThumbnailListItem from "../thumbnailListItem";
 
@@ -20,14 +21,20 @@ const styles = {
   },
 
   embedContainer: {
-    marginRight: "370px",
-    width: "100%",
-    backgroundColor: "black",
+    default: {
+      marginRight: "370px",
+      width: "100%",
+      backgroundColor: "black",
+      transition: `margin-right ${timing.default} ease`,
 
-    [`@media (max-width: ${media.max["840"]})`]: {
-      marginRight: "300px",
+      [`@media (max-width: ${media.max["840"]})`]: {
+        marginRight: "300px",
+      },
+      [`@media (max-width: ${media.max["720"]})`]: {
+        marginRight: "0px",
+      },
     },
-    [`@media (max-width: ${media.max["720"]})`]: {
+    theaterMode: {
       marginRight: "0px",
     },
   },
@@ -41,6 +48,7 @@ const styles = {
       position: "absolute",
       right: 0,
       top: 0,
+      transition: `width ${timing.default} ease`,
 
       [`@media (max-width: ${media.max["840"]})`]: {
         width: "300px",
@@ -55,40 +63,16 @@ const styles = {
     dark: {
       borderLeft: "1px solid #2b2b2b",
     },
+    theaterMode: {
+      width: "0px",
+    },
   },
 
   thumbnailListItem: {
-    default: {
-      cursor: "pointer",
-      transition: "background-color 500ms ease",
-      paddingTop: "6px",
-      paddingBottom: "6px",
-      paddingLeft: "6px",
-    },
-    light: {
-      ":hover": {
-        backgroundColor: "#f3f3f3"
-      },
-    },
-    dark: {
-      ":hover": {
-        backgroundColor: "#222222"
-      },
-    },
-    active: {
-      light: {
-        backgroundColor: "#eaeaea",
-        ":hover": {
-          backgroundColor: "#eaeaea",
-        },
-      },
-      dark: {
-        backgroundColor: "#272727",
-        ":hover": {
-          backgroundColor: "#272727"
-        },
-      },
-    },
+    cursor: "pointer",
+    paddingTop: "6px",
+    paddingBottom: "6px",
+    paddingLeft: "6px",
   },
 };
 
@@ -98,9 +82,13 @@ class VideoPlaylist extends Component {
     super(props);
 
     const { video, videos } = props;
-    this.state = { video: !video && videos && videos.length ? videos[0] : video };
+    this.state = {
+      theaterMode: false,
+      video: !video && videos && videos.length ? videos[0] : video,
+    };
 
     this.onEnded = this.onEnded.bind(this);
+    this.onClickTheaterMode = this.onClickTheaterMode.bind(this);
   }
 
   getNextVideo() {
@@ -124,6 +112,15 @@ class VideoPlaylist extends Component {
     this.loadVideo(this.getNextVideo());
   }
 
+  onClickTheaterMode() {
+    const { videoEmbed } = this.props;
+    if (videoEmbed && videoEmbed.onClickTheaterMode) {
+      videoEmbed.onClickTheaterMode();
+    }
+
+    this.setState({ theaterMode: !this.state.theaterMode });
+  }
+
   loadVideo(newVideo) {
     if (this.props.onVideoWillChange) {
       this.props.onVideoWillChange(newVideo);
@@ -134,7 +131,7 @@ class VideoPlaylist extends Component {
 
   render () {
     const { videos, visibleVideos, theme, videoEmbed, style } = this.props;
-    const { video } = this.state;
+    const { video, theaterMode } = this.state;
 
     const nextVideo = this.getNextVideo();
 
@@ -145,17 +142,22 @@ class VideoPlaylist extends Component {
           style,
         ]}>
         {video && videos && videos.length > 0 &&
-          <div style={styles.embedContainer}>
+          <div style={[
+            styles.embedContainer.default,
+            theaterMode ? styles.embedContainer.theaterMode : {},
+          ]}>
             {video &&
               <VideoEmbed
                 videoId={video.id}
                 {...videoEmbed}
                 onEnded={this.onEnded}
+                onClickTheaterMode={this.onClickTheaterMode}
               />
             }
             <div style={[
               styles.playlistContainer.default,
               styles.playlistContainer[theme],
+              theaterMode ? styles.playlistContainer.theaterMode : {},
             ]}>
               {videos.slice(0, visibleVideos || videos.length).map((v, i) => (
                 <ThumbnailListItem
@@ -167,11 +169,7 @@ class VideoPlaylist extends Component {
                   imagePath={v.image}
                   description={[video && v.id === video.id ? "Now playing" : nextVideo && v.id === nextVideo.id ? "Up next" : null]}
                   theme={theme}
-                  style={[
-                    styles.thumbnailListItem.default,
-                    styles.thumbnailListItem[theme],
-                    video && video.id === v.id ? styles.thumbnailListItem.active[theme] : {},
-                  ]}
+                  style={styles.thumbnailListItem}
                 />
               ))}
             </div>
