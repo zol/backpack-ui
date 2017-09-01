@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.35.0"></a>
+# [4.35.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.34.0...v4.35.0) (2017-09-01)
+
+
+### Bug Fixes
+
+* Only check visibility in ListItemBookmark ([#462](https://github.com/lonelyplanet/backpack-ui/issues/462)) ([5a89bcd](https://github.com/lonelyplanet/backpack-ui/commit/5a89bcd))
+* Update checkbox styles, icon ([#463](https://github.com/lonelyplanet/backpack-ui/issues/463)) ([05c2cf5](https://github.com/lonelyplanet/backpack-ui/commit/05c2cf5))
+
+
+### Features
+
+* Add props to disable left, right actions in Modal ([#464](https://github.com/lonelyplanet/backpack-ui/issues/464)) ([57fea16](https://github.com/lonelyplanet/backpack-ui/commit/57fea16))
+
+
+
 <a name="4.34.0"></a>
 # [4.34.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.33.1...v4.34.0) (2017-08-29)
 
