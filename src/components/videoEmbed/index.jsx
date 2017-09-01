@@ -239,26 +239,6 @@ class VideoEmbed extends Component {
     this.player.controlBar.el().insertBefore(newButton.el(), fullscreenButton);
   }
 
-  // createTheaterModeButton() {
-  //   if (!this.props.onClickTheaterMode) {
-  //     return;
-  //   }
-  //
-  //   var buttonClass = videojs.getComponent("Button");
-  //   var theaterModeButtonClass = videojs.extend(buttonClass, {
-  //     handleClick: this.props.onClickTheaterMode,
-  //   });
-  //
-  //   this.theaterModeButton = new theaterModeButtonClass();
-  //   // this.theaterModeButton = this.player.controlBar.el().insertBefore((new theaterModeButtonClass()).el(), fullscreenButton);
-  //   this.theaterModeButton.addClass("vjs-button");
-  //   this.theaterModeButton.el().setAttribute("title", "Theater Mode");
-  //   this.theaterModeButton.el().innerHTML = icons.theaterMode;
-  //
-  //   const fullscreenButton = this.player.controlBar.el().getElementsByClassName("vjs-fullscreen-control")[0];
-  //   this.player.controlBar.el().insertBefore(this.theaterModeButton.el(), fullscreenButton);
-  // }
-
   onPlayerReady() {
     // We load our video as soon as the player is instantiated and ready
     this.loadVideo(this.props.videoId);
@@ -294,11 +274,18 @@ class VideoEmbed extends Component {
     // the onAdEnded() handler will not be run.  This makes sure we load the new video.
     this.loadVideo(this.props.videoId);
 
+    if (this.props.onStarted) {
+      this.props.onStarted();
+    }
   }
 
   onAdStarted() {
     this.enableAdOverlay();
     this.setState({ nextVideoEnabled: false });
+
+    if (this.props.onStarted) {
+      this.props.onStarted();
+    }
   }
 
   onAdEnded() {
@@ -579,7 +566,9 @@ VideoEmbed.propTypes = {
     image: PropTypes.string.isRequired,
     href: PropTypes.string,
   }),
+  hideNextVideoOnCueChange: PropTypes.bool,
   autoplay: PropTypes.bool,
+  onStarted: PropTypes.func,
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
   onClickTheaterMode: PropTypes.func,
@@ -587,6 +576,10 @@ VideoEmbed.propTypes = {
   override: PropTypes.oneOfType([
     PropTypes.object,
   ]),
+};
+
+VideoEmbed.defaultProps = {
+  hideNextVideoOnCueChange: true,
 };
 
 export default radium(VideoEmbed);

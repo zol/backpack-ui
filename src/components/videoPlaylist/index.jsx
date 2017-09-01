@@ -5,6 +5,7 @@ import media from "../../styles/mq";
 import timing from "../../styles/timing";
 import VideoEmbed from "../videoEmbed";
 import ThumbnailListItem from "../thumbnailListItem";
+import VideoPip from "../videoPip";
 
 const styles = {
   container: {
@@ -147,11 +148,13 @@ class VideoPlaylist extends Component {
             theaterMode ? styles.embedContainer.theaterMode : {},
           ]}>
             {video &&
-              <VideoEmbed
-                videoId={video.id}
-                {...videoEmbed}
-                onEnded={this.onEnded}
-                onClickTheaterMode={this.onClickTheaterMode}
+              <VideoPip
+                videoEmbed={{
+                  videoId: video.id,
+                  ...videoEmbed,
+                  onEnded: this.onEnded,
+                  onClickTheaterMode: this.onClickTheaterMode,
+                }}
               />
             }
             <div style={[
