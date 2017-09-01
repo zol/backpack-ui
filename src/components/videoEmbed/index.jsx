@@ -96,6 +96,9 @@ const styles = {
 };
 
 const scopedStyles = {
+  ".video-js": {
+    overflow: "visible",
+  },
   ".vjs-button:hover": {
     textShadow: "none !important",
     backgroundImage: "radial-gradient(circle at center, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0) 70%)",
@@ -173,11 +176,13 @@ class VideoEmbed extends Component {
     this.playerId = "default";
     this.embedId = "default";
 
+    this.container = null;
     this.player = null;
 
     this.state = {
       hover: false,
       nextVideoEnabled: false,
+      showNextVideo: false,
     };
 
     this.onMouseEnter = this.onMouseEnter.bind(this);
@@ -338,11 +343,14 @@ class VideoEmbed extends Component {
   }
 
   onMouseEnter() {
-    this.setState({ hover: true });
+    this.setState({
+      hover: true,
+      showNextVideo: this.state.nextVideoEnabled && this.container.clientWidth >= 450,
+    });
   }
 
   onMouseLeave() {
-    this.setState({ hover: false });
+    this.setState({ hover: false, showNextVideo: false });
   }
 
   getCues() {
@@ -502,11 +510,12 @@ class VideoEmbed extends Component {
 
   render() {
     const { override, nextVideo } = this.props;
-    const { hover, nextVideoEnabled } = this.state;
+    const { showNextVideo } = this.state;
 
     return (
       <div
         className="VideoEmbed"
+        ref={(container) => { this.container = container; }}
         style={[styles.container, override]}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
@@ -535,8 +544,8 @@ class VideoEmbed extends Component {
             className="VideoEmbed-nextvideo"
             style={{
               ...styles.nextVideoLink,
-              opacity: hover ? 1 : 0,
-              display: nextVideoEnabled ? "block" : "none",
+              opacity: showNextVideo ? 1 : 0,
+              // display: showNextVideo ? "block" : "none",
             }}
             >
             <div style={styles.nextVideoImageContainer}>

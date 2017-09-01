@@ -13,11 +13,13 @@ import VideoEmbed from "../videoEmbed";
 
 const styles = {
   outerContainer: {
-    height: "fit-content",
+    width: "100%",
+    height: "100%",
     position: "relative",
     top: "0px",
     left: "0px",
     paddingBottom: `${(9 / 16) * 100}%`,
+    backgroundColor: colors.black,
   },
 
   innerContainer: {
@@ -142,14 +144,14 @@ class VideoPip extends Component {
   }
 
   render() {
-    const { videoEmbed } = this.props;
+    const { videoEmbed, style } = this.props;
     const { enabled, outOfView, fixedToWindow, poppedOut } = this.state;
 
     return (
       <div
         className="VideoPip"
         ref={(container) => { this.container = container; }}
-        style={styles.outerContainer}
+        style={[styles.outerContainer, style]}
       >
         <div
           style={[
@@ -174,6 +176,13 @@ VideoPip.propTypes = {
     ...VideoEmbed.propTypes,
     videoId: PropTypes.string,
   }),
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.object,
+    ]),
+  ),
 };
 
 VideoPip.defaultProps = {
