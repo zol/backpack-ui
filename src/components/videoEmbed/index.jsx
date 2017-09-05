@@ -23,8 +23,6 @@ const icons = {
   watchLater: '<svg style="width:14px;position:relative;top:1px;left:0px;fill:white;" viewBox="0 0 32 32"><path d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16c8.8 0 16-7.2 16-16s-7.2-16-16-16zM16 27.7c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7c0 6.5-5.2 11.7-11.7 11.7z" /><path d="M17.1 7.5h-2.2v9l5.5 5.5 1.6-1.6-4.9-4.9z" /></svg>',
 };
 
-const videoOverlayBackgroundColor = "rgba(0, 0, 0, 0.45)";
-
 const styles = {
   container: {
     width: "100%",
@@ -52,10 +50,8 @@ const styles = {
     maxWidth: "100%",
     width: "300px",
     textAlign: "left",
-    backgroundColor: videoOverlayBackgroundColor,
-    borderWidth: "1px 0px 1px 1px",
-    borderStyle: "solid",
-    borderColor: videoOverlayBackgroundColor,
+    padding: "6px",
+    backgroundColor: "rgba(43, 43, 43, 0.7)",
     opacity: 0,
     transition: `opacity ${timing.fast} linear`,
     position: "absolute",
@@ -82,7 +78,6 @@ const styles = {
     color: colors.accentGray,
     fontSize: "11px",
     marginTop: "2px",
-    marginRight: "6px",
   },
 
   nextVideoName: {
@@ -91,7 +86,6 @@ const styles = {
     height: "34px",
     overflow: "hidden",
     marginTop: "1px",
-    marginRight: "6px",
   },
 };
 
@@ -127,7 +121,7 @@ const scopedStyles = {
     lineHeight: "21px",
     fontWeight: "normal",
     verticalAlign: "middle",
-    backgroundColor: videoOverlayBackgroundColor,
+    backgroundColor: "rgba(0, 0, 0, 0.55)",
     color: "#e6e6e6",
     fontSize: "11px",
     fontFamily: "arial,sans-serif",
