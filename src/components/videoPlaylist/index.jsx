@@ -166,8 +166,7 @@ class VideoPlaylist extends Component {
                 <ThumbnailListItem
                   key={v.id}
                   title={v.name}
-                  href=""
-                  onClick={() => this.loadVideo(videos[i])}
+                  onClick={video && v.id !== video.id ? () => this.loadVideo(videos[i]) : () => {}}
                   runtime={v.duration}
                   imagePath={v.image}
                   description={[video && v.id === video.id ? "Now playing" : nextVideo && v.id === nextVideo.id ? "Up next" : null]}

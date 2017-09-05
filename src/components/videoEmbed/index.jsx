@@ -345,7 +345,7 @@ class VideoEmbed extends Component {
   onMouseEnter() {
     this.setState({
       hover: true,
-      showNextVideo: this.state.nextVideoEnabled && this.container.clientWidth >= 450,
+      showNextVideo: this.state.nextVideoEnabled && this.container && this.container.clientWidth >= 450,
     });
   }
 
