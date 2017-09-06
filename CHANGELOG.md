@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.36.2"></a>
+## [4.36.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.1...v4.36.2) (2017-09-06)
+
+
+### Bug Fixes
+
+* Use checkbox component for ListItemBookmark ([#469](https://github.com/lonelyplanet/backpack-ui/issues/469)) ([1f6c58e](https://github.com/lonelyplanet/backpack-ui/commit/1f6c58e))
+
+
+
 <a name="4.36.1"></a>
 ## [4.36.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.0...v4.36.1) (2017-09-06)
 
