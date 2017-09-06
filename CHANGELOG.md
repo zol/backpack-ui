@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.36.0"></a>
+# [4.36.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.35.0...v4.36.0) (2017-09-06)
+
+
+### Bug Fixes
+
+* Allow setInnerHTML on ArticlePreview paragraph ([#467](https://github.com/lonelyplanet/backpack-ui/issues/467)) ([13abe74](https://github.com/lonelyplanet/backpack-ui/commit/13abe74))
+* broken links in disclaimer text ([#465](https://github.com/lonelyplanet/backpack-ui/issues/465)) ([3a6bbf5](https://github.com/lonelyplanet/backpack-ui/commit/3a6bbf5))
+
+
+### Features
+
+* Add ModalWrapper component ([#468](https://github.com/lonelyplanet/backpack-ui/issues/468)) ([6d7d619](https://github.com/lonelyplanet/backpack-ui/commit/6d7d619))
+
+
+
 <a name="4.35.0"></a>
 # [4.35.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.34.0...v4.35.0) (2017-09-01)
 
