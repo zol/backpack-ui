@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.36.1"></a>
+## [4.36.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.0...v4.36.1) (2017-09-06)
+
+
+### Bug Fixes
+
+* Use numbers instead of strings for Heading props in ListItemBookmark ([#466](https://github.com/lonelyplanet/backpack-ui/issues/466)) ([956347f](https://github.com/lonelyplanet/backpack-ui/commit/956347f))
+
+
+
 <a name="4.36.0"></a>
 # [4.36.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.35.0...v4.36.0) (2017-09-06)
 
