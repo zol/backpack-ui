@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.37.0"></a>
+# [4.37.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.2...v4.37.0) (2017-09-07)
+
+
+### Bug Fixes
+
+* Refactor MQ styles for ListItemBookmark, add large prop ([#471](https://github.com/lonelyplanet/backpack-ui/issues/471)) ([53bc2a7](https://github.com/lonelyplanet/backpack-ui/commit/53bc2a7))
+
+
+### Features
+
+* Add disableContentPadding, className props to Modal ([#470](https://github.com/lonelyplanet/backpack-ui/issues/470)) ([21a95fd](https://github.com/lonelyplanet/backpack-ui/commit/21a95fd))
+
+
+
 <a name="4.36.2"></a>
 ## [4.36.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.1...v4.36.2) (2017-09-06)
 
