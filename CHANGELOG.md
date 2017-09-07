@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.37.1"></a>
+## [4.37.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.0...v4.37.1) (2017-09-07)
+
+
+### Bug Fixes
+
+* Add id, className props to BookmarkButton ([778a5d3](https://github.com/lonelyplanet/backpack-ui/commit/778a5d3))
+* Add id, className props to BookmarkButtonAlt ([5ea3556](https://github.com/lonelyplanet/backpack-ui/commit/5ea3556))
+* Add id, className props to ListButton ([1cecf16](https://github.com/lonelyplanet/backpack-ui/commit/1cecf16))
+
+
+
 <a name="4.37.0"></a>
 # [4.37.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.36.2...v4.37.0) (2017-09-07)
 
