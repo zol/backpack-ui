@@ -11,17 +11,13 @@ import media from "../../styles/mq";
 
 const _ = { get, uniqueId };
 
-// TODO:
-// 1. where should nextVideo go when lower thirds appear?
-// 2. Verify nothing is wrong with shouldRender when new videoId is passed in.
-// 3. Storybook
-
 const icons = {
-
   theaterMode: '<svg style="width:66px;height:38px;position:relative;top:8px;left:0px;" viewBox="0 0 32 32"><image width="12" height="12"  xlink:href="data:img/png;base64,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"/></svg>',
 
   watchLater: '<svg style="width:14px;position:relative;top:1px;left:0px;fill:white;" viewBox="0 0 32 32"><path d="M16 0c-8.8 0-16 7.2-16 16s7.2 16 16 16c8.8 0 16-7.2 16-16s-7.2-16-16-16zM16 27.7c-6.5 0-11.7-5.2-11.7-11.7s5.2-11.7 11.7-11.7 11.7 5.2 11.7 11.7c0 6.5-5.2 11.7-11.7 11.7z" /><path d="M17.1 7.5h-2.2v9l5.5 5.5 1.6-1.6-4.9-4.9z" /></svg>',
 };
+
+const cueDuration = 15;
 
 const styles = {
   container: {
@@ -44,6 +40,8 @@ const styles = {
     position: "absolute",
     top: 0,
     left: 0,
+    bottom: 0,
+    right: 0,
   },
 
   nextVideoLink: {
@@ -170,6 +168,7 @@ class VideoEmbed extends Component {
     this.playerId = "default";
     this.embedId = "default";
 
+    this.cueEndTime = null;
     this.container = null;
     this.player = null;
 
@@ -181,6 +180,7 @@ class VideoEmbed extends Component {
 
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
+    this.onPlayerCueEnd = this.onPlayerCueEnd.bind(this);
   }
 
   componentDidMount() {
@@ -211,6 +211,7 @@ class VideoEmbed extends Component {
     this.player.on("loadstart", this.onPlayerLoadStart.bind(this));
     this.player.on("error", this.onPlayerError.bind(this));
     this.player.on("playing", this.onPlayerPlaying.bind(this));
+    this.player.on("timeupdate", this.onPlayerTimeUpdate.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
     this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
@@ -267,7 +268,9 @@ class VideoEmbed extends Component {
     // so we make sure to disable the "ad overlay" when any of these events fire.
     this.disableAdOverlay();
 
-    this.setState({ nextVideoEnabled: true });
+    if (!this.props.hideNextVideoOnCueChange || !this.cueEndTime ) {
+      this.setState({ nextVideoEnabled: true });
+    }
 
     // If videoId was set while an ad was playing, and the user skips the ad,
     // the onAdEnded() handler will not be run.  This makes sure we load the new video.
@@ -275,6 +278,13 @@ class VideoEmbed extends Component {
 
     if (this.props.onStarted) {
       this.props.onStarted();
+    }
+  }
+
+  onPlayerTimeUpdate(e) {
+    if (this.cueEndTime && this.cueEndTime < this.player.currentTime()) {
+      this.cueEndTime = null;
+      this.onPlayerCueEnd();
     }
   }
 
@@ -331,9 +341,19 @@ class VideoEmbed extends Component {
       return;
     }
 
+    this.cueEndTime = this.player.currentTime() + cueDuration;
+
+    if (this.props.hideNextVideoOnCueChange) {
+      this.setState({ nextVideoEnabled: false });
+    }
+
     if (this.props.onCueChange) {
       this.props.onCueChange(cue, cueIndex, overlayElementId);
     }
+  }
+
+  onPlayerCueEnd() {
+    this.setState({ nextVideoEnabled: true });
   }
 
   onMouseEnter() {
@@ -424,7 +444,8 @@ class VideoEmbed extends Component {
     } else {
 
       // Hide the "next video" preview whenever we
-      // tell the player to load a new video
+      // tell the player to load a new video.
+      // Basically just to reset things.
       this.setState({ nextVideoEnabled: false });
 
       this.player.catalog.getVideo(videoId, (error, video) => {
@@ -475,7 +496,7 @@ class VideoEmbed extends Component {
     const overlays = this.getCues().map((c) => {
       const cue = c.originalCuePoint;
 
-      const defaultEnd = cue.startTime + 15;
+      const defaultEnd = cue.startTime + cueDuration;
       const end = defaultEnd < cue.endTime ? defaultEnd : cue.endTime;
 
       return {

@@ -7,10 +7,6 @@ import colors from "../../styles/colors";
 import { rgba } from "../../utils/color";
 import VideoEmbed from "../videoEmbed";
 
-// TODO:  Hide theater mode button on popout
-// TODO:  Hide nextVideo on popout
-// TODO:  Add close dialog control
-
 const styles = {
   outerContainer: {
     width: "100%",
@@ -18,6 +14,8 @@ const styles = {
     position: "relative",
     top: "0px",
     left: "0px",
+    right: "0px",
+    bottom: "0px",
     paddingBottom: `${(9 / 16) * 100}%`,
     backgroundColor: colors.black,
   },
@@ -53,58 +51,45 @@ class VideoPip extends Component {
   constructor(props) {
     super(props);
 
+    this.enabled = false;
+    this.outOfViewTimeoutId = null;
+    this.inViewTimeoutId = null;
     this.container = null;
 
     this.state = {
       outOfView: false,
       fixedToWindow: false,
       poppedOut: false,
-      enabled: false,
     };
 
     this.onWindowScroll = this.onWindowScroll.bind(this);
-    this.onContainerTransitionEnd = this.onContainerTransitionEnd.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
     this.onVideoEmbedStarted = this.onVideoEmbedStarted.bind(this);
     this.onVideoEmbedEnded = this.onVideoEmbedEnded.bind(this);
   }
 
   componentDidMount() {
-    this.container.addEventListener("transitionend", this.onContainerTransitionEnd);
-
     if (typeof window !== "undefined") {
       window.addEventListener("scroll", this.onWindowScroll);
+      window.addEventListener("resize", this.onWindowResize);
     }
   }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onWindowScroll);
+    window.removeEventListener("resize", this.onWindowResize);
   }
 
-  onContainerTransitionEnd () {
-    if (!this.state.enabled) {
-      return;
-    }
-    console.log('transition ended');
-
-    const { enabled, outOfView, fixedToWindow, poppedOut } = this.state;
-    console.log("outOfView:", outOfView, "fixedToWindow:", fixedToWindow, "poppedOut:", poppedOut);
-
-    if (outOfView && !fixedToWindow) {
-      this.setState({fixedToWindow: true, poppedOut: true});
-    }
-    else if (outOfView && fixedToWindow && !poppedOut) {
-      this.setState({fixedToWindow: false, outOfView: false});
-    }
-    else if (!outOfView && fixedToWindow && poppedOut) {
-      this.setState({poppedOut: false});
-    }
-    else if (!outOfView && fixedToWindow && !poppedOut) {
-      this.setState({fixedToWindow: false});
-    }
+  onWindowResize() {
+    this.update();
   }
 
   onWindowScroll() {
-    if (!this.state.enabled) {
+    this.update();
+  }
+
+  update() {
+    if (!this.enabled) {
       return;
     }
 
@@ -112,15 +97,26 @@ class VideoPip extends Component {
     const halfContainerHeight = this.container.clientHeight / 2;
     const windowHeight = window.innerHeight;
 
-    if ((bounds.top < -(halfContainerHeight)) || bounds.top > (windowHeight + halfContainerHeight)) {
-      this.setState({outOfView: true});
+    if ((bounds.top < -(halfContainerHeight)) || bounds.top > (windowHeight - halfContainerHeight)) {
+      clearInterval(this.inViewTimeoutId);
+      this.inViewTimeoutId = null;
+      if (!this.outOfViewTimeoutId) {
+        this.setState({outOfView: true});
+        this.outOfViewTimeoutId = setTimeout(() => {
+          this.setState({ fixedToWindow: true, poppedOut: true });
+          this.outOfViewTimeoutId = null;
+        }, 200);
+      }
     }
     else {
-      if (this.state.poppedOut) {
+      clearInterval(this.outOfViewTimeoutId);
+      this.outOfViewTimeoutId = null;
+      if (!this.inViewTimeoutId) {
         this.setState({poppedOut: false});
-      }
-      else {
-        this.setState({outOfView: false});
+        this.inViewTimeoutId = setTimeout(() => {
+          this.setState({ fixedToWindow: false, outOfView: false });
+          this.inViewTimeoutId = null;
+        }, 200);
       }
     }
   }
@@ -131,7 +127,8 @@ class VideoPip extends Component {
       videoEmbed.onStarted();
     }
 
-    this.setState({ enabled: true });
+    this.enabled = true;
+    this.update();
   }
 
   onVideoEmbedEnded() {
@@ -140,12 +137,12 @@ class VideoPip extends Component {
       videoEmbed.onEnded();
     }
 
-    this.setState({ enabled: false });
+    this.enabled = false;
   }
 
   render() {
     const { videoEmbed, style } = this.props;
-    const { enabled, outOfView, fixedToWindow, poppedOut } = this.state;
+    const { outOfView, fixedToWindow, poppedOut } = this.state;
 
     return (
       <div
