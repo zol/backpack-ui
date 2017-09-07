@@ -431,6 +431,8 @@ storiesOf("Bookmark button", module)
   .add("Default", () => (
     <Center>
       <BookmarkButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
         onClick={action("Bookmark clicked")}
         marked={boolean("Marked", false)}
       />
@@ -439,6 +441,8 @@ storiesOf("Bookmark button", module)
   .add("Alternate", () => (
     <Center>
       <BookmarkButtonAlt
+        id={text("ID", null)}
+        className={text("Classname", null)}
         onClick={action("Bookmark clicked")}
         marked={boolean("Marked", false)}
       />
@@ -1085,6 +1089,8 @@ storiesOf("List Button", module)
   .add("Default", () => (
     <Center>
       <ListButton
+        id={text("ID", null)}
+        className={text("Classname", null)}
         onClick={action("List Button clicked")}
         icon={select("Icon", [
           "Bookmark",
@@ -1107,6 +1113,7 @@ storiesOf("List item (bookmark)", module)
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
       />
     </StyleRoot>
   ))
@@ -1119,6 +1126,7 @@ storiesOf("List item (bookmark)", module)
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
+        large={boolean("Large", false)}
       />
     </StyleRoot>
   ));

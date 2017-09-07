@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import cn from "classnames";
 import { fontSizeHeading5 } from "../../styles/typography";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
@@ -49,10 +50,13 @@ const ListButton = ({
   icon,
   label,
   owns,
+  id,
+  className,
   style,
 }) => (
   <button
-    className="ListButton"
+    id={id}
+    className={cn("ListButton", className)}
     style={[styles, style]}
     onClick={onClick}
     title={label}
@@ -74,12 +78,16 @@ ListButton.propTypes = {
   ]).isRequired,
   label: PropTypes.string,
   owns: PropTypes.string,
+  id: PropTypes.string,
+  className: PropTypes.string,
   style: propTypes.style,
 };
 
 ListButton.defaultProps = {
   label: null,
   owns: null,
+  id: null,
+  className: null,
   style: null,
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium, { Style } from "radium";
+import cn from "classnames";
 import { BookmarkAltActive, BookmarkAlt } from "../icon";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
@@ -39,9 +40,10 @@ const styles = {
   },
 };
 
-const BookmarkButtonAlt = ({ onClick, marked, style }) => (
+const BookmarkButtonAlt = ({ onClick, marked, id, className, style }) => (
   <button
-    className="BookmarkButtonAlt"
+    id={id}
+    className={cn("BookmarkButtonAlt", className)}
     onClick={onClick}
     style={[styles.container, style]}
   >
@@ -101,12 +103,16 @@ const BookmarkButtonAlt = ({ onClick, marked, style }) => (
 BookmarkButtonAlt.propTypes = {
   onClick: PropTypes.func.isRequired,
   marked: PropTypes.bool,
+  id: PropTypes.string,
+  className: PropTypes.string,
   style: propTypes.style,
 };
 
 BookmarkButtonAlt.defaultProps = {
   onClick: null,
   marked: false,
+  id: null,
+  className: null,
   style: null,
 };
 
