@@ -40,7 +40,7 @@ const MultiStepLogin = ({
       experience, see our <a href="https://www.lonelyplanet.com/legal/cookies/">Cookie Policy</a>.
       You may receive notifications from us and can opt out at any time.
       For additional account inquiries
-      see <a href="http://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
+      see <a href="https://support.lonelyplanet.com/hc/en-us/sections/203968787-Account-administration" target="_blank" rel="noopener noreferrer">Account help</a>.
     </AuthDisclaimer>
   );
 
