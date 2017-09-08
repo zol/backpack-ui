@@ -2307,8 +2307,7 @@ storiesOf("Spotlight zone", module)
         category={text("Category", "On The Road")}
         title={text("Title", "Gaudi, Part 1")}
         paragraph={text("Paragraph", "Explore the architecture capital of Varcelona with Christa Larwood and witness Antoni Gaudi's beautiful work.")}
-        href={text("Href", "http://www.google.com")}
-        imageUrl={text("Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
+        videoId={"5363317250001"}
         backgroundImageUrl={text("Background Image URL", "https://s3.amazonaws.com/op-video-sync-dev/poster-5299039063001-a-gorgeous-day-in-the-life-of-cuba-20170130-182935.jpg")}
       />
     </StyleRoot>

@@ -26,12 +26,6 @@ const styles = {
     paddingBottom: `${(9 / 16) * 100}%`,
     position: "relative",
     overflow: "hidden",
-
-    /*
-     * Any shorter than 228px and Brightcove's
-     * share controls won't fit
-     */
-    minHeight: "228px",
   },
 
   video: {

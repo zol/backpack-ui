@@ -9,19 +9,20 @@ import { rgba } from "../../utils/color";
 import Heading from "../heading";
 import { Play } from "../icon";
 import Container from "../container";
+import VideoPip from "../videoPip";
+import VideoEmbed from "../videoEmbed";
 
 const styles = {
   container: {
+    display: "flex",
     fontFamily: font("benton"),
     position: "relative",
     backgroundColor: settings.color.black,
     color: settings.color.white,
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      display: "flex",
-      maxHeight: "100vh",
-      minHeight: "665px",
-    },
+    // [`@media (min-width: ${settings.media.min["960"]})`]: {
+    //   display: "flex",
+    // },
   },
 
   background: {
@@ -55,6 +56,14 @@ const styles = {
 
   content: {
     zIndex: (settings.zIndex.default + 1),
+    width: "100%",
+    paddingTop: "30px",
+    paddingBottom: "30px",
+
+    [`@media (max-width: ${settings.media.max["960"]})`]: {
+      paddingTop: "0px",
+      paddingBottom: "0px",
+    },
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
       display: "flex",
@@ -68,6 +77,8 @@ const styles = {
       marginRight: `-${gutter("static", 1, 0.5)}`,
       paddingLeft: gutter("static", 1, 0.5),
       paddingRight: gutter("static", 1, 0.5),
+      paddingBottom: gutter("static", 1, 0.5),
+      paddingTop: gutter("static"),
     },
 
     [`@media (min-width: ${settings.media.min["480"]}) and (max-width: ${settings.media.max["960"]})`]: {
@@ -75,17 +86,19 @@ const styles = {
       marginRight: `-${gutter("static")}`,
       paddingLeft: gutter("static"),
       paddingRight: gutter("static"),
+      paddingBottom: gutter("static"),
+      paddingTop: gutter("static"),
     },
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      paddingBottom: "32px",
-      paddingTop: "34px",
-    },
+    // [`@media (max-width: ${settings.media.max["600"]})`]: {
+    //   paddingBottom: "32px",
+    //   paddingTop: "34px",
+    // },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      paddingBottom: "82px",
-      paddingTop: "84px",
-    },
+    // [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    //   paddingBottom: "82px",
+    //   paddingTop: "84px",
+    // },
 
     [`@media (max-width: ${settings.media.max["960"]})`]: {
       backgroundColor: rgba(settings.color.black, 0.38),
@@ -93,43 +106,55 @@ const styles = {
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
       marginRight: "84px",
-      marginTop: "25px",
+      // marginTop: "25px",
       paddingRight: "50px",
     },
   },
 
   rightContent: {
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      paddingBottom: "38px",
-      paddingTop: "32px",
+    [`@media (min-width: ${settings.media.min["480"]}) and (max-width: ${settings.media.max["960"]})`]: {
+      paddingTop: gutter("static"),
     },
 
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      paddingBottom: "88px",
-      paddingTop: "82px",
+    [`@media (max-width: ${settings.media.max["960"]})`]: {
+      paddingBottom: gutter("static"),
+      // paddingTop: gutter("static"),
+    },
+
+    // [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    //   paddingBottom: "30px",
+    //   paddingTop: "30px",
+    // },
+
+    [`@media (max-width: ${settings.media.max["480"]})`]: {
+      paddingTop: gutter("static", 1, 0.5),
+      // paddingBottom: gutter("static"),
     },
 
     [`@media (min-width: ${settings.media.min["960"]})`]: {
       flex: "0 0 auto",
       width: percentage("718px", settings.grid.container),
+
     },
   },
 
   zone: {
     fontSize: "16px",
-    top: "32px",
-    position: "absolute",
+    // top: "32px",
+    // position: "absolute",
+    marginBottom: "40px",
+
     fontWeight: settings.typography.fontWeightSemibold,
     lineHeight: 1,
 
     [`@media (min-width: ${settings.media.min["600"]})`]: {
       fontSize: "24px",
-      top: "64px",
+      // top: "64px",
     },
 
-    [`@media (min-width: ${settings.media.min["960"]})`]: {
-      top: "80px",
-    },
+    // [`@media (min-width: ${settings.media.min["960"]})`]: {
+    //   top: "80px",
+    // },
   },
 
   title: {
@@ -152,14 +177,15 @@ const styles = {
     color: settings.color.white,
     fontSize: "11px",
     lineHeight: 1,
+    // marginTop: "42px",
 
-    [`@media (max-width: ${settings.media.max["600"]})`]: {
-      marginTop: "76px",
-    },
-
-    [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
-      marginTop: "147px",
-    },
+    // [`@media (max-width: ${settings.media.max["600"]})`]: {
+    //   marginTop: "76px",
+    // },
+    //
+    // [`@media (min-width: ${settings.media.min["600"]}) and (max-width: ${settings.media.max["960"]})`]: {
+    //   marginTop: "147px",
+    // },
 
     [`@media (min-width: ${settings.media.min["600"]})`]: {
       fontSize: "16px",
@@ -198,37 +224,37 @@ const styles = {
     },
   },
 
-  link: {
-    position: "relative",
-    display: "inline-block",
-  },
-
-  image: {
-    display: "block",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    boxShadow: `0 12px 34px 0 ${rgba(settings.color.black, 0.12)},
-      inset 0 1px 3px 0 ${rgba(settings.color.black, 0.5)}`,
-    border: `1px solid ${rgba(settings.color.white, 0.2)}`,
-  },
-
-  imageOverlay: {
-    backgroundColor: rgba(settings.color.black, 0.16),
-    position: "absolute",
-    top: 0,
-    width: "100%",
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    transition: `background-color ${settings.timing.default} ease`,
-  },
-
-  playIcon: {
-    color: settings.color.white,
-    height: "21px",
-    width: "21px",
-  },
+  // link: {
+  //   position: "relative",
+  //   display: "inline-block",
+  // },
+  //
+  // image: {
+  //   display: "block",
+  //   maxWidth: "100%",
+  //   maxHeight: "100%",
+  //   boxShadow: `0 12px 34px 0 ${rgba(settings.color.black, 0.12)},
+  //     inset 0 1px 3px 0 ${rgba(settings.color.black, 0.5)}`,
+  //   border: `1px solid ${rgba(settings.color.white, 0.2)}`,
+  // },
+  //
+  // imageOverlay: {
+  //   backgroundColor: rgba(settings.color.black, 0.16),
+  //   position: "absolute",
+  //   top: 0,
+  //   width: "100%",
+  //   height: "100%",
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   transition: `background-color ${settings.timing.default} ease`,
+  // },
+  //
+  // playIcon: {
+  //   color: settings.color.white,
+  //   height: "21px",
+  //   width: "21px",
+  // },
 };
 
 const css = `
@@ -248,8 +274,7 @@ const SpotlightZone = ({
   category,
   title,
   paragraph,
-  href,
-  imageUrl,
+  videoId,
   backgroundImageUrl,
   adSlot,
   style,
@@ -289,20 +314,7 @@ const SpotlightZone = ({
       </div>
 
       <div style={styles.rightContent}>
-        <Link to={href} style={styles.link}>
-          <img
-            style={styles.image}
-            src={imageUrl}
-            alt=""
-          />
-
-          <div
-            className="SpotlightZone-imageOverlay"
-            style={styles.imageOverlay}
-          >
-            <Play style={styles.playIcon} />
-          </div>
-        </Link>
+        <VideoPip videoEmbed={{ videoId }} />
       </div>
     </Container>
 
@@ -322,8 +334,7 @@ SpotlightZone.propTypes = {
   category: PropTypes.string,
   title: PropTypes.string.isRequired,
   paragraph: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  imageUrl: PropTypes.string.isRequired,
+  videoEmbed: PropTypes.shape(VideoEmbed.propTypes).isRequired,
   backgroundImageUrl: PropTypes.string.isRequired,
   adSlot: PropTypes.element,
   style: PropTypes.objectOf(
@@ -340,8 +351,6 @@ SpotlightZone.defaultProps = {
   category: "",
   title: "",
   paragraph: "",
-  href: "",
-  imageUrl: "",
   backgroundImageUrl: "",
 };
 
