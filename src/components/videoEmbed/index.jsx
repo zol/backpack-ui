@@ -211,10 +211,13 @@ class VideoEmbed extends Component {
     this.player.on("loadstart", this.onPlayerLoadStart.bind(this));
     this.player.on("error", this.onPlayerError.bind(this));
     this.player.on("playing", this.onPlayerPlaying.bind(this));
+    this.player.on("pause", this.onPlayerPause.bind(this));
     this.player.on("timeupdate", this.onPlayerTimeUpdate.bind(this));
     this.player.on("ended", this.onPlayerEnded.bind(this));
     this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
+    this.player.on("ads-ad-play", this.onAdPlay.bind(this));
+    this.player.on("ads-ad-pause", this.onAdPause.bind(this));
 
     this.createPlayerButton("watchLater", "Watch Later", this.props.onClickWatchLater);
     this.createPlayerButton("theaterMode", "Theater Mode", this.props.onClickTheaterMode);
@@ -276,8 +279,14 @@ class VideoEmbed extends Component {
     // the onAdEnded() handler will not be run.  This makes sure we load the new video.
     this.loadVideo(this.props.videoId);
 
-    if (this.props.onStarted) {
-      this.props.onStarted();
+    if (this.props.onPlaying) {
+      this.props.onPlaying();
+    }
+  }
+
+  onPlayerPause() {
+    if (this.props.onPause) {
+      this.props.onPause();
     }
   }
 
@@ -292,8 +301,8 @@ class VideoEmbed extends Component {
     this.enableAdOverlay();
     this.setState({ nextVideoEnabled: false });
 
-    if (this.props.onStarted) {
-      this.props.onStarted();
+    if (this.props.onAdStarted) {
+      this.props.onAdStarted();
     }
   }
 
@@ -310,6 +319,18 @@ class VideoEmbed extends Component {
   onPlayerEnded() {
     if (this.props.onEnded) {
       this.props.onEnded();
+    }
+  }
+
+  onAdPlay() {
+    if (this.props.onAdPlay) {
+      this.props.onAdPlay();
+    }
+  }
+
+  onAdPause() {
+    if (this.props.onAdPause) {
+      this.props.onAdPause();
     }
   }
 
@@ -478,6 +499,12 @@ class VideoEmbed extends Component {
     }
   }
 
+  pause() {
+    if (this.player) {
+      this.player.pause();
+    }
+  }
+
   tearDownPlayer() {
     const scriptId = this.getPlayerScriptId();
     const script = document.getElementById(scriptId);
@@ -592,14 +619,15 @@ VideoEmbed.propTypes = {
   }),
   hideNextVideoOnCueChange: PropTypes.bool,
   autoplay: PropTypes.bool,
-  onStarted: PropTypes.func,
+  onAdStarted: PropTypes.func,
+  onAdPlay: PropTypes.func,
+  onAdPause: PropTypes.func,
+  onPlaying: PropTypes.func,
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
   onClickTheaterMode: PropTypes.func,
   onClickWatchLater: PropTypes.func,
-  override: PropTypes.oneOfType([
-    PropTypes.object,
-  ]),
+  override: PropTypes.object,
 };
 
 VideoEmbed.defaultProps = {
