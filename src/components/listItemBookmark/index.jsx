@@ -77,9 +77,7 @@ const styles = {
   },
 
   checkbox: {
-    alignSelf: "flex-start",
     marginLeft: "auto",
-    marginTop: "23px",
   },
 
   meta: {
