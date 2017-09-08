@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.37.2"></a>
+## [4.37.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.1...v4.37.2) (2017-09-08)
+
+
+### Bug Fixes
+
+* Remove blue from heading when ListItemBookmark is checked ([#474](https://github.com/lonelyplanet/backpack-ui/issues/474)) ([664c4c2](https://github.com/lonelyplanet/backpack-ui/commit/664c4c2))
+* Update checkbox styles for ListItemBookmark ([#473](https://github.com/lonelyplanet/backpack-ui/issues/473)) ([dcfbdbd](https://github.com/lonelyplanet/backpack-ui/commit/dcfbdbd))
+
+
+
 <a name="4.37.1"></a>
 ## [4.37.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.0...v4.37.1) (2017-09-07)
 
