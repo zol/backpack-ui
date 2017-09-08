@@ -238,7 +238,10 @@ class VideoPip extends Component {
             onAdStarted={this.onVideoEmbedAdStarted}
             onAdPlay={this.onVideoEmbedAdPlay}
             onAdPause={this.onVideoEmbedAdPause}
-            override={{ minHeight: "unset" }}
+            override={[
+              videoEmbed.override,
+              poppedOut ? { paddingBottom: `${(9 / 16) * 100}%`, minHeight: "unset" }: {},
+            ]}
           />
         </div>
       </div>
