@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import radium, { Style } from "radium";
 import media from "../../styles/mq";
 import timing from "../../styles/timing";
+import colors from "../../styles/colors";
 import VideoEmbed from "../videoEmbed";
 import ThumbnailListItem from "../thumbnailListItem";
 import VideoPip from "../videoPip";
@@ -21,23 +22,13 @@ const styles = {
     }
   },
 
-  embedContainer: {
-    default: {
-      marginRight: "370px",
-      width: "100%",
-      backgroundColor: "black",
-      transition: `margin-right ${timing.default} ease`,
+  videoPip: {
+    paddingBottom: "0px",
+    transition: `width ${timing.fast} linear, height ${timing.fast} linear`,
+  },
 
-      [`@media (max-width: ${media.max["840"]})`]: {
-        marginRight: "300px",
-      },
-      [`@media (max-width: ${media.max["720"]})`]: {
-        marginRight: "0px",
-      },
-    },
-    theaterMode: {
-      marginRight: "0px",
-    },
+  videoEmbed: {
+    paddingBottom: "0px",
   },
 
   playlistContainer: {
@@ -49,7 +40,7 @@ const styles = {
       position: "absolute",
       right: 0,
       top: 0,
-      transition: `width ${timing.default} ease`,
+      transition: `width ${timing.fast} linear`,
 
       [`@media (max-width: ${media.max["840"]})`]: {
         width: "300px",
@@ -60,12 +51,18 @@ const styles = {
     },
     light: {
       borderLeft: "1px solid #f4f4f4",
+      backgroundColor: colors.bgPrimary,
     },
     dark: {
       borderLeft: "1px solid #2b2b2b",
+      backgroundColor: "rgb(27, 27, 27)",
     },
     theaterMode: {
       width: "0px",
+
+      [`@media (max-width: ${media.max["840"]})`]: {
+        width: "0px",
+      },
     },
   },
 
@@ -86,10 +83,40 @@ class VideoPlaylist extends Component {
     this.state = {
       theaterMode: false,
       video: !video && videos && videos.length ? videos[0] : video,
+      windowHeight: null,
+      windowWidth: null,
     };
+
+    this.container = null;
 
     this.onEnded = this.onEnded.bind(this);
     this.onClickTheaterMode = this.onClickTheaterMode.bind(this);
+    this.onWindowResize = this.onWindowResize.bind(this);
+  }
+
+  componentWillMount() {
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", this.onWindowResize);
+    }
+  }
+
+  componentDidMount() {
+    this.updateDimensions();
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.onWindowResize);
+  }
+
+  onWindowResize(e) {
+    this.updateDimensions();
+  }
+
+  updateDimensions() {
+    this.setState({
+      windowHeight: window.innerHeight,
+      windowWidth: window.innerWidth,
+    });
   }
 
   getNextVideo() {
@@ -132,28 +159,49 @@ class VideoPlaylist extends Component {
 
   render () {
     const { videos, visibleVideos, theme, videoEmbed, style } = this.props;
-    const { video, theaterMode } = this.state;
+    const { video, theaterMode, windowHeight, windowWidth } = this.state;
+
+    let embedWidth = "100%";
+    let embedHeight = "100%";
+
+    if (this.container) {
+      const aspectRatio = 1.777777; // 16:9
+      const containerWidth = this.container.clientWidth;
+      if ( theaterMode || windowWidth < 720) {
+        embedWidth = containerWidth;
+        embedHeight = Math.min(embedWidth / aspectRatio, windowHeight * 0.85);
+      }
+      else {
+        embedWidth = containerWidth - (windowWidth < 840 ? 300 : 370);
+        embedHeight = Math.min(embedWidth / aspectRatio, windowHeight * 0.85);
+      }
+    }
 
     const nextVideo = this.getNextVideo();
 
     return (
-        <div className="VideoPlaylist" style={[
-          styles.container.default,
-          styles.container[theme],
-          style,
-        ]}>
+        <div className="VideoPlaylist"
+          ref={(container) => { this.container = container; }}
+          style={[
+            styles.container.default,
+            styles.container[theme],
+            style,
+          ]}
+        >
         {video && videos && videos.length > 0 &&
-          <div style={[
-            styles.embedContainer.default,
-            theaterMode ? styles.embedContainer.theaterMode : {},
-          ]}>
+          <div>
             {video &&
               <VideoPip
+                style={[
+                  styles.videoPip,
+                  {width: embedWidth, height: embedHeight},
+                ]}
                 videoEmbed={{
                   videoId: video.id,
                   ...videoEmbed,
                   onEnded: this.onEnded,
                   onClickTheaterMode: this.onClickTheaterMode,
+                  override: styles.videoEmbed,
                 }}
               />
             }

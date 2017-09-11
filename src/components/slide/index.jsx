@@ -33,7 +33,7 @@ const styles = {
     },
   },
   adContainer: {
-    marginBottom: "20px",
+    marginBottom: "8px",
   },
   heading: {
     color: color.white,

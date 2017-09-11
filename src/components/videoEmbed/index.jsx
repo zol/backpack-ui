@@ -210,8 +210,8 @@ class VideoEmbed extends Component {
     this.player.on("ended", this.onPlayerEnded.bind(this));
     this.player.on("ads-ad-started", this.onAdStarted.bind(this));
     this.player.on("ads-ad-ended", this.onAdEnded.bind(this));
-    this.player.on("ads-ad-play", this.onAdPlay.bind(this));
-    this.player.on("ads-ad-pause", this.onAdPause.bind(this));
+    this.player.on("ads-play", this.onAdPlay.bind(this));
+    this.player.on("ads-pause", this.onAdPause.bind(this));
 
     this.createPlayerButton("watchLater", "Watch Later", this.props.onClickWatchLater);
     this.createPlayerButton("theaterMode", "Theater Mode", this.props.onClickTheaterMode);
@@ -617,6 +617,7 @@ VideoEmbed.propTypes = {
   onAdPlay: PropTypes.func,
   onAdPause: PropTypes.func,
   onPlaying: PropTypes.func,
+  onPause: PropTypes.func,
   onEnded: PropTypes.func,
   onCueChange: PropTypes.func,
   onClickTheaterMode: PropTypes.func,

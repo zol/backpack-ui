@@ -79,6 +79,8 @@ class VideoPip extends Component {
     this.container = null;
     this.videoEmbed = null;
 
+    this.outOfView = false;
+
     this.state = {
       outOfView: false,
       fixedToWindow: false,
@@ -92,6 +94,7 @@ class VideoPip extends Component {
     this.onMouseEnter = this.onMouseEnter.bind(this);
     this.onMouseLeave = this.onMouseLeave.bind(this);
     this.onVideoEmbedPlaying = this.onVideoEmbedPlaying.bind(this);
+    this.onVideoEmbedPause = this.onVideoEmbedPause.bind(this);
     this.onVideoEmbedAdStarted = this.onVideoEmbedAdStarted.bind(this);
     this.onVideoEmbedAdPlay = this.onVideoEmbedAdPlay.bind(this);
     this.onVideoEmbedAdPause = this.onVideoEmbedAdPause.bind(this);
@@ -132,6 +135,7 @@ class VideoPip extends Component {
     const windowHeight = window.innerHeight;
 
     if (this.enabled && ((bounds.top < -(halfContainerHeight)) || bounds.top > (windowHeight - halfContainerHeight))) {
+      this.outOfView = true;
       clearInterval(this.inViewTimeoutId);
       this.inViewTimeoutId = null;
       if (!this.outOfViewTimeoutId) {
@@ -143,6 +147,7 @@ class VideoPip extends Component {
       }
     }
     else {
+      this.outOfView = false;
       clearInterval(this.outOfViewTimeoutId);
       this.outOfViewTimeoutId = null;
       if (!this.inViewTimeoutId) {
@@ -161,6 +166,7 @@ class VideoPip extends Component {
       videoEmbed.onAdPlay();
     }
 
+    this.enabled = true;
     this.setState({ adIsPlaying: true });
   }
 
@@ -168,6 +174,10 @@ class VideoPip extends Component {
     const { videoEmbed } = this.props;
     if (videoEmbed.onAdPause) {
       videoEmbed.onAdPause();
+    }
+
+    if (!this.outOfView) {
+      this.enabled = false;
     }
 
     this.setState({ adIsPlaying: false });
@@ -182,6 +192,17 @@ class VideoPip extends Component {
     this.enabled = true;
     this.setState({ adIsPlaying: false });
     this.update();
+  }
+
+  onVideoEmbedPause() {
+    const { videoEmbed } = this.props;
+    if (videoEmbed.onPause) {
+      videoEmbed.onPause();
+    }
+
+    if (!this.outOfView) {
+      this.enabled = false;
+    }
   }
 
   onVideoEmbedAdStarted() {
@@ -235,6 +256,7 @@ class VideoPip extends Component {
             ref={(videoEmbed) => { this.videoEmbed = videoEmbed; }}
             {...videoEmbed}
             onPlaying={this.onVideoEmbedPlaying}
+            onPause={this.onVideoEmbedPause}
             onAdStarted={this.onVideoEmbedAdStarted}
             onAdPlay={this.onVideoEmbedAdPlay}
             onAdPause={this.onVideoEmbedAdPause}

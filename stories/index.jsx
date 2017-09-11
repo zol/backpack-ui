@@ -172,6 +172,7 @@ import TravelAlert from "../src/components/travelAlert";
 import { Typeahead, TypeaheadTokenizer } from "../src/components/typeahead";
 import TypeSelector from "../src/components/typeSelector";
 import VideoEmbed from "../src/components/videoEmbed";
+import VideoPip from "../src/components/videoPip";
 import VideoPlaylist from "../src/components/videoPlaylist";
 import WatchLaterModal from "../src/components/watchLater/watchLaterModal";
 
@@ -2784,29 +2785,47 @@ storiesOf("Video embed", module)
     </StyleRoot>
   ));
 
+storiesOf("Video pip", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <StyleRoot>
+      <div style={{height:"200vh"}} >
+        <VideoPip
+          style={{height: "200px", paddingBottom: "0px"}}
+          videoEmbed={{
+            videoId: "5363317250001",
+            override: {paddingBottom: "0px"},
+          }}
+        />
+      </div>
+    </StyleRoot>
+  ));
+
 storiesOf("Video playlist", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <StyleRoot>
-      <VideoPlaylist
-        videos={
-          [
-            {
-              id: "5502921139001",
-              name: "Back to my roots: Northern Ireland",
-              image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5502921139001-brightcove-back-to-my-roots-northern-ireland-20170719-060256.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
-              duration: 170212,
-            },
-            {
-              id: "5426210266001",
-              name: "Discover Thailand: hiking in Si Phang Nga National Park",
-              image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5426210266001-brightcove-discover-thailand-hiking-in-si-phang-nga-national-park-20170516-061832.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
-              duration: 144061,
-            },
-          ]
-        }
-        visibleVideos={number("Visible videos", 2)}
-        theme={select("Theme", ["light", "dark"], "light")}
-      />
+      <div style={{height:"200vh"}} >
+        <VideoPlaylist
+          videos={
+            [
+              {
+                id: "5502921139001",
+                name: "Back to my roots: Northern Ireland",
+                image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5502921139001-brightcove-back-to-my-roots-northern-ireland-20170719-060256.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
+                duration: 170212,
+              },
+              {
+                id: "5426210266001",
+                name: "Discover Thailand: hiking in Si Phang Nga National Park",
+                image: "https://lonelyplanetstatic.imgix.net/op-video-sync/images/qa/p-5426210266001-brightcove-discover-thailand-hiking-in-si-phang-nga-national-park-20170516-061832.jpg?sharp=10&q=50&w=430&h=250&fit=crop",
+                duration: 144061,
+              },
+            ]
+          }
+          visibleVideos={number("Visible videos", 2)}
+          theme={select("Theme", ["light", "dark"], "light")}
+        />
+      </div>
     </StyleRoot>
   ));
