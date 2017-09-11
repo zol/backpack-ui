@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.37.3"></a>
+## [4.37.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.2...v4.37.3) (2017-09-11)
+
+
+### Bug Fixes
+
+* add option to not show visibility status ([#476](https://github.com/lonelyplanet/backpack-ui/issues/476)) ([d052c20](https://github.com/lonelyplanet/backpack-ui/commit/d052c20))
+
+
+
 <a name="4.37.2"></a>
 ## [4.37.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.1...v4.37.2) (2017-09-08)
 
