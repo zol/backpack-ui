@@ -153,6 +153,7 @@ import SponsorLabel from "../src/components/sponsorLabel";
 import SpotlightZone from "../src/components/spotlightZone";
 import StaticMap from "../src/components/staticMap";
 import Strapline from "../src/components/strapline";
+import Switch from "../src/components/switch";
 import TabbedNav from "../src/components/tabbedNav";
 import { Tabs, Tab } from "../src/components/tabs";
 import Tag from "../src/components/tag";
@@ -2336,6 +2337,21 @@ storiesOf("Strapline", module)
     <Strapline>
       {text("Text", "Strapline text")}
     </Strapline>
+  ));
+
+storiesOf("Switch", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center>
+      <Switch
+        id={text("ID", "privacy-control")}
+        name={text("Name", "privacy_control")}
+        className={text("ID", null)}
+        value={text("Value", "private")}
+        checked={boolean("Checked", false)}
+        onClick={action("Switch toggled")}
+      />
+    </Center>
   ));
 
 storiesOf("Tabbed nav", module)
