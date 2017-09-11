@@ -1614,25 +1614,25 @@ storiesOf("Photo gallery", module)
     <PhotoGallery
       photos={[
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Trinidad-6666420241af.jpg",
           w: 1500,
           h: 1000,
           title: "A radiant blue-chinned sapphire hummingbird perched in a branch in Trinidad © ArenFrancis",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Iguazu-falls-86198db70380.jpg",
           w: 1500,
           h: 1000,
           title: "Get an eyeful of Brazil's Iguazu Falls © Michael Runkel / Getty Images",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Panda-f1ebbbd0fe6b.jpg",
           w: 1500,
           h: 1691,
           title: "A giant panda cub at the Chengdu Giant Panda Breeding Research Base in Sichuan © Feng Wei Photography / Getty Images",
         },
         {
-          src: "//lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
+          src: "https://lonelyplanet.com/travel-blog/tip-article/wordpress_uploads/2016/10/Shere-Khan-848929cc2677.jpg",
           w: 1500,
           h: 1000,
           title: "Stalk the forests of Madhya Pradesh for a chance of spotting Shere Khan © Andrew Parkinson / Getty Images",
@@ -1680,7 +1680,7 @@ storiesOf("Profile header", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <ProfileHeader
-      avatarSrc={text("Avatar URL", "http://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
+      avatarSrc={text("Avatar URL", "https://img2.wikia.nocookie.net/__cb20111018235020/muppet/images/thumb/1/14/Rizzo11.png/300px-Rizzo11.png")}
       name={text("Name", "Rizzo the Rat")}
       location={text("Location", "Ottawa, Ontario")}
       intro={text("Introduction", `The very basic core of a woman’s living spirit is
@@ -1707,8 +1707,8 @@ storiesOf("Promoted guidebook", module)
     <StyleRoot>
       <PromotedGuidebook
         title={text("Title", "Egypt travel guide")}
-        url={text("URL", "http://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
-        imageUrl={text("Image URL", "http://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
+        url={text("URL", "https://shop.lonelyplanet.com/egypt/egypt-travel-guide-12/")}
+        imageUrl={text("Image URL", "https://media.lonelyplanet.com/shop/images/9919-Egypt_travel_guide_-_12th_edition_Large.jpg")}
         price={object("Price", {
           usd: "27.99",
         })}
