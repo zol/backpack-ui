@@ -8,6 +8,7 @@ import uniqueId from "lodash/uniqueId";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import media from "../../styles/mq";
+import zIndex from "../../styles/zIndex";
 
 const _ = { get, uniqueId };
 
@@ -49,6 +50,7 @@ const styles = {
     position: "absolute",
     right: 0,
     bottom: "60px",
+    zIndex: zIndex.default,
     color: colors.textOverlay,
   },
 
