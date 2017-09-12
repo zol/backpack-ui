@@ -15,7 +15,7 @@ const styles = {
       position: "relative",
     },
     light: {
-      backgroundColor: "white",
+      backgroundColor: colors.bgPrimary,
     },
     dark: {
       backgroundColor: "#1b1b1b",
@@ -165,16 +165,19 @@ class VideoPlaylist extends Component {
     let embedHeight = "100%";
 
     if (this.container) {
+      /* We size the container element so that the video embed remains at 16:9
+       * if possible, but without the container being larger than the viewport
+       * and without being smaller than some threshold (currently 228px in height)
+       */
       const aspectRatio = 1.777777; // 16:9
       const containerWidth = this.container.clientWidth;
       if ( theaterMode || windowWidth < 720) {
         embedWidth = containerWidth;
-        embedHeight = Math.min(embedWidth / aspectRatio, windowHeight * 0.85);
       }
       else {
         embedWidth = containerWidth - (windowWidth < 840 ? 300 : 370);
-        embedHeight = Math.min(embedWidth / aspectRatio, windowHeight * 0.85);
       }
+      embedHeight = Math.max(Math.min(embedWidth / aspectRatio, windowHeight * 0.85), 228);
     }
 
     const nextVideo = this.getNextVideo();
