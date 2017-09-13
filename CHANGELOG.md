@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.38.0"></a>
+# [4.38.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.4...v4.38.0) (2017-09-13)
+
+
+### Bug Fixes
+
+* Update visuallyHidden mixin, add tests ([#477](https://github.com/lonelyplanet/backpack-ui/issues/477)) ([2407d78](https://github.com/lonelyplanet/backpack-ui/commit/2407d78))
+
+
+### Features
+
+* Create switch component ([e09ae59](https://github.com/lonelyplanet/backpack-ui/commit/e09ae59))
+* Refactor IconButton component ([c625fcd](https://github.com/lonelyplanet/backpack-ui/commit/c625fcd))
+
+
+
 <a name="4.37.4"></a>
 ## [4.37.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.3...v4.37.4) (2017-09-11)
 
