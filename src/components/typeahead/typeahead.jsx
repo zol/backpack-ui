@@ -260,8 +260,10 @@ class Typeahead extends Component {
       this.onTextEntryUpdated();
     });
 
-    if(this.props.forceSelection && (this.state.searchResults.indexOf(this.state.entryValue) === -1) && this.state.selectionIndex === null) {
-      this.setState({entryValue: this.props.initialValue});
+    if (this.props.forceSelection &&
+        (this.state.searchResults.indexOf(this.state.entryValue) === -1) &&
+        this.state.selectionIndex === null) {
+      this.setState({ entryValue: this.props.initialValue });
     }
 
     if (this.props.onBlur) {
@@ -630,10 +632,13 @@ class Typeahead extends Component {
       disableDefaultClassNames,
     );
 
-    var value = this.props.value;
+    let value = this.props.value;
 
-    if(this.props.forceSelection && this.props.value !== this.props.initialValue && (this.state.searchResults.indexOf(this.props.value) === -1) && this.state.selectionIndex === null) {
-      value = this.state.entryValue
+    if (this.props.forceSelection &&
+        this.props.value !== this.props.initialValue &&
+        (this.state.searchResults.indexOf(this.props.value) === -1) &&
+        this.state.selectionIndex === null) {
+      value = this.state.entryValue;
     }
 
     return (
