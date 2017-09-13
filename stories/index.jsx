@@ -948,10 +948,29 @@ storiesOf("Heading", module)
 storiesOf("Icon button", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
-    <IconButton
-      icon="share"
-      label="Share this"
-    />
+    <Center backgroundColor="white">
+      <IconButton
+        iconName={select("Icon name", [
+          "Bookmark",
+          "BookmarkActive",
+          "BookmarkAlt",
+          "BookmarkAltActive",
+          "Ellipsis",
+          "Share",
+        ], "Share")}
+        label={text("Label", "Share this")}
+        id={text("ID", null)}
+        className={text("Classname", null)}
+        href={text("href", null)}
+        onClick={action("onClick action")}
+        size={select("Size", [32, 40, 56], 32)}
+        owns={text("Aria owns", null)}
+        backgroundColor={text("Background color", null)}
+        color={text("Color", null)}
+        border={boolean("Border", false)}
+        shadow={boolean("Shadow", false)}
+      />
+    </Center>
   ));
 
 storiesOf("Icon callout", module)
