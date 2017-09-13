@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.38.1"></a>
+## [4.38.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.38.0...v4.38.1) (2017-09-13)
+
+
+### Bug Fixes
+
+* add forceSelection switch ([8b25f61](https://github.com/lonelyplanet/backpack-ui/commit/8b25f61))
+* lint errors ([ecfa130](https://github.com/lonelyplanet/backpack-ui/commit/ecfa130))
+* pass complete place objects, instead of names only ([f87ca8b](https://github.com/lonelyplanet/backpack-ui/commit/f87ca8b))
+* use value when entryValue not available ([6f5fbba](https://github.com/lonelyplanet/backpack-ui/commit/6f5fbba))
+
+
+
 <a name="4.38.0"></a>
 # [4.38.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.37.4...v4.38.0) (2017-09-13)
 
