@@ -153,7 +153,7 @@ class Typeahead extends Component {
         this.props.dataSource(query)
         .then((json) => {
           const results = json.places.map(place => place.attributes.name);
-          this.props.onKeyUp(results);
+          this.props.onKeyUp(json.places);
           this.setState({ searchResults: results });
         });
       }, 200);
@@ -259,6 +259,10 @@ class Typeahead extends Component {
     }, () => {
       this.onTextEntryUpdated();
     });
+
+    if(this.props.forceSelection && (this.state.searchResults.indexOf(this.state.entryValue) === -1) && this.state.selectionIndex === null) {
+      this.setState({entryValue: this.props.initialValue});
+    }
 
     if (this.props.onBlur) {
       return this.props.onBlur(event);
@@ -626,6 +630,12 @@ class Typeahead extends Component {
       disableDefaultClassNames,
     );
 
+    var value = this.props.value;
+
+    if(this.props.forceSelection && this.props.value !== this.props.initialValue && (this.state.searchResults.indexOf(this.props.value) === -1) && this.state.selectionIndex === null) {
+      value = this.state.entryValue
+    }
+
     return (
       <div
         className={containerClassList}
@@ -657,7 +667,7 @@ class Typeahead extends Component {
           name={inputName}
           disabled={disabled}
           placeholder={placeholder}
-          value={this.state.entryValue}
+          value={value}
           onChange={this.onChange}
           onKeyDown={this.onKeyDown}
           onKeyPress={onKeyPress}
@@ -708,6 +718,7 @@ Typeahead.propTypes = {
   onKeyUp: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  forceSelection: PropTypes.bool,
   filterOption: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.func,
@@ -761,6 +772,7 @@ Typeahead.defaultProps = {
   onKeyUp: () => {},
   onFocus: () => {},
   onBlur: () => {},
+  forceSelection: false,
   filterOption: null,
   searchOptions: null,
   inputDisplayOption: null,
