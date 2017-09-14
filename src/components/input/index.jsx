@@ -21,7 +21,11 @@ const styles = {
   fontSize: `${fontSizeHeading7}px`,
   fontWeight: fontWeightMedium,
   lineHeight: lineHeightHeading7,
-  padding: "4px 0 0",
+  minHeight: `${height}px`,
+  padding: `
+    ${17 / fontSizeHeading7}em
+    0
+    ${15 / fontSizeHeading7}em`,
   transition: `
     backgroundColor ${timing.fast},
     border-bottom-color ${timing.fast},
