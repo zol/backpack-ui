@@ -5,9 +5,6 @@ import propTypes from "../../utils/propTypes";
 import Input from "../input";
 
 const styles = Object.assign({}, Input.styles, {
-  height: "auto",
-  minHeight: Input.styles.height,
-  padding: 0,
   resize: "vertical",
 });
 
@@ -60,10 +57,11 @@ class Textarea extends React.Component {
         onInput={this.onInput}
         style={[
           styles,
+          !this.props.autogrow && {
+            height: "auto",
+          },
           this.props.autogrow && {
-            height: Input.styles.height,
             overflow: "hidden",
-            padding: `${17 / Input.fontSize}em 0 ${15 / Input.fontSize}em`,
             resize: "none",
           },
           this.props.style,
