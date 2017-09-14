@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.39.0"></a>
+# [4.39.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.38.1...v4.39.0) (2017-09-14)
+
+
+### Bug Fixes
+
+* scale avatar image size down ([#483](https://github.com/lonelyplanet/backpack-ui/issues/483)) ([be1b7a2](https://github.com/lonelyplanet/backpack-ui/commit/be1b7a2))
+* Update styles for input component ([fad9da5](https://github.com/lonelyplanet/backpack-ui/commit/fad9da5))
+* Update styles for textarea component ([bb480dd](https://github.com/lonelyplanet/backpack-ui/commit/bb480dd))
+
+
+### Features
+
+* Create new textarea component ([eb33a47](https://github.com/lonelyplanet/backpack-ui/commit/eb33a47))
+* Create new, simplified text input component ([5e57395](https://github.com/lonelyplanet/backpack-ui/commit/5e57395))
+
+
+
 <a name="4.38.1"></a>
 ## [4.38.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.38.0...v4.38.1) (2017-09-13)
 
