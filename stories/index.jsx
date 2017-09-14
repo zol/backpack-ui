@@ -76,7 +76,8 @@ import IconCalloutGroup from "../src/components/iconCalloutGroup";
 import ImageCarousel from "../src/components/imageCarousel";
 // ImageGallery
 import ImageHero from "../src/components/imageHero";
-import Input from "../src/components/form/input";
+import Input from "../src/components/input";
+import FormInput from "../src/components/form/input";
 import InteractiveMap from "../src/components/interactiveMap";
 import ItalicText from "../src/components/italicText";
 // LastUpdated
@@ -138,7 +139,7 @@ import SettingBlockAction from "../src/components/settingBlockAction";
 import SettingBlockAccordion from "../src/components/settingBlockAccordion";
 import SettingBlockTextArea from "../src/components/settingBlockTextArea";
 import SettingBlockInput from "../src/components/settingBlockInput";
-import TextArea from "../src/components/form/textarea";
+import FormTextArea from "../src/components/form/textarea";
 import ToggleController from "../src/utils/toggleController";
 import ShareMenu from "../src/components/shareMenu";
 import Slide from "../src/components/slide";
@@ -162,6 +163,7 @@ import TagList from "../src/components/tagList";
 import TallCarousel from "../src/components/tallCarousel";
 import { TextAccent, TextBodyArticle, TextBodySmall, TextHeading, TextSuper, TextUppercase } from "../src/components/text";
 import TextBubble from "../src/components/textBubble";
+import Textarea from "../src/components/textarea";
 import ThumbnailListItem from "../src/components/thumbnailListItem";
 import TileGrid from "../src/components/tileGrid";
 import TileVideo from "../src/components/tileVideo";
@@ -768,21 +770,21 @@ storiesOf("Expand button", module)
     <ExpandButton label={text("Label", "Open")} />
   ));
 
-
 storiesOf("Form", module)
   .addDecorator(withKnobs)
   .add("Input", () => (
-    <Input
+    <FormInput
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
     />
   ))
-  .add("Text Area", () => (
-    <TextArea
+  .add("Textarea", () => (
+    <FormTextArea
       placeholder={text("Placeholder", "johndoe@gmail.com")}
       error={boolean("Has Error", false)}
       theme={select("Input Theme", ["base", "light", "dark", "float", "inputGroup"], "base")}
+      autogrow={boolean("Autogrow", false)}
     />
   ))
   .add("ErrorMessages", () => (
@@ -1054,6 +1056,14 @@ storiesOf("Image hero", module)
       image={text("Image URL", "https://s3.amazonaws.com/static-asset/backpack-ui/ImageHero.770x430.jpg")}
       imageSize={array("Size", [770, 430])}
     />
+  ));
+
+storiesOf("Input", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center backgroundColor="white">
+      <Input />
+    </Center>
   ));
 
 storiesOf("Interactive Map", module)
@@ -2527,6 +2537,22 @@ storiesOf("Text bubble", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <TextBubble>{text("Text", "44 mins")}</TextBubble>
+  ));
+
+storiesOf("Textarea", module)
+  .addDecorator(withKnobs)
+  .add("Default", () => (
+    <Center backgroundColor="white">
+      <Textarea />
+    </Center>
+  ))
+  .add("Autogrow", () => (
+    <Center backgroundColor="white">
+      <Textarea
+        maxLines={number("Maximum lines", 3)}
+        autogrow
+      />
+    </Center>
   ));
 
 storiesOf("Thumbnail list item", module)
