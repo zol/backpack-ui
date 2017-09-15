@@ -2763,6 +2763,29 @@ storiesOf("Toast", module)
         {text("Message", "Toast message displayed here. It can span multiple lines.")}
       </Toast>
     </Center>
+  ))
+  .add("With onClick action", () => (
+    <Center grow>
+      <Toast
+        type={select("Type", {
+          error: "Error",
+          info: "Info",
+          success: "Success",
+          warning: "Warning",
+        }, "success")}
+        direction={select("Animate from", {
+          bottom: "Bottom",
+          top: "Top",
+        }, "bottom")}
+        title={text("Title", "")}
+        visible={boolean("Visible", true)}
+        affixed={boolean("Affixed", false)}
+        onClick={action("Some action")}
+        buttonLabel="Action"
+      >
+        {text("Message", "Toast message displayed here. It can span multiple lines.")}
+      </Toast>
+    </Center>
   ));
 
 storiesOf("Tooltip", module)
