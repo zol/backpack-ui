@@ -5,7 +5,7 @@ import Icon from "../icon";
 import colors from "../../styles/colors";
 import dimensions from "../../styles/dimensions";
 import timing from "../../styles/timing";
-import { fontWeightRegular, fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
+import { fontWeightMedium, fontSizeUppercase } from "../../styles/typography";
 import { benton } from "../../styles/fonts";
 import zIndex from "../../styles/zIndex";
 import { span } from "../../utils/grid";
@@ -27,7 +27,7 @@ const styles = {
       display: "flex",
       fontFamily: benton,
       fontSize: `${fontSizeUppercase}px`,
-      fontWeight: fontWeightRegular,
+      fontWeight: fontWeightMedium,
       lineHeight: (14 / fontSizeUppercase),
       maxWidth: span(6, "static"),
       minHeight: `${height}px`,
@@ -72,7 +72,6 @@ const styles = {
   },
 
   text: {
-    fontWeight: fontWeightMedium,
     marginRight: `${(padding / fontSizeUppercase)}em`,
   },
 
@@ -83,34 +82,43 @@ const styles = {
     marginRight: `${(padding / 24)}em`,
   },
 
-  action: {
+  button: {
     backgroundColor: "transparent",
     border: 0,
     color: "currentColor",
     cursor: "pointer",
     display: "block",
-    fontSize: `${(10 / fontSizeUppercase)}em`,
     flexShrink: 0,
-    height: `${(24 / 10)}em`,
     marginLeft: "auto",
-    marginRight: `${(-8 / 10)}em`,
     transition: `opacity ${timing.fast} ease-in-out`,
-    width: `${(24 / 10)}em`,
+    textTransform: "uppercase",
 
     ":hover": {
-      opacity: 0.6,
+      opacity: 0.8,
     },
 
     ":active": {
-      opacity: 0.6,
+      opacity: 0.8,
     },
 
     ":focus": Object.assign({}, {
-      opacity: 0.6,
+      opacity: 0.8,
     }, outline()),
   },
 
-  actionIcon: {
+  onClickButton: {
+    marginRight: `${(-8 / fontSizeUppercase)}em`,
+    padding: "15px 8px 12px",
+  },
+
+  onCloseButton: {
+    fontSize: `${(10 / fontSizeUppercase)}em`,
+    height: `${(24 / 10)}em`,
+    marginRight: `${(-8 / 10)}em`,
+    width: `${(24 / 10)}em`,
+  },
+
+  onCloseIcon: {
     stroke: "currentColor",
     strokeWidth: "2px",
   },
@@ -146,7 +154,9 @@ const Toast = ({
   visible,
   affixed,
   title,
+  onClick,
   onClose,
+  buttonLabel,
   style,
 }) => (
   <div
@@ -203,13 +213,22 @@ const Toast = ({
       </div>
     </div>
 
+    {onClick && buttonLabel &&
+      <button
+        style={[styles.button, styles.onClickButton]}
+        onClick={onClick}
+      >
+        {buttonLabel}
+      </button>
+    }
+
     {onClose &&
       <button
-        style={styles.action}
+        style={[styles.button, styles.onCloseButton]}
         onClick={onClose}
         title="Close"
       >
-        <Icon.Close title="Close" style={styles.actionIcon} />
+        <Icon.Close title="Close" style={styles.onCloseIcon} />
       </button>
     }
   </div>
@@ -221,8 +240,10 @@ Toast.propTypes = {
   direction: PropTypes.oneOf(["top", "bottom"]),
   visible: PropTypes.bool,
   affixed: PropTypes.bool,
+  onClick: PropTypes.func,
   onClose: PropTypes.func,
   title: PropTypes.string,
+  buttonLabel: PropTypes.string,
   style: propTypes.style,
 };
 
@@ -230,8 +251,10 @@ Toast.defaultProps = {
   direction: "bottom",
   visible: false,
   affixed: false,
+  onClick: null,
   onClose: null,
   title: null,
+  buttonLabel: null,
   style: null,
 };
 
