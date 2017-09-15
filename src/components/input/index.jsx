@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import radium from "radium";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
@@ -38,19 +39,26 @@ const styles = {
   },
 };
 
-const Input = (props) => (
-  <input
-    {...props}
-    style={[styles, props.style]}
-  />
-);
+const Input = (props) => {
+  const { innerRef, style, ...attributes } = props;
+
+  return (
+    <input
+      {...attributes}
+      ref={innerRef}
+      style={[styles, style]}
+    />
+  );
+};
 
 Input.propTypes = {
+  innerRef: PropTypes.func,
   style: propTypes.style,
 };
 
 Input.defaultProps = {
   type: "text",
+  innerRef: null,
   style: null,
 };
 

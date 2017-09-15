@@ -20,8 +20,20 @@ class Textarea extends React.Component {
     this.onInput = this.onInput.bind(this);
   }
 
+  componentDidMount() {
+    if (this.props.autofocus) {
+      this.textarea.focus();
+    }
+  }
+
   shouldComponentUpdate(nextProps, nextState) { // eslint-disable-line class-methods-use-this
     return nextState.height !== nextState.maxHeight;
+  }
+
+  componentWillUnmount() {
+    if (this.props.autofocus) {
+      this.textarea.blur();
+    }
   }
 
   onInput() {
@@ -48,6 +60,7 @@ class Textarea extends React.Component {
     const props = Object.assign({}, this.props);
 
     delete props.autogrow;
+    delete props.autofocus;
     delete props.maxLines;
 
     return (
@@ -73,6 +86,7 @@ class Textarea extends React.Component {
 
 Textarea.propTypes = {
   autogrow: PropTypes.bool,
+  autofocus: PropTypes.bool,
   maxLines: PropTypes.number,
   onInput: PropTypes.func,
   style: propTypes.style,
@@ -80,6 +94,7 @@ Textarea.propTypes = {
 
 Textarea.defaultProps = {
   autogrow: false,
+  autofocus: false,
   maxLines: 3,
   onInput: null,
   style: null,
