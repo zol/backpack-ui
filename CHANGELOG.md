@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.40.0"></a>
+# [4.40.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.39.0...v4.40.0) (2017-09-15)
+
+
+### Features
+
+* Add autofocus prop to new Textarea component ([f45f2b7](https://github.com/lonelyplanet/backpack-ui/commit/f45f2b7))
+* Add innerRef prop to new Input component ([662e495](https://github.com/lonelyplanet/backpack-ui/commit/662e495))
+
+
+
 <a name="4.39.0"></a>
 # [4.39.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.38.1...v4.39.0) (2017-09-14)
 
