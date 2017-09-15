@@ -14,17 +14,16 @@ import { rgba } from "../../utils/color";
 import propTypes from "../../utils/propTypes";
 import iconFromString from "../../utils/icon";
 
-const height = 48;
+const height = 56;
 const padding = 16;
 const translateY = (padding + height) / fontSizeUppercase;
 
 const styles = {
   container: {
     default: {
-      backgroundColor: colors.bgPrimary,
+      alignItems: "center",
       borderRadius: `${(4 / fontSizeUppercase)}em`,
-      borderTop: "3px currentColor solid",
-      boxShadow: `0 4px 6px ${rgba(colors.bgOverlay, 0.25)}`,
+      color: colors.textOverlay,
       display: "flex",
       fontFamily: benton,
       fontSize: `${fontSizeUppercase}px`,
@@ -73,16 +72,8 @@ const styles = {
   },
 
   text: {
-    alignSelf: "center",
-    marginRight: `${(padding / fontSizeUppercase)}em`,
-  },
-
-  title: {
     fontWeight: fontWeightMedium,
-  },
-
-  message: {
-    color: colors.textPrimary,
+    marginRight: `${(padding / fontSizeUppercase)}em`,
   },
 
   icon: {
@@ -93,9 +84,9 @@ const styles = {
   },
 
   action: {
-    backgroundColor: colors.bgPrimary,
+    backgroundColor: "transparent",
     border: 0,
-    color: colors.textPrimary,
+    color: "currentColor",
     cursor: "pointer",
     display: "block",
     fontSize: `${(10 / fontSizeUppercase)}em`,
@@ -103,19 +94,19 @@ const styles = {
     height: `${(24 / 10)}em`,
     marginLeft: "auto",
     marginRight: `${(-8 / 10)}em`,
-    transition: `color ${timing.fast} ease-in-out`,
+    transition: `opacity ${timing.fast} ease-in-out`,
     width: `${(24 / 10)}em`,
 
     ":hover": {
-      color: colors.textSecondary,
+      opacity: 0.6,
     },
 
     ":active": {
-      color: colors.textSecondary,
+      opacity: 0.6,
     },
 
     ":focus": Object.assign({}, {
-      color: colors.textSecondary,
+      opacity: 0.6,
     }, outline()),
   },
 
@@ -165,7 +156,13 @@ const Toast = ({
     aria-live="assertive"
     style={[
       styles.container.default,
-      type && { color: messageTypes[type].color },
+      type && {
+        backgroundColor: rgba(messageTypes[type].color, 0.98),
+        boxShadow: `0 4px 6px ${rgba(messageTypes[type].color, 0.25)}`,
+      },
+      type === "warning" && {
+        color: colors.textPrimary,
+      },
       visible && styles.container.visible,
       (!visible && direction === "bottom") && styles.container.invisibleBottom,
       (!visible && direction === "top") && styles.container.invisibleTop,
@@ -197,11 +194,11 @@ const Toast = ({
     })}
 
     <div style={styles.text}>
-      <div style={styles.title}>
+      <div>
         {title || messageTypes[type].title}
       </div>
 
-      <div style={styles.message}>
+      <div>
         {children}
       </div>
     </div>
