@@ -122,7 +122,7 @@ const Switch = ({ id, name, value, onClick, checked, className, style }) => (
 Switch.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
   onClick: PropTypes.func,
   checked: PropTypes.bool,
   className: PropTypes.string,
