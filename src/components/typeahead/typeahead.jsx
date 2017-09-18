@@ -152,7 +152,12 @@ class Typeahead extends Component {
       this.searchTimer = setTimeout(() => {
         this.props.dataSource(query)
         .then((json) => {
-          const results = json.places.map(place => place.attributes.name);
+          let results = [];
+          if (this.props.filterResults) {
+            results = this.props.filterResults(json);
+          } else {
+            results = json.places.map(place => place.attributes.name);
+          }
           this.props.onKeyUp(json.places);
           this.setState({ searchResults: results });
         });
@@ -723,6 +728,7 @@ Typeahead.propTypes = {
   onKeyUp: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
+  filterResults: PropTypes.func,
   forceSelection: PropTypes.bool,
   filterOption: PropTypes.oneOfType([
     PropTypes.string,
@@ -777,6 +783,7 @@ Typeahead.defaultProps = {
   onKeyUp: () => {},
   onFocus: () => {},
   onBlur: () => {},
+  filterResults: null,
   forceSelection: false,
   filterOption: null,
   searchOptions: null,
