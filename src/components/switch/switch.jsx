@@ -87,9 +87,7 @@ const styles = {
 };
 
 const Switch = ({ id, name, value, onClick, checked, className, style }) => (
-  <label
-    id={`switch-${id}`}
-    htmlFor={id}
+  <div
     className={cn("Switch", className)}
     style={[
       styles.container,
@@ -118,7 +116,7 @@ const Switch = ({ id, name, value, onClick, checked, className, style }) => (
       style={[styles.button, checked && styles.buttonChecked]}
       aria-hidden="true"
     />
-  </label>
+  </div>
 );
 
 Switch.propTypes = {
