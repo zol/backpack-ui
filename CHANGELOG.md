@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.41.0"></a>
+# [4.41.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.40.0...v4.41.0) (2017-09-18)
+
+
+### Bug Fixes
+
+* Change toast style ([fd417a7](https://github.com/lonelyplanet/backpack-ui/commit/fd417a7))
+
+
+### Features
+
+* Add onClick, buttonLabel props to Toast ([0d3c8ac](https://github.com/lonelyplanet/backpack-ui/commit/0d3c8ac))
+
+
+
 <a name="4.40.0"></a>
 # [4.40.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.39.0...v4.40.0) (2017-09-15)
 
