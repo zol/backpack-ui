@@ -2375,7 +2375,7 @@ storiesOf("Switch", module)
       <Switch
         id={text("ID", "privacy-control")}
         name={text("Name", "privacy_control")}
-        className={text("ID", null)}
+        className={text("Classname", null)}
         value={text("Value", "private")}
         checked={boolean("Checked", false)}
         onClick={action("Switch toggled")}
