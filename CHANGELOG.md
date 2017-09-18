@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.41.2"></a>
+## [4.41.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.41.1...v4.41.2) (2017-09-18)
+
+
+### Bug Fixes
+
+* Delete stateful Switch component ([ee1f31b](https://github.com/lonelyplanet/backpack-ui/commit/ee1f31b))
+* Make value prop in Switch not required ([73baebb](https://github.com/lonelyplanet/backpack-ui/commit/73baebb))
+* Rename Switch component to index.jsx ([bf43ec9](https://github.com/lonelyplanet/backpack-ui/commit/bf43ec9))
+* Use div for Switch container instead of label ([cba0a57](https://github.com/lonelyplanet/backpack-ui/commit/cba0a57))
+
+
+
 <a name="4.41.1"></a>
 ## [4.41.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.41.0...v4.41.1) (2017-09-18)
 
