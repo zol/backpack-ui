@@ -23,7 +23,7 @@ const styles = {
       opacity: 0,
       position: "absolute",
       right: 0,
-      top: "70px",
+      top: "38px",
       transform: "translate(0, 8px)",
       transition: `opacity ${timing.default},
         transform ${timing.default},
