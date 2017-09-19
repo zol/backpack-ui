@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import radium from "radium";
 import cn from "classnames";
 import Flyout from "../flyout";
-import ListButton from "../listButton";
+import IconButton from "../iconButton";
 import colors from "../../styles/colors";
 import timing from "../../styles/timing";
 import propTypes from "../../utils/propTypes";
@@ -88,6 +88,8 @@ class BookmarkListMenu extends React.Component {
     const {
       innerRef,
       children,
+      iconName,
+      iconLabel,
       id,
       className,
       style,
@@ -102,11 +104,14 @@ class BookmarkListMenu extends React.Component {
         style={[styles.container, style]}
         ref={innerRef}
       >
-        <ListButton
+        <IconButton
           onClick={this.toggleOptions}
-          icon="Ellipsis"
-          label="View list options"
+          iconName={iconName}
+          label={iconLabel}
+          size={32}
           owns={optionsId}
+          color={colors.textPrimary}
+          backgroundColor={colors.bgPrimary}
         />
 
         <div
@@ -139,6 +144,11 @@ class BookmarkListMenu extends React.Component {
 BookmarkListMenu.propTypes = {
   innerRef: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
+  iconName: PropTypes.oneOf([
+    "Ellipsis",
+    "Share",
+  ]).isRequired,
+  iconLabel: PropTypes.string.isRequired,
   id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
