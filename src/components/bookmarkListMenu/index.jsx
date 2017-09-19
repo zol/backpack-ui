@@ -88,6 +88,7 @@ class BookmarkListMenu extends React.Component {
     const {
       innerRef,
       children,
+      id,
       className,
       style,
     } = this.props;
@@ -96,6 +97,7 @@ class BookmarkListMenu extends React.Component {
 
     return (
       <div
+        id={id}
         className={cn("BookmarkListMenu", className)}
         style={[styles.container, style]}
         ref={innerRef}
@@ -137,11 +139,13 @@ class BookmarkListMenu extends React.Component {
 BookmarkListMenu.propTypes = {
   innerRef: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
+  id: PropTypes.string,
   className: PropTypes.string,
   style: propTypes.style,
 };
 
 BookmarkListMenu.defaultProps = {
+  id: null,
   className: null,
   style: null,
 };
