@@ -482,7 +482,10 @@ storiesOf("Bookmark list menu", module)
   .addDecorator(withKnobs)
   .add("Default", () => (
     <Center>
-      <BookmarkListMenu>
+      <BookmarkListMenu
+        iconName={select("Icon name", ["Ellipsis", "Share"], "Ellipsis")}
+        iconLabel={text("Icon label", "View list options")}
+      >
         <BookmarkListMenuOption onClick={action("Edit click")}>Edit list</BookmarkListMenuOption>
         <BookmarkListMenuOption onClick={action("Add click")}>Add new places</BookmarkListMenuOption>
         <BookmarkListMenuOption onClick={action("Reorder click")}>Reorder places</BookmarkListMenuOption>

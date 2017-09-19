@@ -144,12 +144,12 @@ const styles = {
         left: "auto",
         marginLeft: 0,
         marginRight: 0,
-        right: "28px",
+        right: "16px",
         width: "auto",
       },
 
       left: {
-        left: "28px",
+        left: "16px",
         marginLeft: 0,
         marginRight: 0,
         right: "auto",
