@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import radium from "radium";
+import cn from "classnames";
 import Flyout from "../flyout";
 import ListButton from "../listButton";
 import colors from "../../styles/colors";
@@ -87,6 +88,7 @@ class BookmarkListMenu extends React.Component {
     const {
       innerRef,
       children,
+      className,
       style,
     } = this.props;
 
@@ -94,7 +96,7 @@ class BookmarkListMenu extends React.Component {
 
     return (
       <div
-        className="BookmarkListMenu"
+        className={cn("BookmarkListMenu", className)}
         style={[styles.container, style]}
         ref={innerRef}
       >
@@ -135,10 +137,12 @@ class BookmarkListMenu extends React.Component {
 BookmarkListMenu.propTypes = {
   innerRef: PropTypes.func.isRequired,
   children: PropTypes.element.isRequired,
+  className: PropTypes.string,
   style: propTypes.style,
 };
 
 BookmarkListMenu.defaultProps = {
+  className: null,
   style: null,
 };
 
