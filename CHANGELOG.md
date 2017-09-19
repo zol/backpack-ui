@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.42.0"></a>
+# [4.42.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.41.2...v4.42.0) (2017-09-19)
+
+
+### Bug Fixes
+
+* Add className prop to BookmarkListMenu ([2bc7c10](https://github.com/lonelyplanet/backpack-ui/commit/2bc7c10))
+* Add ID prop to BookmarkListMenu ([655a163](https://github.com/lonelyplanet/backpack-ui/commit/655a163))
+* Add top margin to bookmark entry note ([#489](https://github.com/lonelyplanet/backpack-ui/issues/489)) ([5312417](https://github.com/lonelyplanet/backpack-ui/commit/5312417))
+* Adjust left, right position for flyout arrows ([13aaf30](https://github.com/lonelyplanet/backpack-ui/commit/13aaf30))
+* Allow name 2 lines, use line clamp in ListItemBookmark ([#490](https://github.com/lonelyplanet/backpack-ui/issues/490)) ([f4cf4d1](https://github.com/lonelyplanet/backpack-ui/commit/f4cf4d1))
+* Change top position for BookmarkListMenu flyout ([332a0ab](https://github.com/lonelyplanet/backpack-ui/commit/332a0ab))
+* Update Radium to 0.19.4 ([#492](https://github.com/lonelyplanet/backpack-ui/issues/492)) ([1d28d75](https://github.com/lonelyplanet/backpack-ui/commit/1d28d75))
+
+
+### Features
+
+* Use IconButtton for BookmarkListMenu; add props IconName, IconLabel ([a8b6d9f](https://github.com/lonelyplanet/backpack-ui/commit/a8b6d9f))
+
+
+
 <a name="4.41.2"></a>
 ## [4.41.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.41.1...v4.41.2) (2017-09-18)
 
