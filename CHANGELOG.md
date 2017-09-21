@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.43.0"></a>
+# [4.43.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.42.1...v4.43.0) (2017-09-21)
+
+
+### Bug Fixes
+
+* Add heart icon when list is named Favorites ([#493](https://github.com/lonelyplanet/backpack-ui/issues/493)) ([368e29c](https://github.com/lonelyplanet/backpack-ui/commit/368e29c))
+* Change alt bookmark active icon from green to blue ([#497](https://github.com/lonelyplanet/backpack-ui/issues/497)) ([262d54c](https://github.com/lonelyplanet/backpack-ui/commit/262d54c))
+
+
+### Features
+
+* Add delete icon ([#498](https://github.com/lonelyplanet/backpack-ui/issues/498)) ([b56cead](https://github.com/lonelyplanet/backpack-ui/commit/b56cead))
+
+
+
 <a name="4.42.1"></a>
 ## [4.42.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.42.0...v4.42.1) (2017-09-21)
 
