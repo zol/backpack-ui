@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.42.1"></a>
+## [4.42.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.42.0...v4.42.1) (2017-09-21)
+
+
+### Bug Fixes
+
+* change color of flyout arrow based on bgColor ([#494](https://github.com/lonelyplanet/backpack-ui/issues/494)) ([c881f95](https://github.com/lonelyplanet/backpack-ui/commit/c881f95))
+
+
+
 <a name="4.42.0"></a>
 # [4.42.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.41.2...v4.42.0) (2017-09-19)
 
