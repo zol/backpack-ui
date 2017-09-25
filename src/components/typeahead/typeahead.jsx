@@ -149,6 +149,9 @@ class Typeahead extends Component {
     clearTimeout(this.searchTimer);
 
     if (e.key !== "Enter" && e.key !== "ArrowUp" && e.key !== "ArrowDown") {
+      if (this.props.validate) {
+        this.props.validate(query, this.state.searchResults);
+      }
       this.searchTimer = setTimeout(() => {
         this.props.dataSource(query)
         .then((json) => {
@@ -157,6 +160,10 @@ class Typeahead extends Component {
             results = this.props.filterResults(json);
           } else {
             results = json.places.map(place => place.attributes.name);
+          }
+
+          if (this.props.validate) {
+            this.props.validate(query, results);
           }
           this.props.onKeyUp(json.places);
           this.setState({ searchResults: results });
@@ -305,6 +312,10 @@ class Typeahead extends Component {
     });
 
     this.inputElement.blur();
+
+    if (this.props.validate) {
+      this.props.validate(optionString, this.state.searchResults);
+    }
 
     return this.props.onOptionSelected(event, option);
   }
@@ -729,6 +740,7 @@ Typeahead.propTypes = {
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   filterResults: PropTypes.func,
+  validate: PropTypes.func,
   forceSelection: PropTypes.bool,
   filterOption: PropTypes.oneOfType([
     PropTypes.string,
@@ -784,6 +796,7 @@ Typeahead.defaultProps = {
   onFocus: () => {},
   onBlur: () => {},
   filterResults: null,
+  validate: null,
   forceSelection: false,
   filterOption: null,
   searchOptions: null,
