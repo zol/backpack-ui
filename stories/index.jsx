@@ -1175,6 +1175,7 @@ storiesOf("List item (bookmark entry)", module)
         priceRange={select("Range", ["$", "$$", "$$$"], "$")}
         topChoice={boolean("Top choice", false)}
         note={text("Note", "This is where a nice little note goes.")}
+        large={boolean("Large", false)}
       />
     </StyleRoot>
   ));
