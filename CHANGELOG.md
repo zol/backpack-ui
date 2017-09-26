@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.45.0"></a>
+# [4.45.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.44.0...v4.45.0) (2017-09-26)
+
+
+### Features
+
+* Add large prop to ListItemBookmarkEntry ([20dcf0a](https://github.com/lonelyplanet/backpack-ui/commit/20dcf0a))
+
+
+
 <a name="4.44.0"></a>
 # [4.44.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.43.0...v4.44.0) (2017-09-25)
 
