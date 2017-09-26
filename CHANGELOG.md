@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.45.2"></a>
+## [4.45.2](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.1...v4.45.2) (2017-09-26)
+
+
+### Bug Fixes
+
+* textarea grow on mount ([#502](https://github.com/lonelyplanet/backpack-ui/issues/502)) ([ec3d365](https://github.com/lonelyplanet/backpack-ui/commit/ec3d365))
+
+
+
 <a name="4.45.1"></a>
 ## [4.45.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.0...v4.45.1) (2017-09-26)
 
