@@ -217,6 +217,7 @@ ListItemBookmark.defaultProps = {
   thumbnail: null,
   addItem: false,
   large: false,
+  hideDetail: false,
   style: null,
 };
 
