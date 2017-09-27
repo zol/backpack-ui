@@ -1147,6 +1147,7 @@ storiesOf("List item (bookmark)", module)
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
       />
     </StyleRoot>
   ))
@@ -1160,6 +1161,7 @@ storiesOf("List item (bookmark)", module)
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", false)}
       />
     </StyleRoot>
   ));
