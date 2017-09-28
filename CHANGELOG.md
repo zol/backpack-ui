@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.45.4"></a>
+## [4.45.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.3...v4.45.4) (2017-09-28)
+
+
+### Bug Fixes
+
+* Disable enter key in textarea when autogrow is true ([#505](https://github.com/lonelyplanet/backpack-ui/issues/505)) ([2bd8fbf](https://github.com/lonelyplanet/backpack-ui/commit/2bd8fbf))
+* disable scroll lock off after navigate ([#507](https://github.com/lonelyplanet/backpack-ui/issues/507)) ([7f47576](https://github.com/lonelyplanet/backpack-ui/commit/7f47576))
+* Set default value for hideDetail prop in ListItemBookmark ([6afe91c](https://github.com/lonelyplanet/backpack-ui/commit/6afe91c))
+* update copy for auth modal ([#506](https://github.com/lonelyplanet/backpack-ui/issues/506)) ([a9afded](https://github.com/lonelyplanet/backpack-ui/commit/a9afded))
+
+
+
 <a name="4.45.3"></a>
 ## [4.45.3](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.2...v4.45.3) (2017-09-26)
 
