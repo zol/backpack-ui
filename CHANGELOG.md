@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.46.0"></a>
+# [4.46.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.4...v4.46.0) (2017-09-29)
+
+
+### Bug Fixes
+
+* Remove border from checkbox in ListItemBookmark ([dabc576](https://github.com/lonelyplanet/backpack-ui/commit/dabc576))
+* Update share icon ([00a1a76](https://github.com/lonelyplanet/backpack-ui/commit/00a1a76))
+* Update stories ([df2070a](https://github.com/lonelyplanet/backpack-ui/commit/df2070a))
+
+
+### Features
+
+* Add disableEnter boolean prop in textarea ([e0c6a23](https://github.com/lonelyplanet/backpack-ui/commit/e0c6a23))
+* Add removeBorder prop to Checkbox ([1125466](https://github.com/lonelyplanet/backpack-ui/commit/1125466))
+
+
+
 <a name="4.45.4"></a>
 ## [4.45.4](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.3...v4.45.4) (2017-09-28)
 
