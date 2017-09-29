@@ -671,6 +671,7 @@ storiesOf("Checkbox", module)
       label={text("Label", "Checkbox")}
       checked={boolean("Checked", true)}
       rounded={boolean("Rounded", false)}
+      removeBorder={boolean("Remove border", false)}
       size={select("Size", [16, 24, 32], 16)}
       onClick={action(event)}
     />
@@ -1142,7 +1143,6 @@ storiesOf("List item (bookmark)", module)
     <StyleRoot>
       <ListItemBookmark
         name={text("Name", "Favorites")}
-        href={text("URL", "/")}
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
@@ -1151,17 +1151,28 @@ storiesOf("List item (bookmark)", module)
       />
     </StyleRoot>
   ))
-  .add("With checkbox", () => (
+  .add("With onClick event", () => (
     <StyleRoot>
       <ListItemBookmark
-        name={text("Name", "Favorites")}
-        onClick={action("List Button clicked")}
+        name={text("Name", "Places to see in Nashville")}
+        onClick={action("List item clicked")}
         checked={boolean("Checked", false)}
         thumbnail={text("Thumbnail", "")}
         entriesCount={5}
         visibility={select("Visibility", ["Private", "Public"], "Private")}
         large={boolean("Large", false)}
         hideDetail={boolean("Hide details", false)}
+      />
+    </StyleRoot>
+  ))
+  .add("As “add item” button", () => (
+    <StyleRoot>
+      <ListItemBookmark
+        name={text("Name", "New item")}
+        onClick={action("Add item clicked")}
+        large={boolean("Large", false)}
+        hideDetail={boolean("Hide details", true)}
+        addItem={boolean("Add item UI", true)}
       />
     </StyleRoot>
   ));
@@ -2556,6 +2567,7 @@ storiesOf("Textarea", module)
     <Center backgroundColor="white">
       <Textarea
         maxLines={number("Maximum lines", 3)}
+        disableEnter={boolean("Disable enter", false)}
         autogrow
       />
     </Center>
