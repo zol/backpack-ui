@@ -189,6 +189,7 @@ function ListItemBookmark({
           checked={checked}
           size={24}
           style={styles.checkbox}
+          removeBorder
           rounded
         />
       }
