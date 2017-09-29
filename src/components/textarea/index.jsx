@@ -29,6 +29,9 @@ class Textarea extends React.Component {
 
     if (this.props.autogrow) {
       this.autoGrow();
+    }
+
+    if (this.props.disableEnter && this.props.autogrow) {
       document.addEventListener("keydown", this.disableEnterKey);
     }
   }
@@ -37,12 +40,20 @@ class Textarea extends React.Component {
     return nextState.height !== nextState.maxHeight;
   }
 
+  componentDidUpdate() {
+    if (this.props.disableEnter && this.props.autogrow) {
+      document.addEventListener("keydown", this.disableEnterKey);
+    } else {
+      document.removeEventListener("keydown", this.disableEnterKey);
+    }
+  }
+
   componentWillUnmount() {
     if (this.props.autofocus) {
       this.textarea.blur();
     }
 
-    if (this.props.autogrow) {
+    if (this.props.disableEnter && this.props.autogrow) {
       document.removeEventListener("keydown", this.disableEnterKey);
     }
   }
@@ -112,6 +123,7 @@ Textarea.propTypes = {
   autofocus: PropTypes.bool,
   maxLines: PropTypes.number,
   onInput: PropTypes.func,
+  disableEnter: PropTypes.bool,
   style: propTypes.style,
 };
 
@@ -120,6 +132,7 @@ Textarea.defaultProps = {
   autofocus: false,
   maxLines: 3,
   onInput: null,
+  disableEnter: false,
   style: null,
 };
 
