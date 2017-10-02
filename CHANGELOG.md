@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="4.46.1"></a>
+## [4.46.1](https://github.com/lonelyplanet/backpack-ui/compare/v4.46.0...v4.46.1) (2017-10-02)
+
+
+### Bug Fixes
+
+* Increase IconButton size in BookmarkListMenu ([#513](https://github.com/lonelyplanet/backpack-ui/issues/513)) ([e5109c0](https://github.com/lonelyplanet/backpack-ui/commit/e5109c0))
+* only close bookrmarkListMenu with esc ([#511](https://github.com/lonelyplanet/backpack-ui/issues/511)) ([1a465bf](https://github.com/lonelyplanet/backpack-ui/commit/1a465bf))
+* refactor bookmarkButtonAlt to use a lower level component ([#509](https://github.com/lonelyplanet/backpack-ui/issues/509)) ([c9c3969](https://github.com/lonelyplanet/backpack-ui/commit/c9c3969))
+* Update react-date-range to 0.9.4 ([#514](https://github.com/lonelyplanet/backpack-ui/issues/514)) ([7117ca2](https://github.com/lonelyplanet/backpack-ui/commit/7117ca2))
+
+
+
 <a name="4.46.0"></a>
 # [4.46.0](https://github.com/lonelyplanet/backpack-ui/compare/v4.45.4...v4.46.0) (2017-09-29)
 
